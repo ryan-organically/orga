@@ -1,7 +1,7 @@
 @font-face {
   font-family: Ltmuseum;
   src: url('../fonts/LTMuseum-Medium.ttf') format("truetype");
-  font-weight: 400;
+    font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -9,7 +9,7 @@
 @font-face {
   font-family: Coolvetica rg it;
   src: url('../fonts/coolvetica-rg-it.otf') format("opentype");
-  font-weight: 400;
+    font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
@@ -17,7 +17,7 @@
 @font-face {
   font-family: Coolvetica rg;
   src: url('../fonts/coolvetica-rg.otf') format("opentype");
-  font-weight: 400;
+    font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -25,7 +25,7 @@
 @font-face {
   font-family: Coolvetica Crammed Rg;
   src: url('../fonts/coolvetica-crammed-rg.otf') format("opentype");
-  font-weight: 400;
+    font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -101,12 +101,14 @@ body {
   z-index: 1;
   color: var(--black);
   width: 100vw;
+  max-width: 100vw;
   padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 1rem;
   font-weight: 100;
   line-height: 1.25rem;
   position: relative;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -137,7 +139,7 @@ h4 {
   margin-bottom: 10px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 42px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1;
 }
 
@@ -247,7 +249,7 @@ a {
   font-family: Coolvetica rg, sans-serif;
   font-size: 8vw;
   font-style: normal;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1;
   position: relative;
   left: 0%;
@@ -270,7 +272,7 @@ a {
   margin-bottom: 5px;
   font-family: Ltmuseum, Times New Roman, sans-serif;
   font-size: 4vw;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1.1;
 }
 
@@ -429,7 +431,7 @@ a {
   color: #fff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 30px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .utility-page-form {
@@ -508,7 +510,7 @@ a {
   color: var(--black);
   font-family: Coolvetica rg, sans-serif;
   font-size: 20vw;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1.5;
 }
 
@@ -620,7 +622,7 @@ a {
   padding: 10px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 42px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 42px;
 }
 
@@ -632,7 +634,7 @@ a {
   padding: 10px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 36px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1;
 }
 
@@ -643,7 +645,7 @@ a {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 28px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .blog-h4.caps {
@@ -759,7 +761,7 @@ a {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 16px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .service-h1 {
@@ -770,7 +772,7 @@ a {
   margin-bottom: 20px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 100px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1;
   display: none;
   position: relative;
@@ -807,7 +809,7 @@ a {
   width: 800px;
   font-family: Antihero;
   font-size: 50px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 60px;
 }
 
@@ -902,7 +904,7 @@ a {
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: Coolvetica rg, sans-serif;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .blog-h1.ux-stats {
@@ -1013,7 +1015,7 @@ a {
   margin-bottom: 5px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 2rem;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 2.25rem;
   display: flex;
 }
@@ -1106,7 +1108,7 @@ a {
   max-width: 35vw;
   padding-left: 10px;
   font-size: 16px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 22px;
 }
 
@@ -1125,7 +1127,7 @@ a {
   max-width: 100vw;
   font-family: Antihero;
   font-size: 75px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 100px;
   position: relative;
   inset: 0% 0% auto;
@@ -1181,7 +1183,7 @@ a {
   margin-left: 10px;
   font-family: Antihero;
   font-size: 22px;
-  font-weight: 400;
+    font-weight: 600;
   display: flex;
 }
 
@@ -1189,7 +1191,7 @@ a {
   color: var(--orga);
   font-family: Antihero;
   font-size: 22px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .logo-text.black {
@@ -1246,7 +1248,7 @@ a {
   justify-content: center;
   font-family: Antihero;
   font-size: 75px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 75px;
   display: flex;
 }
@@ -1267,7 +1269,7 @@ a {
   margin-bottom: 10px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 32px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 35px;
 }
 
@@ -1297,7 +1299,7 @@ a {
 .nav-brand-1 {
   align-items: center;
   font-family: Antihero;
-  font-weight: 400;
+    font-weight: 600;
   display: flex;
 }
 
@@ -1317,7 +1319,7 @@ a {
   text-transform: capitalize;
   font-family: Coolvetica rg, sans-serif;
   font-size: 22px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .giant-number {
@@ -1375,7 +1377,7 @@ a {
   margin-top: 20px;
   margin-bottom: 5px;
   font-family: Coolvetica rg, sans-serif;
-  font-weight: 400;
+    font-weight: 600;
   text-decoration: none;
 }
 
@@ -1402,7 +1404,7 @@ a {
   text-align: center;
   font-family: Coolvetica rg, sans-serif;
   font-size: 25px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 50px;
 }
 
@@ -1470,7 +1472,7 @@ a {
   margin-left: 10px;
   font-family: Antihero;
   font-size: 16px;
-  font-weight: 400;
+    font-weight: 600;
   display: flex;
 }
 
@@ -1579,14 +1581,14 @@ a {
   color: #fff;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .seo {
   color: var(--orga);
   margin-left: 10px;
   margin-right: 10px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .features-2-wrapper {
@@ -1923,7 +1925,7 @@ a {
 .nav-link-1 {
   font-family: Coolvetica rg, sans-serif;
   font-size: 16px;
-  font-weight: 400;
+    font-weight: 600;
   transition: transform .2s, background-color .2s;
 }
 
@@ -1944,7 +1946,7 @@ a {
   padding: 7px 10px;
   font-size: 20px;
   font-style: normal;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .nav-link-1.contact:hover {
@@ -1960,7 +1962,7 @@ a {
   color: var(--orga);
   font-family: Coolvetica rg, sans-serif;
   font-size: 28px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 28px;
 }
 
@@ -2093,7 +2095,7 @@ a {
   margin-bottom: 20px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 150px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 150px;
 }
 
@@ -2123,7 +2125,7 @@ a {
 .youtopia-h1 {
   font-family: Coolvetica rg, sans-serif;
   font-size: 50px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 50px;
 }
 
@@ -2159,7 +2161,7 @@ a {
   text-align: center;
   font-family: Coolvetica rg, sans-serif;
   font-size: 42px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 42px;
 }
 
@@ -2194,7 +2196,7 @@ a {
   padding-right: 10px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 42px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 42px;
 }
 
@@ -2239,7 +2241,7 @@ a {
   padding-right: 10px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 28px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .google-ads-hero-section {
@@ -2379,7 +2381,7 @@ a {
 .form-span {
   text-shadow: 0 2px #7ec700f2;
   font-family: Antihero;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .field-1 {
@@ -2479,14 +2481,14 @@ a {
 .blog-thumbnail-title-1 {
   color: var(--white);
   font-family: Coolvetica rg, sans-serif;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .blog-thumbnail-description {
   color: var(--white);
   margin-top: 5px;
   font-size: 14px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 22px;
 }
 
@@ -2501,7 +2503,7 @@ a {
   text-align: center;
   font-family: Coolvetica rg, sans-serif;
   font-size: 50px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 50px;
 }
 
@@ -2510,7 +2512,7 @@ a {
   text-align: center;
   font-family: Coolvetica rg, sans-serif;
   font-size: 42px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 50px;
 }
 
@@ -2527,7 +2529,7 @@ a {
   text-shadow: 1px 0 1px #000;
   font-family: Coolvetica rg, sans-serif;
   font-size: 62px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 62px;
 }
 
@@ -2554,7 +2556,7 @@ a {
 .directory-link-1 {
   color: var(--black-60);
   padding: 5px;
-  font-weight: 400;
+    font-weight: 600;
   transition: all .6s cubic-bezier(.19, 1, .22, 1);
 }
 
@@ -2603,7 +2605,7 @@ a {
   text-align: center;
   font-family: Coolvetica rg, sans-serif;
   font-size: 42px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 50px;
 }
 
@@ -2623,7 +2625,7 @@ a {
   padding-bottom: 12px;
   font-family: Coolvetica rg, sans-serif;
   font-style: normal;
-  font-weight: 400;
+    font-weight: 600;
   transition: background-color .4s cubic-bezier(.19, 1, .22, 1), border-radius .4s cubic-bezier(.19, 1, .22, 1);
   position: relative;
 }
@@ -2687,7 +2689,7 @@ a {
   z-index: 2;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-weight: 400;
+    font-weight: 600;
   position: relative;
 }
 
@@ -2988,6 +2990,12 @@ a {
   display: none;
   position: fixed;
   top: 20vh;
+  right: 5vw;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  top: 20vh;
   right: auto;
   overflow: hidden;
 }
@@ -3022,6 +3030,8 @@ a {
   height: 4px;
   margin-top: 2px;
   margin-bottom: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
 .side-menu-link {
@@ -3033,7 +3043,7 @@ a {
   width: 100%;
   padding: 20px;
   font-size: 22px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1;
   text-decoration: none;
   transition: all .2s ease-out;
@@ -3048,7 +3058,7 @@ a {
 
 .side-menu-link.seo-menu-link {
   z-index: 600;
-  font-weight: 400;
+    font-weight: 600;
   text-decoration: none;
   position: absolute;
   inset: 0% 0% auto auto;
@@ -3079,7 +3089,7 @@ a {
   text-align: left;
   padding: 40px;
   font-size: 26px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1;
   text-decoration: none;
   display: flex;
@@ -3111,7 +3121,7 @@ a {
   padding-right: 100px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 4vw;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1.1;
   position: relative;
 }
@@ -3228,7 +3238,7 @@ a {
   color: var(--333);
   text-align: center;
   font-size: 75px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1;
 }
 
@@ -3249,7 +3259,7 @@ a {
 .services-h3 {
   color: var(--333);
   font-size: 50px;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 1.1;
 }
 
@@ -3351,7 +3361,7 @@ a {
   flex: none;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   max-width: 100vw;
   height: 15vh;
   padding-left: 10vw;
@@ -3413,7 +3423,7 @@ a {
   margin-top: 10px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 28px;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .tabs-p1 {
@@ -3769,12 +3779,12 @@ a {
 }
 
 .blog-module-card-title {
-  color: var(--black-75);
-  margin-bottom: 10px;
+  color: var(--black);
+  margin-bottom: 12px;
   font-family: Coolvetica Rg, sans-serif;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 2rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .blog-thumbs-blog-home {
@@ -3817,7 +3827,7 @@ a {
 .h1 {
   color: var(--333);
   font-family: Coolvetica rg, sans-serif;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .h1.h1-home {
@@ -3831,16 +3841,16 @@ a {
 
 .h1.san-jose-h1 {
   font-size: 7svw;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .section {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90vw;
   min-height: 50vh;
-  padding: 5vh 5vw;
+  padding: 5vh 0;
   display: flex;
   position: relative;
 }
@@ -3857,13 +3867,13 @@ a {
   flex-flow: row;
   justify-content: space-between;
   align-items: flex-start;
-  width: 98vw;
+  width: 90vw;
   height: 250vh;
   margin-top: -6vh;
   padding-top: 0;
   padding-left: 0;
   padding-right: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .section.hero-section {
@@ -3881,7 +3891,7 @@ a {
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 90vw;
   min-height: auto;
   margin-top: 40px;
 }
@@ -3892,6 +3902,10 @@ a {
   align-items: flex-start;
 }
 
+.section.blog-section {
+  border-top: 1px solid var(--black-40);
+}
+
 .section.organically {
   background-color: var(--black);
   justify-content: flex-start;
@@ -3900,7 +3914,7 @@ a {
 }
 
 .h2 {
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .h2.san-jose {
@@ -3918,7 +3932,7 @@ a {
   padding: 20px;
   font-family: Coolvetica rg, sans-serif;
   font-size: 2rem;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 2.25rem;
   transition: background-color .65s cubic-bezier(.19, 1, .22, 1);
   display: flex;
@@ -3932,7 +3946,7 @@ a {
 
 .nav-brand-text.w--current {
   font-family: Ltmuseum, Times New Roman, sans-serif;
-  font-weight: 400;
+    font-weight: 600;
 }
 
 .geometry-tiles {
@@ -4050,7 +4064,7 @@ a {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 98vw;
+  width: 90vw;
   min-height: 80vh;
   padding: 5vh 0;
   overflow: visible;
@@ -4086,6 +4100,17 @@ a {
   font-size: 1.5rem;
   line-height: 1.75rem;
   position: relative;
+  color: var(--black-40);
+  overflow: hidden;
+}
+
+.idp .line {
+  overflow: hidden;
+}
+
+.idp .word {
+  display: inline-block;
+  transform-origin: bottom;
 }
 
 .idp.idp1 {
@@ -4136,20 +4161,42 @@ a {
 }
 
 .blog-component-date {
-  font-size: .8rem;
+  font-size: .9rem;
+  font-family: Coolvetica rg, sans-serif;
+  font-weight: 600;
+  line-height: 1.1rem;
+  color: var(--black-75);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+  color: var(--black-75);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
   line-height: 1rem;
 }
 
 .bog-comp-p {
-  font-size: 1.25rem;
-  line-height: 1.5rem;
+  font-size: 1.125rem;
+  font-family: inherit;
+    font-weight: 600;
+  line-height: 1.6rem;
+  color: var(--black);
 }
 
 .filter-text {
   background-color: #7ec70080;
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: Coolvetica rg, sans-serif;
+  font-weight: 600;
+  color: var(--black);
   font-size: .8rem;
+  line-height: 1rem;
+}
+  font-weight: 600;
+  color: var(--black-75);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
   line-height: 1rem;
 }
 
@@ -4229,7 +4276,7 @@ a {
   text-align: left;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 1.5rem;
-  font-weight: 400;
+    font-weight: 600;
   line-height: 2rem;
 }
 
@@ -4463,7 +4510,7 @@ a {
 
   .footer-text:hover {
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     transform: none;
   }
 
@@ -4744,7 +4791,7 @@ a {
   .home-h5 {
     font-family: Coolvetica rg, sans-serif;
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 35px;
   }
 
@@ -5355,7 +5402,7 @@ a {
   .blog-module-card-title {
     font-family: Coolvetica rg, sans-serif;
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 35px;
   }
 
@@ -5376,7 +5423,7 @@ a {
   .section.home-id {
     border-left-style: none;
     border-right-style: none;
-    width: 100vw;
+    width: 90vw;
   }
 
   .section._96-section {
@@ -6199,7 +6246,7 @@ a {
 
   .section.home-id {
     flex-flow: column;
-    width: 100vw;
+    width: 90vw;
   }
 
   .home-hero-vid {
@@ -6365,7 +6412,7 @@ a {
 
   .blog-p1.first-line {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
   }
 
   .blog-p1.photo-attribution {
@@ -7172,28 +7219,28 @@ a {
 @font-face {
   font-family: 'Ltmuseum';
   src: url('../fonts/LTMuseum-Medium.ttf') format('truetype');
-  font-weight: 400;
+    font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Coolvetica rg it';
   src: url('../fonts/coolvetica-rg-it.otf') format('opentype');
-  font-weight: 400;
+    font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Coolvetica rg';
   src: url('../fonts/coolvetica-rg.otf') format('opentype');
-  font-weight: 400;
+    font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Coolvetica Crammed Rg';
   src: url('../fonts/coolvetica-crammed-rg.otf') format('opentype');
-  font-weight: 400;
+    font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -7217,4 +7264,89 @@ a {
   font-weight: 100;
   font-style: normal;
   font-display: swap;
+}
+/* Fix blog card inconsistencies */
+.blog-card-content .p1-left-align.blog-card-p1 {
+  font-size: 1.125rem;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.6rem;
+  color: var(--black);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.blog-card-content .p1-left-align.blog-card-p1.blog-card-date {
+  font-size: .9rem;
+  font-family: Coolvetica rg, sans-serif;
+  font-weight: 600;
+  line-height: 1.1rem;
+  color: var(--black-75);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-bottom: 8px;
+}
+
+/* Ensure consistent padding for all blog card content */
+.blog-card-content {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Fix the bog-comp-p class that might conflict */
+.blog-card-content .bog-comp-p {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Enhanced menu toggle functionality */
+.side-menu.menu-open {
+  z-index: 1000 !important;
+  display: flex !important;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.side-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-30px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure menu button is clickable */
+.side-menu-button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.side-menu-button:hover {
+  transform: scale(1.05);
+}
+
+/* Enhanced Menu animation for hamburger lines */
+.side-menu-button.menu-active .menu-line.top {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.side-menu-button.menu-active .menu-line.middle {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.side-menu-button.menu-active .menu-line.bottom {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+@media screen and (max-width: 991px) {
+  .side-menu {
+    display: none !important;
+  }
+  
+  .side-menu.menu-open {
+    display: flex !important;
+  }
 }
