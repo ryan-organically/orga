@@ -1594,7 +1594,7 @@ a {
 .features-2-wrapper {
   justify-content: space-around;
   align-items: center;
-  width: 80vw;
+  width: 90vw;
   display: flex;
 }
 
@@ -2670,8 +2670,10 @@ a {
   flex: none;
   justify-content: space-between;
   align-items: center;
-  width: 80vw;
+  width: 90vw;
   margin-bottom: 20px;
+  padding-left: 5vw;
+  padding-right: 5vw;
   display: flex;
   position: relative;
 }
@@ -3354,20 +3356,21 @@ a {
 
 .universal-menu {
   z-index: 22;
+  border-right: 1px solid var(--black-40);
   border-bottom: 1px solid var(--black-40);
-  background-color: var(--white-40);
+  border-left: 1px solid var(--black-40);
+  background-color: transparent;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   flex: none;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
-  max-width: 100vw;
+  width: 90vw;
   height: 15vh;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
   display: flex;
-  position: fixed;
+  position: relative;
   overflow: hidden;
 }
 
@@ -3447,7 +3450,7 @@ a {
 .tabs-large-heading {
   color: var(--orga);
   text-align: center;
-  width: 80vw;
+  width: 90vw;
   margin-top: 100px;
   margin-bottom: 40px;
   padding-left: 20px;
@@ -3666,7 +3669,7 @@ a {
   z-index: 5;
   justify-content: space-around;
   align-items: center;
-  width: 80vw;
+  width: 90vw;
   height: 50vh;
   display: flex;
   position: relative;
@@ -4066,6 +4069,7 @@ a {
   align-items: center;
   width: 90vw;
   min-height: 80vh;
+  margin-top: 0;
   padding: 5vh 0;
   overflow: visible;
 }
@@ -4121,7 +4125,7 @@ a {
 .home-hero-vid {
   z-index: 2;
   flex: 1;
-  width: 80vw;
+  width: 90vw;
   height: 90%;
   position: relative;
   inset: 0%;
@@ -5163,7 +5167,7 @@ a {
   }
 
   .revealed-content-div.center {
-    width: 80vw;
+    width: 90vw;
   }
 
   .revealed-content {
@@ -5731,7 +5735,7 @@ a {
 
   .service-h3 {
     text-align: center;
-    width: 80vw;
+    width: 90vw;
     font-size: 28px;
   }
 
@@ -5794,7 +5798,7 @@ a {
 
   .home-h5 {
     text-align: left;
-    width: 80vw;
+    width: 90vw;
     padding-left: 0;
     font-size: 25px;
   }
@@ -5893,7 +5897,7 @@ a {
 
   .design-wrapper-2 {
     align-items: center;
-    width: 80vw;
+    width: 90vw;
     margin-bottom: 0;
   }
 
@@ -6152,7 +6156,7 @@ a {
   }
 
   .div-50.tabs-content {
-    width: 80vw;
+    width: 90vw;
     margin-right: 0;
   }
 
@@ -6229,13 +6233,13 @@ a {
 
   .blog-module-card-title {
     text-align: left;
-    width: 80vw;
+    width: 90vw;
     padding-left: 0;
     font-size: 25px;
   }
 
   .swiper-slide {
-    width: 80vw;
+    width: 90vw;
     height: auto;
     margin: 20px 0;
   }
@@ -6250,7 +6254,7 @@ a {
   }
 
   .home-hero-vid {
-    min-width: 80vw;
+    min-width: 90vw;
   }
 
   .web-elements {
