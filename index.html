@@ -69,6 +69,9 @@ html.lenis {
         <source src="videos/Organically-Theme-transcode.mp4" data-wf-ignore="true">
         <source src="videos/Organically-Theme-transcode.webm" data-wf-ignore="true">
       </video></div>
+    <div class="home-spline-placeholder">
+      <spline-viewer url="https://prod.spline.design/dQCtQfYqPUImf7HJ/scene.splinecode"></spline-viewer>
+    </div>
     <div class="ticker">
       <p class="ticker-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold.</p>
     </div>
@@ -403,6 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js" type="text/javascript"></script>
   <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
   <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.71/build/spline-viewer.js"></script>
   <script>
 document.addEventListener("DOMContentLoaded", () => {
     /* 1 ▸ Lenis + ScrollTrigger sync */
@@ -419,24 +423,25 @@ document.addEventListener("DOMContentLoaded", () => {
     /* 2 ▸ H1 — updated animation */
     const h1 = document.querySelector(".h1.h1-home");
     let splitH1 = SplitText.create(h1, {
-        type: "words, lines",
+        type: "chars, lines",
         linesClass: "line",
-        mask: "words",
+        mask: "chars",
         autoSplit: true,
         onSplit(self) {
-            gsap.set(self.words, {
+            gsap.set(self.chars, {
                 yPercent: 100,
-                rotationZ: 5,
-                autoAlpha: 0
+                rotationZ: 10,
+                autoAlpha: 0,
+                scale: 0.8
             });
-            return gsap.to(self.words, {
-                duration: 1,
+            return gsap.to(self.chars, {
+                duration: 0.8,
                 yPercent: 0,
                 rotationZ: 0,
                 autoAlpha: 1,
-                stagger: 0.25,
-                yoyo: true,
-                ease: "easeOut",
+                scale: 1,
+                stagger: 0.08,
+                ease: "back.out(1.7)",
                 onComplete: animateShrunkP
             });
         }
@@ -626,6 +631,34 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+});
+
+// Hero Video Bounce-in Animation + Scroll Animation
+document.addEventListener('DOMContentLoaded', function() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroVideo = document.querySelector('.home-hero-vid');
+    const nextSection = document.querySelector('.section.home-id');
+
+    if (heroVideo && nextSection) {
+        // Set initial state for bounce-in effect
+        gsap.set(heroVideo, {
+            scale: 0,
+            opacity: 0,
+            rotationZ: -10
+        });
+
+        // Bounce-in animation on page load
+        gsap.to(heroVideo, {
+            scale: 1,
+            opacity: 1,
+            rotationZ: 0,
+            duration: 1.2,
+            ease: "back.out(1.7)",
+            delay: 0.8
+        });
+
+    }
 });
 
 </script>
