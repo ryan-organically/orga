@@ -2984,24 +2984,34 @@ a {
 }
 
 .side-menu {
-  z-index: -1;
+  z-index: 999;
   background-color: #dcdcdc;
   border-radius: 10px;
   flex-flow: column;
   justify-content: flex-start;
   width: 250px;
   font-family: Coolvetica rg, sans-serif;
-  display: none;
+  display: flex;
   position: fixed;
   top: 20vh;
   right: 5vw;
   padding: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   backdrop-filter: blur(20px);
-  position: fixed;
-  top: 20vh;
-  right: auto;
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-30px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.side-menu.menu-open {
+  z-index: 1000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
 }
 
 .side-menu-button {
@@ -3864,6 +3874,7 @@ a {
 }
 
 .section.home-id {
+  display: none;
   z-index: 10;
   box-sizing: border-box;
   border-top: 1px solid var(--black-40);
@@ -4133,6 +4144,7 @@ a {
 }
 
 .home-hero-vid {
+  display: none;
   z-index: 20;
   grid-area: video;
   width: 25vh;
@@ -5245,7 +5257,15 @@ a {
   }
 
   .side-menu {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .side-menu.menu-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 
   .side-menu-button {
@@ -7394,23 +7414,6 @@ a {
   margin-left: 0 !important;
 }
 
-/* Enhanced menu toggle functionality */
-.side-menu.menu-open {
-  z-index: 1000 !important;
-  display: flex !important;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0) scale(1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.side-menu {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-30px) scale(0.95);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 /* Ensure menu button is clickable */
 .side-menu-button {
   cursor: pointer;
@@ -7437,10 +7440,15 @@ a {
 
 @media screen and (max-width: 991px) {
   .side-menu {
-    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
-  
+
   .side-menu.menu-open {
     display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
 }
