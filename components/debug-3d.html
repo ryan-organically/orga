@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Box Debug</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 100px;
+      background: #222;
+      perspective: 1500px;
+      perspective-origin: 50% 0%;
+      font-family: Arial, sans-serif;
+    }
+
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.9);
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 9999;
+    }
+
+    .controls button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 16px;
+      background: #7ec700;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .controls button:hover {
+      background: #6ab300;
+    }
+
+    .controls input {
+      width: 100%;
+      margin: 5px 0;
+    }
+
+    .nav-3d-container {
+      position: relative;
+      width: 800px;
+      height: 100px;
+      margin: 100px auto;
+      transform-style: preserve-3d;
+      transform-origin: top center;
+      transition: transform 0.8s ease;
+    }
+
+    /* Front face */
+    .nav-front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      transform-style: preserve-3d;
+      backface-visibility: visible;
+    }
+
+    /* Bottom face - the one that should be revealed */
+    .nav-bottom {
+      position: absolute;
+      width: 100%;
+      height: 80px; /* Thickness of the box */
+      background: linear-gradient(135deg, #7ec700 0%, #6ab300 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      /* KEY: Rotate 90deg and position it at the bottom edge */
+      transform-origin: top center;
+      transform: rotateX(-90deg) translateZ(50px);
+      transform-style: preserve-3d;
+      backface-visibility: visible;
+      box-shadow: 0 10px 30px rgba(126, 199, 0, 0.5);
+    }
+
+    /* Connecting edge */
+    .nav-edge {
+      position: absolute;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(to bottom, #fff 0%, #7ec700 100%);
+      transform-origin: top center;
+      transform: translateY(100px) rotateX(-90deg);
+      transform-style: preserve-3d;
+    }
+
+    .hamburger {
+      font-size: 32px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .book-btn {
+      padding: 12px 24px;
+      background: #7ec700;
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .info {
+      color: #fff;
+      margin: 20px auto;
+      max-width: 800px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .value-display {
+      background: #333;
+      color: #7ec700;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <h3 style="margin-top:0;">3D Debug Controls</h3>
+
+    <label>Rotation X: <span id="rotX-val">0</span>°</label>
+    <input type="range" id="rotX" min="0" max="180" value="0" step="1">
+
+    <label>Rotation Y: <span id="rotY-val">0</span>°</label>
+    <input type="range" id="rotY" min="-90" max="90" value="0" step="1">
+
+    <label>Perspective: <span id="persp-val">1500</span>px</label>
+    <input type="range" id="persp" min="500" max="3000" value="1500" step="50">
+
+    <button onclick="animate()">Animate 85° Flip</button>
+    <button onclick="reset()">Reset to 0°</button>
+
+    <div class="value-display" id="transform-display">
+      transform: rotateX(0deg)
+    </div>
+  </div>
+
+  <div class="info">
+    <h1 style="color: #7ec700;">🎯 3D Box Debug View</h1>
+    <p>Use the sliders to manually control the rotation and see when the bottom face becomes visible.</p>
+    <p><strong>The green "MENU" face should appear when you rotate X to ~60-90°</strong></p>
+  </div>
+
+  <div class="nav-3d-container" id="container">
+    <!-- Front face (what you normally see) -->
+    <div class="nav-front">
+      <span class="hamburger">☰</span>
+      <button class="book-btn">Book Call</button>
+    </div>
+
+    <!-- Bottom face (what should be revealed) -->
+    <div class="nav-bottom">
+      M E N U
+    </div>
+  </div>
+
+  <div class="info">
+    <h2>What You Should See:</h2>
+    <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+      <li><strong>0°:</strong> White nav bar (front face) visible, no green</li>
+      <li><strong>45°:</strong> Nav bar tilting, green starting to peek</li>
+      <li><strong>85°:</strong> Nav bar nearly perpendicular, green "MENU" face clearly visible!</li>
+      <li><strong>90°:</strong> Nav bar edge-on (thin line), green face maximum visibility</li>
+      <li><strong>135°:</strong> Flipping past, green face rotating away</li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js"></script>
+  <script>
+    const container = document.getElementById('container');
+    const rotXSlider = document.getElementById('rotX');
+    const rotYSlider = document.getElementById('rotY');
+    const perspSlider = document.getElementById('persp');
+    const transformDisplay = document.getElementById('transform-display');
+
+    // Update rotation based on sliders
+    function updateRotation() {
+      const rotX = rotXSlider.value;
+      const rotY = rotYSlider.value;
+      const persp = perspSlider.value;
+
+      document.getElementById('rotX-val').textContent = rotX;
+      document.getElementById('rotY-val').textContent = rotY;
+      document.getElementById('persp-val').textContent = persp;
+
+      document.body.style.perspective = persp + 'px';
+      container.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+
+      transformDisplay.textContent = `transform: rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    }
+
+    rotXSlider.addEventListener('input', updateRotation);
+    rotYSlider.addEventListener('input', updateRotation);
+    perspSlider.addEventListener('input', updateRotation);
+
+    // Animated flip to 85°
+    function animate() {
+      gsap.to(container, {
+        rotationX: 85,
+        rotationY: -5,
+        duration: 1.5,
+        ease: 'power2.inOut',
+        onUpdate: () => {
+          const rotX = Math.round(gsap.getProperty(container, 'rotationX'));
+          const rotY = Math.round(gsap.getProperty(container, 'rotationY'));
+          rotXSlider.value = rotX;
+          rotYSlider.value = rotY;
+          document.getElementById('rotX-val').textContent = rotX;
+          document.getElementById('rotY-val').textContent = rotY;
+          transformDisplay.textContent = `transform: rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        }
+      });
+    }
+
+    // Reset to 0°
+    function reset() {
+      gsap.to(container, {
+        rotationX: 0,
+        rotationY: 0,
+        duration: 1.0,
+        ease: 'power2.inOut',
+        onUpdate: () => {
+          const rotX = Math.round(gsap.getProperty(container, 'rotationX'));
+          const rotY = Math.round(gsap.getProperty(container, 'rotationY'));
+          rotXSlider.value = rotX;
+          rotYSlider.value = rotY;
+          document.getElementById('rotX-val').textContent = rotX;
+          document.getElementById('rotY-val').textContent = rotY;
+          transformDisplay.textContent = `transform: rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

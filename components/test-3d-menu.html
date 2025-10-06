@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Menu Test</title>
+  <style>
+    :root {
+      --orga: #7ec700;
+      --333: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      perspective: 1500px;
+    }
+
+    /* Universal Menu Bar Styling */
+    .universal-menu {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 60px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      width: 90%;
+      max-width: 1200px;
+      /* 3D properties will be set by GSAP */
+      transition: box-shadow 0.3s ease;
+    }
+
+    .universal-menu:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-items {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .button-1 {
+      padding: 12px 28px;
+      background: var(--orga);
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button-1:hover {
+      background: #000;
+      color: var(--orga);
+      transform: scale(1.05);
+    }
+
+    /* Content Area */
+    .content {
+      max-width: 1000px;
+      margin: 150px auto 0;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .content h1 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 48px;
+    }
+
+    .content h2 {
+      color: #555;
+      margin: 30px 0 15px;
+      font-size: 32px;
+    }
+
+    .content p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .feature-list {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .feature-list li {
+      color: #444;
+      margin: 12px 0;
+      padding-left: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      background: var(--orga);
+      color: #000;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .demo-notice {
+      background: linear-gradient(135deg, var(--orga) 0%, #6ab300 100%);
+      color: #000;
+      padding: 20px 30px;
+      border-radius: 10px;
+      margin: 30px 0;
+      font-weight: 600;
+      text-align: center;
+      font-size: 20px;
+      box-shadow: 0 5px 15px rgba(126, 199, 0, 0.4);
+    }
+
+    code {
+      background: #2d2d2d;
+      color: #7ec700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar with Web Component -->
+  <div class="universal-menu">
+    <universal-menu></universal-menu>
+
+    <div class="nav-items">
+      <button class="button-1">Test Button</button>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content">
+    <h1>🎯 3D Menu Animation Test</h1>
+
+    <div class="demo-notice">
+      👈 Click the hamburger menu to see the TRUE 3D flip revealing the bottom dimension!
+    </div>
+
+    <h2>What You're Seeing</h2>
+    <p>
+      This page demonstrates a <span class="highlight">TRUE 90-DEGREE 3D FLIP</span> on the universal menu component.
+      When you click the menu button, watch the navigation bar <strong>flip forward to reveal its green bottom face!</strong>
+      This is a real 3D rectangular box rotation.
+    </p>
+
+    <div class="feature-list">
+      <ul>
+        <li><strong>Navigation Bar:</strong> Flips 85° forward (rotationX: 85°) - nearly perpendicular to screen</li>
+        <li><strong>3D Box Structure:</strong> Nav bar has a visible bottom face (green gradient) that becomes visible during flip</li>
+        <li><strong>Dimensional Depth:</strong> The rotation reveals true 3D structure, not just a 2D plane tilting</li>
+        <li><strong>Bottom Face:</strong> Shows green gradient with "MENU" text - proves 3D dimensionality</li>
+        <li><strong>Menu Panel:</strong> Slides in from left with 30° Y-axis rotation for depth perception</li>
+        <li><strong>Overlay:</strong> Fades in smoothly with backdrop blur</li>
+        <li><strong>Perspective Wrapper:</strong> Automatically created with 1500px perspective, origin at top</li>
+        <li><strong>Timeline:</strong> All animations choreographed with GSAP timeline for smooth coordination</li>
+      </ul>
+    </div>
+
+    <h2>Technical Details</h2>
+    <p>
+      The component uses <code>GSAP (GreenSock Animation Platform)</code> to create hardware-accelerated
+      3D transforms. The nav bar is structured as a true 3D box with a visible bottom face that's revealed during rotation.
+    </p>
+
+    <div class="feature-list">
+      <ul>
+        <li><code>perspective: 1500px</code> - Creates realistic depth perception (auto-generated wrapper)</li>
+        <li><code>perspectiveOrigin: 50% 0%</code> - Camera view from top-center for optimal flip visibility</li>
+        <li><code>transformStyle: preserve-3d</code> - Maintains 3D space for all child elements</li>
+        <li><code>transformOrigin: top center</code> - Nav bar pivots from its top edge (like a door opening)</li>
+        <li><code>rotationX: 85°</code> - Nearly perpendicular flip forward to reveal bottom dimension</li>
+        <li><code>rotationY: -5°</code> - Slight left rotation for dynamic viewing angle</li>
+        <li><code>bottom face transform: rotateX(-90deg)</code> - Pre-positioned 90° below the nav bar</li>
+        <li><code>bottom face background: linear-gradient</code> - Green gradient (#7ec700 to #6ab300)</li>
+        <li><code>z: 0px</code> - No depth offset for clear visibility</li>
+        <li><code>scale: 1.0</code> - Full size maintained for maximum visibility</li>
+        <li><code>duration: 0.8s</code> - Smooth, noticeable flip animation</li>
+        <li><code>ease: 'power2.inOut'</code> - Symmetrical acceleration/deceleration</li>
+      </ul>
+    </div>
+
+    <h2>Performance</h2>
+    <p>
+      The 3D transforms use GPU acceleration for smooth 60fps animations, even on mobile devices.
+      The component falls back gracefully if GSAP isn't available.
+    </p>
+
+    <h2>Browser Compatibility</h2>
+    <p>
+      Works in all modern browsers (Chrome, Firefox, Safari, Edge). Uses CSS <code>transform-style: preserve-3d</code>
+      which is widely supported since 2015.
+    </p>
+
+    <h2>Customization</h2>
+    <p>
+      You can adjust the rotation values in <code>components/universal-menu.js</code> (around line 344):
+    </p>
+    <div class="feature-list">
+      <ul>
+        <li><strong>Full 90° flip:</strong> Set <code>rotationX: 90</code> for perfectly perpendicular</li>
+        <li><strong>Less dramatic:</strong> Decrease <code>rotationX</code> (try 60° for subtle reveal)</li>
+        <li><strong>More angle:</strong> Increase <code>rotationY</code> magnitude (try -15° for more side view)</li>
+        <li><strong>Faster flip:</strong> Decrease <code>duration</code> (try 0.5 for snappier)</li>
+        <li><strong>Slower flip:</strong> Increase <code>duration</code> (try 1.2 for dramatic slow-mo)</li>
+        <li><strong>Different feel:</strong> Change <code>ease</code> (try 'back.out(1.7)' for bounce, 'elastic.out' for spring)</li>
+        <li><strong>Bottom face color:</strong> Edit line 62 - change gradient colors</li>
+        <li><strong>Bottom face content:</strong> Edit line 69 - change "MENU" text or add icons</li>
+      </ul>
+    </div>
+
+    <div class="demo-notice" style="margin-top: 50px;">
+      💡 Open browser DevTools and watch the transform values change in real-time!
+    </div>
+  </div>
+
+  <!-- Load GSAP first (required) -->
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js"></script>
+
+  <!-- Load the Web Component -->
+  <script src="universal-menu.js"></script>
+
+</body>
+</html>

@@ -111,6 +111,112 @@ body {
   overflow-x: hidden;
 }
 
+.body-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  background: #d1d1d1;
+}
+
+.menu-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15vw;
+  max-width: 15vw;
+  height: 100vh;
+  max-height: 100vh;
+  background: transparent;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.menu-panel.active {
+  pointer-events: auto;
+}
+
+.menu-panel-content {
+  padding: 40px 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.menu-nav-link {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--333);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  font-family: 'Coolvetica rg', sans-serif;
+}
+
+.menu-nav-link:hover {
+  color: var(--orga, #7ec700);
+  transform: translateX(10px);
+}
+
+.menu-nav-link.w--current {
+  color: var(--orga, #7ec700);
+}
+
+.menu-footer {
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+@media (max-width: 991px) {
+  .menu-panel {
+    width: 40vw;
+  }
+
+  .menu-nav-link {
+    font-size: 24px;
+  }
+
+  .menu-panel-content {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .menu-panel {
+    width: 60vw;
+  }
+
+  .menu-nav-link {
+    font-size: 22px;
+  }
+
+  .menu-panel-content {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 479px) {
+  .menu-panel {
+    width: 80vw;
+  }
+
+  .menu-nav-link {
+    font-size: 20px;
+  }
+}
+
 h1 {
   text-shadow: none;
   margin-top: 0;
@@ -3377,13 +3483,16 @@ a {
   flex: none;
   justify-content: space-between;
   align-items: center;
+  align-self: center;
   width: 90vw;
   height: 15vh;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 5vw;
   padding-right: 5vw;
   display: flex;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .rolling-gmb {
@@ -3927,8 +4036,8 @@ a {
 
 .section.organically {
   background-color: var(--black);
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 

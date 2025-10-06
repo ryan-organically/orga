@@ -17,208 +17,6 @@
   <link href="css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
   <style>
     @media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844"] {-webkit-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);}}
-
-    /* Menu Toggle Button */
-    .menu-toggle {
-      position: relative;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      z-index: 1002;
-      transition: all 0.3s ease;
-    }
-
-    .menu-toggle span {
-      width: 30px;
-      height: 3px;
-      background: var(--333, #333);
-      border-radius: 2px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .menu-toggle:hover span {
-      background: var(--orga, #7ec700);
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(8px, -8px);
-    }
-
-    /* Menu Overlay */
-    .menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s ease;
-      z-index: 999;
-      backdrop-filter: blur(5px);
-    }
-
-    .menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Menu Panel */
-    .menu-panel {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 50vw;
-      height: 100vh;
-      background: #666;
-      transform: translateX(-100%);
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1000;
-      overflow-y: auto;
-    }
-
-    .menu-panel.active {
-      transform: translateX(0);
-    }
-
-    .menu-panel-content {
-      padding: 80px 60px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* Close Button */
-    .menu-close {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 48px;
-      line-height: 1;
-      cursor: pointer;
-      color: #e2e2e2;
-      transition: all 0.3s ease;
-      font-weight: 300;
-    }
-
-    .menu-close:hover {
-      color: var(--orga, #7ec700);
-      transform: rotate(90deg);
-    }
-
-    /* Navigation Links */
-    .menu-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .menu-nav-link {
-      font-size: 48px;
-      font-weight: 600;
-      color: #e2e2e2;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      display: inline-block;
-      width: fit-content;
-      font-family: 'Coolvetica rg', sans-serif;
-    }
-
-    .menu-nav-link:hover {
-      color: var(--orga, #7ec700);
-      transform: translateX(10px);
-    }
-
-    .menu-nav-link.w--current {
-      color: var(--orga, #7ec700);
-    }
-
-    /* Menu Footer */
-    .menu-footer {
-      margin-top: auto;
-      padding-top: 40px;
-    }
-
-    .menu-cta {
-      display: inline-block;
-      padding: 18px 40px;
-      background: var(--orga, #7ec700);
-      color: #000;
-      text-decoration: none;
-      border-radius: 50px;
-      font-size: 18px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .menu-cta:hover {
-      background: #000;
-      color: var(--orga, #7ec700);
-      transform: scale(1.05);
-    }
-
-    /* Responsive */
-    @media (max-width: 991px) {
-      .menu-panel {
-        width: 70vw;
-      }
-
-      .menu-nav-link {
-        font-size: 36px;
-      }
-
-      .menu-panel-content {
-        padding: 60px 40px;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .menu-panel {
-        width: 85vw;
-      }
-
-      .menu-nav-link {
-        font-size: 32px;
-        gap: 20px;
-      }
-
-      .menu-panel-content {
-        padding: 50px 30px;
-      }
-
-      .menu-close {
-        top: 20px;
-        right: 25px;
-        font-size: 40px;
-      }
-    }
-
-    @media (max-width: 479px) {
-      .menu-panel {
-        width: 100vw;
-      }
-
-      .menu-nav-link {
-        font-size: 28px;
-      }
-    }
   </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -247,34 +45,29 @@ html.lenis {
 </style>
 </html></head>
 <body class="body-1">
-  <div class="universal-menu">
-    <div class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
-      <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
-    </div>
-    <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Book call</a>
-  </div>
-
   <!-- Menu Panel -->
   <div class="menu-panel">
     <div class="menu-panel-content">
-      <div class="menu-close">×</div>
       <nav class="menu-nav">
-        <a href="index.html" aria-current="page" class="menu-nav-link w--current">Home</a>
+        <a href="index.html" class="menu-nav-link">Home</a>
         <a href="web-design.html" class="menu-nav-link">Web design</a>
         <a href="seo.html" class="menu-nav-link">SEO</a>
         <a href="branding.html" class="menu-nav-link">Creative</a>
       </nav>
       <div class="menu-footer">
-        <a href="https://calendly.com/organically/30min?month=2025-02" class="menu-cta">Schedule a call</a>
+        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Schedule a call</a>
       </div>
     </div>
   </div>
-  <div class="menu-overlay"></div>
+
+  <div class="body-section">
+    <div class="universal-menu">
+      <universal-menu></universal-menu>
+      <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
+        <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
+      </div>
+      <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Book call</a>
+    </div>
   <div id="home-hero-section" class="hero-section home-hero">
     <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div">
       <h1 class="h1 h1-home">Organically<span class="green-span">.</span></h1>
@@ -873,56 +666,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 </script>
+  </div><!-- .body-section -->
+
+  <!-- Universal Menu Web Component -->
+  <script src="components/universal-menu.js"></script>
 </body>
 </html>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menuPanel = document.querySelector('.menu-panel');
-    const menuOverlay = document.querySelector('.menu-overlay');
-    const menuClose = document.querySelector('.menu-close');
-    const menuLinks = document.querySelectorAll('.menu-nav-link');
-
-    function openMenu() {
-        menuToggle.classList.add('active');
-        menuPanel.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        menuToggle.classList.remove('active');
-        menuPanel.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Open menu on toggle click
-    menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (menuPanel.classList.contains('active')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-
-    // Close menu on close button click
-    menuClose.addEventListener('click', closeMenu);
-
-    // Close menu on overlay click
-    menuOverlay.addEventListener('click', closeMenu);
-
-    // Close menu when clicking links
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // Close menu on ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && menuPanel.classList.contains('active')) {
-            closeMenu();
-        }
-    });
-});
-</script>
