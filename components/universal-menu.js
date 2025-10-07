@@ -3,7 +3,7 @@
  * Usage: <universal-menu></universal-menu>
  *
  * This component creates a reusable hamburger menu that works across all pages.
- * Simple slide-in menu panel (50vw width) with smooth GSAP animations.
+ * Features smooth GSAP animations with button morphing into close arrow.
  *
  * Requirements: GSAP must be loaded on the page before this component.
  */
@@ -14,6 +14,7 @@ class UniversalMenu extends HTMLElement {
     // Attach a shadow DOM for style encapsulation
     this.attachShadow({ mode: 'open' });
     this.isAnimating = false; // Prevent animation conflicts
+    this.isOpen = false; // Track menu state
   }
 
   connectedCallback() {
@@ -44,28 +45,41 @@ class UniversalMenu extends HTMLElement {
         /* Menu Toggle Button */
         .menu-toggle {
           position: relative;
-          width: 50px;
-          height: 50px;
+          width: 65px;
+          height: 65px;
           cursor: pointer;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          gap: 6px;
           z-index: 10000;
-          transition: all 0.3s ease;
+          will-change: transform;
         }
 
         .menu-toggle span {
-          width: 30px;
-          height: 3px;
+          position: absolute;
+          width: 40px;
+          height: 3.5px;
           background: var(--333, #333);
           border-radius: 2px;
-          transition: opacity 0.2s ease;
+          will-change: transform, opacity;
+          transition: background 0.3s ease;
         }
 
-        .menu-toggle.active span {
-          opacity: 0.6;
+        .menu-toggle:hover span {
+          background: #7ec700;
+        }
+
+        .menu-toggle span:nth-child(1) {
+          transform: translateY(-10px);
+        }
+
+        .menu-toggle span:nth-child(2) {
+          /* Middle line - centered */
+        }
+
+        .menu-toggle span:nth-child(3) {
+          transform: translateY(10px);
         }
 
         /* Menu Overlay */
@@ -106,10 +120,64 @@ class UniversalMenu extends HTMLElement {
     const menuPanel = document.querySelector('.menu-panel');
     const menuOverlay = this.shadowRoot.querySelector('.menu-overlay');
     const menuLinks = document.querySelectorAll('.menu-nav-link');
+    const lines = this.shadowRoot.querySelectorAll('.menu-toggle span');
+
+    const animateToArrow = () => {
+      if (!this.gsapAvailable) return;
+
+      const tl = gsap.timeline();
+
+      // Animate lines to form an arrow pointing left (close icon)
+      tl.to(lines[0], {
+        rotation: -45,
+        y: 0,
+        duration: 0.4,
+        ease: 'power2.inOut'
+      }, 0)
+      .to(lines[1], {
+        opacity: 0,
+        scale: 0.3,
+        duration: 0.3,
+        ease: 'power2.in'
+      }, 0)
+      .to(lines[2], {
+        rotation: 45,
+        y: 0,
+        duration: 0.4,
+        ease: 'power2.inOut'
+      }, 0);
+    };
+
+    const animateToHamburger = () => {
+      if (!this.gsapAvailable) return;
+
+      const tl = gsap.timeline();
+
+      // Animate lines back to hamburger
+      tl.to(lines[0], {
+        rotation: 0,
+        y: -10,
+        duration: 0.4,
+        ease: 'power2.inOut'
+      }, 0)
+      .to(lines[1], {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out'
+      }, 0.1)
+      .to(lines[2], {
+        rotation: 0,
+        y: 10,
+        duration: 0.4,
+        ease: 'power2.inOut'
+      }, 0);
+    };
 
     const openMenu = () => {
       if (this.isAnimating) return;
       this.isAnimating = true;
+      this.isOpen = true;
 
       // Add active classes
       menuToggle.classList.add('active');
@@ -120,21 +188,20 @@ class UniversalMenu extends HTMLElement {
       // Get the body-section from the parent document
       const bodySection = document.querySelector('.body-section');
 
-      // Simple slide-in animation
       if (this.gsapAvailable) {
         const tl = gsap.timeline({
           onComplete: () => { this.isAnimating = false; }
         });
 
-        // Just slide the body-section to the right (toggle button moves with it naturally)
-        // Menu panel stays fixed in place
+        // Transform to arrow immediately
+        animateToArrow();
+
+        // Slide the body-section to the right
         if (bodySection) {
-          // Get the actual width of the menu panel to ensure body-section moves the exact amount
-          const panelWidth = menuPanel.offsetWidth;
           tl.to(bodySection, {
-            x: panelWidth,
-            duration: 0.5,
-            ease: 'power3.out',
+            x: '15vw',
+            duration: 0.6,
+            ease: 'expo.out',
           }, 0);
         }
 
@@ -145,7 +212,6 @@ class UniversalMenu extends HTMLElement {
           ease: 'power2.out',
         }, 0);
       } else {
-        // Fallback without GSAP
         this.isAnimating = false;
       }
     };
@@ -153,11 +219,11 @@ class UniversalMenu extends HTMLElement {
     const closeMenu = () => {
       if (this.isAnimating) return;
       this.isAnimating = true;
+      this.isOpen = false;
 
       // Get the body-section from the parent document
       const bodySection = document.querySelector('.body-section');
 
-      // Simple slide-out animation
       if (this.gsapAvailable) {
         const tl = gsap.timeline({
           onComplete: () => {
@@ -169,13 +235,15 @@ class UniversalMenu extends HTMLElement {
           }
         });
 
-        // Just slide the body-section back to original position (toggle button moves with it naturally)
-        // Menu panel stays fixed in place
+        // Transform to hamburger immediately
+        animateToHamburger();
+
+        // Slide the body-section back with smooth ease
         if (bodySection) {
           tl.to(bodySection, {
             x: '0vw',
-            duration: 0.4,
-            ease: 'power3.in',
+            duration: 0.5,
+            ease: 'expo.inOut',
           }, 0);
         }
 
@@ -184,9 +252,8 @@ class UniversalMenu extends HTMLElement {
           opacity: 0,
           duration: 0.3,
           ease: 'power2.in',
-        }, 0);
+        }, 0.1);
       } else {
-        // Fallback without GSAP
         menuToggle.classList.remove('active');
         menuPanel.classList.remove('active');
         menuOverlay.classList.remove('active');
@@ -195,7 +262,7 @@ class UniversalMenu extends HTMLElement {
       }
     };
 
-    // Open menu on toggle click
+    // Toggle menu on button click
     menuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       if (menuPanel.classList.contains('active')) {

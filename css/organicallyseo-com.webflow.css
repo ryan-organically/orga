@@ -129,18 +129,22 @@ body {
   max-width: 15vw;
   height: 100vh;
   max-height: 100vh;
-  background: transparent;
-  z-index: 0;
+  background: #d1d1d1;
+  z-index: 5;
   overflow: hidden;
   pointer-events: none;
+  border: none;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 
 .menu-panel.active {
   pointer-events: auto;
+  transform: translateX(0);
 }
 
 .menu-panel-content {
-  padding: 40px 20px;
+  padding: 40px 30px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -3491,7 +3495,8 @@ a {
   padding-left: 5vw;
   padding-right: 5vw;
   display: flex;
-  position: relative;
+  position: sticky;
+  top: 0;
   overflow: visible;
 }
 
@@ -3975,9 +3980,9 @@ a {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 90vw;
+  width: 100%;
   min-height: 50vh;
-  padding: 5vh 0;
+  padding: 5vh 5vw;
   display: flex;
   position: relative;
 }
@@ -4039,6 +4044,8 @@ a {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  width: 90vw;
+  padding: 5vh 0;
 }
 
 .h2 {
@@ -4551,7 +4558,7 @@ a {
 
 .huge-holder {
   border: 1px solid var(--white-40);
-  width: 90vw;
+  width: 100%;
   height: 75vh;
   margin-top: 20px;
   display: flex;
