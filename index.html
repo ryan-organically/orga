@@ -71,7 +71,7 @@ html.lenis {
   <div id="home-hero-section" class="hero-section home-hero">
     <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div">
       <h1 class="h1 h1-home">Organically<span class="green-span">.</span></h1>
-      <p class="shrunk-p">Combining web creative with organic potential.<br></p>
+      <p class="shrunk-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold. Combining web creative with organic potential.</p>
     </div>
     <div data-poster-url="videos/Organically-Theme-poster-00001.jpg" data-video-urls="videos/Organically-Theme-transcode.mp4,videos/Organically-Theme-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844" class="home-hero-vid w-background-video w-background-video-atom"><video id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844-video" autoplay="" loop="" style="background-image:url(&quot;videos/Organically-Theme-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
         <source src="videos/Organically-Theme-transcode.mp4" data-wf-ignore="true">
@@ -79,6 +79,43 @@ html.lenis {
       </video></div>
     <div class="ticker">
       <p class="ticker-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold.</p>
+    </div>
+
+    <!-- Steel Building Image -->
+    <img src="images/Steel-Building.png" loading="lazy" sizes="100vw" srcset="images/Steel-Building-p-500.png 500w, images/Steel-Building-p-800.png 800w, images/Steel-Building-p-1080.png 1080w, images/Steel-Building-p-1600.png 1600w, images/Steel-Building.png 2048w" alt="Pittsburgh Steel Building" class="hero-steel-building">
+  </div>
+
+  <!-- Hero Footer Stripe -->
+  <div class="hero-footer-stripe">
+    <div class="hero-footer-card active" data-service="branding" data-color="var(--orga)">
+      <span class="hero-footer-label">Branding</span>
+    </div>
+    <div class="hero-footer-card" data-service="digital-pr" data-color="var(--red-1)">
+      <span class="hero-footer-label">Digital PR</span>
+    </div>
+    <div class="hero-footer-card" data-service="front-end" data-color="var(--blue-2)">
+      <span class="hero-footer-label">Front End Dev</span>
+    </div>
+    <div class="hero-footer-card" data-service="web-design" data-color="var(--steeler)">
+      <span class="hero-footer-label">Web Design</span>
+    </div>
+    <div class="hero-footer-main">
+      <div class="hero-footer-description active" data-service="branding">
+        <h3>Branding</h3>
+        <p>Crafting distinctive visual identities that resonate with your audience and elevate your brand presence.</p>
+      </div>
+      <div class="hero-footer-description" data-service="digital-pr">
+        <h3>Digital PR</h3>
+        <p>Strategic storytelling and media outreach that amplifies your message across digital channels.</p>
+      </div>
+      <div class="hero-footer-description" data-service="front-end">
+        <h3>Front End Development</h3>
+        <p>Building responsive, performant interfaces with modern web technologies and best practices.</p>
+      </div>
+      <div class="hero-footer-description" data-service="web-design">
+        <h3>Web Design</h3>
+        <p>Designing intuitive, beautiful web experiences that convert visitors into customers.</p>
+      </div>
     </div>
   </div>
   <section id="home-id" class="section home-id">
@@ -138,10 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(tempMeasurer);
         const singleContentWidth = tempMeasurer.offsetWidth;
         document.body.removeChild(tempMeasurer);
-        // --- IMPORTANT CHANGE: Restore numCopies for maximum buffer with the new duration ---
+        // Reduced copies for better performance - 5 is sufficient for seamless loop
         let fullDuplicatedContent = "";
-        const numCopies = 30; // Set to 30 copies for maximum buffer, as requested by "enough copies"
-        for (let i = 0; i < numCopies; i++) { 
+        const numCopies = 5; // Reduced from 30 to 5 for better scroll performance
+        for (let i = 0; i < numCopies; i++) {
             fullDuplicatedContent += originalContentHTML;
         }
         innerTicker.innerHTML = fullDuplicatedContent;
@@ -421,39 +458,46 @@ document.addEventListener("DOMContentLoaded", () => {
         normalizeWheel: false,
         smoothTouch: false
     });
-    function raf(t){ lenis.raf(t); ScrollTrigger.update(); requestAnimationFrame(raf); }
+    // ScrollTrigger auto-updates with Lenis - no need to manually call update() every frame
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
+    lenis.on('scroll', ScrollTrigger.update); // Only update on actual scroll events
     gsap.registerPlugin(SplitText, ScrollTrigger, Draggable);
-    /* 2 ▸ H1 — updated animation */
+
+    // Optimize ScrollTrigger performance globally
+    ScrollTrigger.config({
+        limitCallbacks: true,  // Limit the rate of callback execution
+        syncInterval: 120,      // Increase interval between syncs for better performance
+    });
+    /* 2 ▸ H1 — split lines and chars, use lines as mask */
     const h1 = document.querySelector(".h1.h1-home");
-    let splitH1 = SplitText.create(h1, {
+    const shrunkP = document.querySelector(".shrunk-p");
+
+    // Hide shrunk-p initially
+    if (shrunkP) {
+        gsap.set(shrunkP, { autoAlpha: 0 });
+    }
+
+    const splitH1 = SplitText.create(h1, {
         type: "chars, lines",
         linesClass: "line",
-        mask: "chars",
-        autoSplit: true,
-        onSplit(self) {
-            gsap.set(self.chars, {
-                yPercent: 100,
-                rotationZ: 10,
-                autoAlpha: 0,
-                scale: 0.8
-            });
-            return gsap.to(self.chars, {
-                duration: 0.8,
-                yPercent: 0,
-                rotationZ: 0,
-                autoAlpha: 1,
-                scale: 1,
-                stagger: 0.08,
-                ease: "back.out(1.7)",
-                onComplete: animateShrunkP
-            });
-        }
+        mask: "lines"
+    });
+    gsap.set(splitH1.chars, { yPercent: 110, opacity: 0 });
+    gsap.to(splitH1.chars, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.06,
+        ease: "power3.out",
+        onComplete: animateShrunkP
     });
     // 3 ▸ Shrunk-p animation (starts after H1 animation completes)
     function animateShrunkP() {
-        const shrunkP = document.querySelector(".shrunk-p");
         if (shrunkP) {
+            // Show the paragraph before splitting
+            gsap.set(shrunkP, { autoAlpha: 1 });
+
             const shrunkPSplit = SplitText.create(shrunkP, {
                 type: "lines",
                 linesClass: "shrunk-p-line"
@@ -502,7 +546,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-    // --- Color Element Animations ---
+    // --- Color Element Animations (Optimized) ---
     const colorElements = document.querySelectorAll('.color-element');
     const homeSection = document.querySelector('.section.home-id');
     colorElements.forEach((element, index) => {
@@ -513,31 +557,25 @@ document.addEventListener("DOMContentLoaded", () => {
             scale: 0.8,
             rotation: (index % 2 === 0) ? -5 : 5
         });
+
+        // Use direct animation with ScrollTrigger instead of callbacks for better performance
+        const enterAnim = gsap.to(element, {
+            x: 0,
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+            paused: true
+        });
+
         ScrollTrigger.create({
             trigger: element,
             start: 'top 80%',
             end: 'bottom 20%',
+            animation: enterAnim,
             toggleActions: 'play reverse play reverse',
-            onEnter: () => {
-                gsap.to(element, {
-                    x: 0,
-                    opacity: 1,
-                    scale: 1,
-                    rotation: 0,
-                    duration: 0.8,
-                    ease: 'back.out(1.7)'
-                });
-            },
-            onLeaveBack: () => {
-                gsap.to(element, {
-                    x: startX,
-                    opacity: 0,
-                    scale: 0.8,
-                    rotation: (index % 2 === 0) ? -5 : 5,
-                    duration: 0.5,
-                    ease: 'power1.in'
-                });
-            },
+            fastScrollEnd: true,  // Skip animation if scrolling too fast
             id: `color-element-entrance-${index}`
         });
     });
@@ -613,26 +651,19 @@ document.addEventListener('DOMContentLoaded', function() {
         autoAlpha: 0
     });
 
-    // ScrollTrigger with scroll progress animation
-    ScrollTrigger.create({
-        trigger: initialText.closest('section'),
-        start: "top bottom",
-        end: "bottom top",
-        onUpdate: (self) => {
-            const scrollProgress = self.progress;
-
-            // Animate words in based on scroll progress
-            if (scrollProgress > 0.2) {
-                gsap.to(initialSplit.words, {
-                    duration: 1,
-                    yPercent: 0,
-                    rotationZ: 0,
-                    autoAlpha: 1,
-                    stagger: 0.15,
-                    ease: "power2.out",
-                    overwrite: "auto"
-                });
-            }
+    // Optimized ScrollTrigger - animate once instead of on every update
+    gsap.to(initialSplit.words, {
+        duration: 1,
+        yPercent: 0,
+        rotationZ: 0,
+        autoAlpha: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: initialText.closest('section'),
+            start: "top 80%",
+            toggleActions: 'play none none none',
+            once: true  // Only play once for better performance
         }
     });
 });
@@ -664,6 +695,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 });
+
+/* Hero Footer Stripe Ticker */
+(function() {
+    const cards = document.querySelectorAll('.hero-footer-card');
+    const descriptions = document.querySelectorAll('.hero-footer-description');
+    let currentIndex = 0;
+    let tickerInterval;
+    let isHovered = false;
+
+    function setActive(index) {
+        // Remove active class from all
+        cards.forEach(card => card.classList.remove('active'));
+        descriptions.forEach(desc => desc.classList.remove('active'));
+
+        // Add active class to current
+        cards[index].classList.add('active');
+        descriptions[index].classList.add('active');
+        currentIndex = index;
+    }
+
+    function nextSlide() {
+        if (!isHovered) {
+            currentIndex = (currentIndex + 1) % cards.length;
+            setActive(currentIndex);
+        }
+    }
+
+    function startTicker() {
+        tickerInterval = setInterval(nextSlide, 10000);
+    }
+
+    function stopTicker() {
+        clearInterval(tickerInterval);
+    }
+
+    // Click handlers
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            setActive(index);
+            stopTicker();
+            startTicker(); // Restart ticker from this point
+        });
+
+        // Hover handlers
+        card.addEventListener('mouseenter', () => {
+            isHovered = true;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            isHovered = false;
+        });
+    });
+
+    // Start the ticker
+    startTicker();
+})();
 
 </script>
   </div><!-- .body-section -->

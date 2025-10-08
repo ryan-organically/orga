@@ -3,7 +3,9 @@
     "allow": [
       "Bash(sed:*)",
       "Read(//mnt/c/Users/poopf/OneDrive/Documents/Organically/**)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(awk:*)",
+      "Read(///**)"
     ],
     "deny": [],
     "ask": []
