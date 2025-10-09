@@ -140,92 +140,30 @@ html.lenis {
       </div>
     </div>
   </section>
-  <section class="section organically">
+  <section class="section diagonal-section">
+    <div class="diagonal-left">
+      <div class="diagonal-box-wrapper">
+        <div class="diagonal-box box-1">
+          <p class="diagonal-box-text">A stunning website with no visitors is a balloon with no tether—drifting, purposeless.</p>
+        </div>
+        <div class="diagonal-box box-2">
+          <p class="diagonal-box-text">A mediocre site drowning in traffic won't convert a soul.</p>
+        </div>
+        <div class="diagonal-box box-3">
+          <p class="diagonal-box-text">I deliver both: creative design and development that drives traffic organically, because one without the other is nonsense.</p>
+        </div>
+      </div>
+    </div>
+    <div class="diagonal-right">
+      <h3 class="diagonal-h3 h3-1">Beautiful. Empty.</h3>
+      <h3 class="diagonal-h3 h3-2">Traffic. No Converts.</h3>
+      <h3 class="diagonal-h3 h3-3">Design + SEO = Growth</h3>
+      <p class="diagonal-cta-text">Ready to stop wasting time on half-measures? Let's build something that actually works.</p>
+      <a href="#choose-adventure" class="diagonal-cta-link">Start the conversation →</a>
+    </div>
+  </section>
+  <section class="section ticker-testimonial-section">
     <div class="ticking-text">Proven to move the needle Organically<span class="green-span">. </span></div>
-    <div class="w-embed w-script">
-      <script>
-document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger); 
-    const tickerContainer = document.querySelector(".ticking-text");
-    if (tickerContainer) {
-        let innerTicker = tickerContainer.querySelector(".ticker-inner");
-        let originalContentHTML;
-        // Ensure the content is wrapped in an inner div with correct styles.
-        if (!innerTicker) {
-            originalContentHTML = tickerContainer.innerHTML;
-            tickerContainer.innerHTML = `<div class="ticker-inner" style="white-space: nowrap; display: inline-block;">${originalContentHTML}</div>`;
-            innerTicker = tickerContainer.querySelector(".ticker-inner");
-        } else {
-            originalContentHTML = innerTicker.innerHTML;
-            innerTicker.style.whiteSpace = 'nowrap';
-            innerTicker.style.display = 'inline-block'; 
-        }
-        // --- Robust Single Content Width Calculation ---
-        const tempMeasurer = document.createElement('div');
-        tempMeasurer.style.position = 'absolute';
-        tempMeasurer.style.visibility = 'hidden';
-        tempMeasurer.style.whiteSpace = 'nowrap';
-        tempMeasurer.style.padding = '0';
-        tempMeasurer.style.margin = '0';
-        const computedStyle = getComputedStyle(innerTicker); 
-        for (const prop of ['fontFamily', 'fontSize', 'fontWeight', 'letterSpacing', 'wordSpacing', 'lineHeight']) {
-            tempMeasurer.style[prop] = computedStyle[prop];
-        }
-        tempMeasurer.innerHTML = originalContentHTML;
-        document.body.appendChild(tempMeasurer);
-        const singleContentWidth = tempMeasurer.offsetWidth;
-        document.body.removeChild(tempMeasurer);
-        // Reduced copies for better performance - 5 is sufficient for seamless loop
-        let fullDuplicatedContent = "";
-        const numCopies = 5; // Reduced from 30 to 5 for better scroll performance
-        for (let i = 0; i < numCopies; i++) {
-            fullDuplicatedContent += originalContentHTML;
-        }
-        innerTicker.innerHTML = fullDuplicatedContent;
-        // Create the infinite ticker animation
-        let tickerTween;
-        // The 'duration' here is the time between jumps, as requested.
-        const speedPerCopyDuration = 15; // <<-- Adjusted to 15 seconds for faster ticker -->>
-        const startMarqueeAnimation = () => {
-            tickerTween = gsap.to(innerTicker, {
-                x: -singleContentWidth, 
-                duration: speedPerCopyDuration, 
-                ease: "none",      
-                repeat: -1,        
-                overwrite: "auto",
-                onRepeat: function() {
-                    // Instantly jump back to x=0 when the animation repeats.
-                    // High duplication helps hide this jump.
-                    gsap.set(this.targets()[0], {x:0}); 
-                }
-            });
-        };
-        // Delay animation start as requested
-        setTimeout(startMarqueeAnimation, 5000); 
-    } else {
-        console.warn("Element with class '.ticking-text' not found for ticker animation.");
-    }
-});
-</script>
-    </div>
-    <div class="huge-holder">
-      <div class="testimonial-holder">
-        <div class="testimonial"><img src="images/Screenshot-2025-07-16-114821.avif" loading="lazy" sizes="100vw" srcset="images/Screenshot-2025-07-16-114821-p-500.png 500w, images/Screenshot-2025-07-16-114821-p-800.png 800w, images/Screenshot-2025-07-16-114821.avif 2525w" alt="" class="screenshot">
-          <div class="testimonial-title">Q&amp;A Landscaping saw a 30x in organic traffic.</div>
-        </div>
-        <div class="testimonial"><img src="images/Screenshot-2025-07-16-115045.avif" loading="lazy" sizes="100vw" srcset="images/Screenshot-2025-07-16-115045-p-500.png 500w, images/Screenshot-2025-07-16-115045.avif 2525w" alt="" class="screenshot">
-          <div class="testimonial-title">TC Customized got modern design for a household name service.</div>
-        </div>
-        <div class="testimonial"><img src="images/Screenshot-2025-07-16-114215_1.avif" loading="lazy" sizes="100vw" srcset="images/Screenshot-2025-07-16-114215_1Screenshot-2025-07-16-114215.avif 500w, images/Screenshot-2025-07-16-114215_1Screenshot-2025-07-16-114215.avif 800w, images/Screenshot-2025-07-16-114215_1Screenshot-2025-07-16-114215.avif 1080w, images/Screenshot-2025-07-16-114215_1.avif 2433w" alt="" class="screenshot">
-          <div class="testimonial-title">&quot;He made cabinetry business which could be a little dry design-wise look cool&quot;</div>
-        </div>
-      </div>
-      <div class="testimonial-holder reverse">
-        <div class="testimonial"><img src="images/Screenshot-2025-07-16-114215_1.avif" loading="lazy" sizes="100vw" srcset="images/Screenshot-2025-07-16-114215_1Screenshot-2025-07-16-114215.avif 500w, images/Screenshot-2025-07-16-114215_1Screenshot-2025-07-16-114215.avif 800w, images/Screenshot-2025-07-16-114215_1Screenshot-2025-07-16-114215.avif 1080w, images/Screenshot-2025-07-16-114215_1.avif 2433w" alt="" class="screenshot">
-          <div class="testimonial-title">&quot;He made cabinetry business which could be a little dry design-wise look cool&quot;</div>
-        </div>
-      </div>
-    </div>
   </section>
   <address id="choose-adventure" data-w-id="76ca32a2-4ec2-eb02-d5aa-23c5b7d05ca3" style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section-home-3">
     <h3 class="h3 center-h3">Choose your adventure</h3>
@@ -358,8 +296,12 @@ document.addEventListener("DOMContentLoaded", () => {
   <section class="section blog-section">
     <div class="blog-preview">
     <a href="blog.html" class="blog-thumbs-blog-home w-inline-block">
-      <h5 class="read-more-heading">Organically Written </h5>
+      <h5 class="read-more-heading">Coffee Break </h5>
     </a>
+    <div class="blog-nav-buttons">
+      <button class="blog-nav-btn" id="blog-prev">←</button>
+      <button class="blog-nav-btn" id="blog-next">→</button>
+    </div>
     <div class="read-more-module">
       <a href="what-is-seo.html" class="blog-card-1 w-inline-block"><img src="images/Webflow-Launch-Checklist.png" loading="lazy" sizes="100vw" srcset="images/Webflow-Launch-Checklist-p-500.png 500w, images/Webflow-Launch-Checklist-p-800.png 800w, images/Webflow-Launch-Checklist-p-1080.png 1080w, images/Webflow-Launch-Checklist-p-1600.png 1600w, images/Webflow-Launch-Checklist.png 1920w" alt="" class="blog-component-thumbnail">
         <div class="blog-card-content">
@@ -757,5 +699,190 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Universal Menu Web Component -->
   <script src="components/universal-menu.js"></script>
+
+  <!-- Ticker Animation -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const ticker = document.querySelector(".ticking-text");
+    if (!ticker) return;
+
+    // Store original content
+    const originalHTML = ticker.innerHTML;
+
+    // Duplicate content 3 times for seamless loop
+    ticker.innerHTML = originalHTML + originalHTML + originalHTML;
+
+    // Get width of one copy
+    const tickerWidth = ticker.scrollWidth / 3;
+
+    // Animate - slower speed (30 seconds per cycle)
+    gsap.to(ticker, {
+        x: -tickerWidth,
+        duration: 30,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+            x: (x) => `${parseFloat(x) % tickerWidth}px`
+        }
+    });
+});
+</script>
+
+  <!-- Blog Draggable & Navigation -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const blogModule = document.querySelector(".read-more-module");
+    const prevBtn = document.getElementById("blog-prev");
+    const nextBtn = document.getElementById("blog-next");
+
+    if (!blogModule || !prevBtn || !nextBtn) return;
+
+    // Calculate thumbnail width (including margin)
+    const firstCard = blogModule.querySelector(".blog-card-1");
+    if (!firstCard) return;
+
+    const cardWidth = firstCard.offsetWidth + 20; // 20px is margin-right
+
+    // Initialize GSAP Draggable
+    if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
+        gsap.registerPlugin(Draggable);
+
+        Draggable.create(blogModule, {
+            type: "x",
+            edgeResistance: 0.65,
+            bounds: {
+                minX: -(blogModule.scrollWidth - blogModule.parentElement.offsetWidth),
+                maxX: 0
+            },
+            inertia: true,
+            onClick: function() {
+                // Allow clicks to pass through to links
+                return true;
+            }
+        });
+    }
+
+    // Navigation buttons
+    prevBtn.addEventListener("click", () => {
+        const currentX = gsap.getProperty(blogModule, "x") || 0;
+        const newX = Math.min(currentX + cardWidth, 0);
+        gsap.to(blogModule, {
+            x: newX,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+    });
+
+    nextBtn.addEventListener("click", () => {
+        const currentX = gsap.getProperty(blogModule, "x") || 0;
+        const maxScroll = -(blogModule.scrollWidth - blogModule.parentElement.offsetWidth);
+        const newX = Math.max(currentX - cardWidth, maxScroll);
+        gsap.to(blogModule, {
+            x: newX,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+    });
+});
+</script>
+
+  <!-- Diagonal Section ScrollTrigger Animation -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    const h3Elements = document.querySelectorAll('.diagonal-h3');
+    const boxes = document.querySelectorAll('.diagonal-box');
+
+    // Split each h3 into chars and animate on scroll
+    h3Elements.forEach((h3, index) => {
+        const split = new SplitText(h3, { type: "chars" });
+        gsap.set(split.chars, { yPercent: 110, opacity: 0 });
+
+        gsap.to(split.chars, {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.01,
+            duration: 0.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: h3,
+                start: "top 70%",
+                end: "top 40%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Box 1 (red) - swipes left with smooth acceleration
+    gsap.to(boxes[0], {
+        x: '-120%',
+        rotation: -12,
+        duration: 0.7,
+        ease: "power3.in",
+        scrollTrigger: {
+            trigger: h3Elements[1],
+            start: "top 60%",
+            end: "top 30%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    // Box 2 (yellow) - swipes left with dramatic acceleration
+    gsap.to(boxes[1], {
+        x: '-120%',
+        rotation: 18,
+        duration: 0.9,
+        ease: "expo.in",
+        scrollTrigger: {
+            trigger: h3Elements[2],
+            start: "top 60%",
+            end: "top 30%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    // Box 3 (green) - stays visible, no exit animation
+});
+</script>
+
+  <!-- Footer SplitText Animation -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+
+    // Select all text elements in footer to animate
+    const footerTexts = footer.querySelectorAll('.footer-typemark, .footer-subheading, .footer-text, .copyright-bar');
+
+    footerTexts.forEach(element => {
+        const split = new SplitText(element, { type: "chars" });
+
+        // Set initial state
+        gsap.set(split.chars, { yPercent: 110, opacity: 0 });
+
+        // Animate on scroll
+        gsap.to(split.chars, {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.02,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: element,
+                start: "top 80%",
+                end: "top 50%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>

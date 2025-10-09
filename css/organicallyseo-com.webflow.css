@@ -442,6 +442,7 @@ a {
 
 .footer {
   z-index: 1003;
+  border-top: 1px solid var(--black-40);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -898,13 +899,13 @@ a {
   box-shadow: none;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-  width: 100vw;
+  align-items: flex-end;
+  width: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
   display: flex;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .seo-div {
@@ -1163,12 +1164,9 @@ a {
 }
 
 .blog-card-1 {
-  border: 1px solid var(--trans);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  border: 1px solid #00000033;
   color: var(--black);
-  background-color: #fff3;
-  border-radius: 5px;
+  background-color: transparent;
   flex-direction: column;
   flex: none;
   justify-content: center;
@@ -1186,7 +1184,6 @@ a {
 .blog-card-1:hover {
   border-color: var(--orga);
   color: var(--black);
-  background-color: #7ec7000d;
 }
 
 .blog-card-1.uxr {
@@ -2603,10 +2600,11 @@ a {
 }
 
 .blog-component-thumbnail {
-  border-radius: 8px;
+  border: 1px solid #00000033;
   width: 400px;
   display: none;
   position: relative;
+  background-color: transparent;
 }
 
 .lz-h1-1 {
@@ -3128,8 +3126,6 @@ a {
   z-index: 1010;
   border: 1px none var(--black-60);
   background-color: var(--white-25);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
   cursor: pointer;
   border-radius: 50%;
   flex-flow: column;
@@ -3481,9 +3477,9 @@ a {
   border-right: 1px solid var(--black-40);
   border-bottom: 1px solid var(--black-40);
   border-left: 1px solid var(--black-40);
-  background-color: transparent;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  background-color: #e2e2e233;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   flex: none;
   justify-content: space-between;
   align-items: center;
@@ -3866,12 +3862,17 @@ a {
   border: 1px #5b5b5b;
   justify-content: flex-start;
   align-items: center;
-  width: 90vw;
+  width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
   position: relative;
   overflow: visible;
+  cursor: grab;
+}
+
+.read-more-module:active {
+  cursor: grabbing;
 }
 
 .read-more-module.reverse {
@@ -3881,7 +3882,7 @@ a {
 
 .read-more-heading {
   color: var(--black-75);
-  width: 90vw;
+  width: 100%;
   font-family: Coolvetica rg, sans-serif;
   font-size: 4rem;
   font-weight: 300;
@@ -3889,6 +3890,30 @@ a {
   text-decoration: none;
   position: relative;
   inset: 0% auto auto 0%;
+  text-align: right;
+}
+
+.blog-nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+}
+
+.blog-nav-btn {
+  background-color: transparent;
+  border: 1px solid var(--black-40);
+  color: var(--black-75);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: Coolvetica rg, sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.blog-nav-btn:hover {
+  border-color: var(--orga);
+  color: var(--orga);
 }
 
 .bullet-highlight {
@@ -3968,7 +3993,7 @@ a {
   position: relative;
   font-weight: 600;
   text-align: left;
-  margin: 0;
+  margin: 5vh 0 0 0;
   white-space: nowrap;
 }
 
@@ -4038,15 +4063,142 @@ a {
 
 .section.blog-section {
   border-top: 1px solid var(--black-40);
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
+  width: 90vw;
+  padding: 5vh 5vw;
+  overflow: hidden;
 }
 
-.section.organically {
-  background-color: var(--black);
+.section.ticker-section {
+  border-top: 1px solid var(--black-40);
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
   justify-content: center;
   align-items: center;
   overflow: hidden;
   width: 90vw;
   padding: 5vh 0;
+}
+
+.section.diagonal-section {
+  border-top: 1px solid var(--black-40);
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
+  width: 90vw;
+  padding: 5vh 5vw;
+  min-height: 300vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.diagonal-left {
+  width: 45%;
+  position: sticky;
+  top: 20vh;
+  height: 40vh;
+  overflow: hidden;
+}
+
+.diagonal-right {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 280vh;
+  padding-top: 10vh;
+}
+
+.section.ticker-testimonial-section {
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
+  border-top: 1px solid var(--black-40);
+  width: 90vw;
+  padding: 5vh 0;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.diagonal-box-wrapper {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+}
+
+.diagonal-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4vh;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.diagonal-box.box-1 {
+  background-color: var(--red-1);
+  z-index: 3;
+}
+
+.diagonal-box.box-2 {
+  background-color: var(--steeler);
+  z-index: 2;
+}
+
+.diagonal-box.box-3 {
+  background-color: var(--orga);
+  z-index: 1;
+}
+
+.diagonal-box-text {
+  color: var(--black-90);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.75rem;
+  text-align: center;
+  margin: 0;
+}
+
+
+.diagonal-h3 {
+  color: var(--black-75);
+  font-family: Coolvetica rg, sans-serif;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 40vh 0;
+}
+
+.diagonal-cta-text {
+  color: var(--black-90);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 2rem;
+  margin: 8vh 0 3vh 0;
+}
+
+.diagonal-cta-link {
+  color: var(--black-75);
+  font-family: Coolvetica rg, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.diagonal-cta-link:hover {
+  color: var(--orga);
 }
 
 .h2 {
@@ -4546,12 +4698,13 @@ a {
 }
 
 .ticking-text {
-  color: var(--e2-75);
+  color: var(--black-75);
   white-space: nowrap;
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: Coolvetica Rg, sans-serif;
   font-size: 11rem;
+  font-weight: 600;
   line-height: 1;
   will-change: transform;
   backface-visibility: hidden;
