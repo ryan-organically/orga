@@ -4100,7 +4100,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .diagonal-left {
@@ -4349,14 +4349,14 @@ a {
   height: 100%;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 0 5vw;
 }
 
 .hero-footer-description {
   position: absolute;
-  right: 5vw;
+  left: 5vw;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease;
@@ -4395,14 +4395,6 @@ a {
   border-left: 1px solid var(--black-40);
   cursor: pointer;
   transition: background 0.4s ease;
-}
-
-.hero-footer-card:first-child {
-  border-left: none;
-}
-
-.hero-footer-card:nth-child(4) {
-  border-right: 1px solid var(--black-40);
 }
 
 .hero-footer-card[data-color="var(--orga)"]:hover,
@@ -4566,7 +4558,7 @@ a {
   font-family: Coolvetica rg, sans-serif;
   font-weight: 600;
   line-height: 1.1rem;
-  color: var(--black-75);
+  color: var(--black-60);
   text-transform: uppercase;
   letter-spacing: 0.025em;
 }
@@ -4579,9 +4571,11 @@ a {
 .bog-comp-p {
   font-size: 1.125rem;
   font-family: inherit;
-    font-weight: 600;
+  font-weight: 600;
   line-height: 1.6rem;
   color: var(--black);
+  width: 100%;
+  flex-grow: 1;
 }
 
 .filter-text {
