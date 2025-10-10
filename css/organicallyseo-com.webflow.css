@@ -1164,9 +1164,9 @@ a {
 }
 
 .blog-card-1 {
-  border: 1px solid #00000033;
+  border: 1px solid #00000066;
   color: var(--black);
-  background-color: transparent;
+  background-color: #ffffff0d;
   flex-direction: column;
   flex: none;
   justify-content: center;
@@ -1182,31 +1182,28 @@ a {
 }
 
 .blog-card-1:hover {
-  border-color: var(--orga);
   color: var(--black);
+  background-color: #ffffff26;
+}
+
+.blog-card-1:has(.filter-text):hover {
+  border-color: var(--orga);
+}
+
+.blog-card-1:has(.filter-text.design):hover {
+  border-color: var(--blue-2);
+}
+
+.blog-card-1:has(.filter-text.branding):hover {
+  border-color: var(--red-1);
+}
+
+.blog-card-1:has(.filter-text.creative):hover {
+  border-color: var(--steeler);
 }
 
 .blog-card-1.uxr {
   display: flex;
-}
-
-.blog-card-1.launch-thumb {
-  border-color: var(--trans);
-}
-
-.blog-card-1.launch-thumb:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-.blog-card-1.webfig-thumb:hover {
-  color: #e90004;
-  border-color: #e90004;
-}
-
-.blog-card-1.ai-art-thumb:hover {
-  color: #f80;
-  border-color: #f80;
 }
 
 .blog-card-subheading {
@@ -2600,11 +2597,22 @@ a {
 }
 
 .blog-component-thumbnail {
-  border: 1px solid #00000033;
+  border: 1px solid #00000066;
   width: 400px;
-  display: none;
+  display: block;
   position: relative;
   background-color: transparent;
+  transition: all 550ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-card-1 img {
+  border: 1px solid #00000066;
+  transition: all 550ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-card-1:hover img {
+  border-color: var(--orga);
+  background-color: #ffffff33;
 }
 
 .lz-h1-1 {
@@ -2723,24 +2731,25 @@ a {
 
 .button-1 {
   z-index: 200;
-  border: 1px solid var(--trans);
-  background-color: var(--white-25);
+  border: 1px solid #00000066;
+  background-color: #ffffff0d;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   color: var(--black-75);
-  border-radius: 7px;
   padding-top: 12px;
   padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-family: Coolvetica rg, sans-serif;
   font-style: normal;
     font-weight: 600;
-  transition: background-color .4s cubic-bezier(.19, 1, .22, 1), border-radius .4s cubic-bezier(.19, 1, .22, 1);
+  transition: background-color .65s cubic-bezier(.19, 1, .22, 1), border-color .65s cubic-bezier(.19, 1, .22, 1);
   position: relative;
 }
 
 .button-1:hover {
   border: 1px solid var(--orga);
-  background-color: var(--orga-25);
+  background-color: #ffffff4d;
 }
 
 .button-1.universal {
@@ -2938,11 +2947,11 @@ a {
 
 .revealed-card-content.website-adventure {
   z-index: 8;
-  display: none;
+  display: flex;
 }
 
 .revealed-card-content.seo-adventure {
-  display: none;
+  display: flex;
 }
 
 .revealed-card-content.brand-adventure {
@@ -3901,8 +3910,8 @@ a {
 }
 
 .blog-nav-btn {
-  background-color: transparent;
-  border: 1px solid var(--black-40);
+  background-color: #ffffff0d;
+  border: 1px solid #00000066;
   color: var(--black-75);
   padding: 10px 20px;
   cursor: pointer;
@@ -3914,6 +3923,7 @@ a {
 .blog-nav-btn:hover {
   border-color: var(--orga);
   color: var(--orga);
+  background-color: #ffffff26;
 }
 
 .bullet-highlight {
@@ -4087,7 +4097,6 @@ a {
   border-right: 1px solid var(--black-40);
   width: 90vw;
   padding: 5vh 5vw;
-  min-height: 300vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -4096,19 +4105,17 @@ a {
 
 .diagonal-left {
   width: 45%;
-  position: sticky;
-  top: 20vh;
-  height: 40vh;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .diagonal-right {
   width: 45%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  min-height: 280vh;
-  padding-top: 10vh;
+  align-items: flex-start;
+  gap: 3vh;
 }
 
 .section.ticker-testimonial-section {
@@ -4122,49 +4129,12 @@ a {
   overflow: hidden;
 }
 
-.diagonal-box-wrapper {
-  position: relative;
-  width: 100%;
-  height: 40vh;
-}
-
-.diagonal-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40vh;
-  border: 1px solid #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4vh;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.diagonal-box.box-1 {
-  background-color: var(--red-1);
-  z-index: 3;
-}
-
-.diagonal-box.box-2 {
-  background-color: var(--steeler);
-  z-index: 2;
-}
-
-.diagonal-box.box-3 {
-  background-color: var(--orga);
-  z-index: 1;
-}
-
-.diagonal-box-text {
+.diagonal-main-text {
   color: var(--black-90);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 300;
-  line-height: 1.75rem;
-  text-align: center;
+  line-height: 2.25rem;
   margin: 0;
 }
 
@@ -4175,7 +4145,7 @@ a {
   font-size: 4rem;
   font-weight: 600;
   line-height: 1.2;
-  margin: 40vh 0;
+  margin: 0;
 }
 
 .diagonal-cta-text {
@@ -4184,21 +4154,7 @@ a {
   font-size: 1.75rem;
   font-weight: 300;
   line-height: 2rem;
-  margin: 8vh 0 3vh 0;
-}
-
-.diagonal-cta-link {
-  color: var(--black-75);
-  font-family: Coolvetica rg, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  display: inline-block;
-}
-
-.diagonal-cta-link:hover {
-  color: var(--orga);
+  margin: 0;
 }
 
 .h2 {
@@ -4629,24 +4585,33 @@ a {
 }
 
 .filter-text {
-  background-color: #7ec70080;
+  background-color: #7ec7000d;
+  border: 1px solid #7ec7001a;
   border-radius: 6px;
   padding: 6px 10px;
   font-family: Coolvetica rg, sans-serif;
   font-weight: 600;
-  color: var(--black);
+  color: var(--orga);
   font-size: .8rem;
-  line-height: 1rem;
-}
-  font-weight: 600;
-  color: var(--black-75);
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
   line-height: 1rem;
 }
 
 .filter-text.design {
-  background-color: #009dff80;
+  background-color: #009fb70d;
+  border-color: #009fb71a;
+  color: var(--blue-2);
+}
+
+.filter-text.branding {
+  background-color: #e831510d;
+  border-color: #e831511a;
+  color: var(--red-1);
+}
+
+.filter-text.creative {
+  background-color: #ffb6120d;
+  border-color: #ffb6121a;
+  color: var(--steeler);
 }
 
 .web-elements {
