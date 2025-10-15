@@ -349,7 +349,6 @@ html.lenis {
     </div>
   </section>
   <div id="Footer" class="footer">
-    <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
       <a href="index.html" aria-current="page" class="link-block w-inline-block w--current">
         <div class="footer-typemark">Organically</div>
@@ -455,7 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Footer typemark reveal ---
     document.querySelectorAll(".footer-typemark").forEach(el => {
         const ft = SplitText.create(el, { type: "chars", mask: "lines", wordsClass: "masked-word" });
-        gsap.set(ft.chars, { yPercent: 110, opacity: 0 });
+        gsap.set(ft.chars, { yPercent: -200, opacity: 0 });
         gsap.to(ft.chars, {
             yPercent: 0,
             opacity: 1,
@@ -831,10 +830,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const split = new SplitText(typemark, { type: "chars" });
 
-    // Set initial state
-    gsap.set(split.chars, { yPercent: 110, opacity: 0 });
+    // Set initial state - start from above
+    gsap.set(split.chars, { yPercent: -200, opacity: 0 });
 
-    // Animate on scroll
+    // Animate on scroll - fly in from above
     gsap.to(split.chars, {
         yPercent: 0,
         opacity: 1,

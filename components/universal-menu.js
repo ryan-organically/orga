@@ -196,10 +196,11 @@ class UniversalMenu extends HTMLElement {
         // Transform to arrow immediately
         animateToArrow();
 
-        // Slide the body-section to the right
-        if (bodySection) {
+        // Slide the body-section to the right - calculate proper distance based on menu panel width
+        if (bodySection && menuPanel) {
+          const menuWidth = menuPanel.offsetWidth;
           tl.to(bodySection, {
-            x: '15vw',
+            x: menuWidth,
             duration: 0.6,
             ease: 'expo.out',
           }, 0);
