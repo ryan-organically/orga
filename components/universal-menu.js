@@ -182,17 +182,20 @@ class UniversalMenu extends HTMLElement {
 
       // Animate side panel content to visible
       if (this.gsapAvailable) {
+        const sideMenuPanel = document.querySelector('.side-menu-panel');
+        const calendarModule = document.querySelector('.calendar-module');
+
         gsap.to(sidePanel, {
           autoAlpha: 1,
           duration: 0.6,
-          ease: 'power2.inOut'
+          ease: 'expo.out'
         });
 
-        // Slide body-section to the right by 20vw
+        // Slide body-section right 15vw (menu button)
         gsap.to(bodySection, {
-          x: '20vw',
+          x: '15vw',
           duration: 0.6,
-          ease: 'power2.inOut'
+          ease: 'expo.out'
         });
       }
 
@@ -212,17 +215,20 @@ class UniversalMenu extends HTMLElement {
 
       // Animate side panel content to hidden
       if (this.gsapAvailable) {
+        const sideMenuPanel = document.querySelector('.side-menu-panel');
+        const calendarModule = document.querySelector('.calendar-module');
+
         gsap.to(sidePanel, {
           autoAlpha: 0,
           duration: 0.6,
-          ease: 'power2.inOut'
+          ease: 'expo.out'
         });
 
         // Slide body-section back to center
         gsap.to(bodySection, {
           x: 0,
           duration: 0.6,
-          ease: 'power2.inOut'
+          ease: 'expo.out'
         });
       }
 
