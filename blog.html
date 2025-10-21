@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  
+
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/organicallyseo-com.webflow.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700"]  }});</script>
-  
+
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.jpg" rel="apple-touch-icon">
   <link href="https://www.organicallyseo.com/blog" rel="canonical">
@@ -27,7 +27,362 @@
   <style>
   body {
     overflow-x: clip;
-  }  
+  }
+
+  /* Menu Panel - Push off-screen when inactive */
+  .menu-panel {
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .menu-panel.active {
+    transform: translateX(0);
+  }
+
+  /* Calendar Panel Styles - Mirror of Menu Panel */
+  .calendar-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 15vw;
+    max-width: 15vw;
+    height: 100vh;
+    max-height: 100vh;
+    background: transparent;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+    border: none;
+    transform: translateX(100%);
+    transition: transform 0.6s ease;
+  }
+
+  .calendar-panel.active {
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .calendar-panel-content {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--e2);
+    border-left: 1px solid var(--black-40);
+  }
+
+  .calendar-header {
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid var(--black-40);
+  }
+
+  .calendar-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+
+  .calendar-subtitle {
+    font-size: 14px;
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .calendar-embed-wrapper {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .calendar-embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Responsive Calendar Panel */
+  @media (max-width: 991px) {
+    .calendar-panel {
+      width: 40vw;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .calendar-panel {
+      width: 60vw;
+    }
+
+    .calendar-header {
+      padding: 25px 20px 15px;
+    }
+
+    .calendar-title {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .calendar-panel {
+      width: 80vw;
+    }
+
+    .calendar-header {
+      padding: 20px 15px 12px;
+    }
+
+    .calendar-title {
+      font-size: 18px;
+    }
+  }
+
+  /* Dark Mode Support for Calendar */
+  .dark-mode .calendar-panel-content {
+    background: var(--rich-black);
+    border-left-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .calendar-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .calendar-title {
+    color: var(--white);
+  }
+
+  /* Blog Home Hero Styles */
+  .blog-home-hero {
+    border-right: 1px solid var(--black-40);
+    border-bottom: 1px solid var(--black-40);
+    border-left: 1px solid var(--black-40);
+    padding: 120px 5vw 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    width: 90vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-hero-container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .blog-hero-subtitle {
+    font-size: 18px;
+    margin-top: 16px;
+    opacity: 0.7;
+  }
+
+  /* Blog Main Section */
+  .blog-main-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 60px;
+  }
+
+  /* Sidebar Styles */
+  .blog-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding-right: 40px;
+  }
+
+  .sidebar-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+  }
+
+  .sidebar-link {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    margin-left: -12px;
+  }
+
+  .sidebar-link:hover {
+    color: #7ec700;
+    border-left-color: #7ec700;
+  }
+
+  .sidebar-link.active {
+    color: #7ec700;
+    border-left-color: #7ec700;
+    font-weight: 600;
+  }
+
+  /* Blog Grid Styles */
+  .blog-grid-container {
+    flex: 1;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .blog-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .blog-card:hover {
+    border-color: #7ec700;
+  }
+
+  .blog-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .blog-card-image-wrapper {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: #f5f5f5;
+  }
+
+  .blog-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .blog-card-content {
+    padding: 24px;
+  }
+
+  .blog-card-date {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    margin-bottom: 12px;
+  }
+
+  .blog-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: #000;
+  }
+
+  .blog-card-excerpt {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.7;
+    margin-bottom: 16px;
+  }
+
+  .blog-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: #7ec700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .blog-card-read-time {
+    font-size: 12px;
+    opacity: 0.6;
+  }
+
+  /* Dark Mode Support */
+  .dark-mode .blog-home-hero,
+  .dark-mode .blog-sidebar,
+  .dark-mode .blog-card {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .blog-card:hover {
+    border-color: #7ec700;
+  }
+
+  .dark-mode .blog-card-title {
+    color: #fff;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 991px) {
+    .blog-main-section {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 40px 20px;
+    }
+
+    .blog-sidebar {
+      position: relative;
+      top: 0;
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-right: 0;
+      padding-bottom: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .sidebar-title {
+      width: 100%;
+    }
+
+    .sidebar-link {
+      padding: 8px 16px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      margin: 0;
+    }
+
+    .sidebar-link.active {
+      background: #7ec700;
+      color: #fff;
+      border-color: #7ec700;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .blog-home-hero {
+      padding: 100px 20px 40px;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
 </style><!--  Google tag (gtag.js)  -->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2LPK0F7PYW"></script>
   <script>
@@ -38,71 +393,157 @@
 </script>
 </html></head>
 <body data-w-id="62d856b64a8463bf0059f63a" class="body-1">
-  <div class="universal-menu">
-    <div class="side-menu-button">
-      <div class="menu-line top"></div>
-      <div class="menu-line middle"></div>
-      <div class="menu-line bottom"></div>
-    </div>
-    <div class="side-menu">
-      <a href="index.html" class="side-menu-link">Home</a>
-      <a href="web-design.html" class="side-menu-link">Web design</a>
-      <a href="seo.html" class="side-menu-link">SEO</a>
-      <a href="branding.html" class="side-menu-link">Creative</a>
-    </div>
-    <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
-      <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
-    </div>
-    <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Book call</a>
-  </div>
-  <div class="starter-kit">
-    <div id="particles-js" data-w-id="d86055f2-6b5c-7d11-6d44-663c593c80ad" class="particles-js-div">
-      <div class="cursor"></div>
-    </div>
-    <div data-w-id="d86055f2-6b5c-7d11-6d44-663c593c80af" class="light-dark-mode-wrapper">
-      <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
-    </div>
-  </div>
-  <div class="hero-section blog-home">
-    <div class="blog-hero-div">
-      <h1 class="blog-h1">Nurture Your Online Presence</h1>
-    </div>
-  </div>
-  <section class="section blog-home">
-    <div class="blog-directory">
-      <div class="directory-title">Browse Categories</div>
-      <a href="#" class="directory-link-1">Blog Home</a>
-      <a href="#" class="directory-link-1">Webflow</a>
-    </div>
-    <div class="thumbnail-small-wrapper w-dyn-list">
-      <div role="list" class="w-dyn-items">
-        <div role="listitem" class="blog-home-thumbnail w-dyn-item"><img src="images/brand-thumb.jpg" loading="lazy" width="176" alt="" class="blog-thumbnail-1 w-dyn-bind-empty">
-          <p class="p1-left-align blog-card-p1 w-dyn-bind-empty"></p>
-          <p class="blog-thumbnail-title w-dyn-bind-empty"></p>
-          <div class="p1-left-align blog-description w-dyn-bind-empty"></div>
-        </div>
+  <!-- Left Menu Panel -->
+  <div class="menu-panel">
+    <div class="menu-panel-content">
+      <nav class="menu-nav">
+        <a href="index.html" class="menu-nav-link">Home</a>
+        <a href="web-design.html" class="menu-nav-link">Web design</a>
+        <a href="seo.html" class="menu-nav-link">SEO</a>
+        <a href="branding.html" class="menu-nav-link">Creative</a>
+        <a href="blog.html" class="menu-nav-link">Blog</a>
+      </nav>
+      <div class="menu-footer">
+        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Schedule a call</a>
       </div>
-      <div class="w-dyn-empty">
-        <div>No items found.</div>
+    </div>
+  </div>
+
+  <!-- Right Calendar Panel -->
+  <div class="calendar-panel">
+    <div class="calendar-panel-content">
+      <div class="calendar-header">
+        <h3 class="calendar-title">Let's Connect</h3>
+        <p class="calendar-subtitle">Pick a time that works for you</p>
+      </div>
+      <div class="calendar-embed-wrapper">
+        <iframe
+          src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-section">
+    <div class="universal-menu">
+      <universal-menu></universal-menu>
+      <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
+        <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
+      </div>
+      <a href="#" class="button-1 w-button" id="calendar-toggle">Schedule a call</a>
+    </div>
+
+  <div class="hero-section blog-home-hero">
+    <div class="blog-hero-container">
+      <h1 class="blog-h1">Nurture Your Online Presence</h1>
+      <p class="blog-hero-subtitle">Discover insights on SEO, web design, and digital marketing</p>
+    </div>
+  </div>
+
+  <section class="blog-main-section">
+    <div class="blog-sidebar">
+      <div class="sidebar-title">Browse Categories</div>
+      <a href="/blog" class="sidebar-link active">All Posts</a>
+      <a href="/blog/seo" class="sidebar-link">SEO</a>
+      <a href="/blog/web-design" class="sidebar-link">Web Design</a>
+      <a href="/blog/content-marketing" class="sidebar-link">Content Marketing</a>
+      <a href="/blog/case-studies" class="sidebar-link">Case Studies</a>
+    </div>
+
+    <div class="blog-grid-container">
+      <div class="blog-grid">
+        <div class="blog-card">
+          <a href="/seo-for-doctors" class="blog-card-link w-inline-block">
+            <div class="blog-card-image-wrapper">
+              <img src="images/Hand-Writing.png" loading="lazy" alt="SEO for Doctors" class="blog-card-image">
+            </div>
+            <div class="blog-card-content">
+              <p class="blog-card-date">October 21, 2025</p>
+              <h3 class="blog-card-title">SEO for Doctors: A Complete Guide to Medical Practice Marketing</h3>
+              <p class="blog-card-excerpt">Discover proven SEO strategies to help doctors and medical practices increase online visibility, attract more patients, and grow their healthcare business.</p>
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">SEO</span>
+                <span class="blog-card-read-time">8 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="blog-card">
+          <a href="/i-wrote-17-small-blogs-increased-my-traffic-by-x" class="blog-card-link w-inline-block">
+            <div class="blog-card-image-wrapper">
+              <img src="images/Ahrefs-Snapshot.png" loading="lazy" alt="Keyword Research Case Study" class="blog-card-image">
+            </div>
+            <div class="blog-card-content">
+              <p class="blog-card-date">May 19, 2023</p>
+              <h3 class="blog-card-title">How I Increased My Blog Traffic by X% Using Ahrefs Keyword Explorer</h3>
+              <p class="blog-card-excerpt">A case study on using Ahrefs' keyword explorer to target low competition keywords and increase blog traffic.</p>
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Case Study</span>
+                <span class="blog-card-read-time">6 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="blog-card">
+          <a href="/microblog-why-content-marketing-is-changing-the-game" class="blog-card-link w-inline-block">
+            <div class="blog-card-image-wrapper">
+              <img src="images/Hand-Writing.png" loading="lazy" alt="Content Marketing" class="blog-card-image">
+            </div>
+            <div class="blog-card-content">
+              <p class="blog-card-date">April 15, 2023</p>
+              <h3 class="blog-card-title">3 Ways Content Marketing is Changing the Game</h3>
+              <p class="blog-card-excerpt">Explore how evolving consumer behavior, personalized targeting, compelling storytelling, and effective measurement drive the new era of content marketing.</p>
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Content Marketing</span>
+                <span class="blog-card-read-time">4 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="blog-card">
+          <a href="/ai-art" class="blog-card-link w-inline-block">
+            <div class="blog-card-image-wrapper">
+              <img src="images/AI-Art-Painting.jpg" loading="lazy" alt="AI Art" class="blog-card-image">
+            </div>
+            <div class="blog-card-content">
+              <p class="blog-card-date">July 12, 2023</p>
+              <h3 class="blog-card-title">What is AI Art? And Will It Replace Artists?</h3>
+              <p class="blog-card-excerpt">Artists and many other professionals are feeling the threat of AI taking over their livelihoods. AI's threat to jobs and humanity as a whole jeopardizes life as we know it.</p>
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Creative</span>
+                <span class="blog-card-read-time">5 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="blog-card">
+          <a href="/tools" class="blog-card-link w-inline-block">
+            <div class="blog-card-image-wrapper">
+              <img src="images/My-favorite-tools.jpg" loading="lazy" alt="Tools" class="blog-card-image">
+            </div>
+            <div class="blog-card-content">
+              <p class="blog-card-date">December 7, 2022</p>
+              <h3 class="blog-card-title">5 Elite Tools You Should Already Be Using</h3>
+              <p class="blog-card-excerpt">A few internet technologies that you could easily start a business with.</p>
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Tools</span>
+                <span class="blog-card-read-time">7 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
-  <div class="thumbnail-small-wrapper">
-    <div class="blog-home-thumbnail">
-      <a href="ai-art.html" class="blog-home-card w-inline-block"><img src="images/AI-Art-Painting.jpg" loading="lazy" width="176" sizes="176px" alt="" srcset="images/AI-Art-Painting-p-500.jpg 500w, images/AI-Art-Painting-p-800.jpg 800w, images/AI-Art-Painting-p-1080.jpg 1080w, images/AI-Art-Painting-p-1600.jpg 1600w, images/AI-Art-Painting.jpg 1920w" class="blog-thumbnail-1">
-        <p class="p1-left-align blog-card-p1">July 12, 2023<br></p>
-        <p class="home-h5">What is AI Art? And Will It Replace Artists?</p>
-      </a>
-      <div class="p1-left-align blog-description">Artists and many other professionals are feeling the threat of AI taking over their livelihoods. AI’s threat to jobs and humanity as a whole jeopardizes life as we know it.</div>
-    </div>
-    <div class="blog-home-thumbnail">
-      <a href="tools.html" class="blog-home-card w-inline-block"><img src="images/My-favorite-tools.jpg" loading="lazy" width="176" sizes="176px" alt="" srcset="images/My-favorite-tools-p-500.jpg 500w, images/My-favorite-tools-p-800.jpg 800w, images/My-favorite-tools-p-1080.jpg 1080w, images/My-favorite-tools-p-1600.jpg 1600w, images/My-favorite-tools.jpg 1920w" class="blog-thumbnail-1">
-        <p class="p1-left-align blog-card-p1">December 7, 2022</p>
-        <p class="home-h5">5 Elite Tools You Should Already Be Using</p>
-      </a>
-      <div class="p1-left-align blog-description">A few internet technologies that you could easily start a business with.</div>
-    </div>
-  </div>
+
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
@@ -133,13 +574,103 @@
       </div>
     </div>
   </div>
+  </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b051031253bad4ba698d38" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  
+
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/SplitText.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/InertiaPlugin.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js" type="text/javascript"></script>
   <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
+  <script src="components/universal-menu.js"></script>
+
+  <script>
+  // Calendar Panel Toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const calendarToggle = document.getElementById('calendar-toggle');
+    const calendarPanel = document.querySelector('.calendar-panel');
+    const bodySection = document.querySelector('.body-section');
+    let isCalendarOpen = false;
+    let isAnimating = false;
+
+    const openCalendar = () => {
+      if (isAnimating) return;
+      isAnimating = true;
+      isCalendarOpen = true;
+
+      calendarPanel.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      if (typeof gsap !== 'undefined') {
+        const calendarWidth = calendarPanel.offsetWidth;
+        const tl = gsap.timeline({
+          onComplete: () => { isAnimating = false; }
+        });
+
+        // Slide body-section to the LEFT (negative value)
+        tl.to(bodySection, {
+          x: -calendarWidth,
+          duration: 0.6,
+          ease: 'expo.out',
+        }, 0);
+      } else {
+        isAnimating = false;
+      }
+    };
+
+    const closeCalendar = () => {
+      if (isAnimating) return;
+      isAnimating = true;
+      isCalendarOpen = false;
+
+      if (typeof gsap !== 'undefined') {
+        const tl = gsap.timeline({
+          onComplete: () => {
+            calendarPanel.classList.remove('active');
+            document.body.style.overflow = '';
+            isAnimating = false;
+          }
+        });
+
+        // Slide body-section back to center
+        tl.to(bodySection, {
+          x: 0,
+          duration: 0.5,
+          ease: 'expo.inOut',
+        }, 0);
+      } else {
+        calendarPanel.classList.remove('active');
+        document.body.style.overflow = '';
+        isAnimating = false;
+      }
+    };
+
+    // Toggle calendar on button click
+    calendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+
+    // Close calendar when clicking outside
+    document.addEventListener('click', (e) => {
+      if (isCalendarOpen && !calendarPanel.contains(e.target) && !calendarToggle.contains(e.target)) {
+        closeCalendar();
+      }
+    });
+
+    // Close calendar on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isCalendarOpen) {
+        closeCalendar();
+      }
+    });
+  });
+  </script>
 </body>
 </html>

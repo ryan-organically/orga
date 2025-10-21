@@ -29,8 +29,14 @@
   <html lang="en">
   <style>
   body {
-    overflow-x: clip;
-  }  
+    overflow-x: visible;
+    margin: 0;
+    padding: 0;
+  }
+
+  body.body-1 {
+    align-items: stretch;
+  }
 </style>
   <style>
 html.lenis {
@@ -45,28 +51,31 @@ html.lenis {
 </style>
 </html></head>
 <body class="body-1">
-  <!-- Menu Panel -->
-  <div class="menu-panel">
-    <div class="menu-panel-content">
-      <nav class="menu-nav">
-        <a href="index.html" class="menu-nav-link">Home</a>
-        <a href="web-design.html" class="menu-nav-link">Web design</a>
-        <a href="seo.html" class="menu-nav-link">SEO</a>
-        <a href="branding.html" class="menu-nav-link">Creative</a>
-      </nav>
-      <div class="menu-footer">
-        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Schedule a call</a>
+  <div class="horizontal-body">
+    <!-- Left Menu Panel -->
+    <div class="side-menu-panel">
+      <div class="side-panel">
+        <nav class="menu-nav">
+          <a href="index.html" class="menu-nav-link">Home</a>
+          <a href="web-design.html" class="menu-nav-link">Web design</a>
+          <a href="seo.html" class="menu-nav-link">SEO</a>
+          <a href="branding.html" class="menu-nav-link">Creative</a>
+          <a href="blog.html" class="menu-nav-link">Blog</a>
+        </nav>
+        <div class="menu-footer">
+          <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Schedule a call</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="body-section">
+    <!-- Center Body Section -->
+    <div class="body-section">
     <div class="universal-menu">
       <universal-menu></universal-menu>
       <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
         <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
       </div>
-      <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Book call</a>
+      <a href="#" class="button-1 w-button" id="calendar-toggle">Schedule a call</a>
     </div>
   <div id="home-hero-section" class="hero-section home-hero">
     <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div">
@@ -692,7 +701,27 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 </script>
-  </div><!-- .body-section -->
+    </div><!-- .body-section -->
+
+    <!-- Right Calendar Panel -->
+    <div class="calendar-module">
+      <div class="calendar-panel-content">
+        <div class="calendar-header">
+          <h3 class="calendar-title">Let's Connect</h3>
+          <p class="calendar-subtitle">Pick a time that works for you</p>
+        </div>
+        <div class="calendar-embed-wrapper">
+          <iframe
+            src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div><!-- .horizontal-body -->
 
   <!-- Universal Menu Web Component -->
   <script src="components/universal-menu.js"></script>
@@ -880,6 +909,315 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleActions: "play none none reverse"
         }
     });
+});
+</script>
+
+<style>
+  /* Horizontal Body - Top-level container */
+  .horizontal-body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+  }
+
+  /* Left Side Menu Panel - 25vw, fixed, always visible */
+  .side-menu-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    border: 2px solid red;
+  }
+
+  /* Side Panel - child that toggles, 100% width, no padding or margin */
+  .side-panel {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--e2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Menu nav links - only top margin allowed */
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-nav-link {
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 20px;
+  }
+
+  .menu-footer {
+    padding: 0 20px 20px;
+    margin: 0;
+  }
+
+  /* Center Body Section - 90vw, centered, no side margins */
+  .body-section {
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+    border: 2px solid green;
+  }
+
+  /* Universal Menu - 100% width of body-section */
+  .universal-menu {
+    width: 100%;
+    margin: 0;
+    padding: 5vw;
+    box-sizing: border-box;
+    position: sticky;
+  }
+
+  /* All hero sections - 10vh top margin, 100% width, 5vw padding */
+  .hero-section {
+    width: 100%;
+    margin: 10vh 0 0 0;
+    padding: 5vw;
+    box-sizing: border-box;
+  }
+
+  /* All sections inside body-section - 100% width, 5vw padding */
+  .body-section > section:not(#Footer),
+  .body-section > div:not(.universal-menu):not(#Footer) {
+    width: 100%;
+    margin: 0;
+    padding: 5vw;
+    box-sizing: border-box;
+  }
+
+  /* Right Calendar Module - 25vw, fixed, always visible */
+  .calendar-module {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
+    padding: 0;
+    border: 2px solid blue;
+  }
+
+  /* Mobile - maintain same layout structure */
+  @media (max-width: 767px) {
+    .horizontal-body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100vw;
+    }
+
+    .body-section {
+      width: 90vw;
+      margin: 0;
+      padding: 0;
+    }
+
+    .side-menu-panel {
+      width: 25vw;
+    }
+
+    .calendar-module {
+      width: 25vw;
+    }
+
+    .universal-menu {
+      padding: 2.5vw;
+    }
+
+    .hero-section {
+      padding: 2.5vw;
+    }
+
+    .body-section > section:not(#Footer),
+    .body-section > div:not(.universal-menu):not(#Footer) {
+      padding: 2.5vw;
+    }
+  }
+
+  .calendar-panel-content {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--e2);
+    border-left: 1px solid var(--black-40);
+    opacity: 0;
+    visibility: hidden;
+    box-sizing: border-box;
+  }
+
+  .calendar-header {
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid var(--black-40);
+  }
+
+  .calendar-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+
+  .calendar-subtitle {
+    font-size: 14px;
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .calendar-embed-wrapper {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .calendar-embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Responsive Calendar Content */
+  @media (max-width: 767px) {
+    .calendar-header {
+      padding: 25px 20px 15px;
+    }
+
+    .calendar-title {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .calendar-header {
+      padding: 20px 15px 12px;
+    }
+
+    .calendar-title {
+      font-size: 18px;
+    }
+  }
+
+  /* Dark Mode Support for Calendar */
+  .dark-mode .calendar-panel-content {
+    background: var(--rich-black);
+    border-left-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .calendar-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .calendar-title {
+    color: var(--white);
+  }
+</style>
+
+<script>
+// Panel Toggle with GSAP - Approach B
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof gsap === 'undefined') {
+    console.warn('GSAP not loaded - panel animations disabled');
+    return;
+  }
+
+  const calendarToggle = document.getElementById('calendar-toggle');
+  const calendarContent = document.querySelector('.calendar-panel-content');
+  const bodySection = document.querySelector('.body-section');
+
+  let isCalendarOpen = false;
+
+  const openCalendar = () => {
+    if (isCalendarOpen) return;
+    isCalendarOpen = true;
+
+    gsap.to(calendarContent, {
+      autoAlpha: 1,
+      duration: 0.6,
+      ease: 'power2.inOut'
+    });
+
+    gsap.to(bodySection, {
+      x: '-20vw',
+      duration: 0.6,
+      ease: 'power2.inOut'
+    });
+  };
+
+  const closeCalendar = () => {
+    if (!isCalendarOpen) return;
+    isCalendarOpen = false;
+
+    gsap.to(calendarContent, {
+      autoAlpha: 0,
+      duration: 0.6,
+      ease: 'power2.inOut'
+    });
+
+    gsap.to(bodySection, {
+      x: 0,
+      duration: 0.6,
+      ease: 'power2.inOut'
+    });
+  };
+
+  // Toggle calendar on button click
+  calendarToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isCalendarOpen) {
+      closeCalendar();
+    } else {
+      openCalendar();
+    }
+  });
+
+  // Close calendar when clicking outside
+  document.addEventListener('click', (e) => {
+    if (isCalendarOpen && !calendarContent.contains(e.target) && !calendarToggle.contains(e.target)) {
+      closeCalendar();
+    }
+  });
+
+  // Close calendar on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isCalendarOpen) {
+      closeCalendar();
+    }
+  });
 });
 </script>
 </body>

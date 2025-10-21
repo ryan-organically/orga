@@ -5,7 +5,8 @@
       "Read(//mnt/c/Users/poopf/OneDrive/Documents/Organically/**)",
       "Bash(find:*)",
       "Bash(awk:*)",
-      "Read(///**)"
+      "Read(///**)",
+      "Read(//mnt/c/dev/**)"
     ],
     "deny": [],
     "ask": []

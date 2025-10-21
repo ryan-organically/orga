@@ -117,7 +117,8 @@ class UniversalMenu extends HTMLElement {
 
   attachEventListeners() {
     const menuToggle = this.shadowRoot.querySelector('.menu-toggle');
-    const menuPanel = document.querySelector('.menu-panel');
+    const sidePanel = document.querySelector('.side-panel');
+    const bodySection = document.querySelector('.body-section');
     const menuOverlay = this.shadowRoot.querySelector('.menu-overlay');
     const menuLinks = document.querySelectorAll('.menu-nav-link');
     const lines = this.shadowRoot.querySelectorAll('.menu-toggle span');
@@ -179,42 +180,27 @@ class UniversalMenu extends HTMLElement {
       this.isAnimating = true;
       this.isOpen = true;
 
-      // Add active classes
-      menuToggle.classList.add('active');
-      menuPanel.classList.add('active');
-      menuOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-
-      // Get the body-section from the parent document
-      const bodySection = document.querySelector('.body-section');
-
+      // Animate side panel content to visible
       if (this.gsapAvailable) {
-        const tl = gsap.timeline({
-          onComplete: () => { this.isAnimating = false; }
+        gsap.to(sidePanel, {
+          autoAlpha: 1,
+          duration: 0.6,
+          ease: 'power2.inOut'
         });
 
-        // Transform to arrow immediately
-        animateToArrow();
-
-        // Slide the body-section to the right - calculate proper distance based on menu panel width
-        if (bodySection && menuPanel) {
-          const menuWidth = menuPanel.offsetWidth;
-          tl.to(bodySection, {
-            x: menuWidth,
-            duration: 0.6,
-            ease: 'expo.out',
-          }, 0);
-        }
-
-        // Fade in overlay
-        tl.to(menuOverlay, {
-          opacity: 1,
-          duration: 0.4,
-          ease: 'power2.out',
-        }, 0);
-      } else {
-        this.isAnimating = false;
+        // Slide body-section to the right by 20vw
+        gsap.to(bodySection, {
+          x: '20vw',
+          duration: 0.6,
+          ease: 'power2.inOut'
+        });
       }
+
+      menuToggle.classList.add('active');
+      menuOverlay.classList.add('active');
+      animateToArrow();
+
+      setTimeout(() => { this.isAnimating = false; }, 600);
     };
 
     const closeMenu = () => {
@@ -222,51 +208,35 @@ class UniversalMenu extends HTMLElement {
       this.isAnimating = true;
       this.isOpen = false;
 
-      // Get the body-section from the parent document
-      const bodySection = document.querySelector('.body-section');
+      animateToHamburger();
 
+      // Animate side panel content to hidden
       if (this.gsapAvailable) {
-        const tl = gsap.timeline({
-          onComplete: () => {
-            menuToggle.classList.remove('active');
-            menuPanel.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            this.isAnimating = false;
-          }
+        gsap.to(sidePanel, {
+          autoAlpha: 0,
+          duration: 0.6,
+          ease: 'power2.inOut'
         });
 
-        // Transform to hamburger immediately
-        animateToHamburger();
-
-        // Slide the body-section back with smooth ease
-        if (bodySection) {
-          tl.to(bodySection, {
-            x: '0vw',
-            duration: 0.5,
-            ease: 'expo.inOut',
-          }, 0);
-        }
-
-        // Fade out overlay
-        tl.to(menuOverlay, {
-          opacity: 0,
-          duration: 0.3,
-          ease: 'power2.in',
-        }, 0.1);
-      } else {
-        menuToggle.classList.remove('active');
-        menuPanel.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        this.isAnimating = false;
+        // Slide body-section back to center
+        gsap.to(bodySection, {
+          x: 0,
+          duration: 0.6,
+          ease: 'power2.inOut'
+        });
       }
+
+      setTimeout(() => {
+        menuToggle.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        this.isAnimating = false;
+      }, 600);
     };
 
     // Toggle menu on button click
     menuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (menuPanel.classList.contains('active')) {
+      if (this.isOpen) {
         closeMenu();
       } else {
         openMenu();
@@ -283,7 +253,7 @@ class UniversalMenu extends HTMLElement {
 
     // Close menu on ESC key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menuPanel.classList.contains('active')) {
+      if (e.key === 'Escape' && this.isOpen) {
         closeMenu();
       }
     });
