@@ -6,7 +6,11 @@
       "Bash(find:*)",
       "Bash(awk:*)",
       "Read(///**)",
-      "Read(//mnt/c/dev/**)"
+      "Read(//mnt/c/dev/**)",
+      "Bash(/tmp/fix_borders.sh)",
+      "Bash(for file in index.html blog.html web-design.html seo.html branding.html)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []

@@ -297,6 +297,8 @@ a {
   margin-top: 10vh;
   padding-left: 5vw;
   padding-right: 5vw;
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
   display: flex;
   position: relative;
   overflow: hidden;
@@ -4025,6 +4027,8 @@ a {
   padding: 5vh 5vw;
   display: flex;
   position: relative;
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
 }
 
 .section.home-id {
@@ -4032,8 +4036,6 @@ a {
   z-index: 10;
   box-sizing: border-box;
   border-top: 1px solid var(--black-40);
-  border-right: 1px solid var(--black-40);
-  border-left: 1px solid var(--black-40);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-image: none;
@@ -4077,8 +4079,6 @@ a {
 
 .section.blog-section {
   border-top: 1px solid var(--black-40);
-  border-left: 1px solid var(--black-40);
-  border-right: 1px solid var(--black-40);
   width: 90vw;
   padding: 5vh 5vw;
   overflow: hidden;
@@ -4086,8 +4086,6 @@ a {
 
 .section.ticker-section {
   border-top: 1px solid var(--black-40);
-  border-left: 1px solid var(--black-40);
-  border-right: 1px solid var(--black-40);
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -4097,8 +4095,6 @@ a {
 
 .section.diagonal-section {
   border-top: 1px solid var(--black-40);
-  border-left: 1px solid var(--black-40);
-  border-right: 1px solid var(--black-40);
   width: 90vw;
   padding: 5vh 5vw;
   display: flex;
@@ -4123,8 +4119,6 @@ a {
 }
 
 .section.ticker-testimonial-section {
-  border-left: 1px solid var(--black-40);
-  border-right: 1px solid var(--black-40);
   border-top: 1px solid var(--black-40);
   width: 90vw;
   padding: 5vh 0;
@@ -4308,8 +4302,6 @@ a {
 
 .hero-section.home-hero {
   position: relative;
-  border-right: 1px solid var(--black-40);
-  border-left: 1px solid var(--black-40);
   display: grid;
   grid-template-columns: 1fr 35vh;
   grid-template-rows: 1fr 25vh;
@@ -4341,8 +4333,6 @@ a {
   height: 20vh;
   display: flex;
   border-top: 1px solid var(--black-40);
-  border-right: 1px solid var(--black-40);
-  border-left: 1px solid var(--black-40);
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;

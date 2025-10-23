@@ -185,15 +185,19 @@ class UniversalMenu extends HTMLElement {
         const sideMenuPanel = document.querySelector('.side-menu-panel');
         const calendarModule = document.querySelector('.calendar-module');
 
+        // Calculate slide distance based on screen size
+        const isMobile = window.innerWidth <= 767;
+        const slideDistance = isMobile ? '45vw' : '15vw'; // Match panel width on mobile
+
         gsap.to(sidePanel, {
           autoAlpha: 1,
           duration: 0.6,
           ease: 'expo.out'
         });
 
-        // Slide body-section right 15vw (menu button)
+        // Slide body-section right proportionally
         gsap.to(bodySection, {
-          x: '15vw',
+          x: slideDistance,
           duration: 0.6,
           ease: 'expo.out'
         });

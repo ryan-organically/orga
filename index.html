@@ -23,7 +23,18 @@
   <link href="https://calendly.com" rel="preconnect">
   <link href="https://assets.calendly.com" rel="preconnect">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script type="text/javascript">WebFont.load({  google: {    families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700"]  }});</script>
+  <script type="text/javascript">
+    window.fontsLoaded = false;
+    WebFont.load({
+      google: {
+        families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700"]
+      },
+      active: function() {
+        window.fontsLoaded = true;
+        document.dispatchEvent(new Event('fontsReady'));
+      }
+    });
+  </script>
   
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.jpg" rel="apple-touch-icon">
@@ -88,9 +99,8 @@ html.lenis {
       <h1 class="h1 h1-home">Organically<span class="green-span">.</span></h1>
       <p class="shrunk-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold. Combining web creative with organic potential.</p>
     </div>
-    <div data-poster-url="videos/Organically-Theme-poster-00001.jpg" data-video-urls="videos/Organically-Theme-transcode.mp4,videos/Organically-Theme-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844" class="home-hero-vid w-background-video w-background-video-atom"><video id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844-video" autoplay="" loop="" style="background-image:url(&quot;videos/Organically-Theme-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
-        <source src="videos/Organically-Theme-transcode.mp4" data-wf-ignore="true">
-        <source src="videos/Organically-Theme-transcode.webm" data-wf-ignore="true">
+    <div data-video-urls="videos/theme video compressed.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844" class="home-hero-vid w-background-video w-background-video-atom"><video id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844-video" autoplay="" loop="" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+        <source src="videos/theme video compressed.webm" type="video/webm" data-wf-ignore="true">
       </video></div>
     <div class="ticker">
       <p class="ticker-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold.</p>
@@ -423,29 +433,32 @@ document.addEventListener("DOMContentLoaded", () => {
         limitCallbacks: true,  // Limit the rate of callback execution
         syncInterval: 120,      // Increase interval between syncs for better performance
     });
-    /* 2 ▸ H1 — split lines and chars, use lines as mask */
-    const h1 = document.querySelector(".h1.h1-home");
-    const shrunkP = document.querySelector(".shrunk-p");
 
-    // Hide shrunk-p initially
-    if (shrunkP) {
-        gsap.set(shrunkP, { autoAlpha: 0 });
-    }
+    // Wait for fonts to load before running SplitText
+    function initSplitTextAnimations() {
+        /* 2 ▸ H1 — split lines and chars, use lines as mask */
+        const h1 = document.querySelector(".h1.h1-home");
+        const shrunkP = document.querySelector(".shrunk-p");
 
-    const splitH1 = SplitText.create(h1, {
-        type: "chars, lines",
-        linesClass: "line",
-        mask: "lines"
-    });
-    gsap.set(splitH1.chars, { yPercent: 110, opacity: 0 });
-    gsap.to(splitH1.chars, {
-        yPercent: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.06,
-        ease: "power3.out",
-        onComplete: animateShrunkP
-    });
+        // Hide shrunk-p initially
+        if (shrunkP) {
+            gsap.set(shrunkP, { autoAlpha: 0 });
+        }
+
+        const splitH1 = SplitText.create(h1, {
+            type: "chars, lines",
+            linesClass: "line",
+            mask: "lines"
+        });
+        gsap.set(splitH1.chars, { yPercent: 110, opacity: 0 });
+        gsap.to(splitH1.chars, {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.06,
+            ease: "power3.out",
+            onComplete: animateShrunkP
+        });
     // 3 ▸ Shrunk-p animation (starts after H1 animation completes)
     function animateShrunkP() {
         if (shrunkP) {
@@ -582,21 +595,30 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.warn('Element with class ".section.home-id" not found. The "fall to bottom" animation will not trigger.');
     }
+    }
+
+    // Initialize SplitText animations when fonts are ready
+    if (window.fontsLoaded) {
+        initSplitTextAnimations();
+    } else {
+        document.addEventListener('fontsReady', initSplitTextAnimations);
+    }
 });
 
 // GSAP SplitText Animation for Intro Text
 document.addEventListener('DOMContentLoaded', function() {
-    const initialText = document.querySelector('#animated-intro-text');
-    if (!initialText) return;
+    function initIntroText() {
+        const initialText = document.querySelector('#animated-intro-text');
+        if (!initialText) return;
 
-    let initialSplit;
+        let initialSplit;
 
-    // GSAP SplitText setup for text masking
-    initialSplit = new SplitText(initialText, {
-        type: "words,lines",
-        wordsClass: "word",
-        linesClass: "line"
-    });
+        // GSAP SplitText setup for text masking
+        initialSplit = new SplitText(initialText, {
+            type: "words,lines",
+            wordsClass: "word",
+            linesClass: "line"
+        });
 
     // Set initial state - words hidden below (mimicking hero animation)
     gsap.set(initialSplit.words, {
@@ -620,6 +642,14 @@ document.addEventListener('DOMContentLoaded', function() {
             once: true  // Only play once for better performance
         }
     });
+    }
+
+    // Initialize when fonts are ready
+    if (window.fontsLoaded) {
+        initIntroText();
+    } else {
+        document.addEventListener('fontsReady', initIntroText);
+    }
 });
 
 // Hero Video Bounce-in Animation + Scroll Animation
@@ -839,26 +869,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    const h3Element = document.querySelector('.diagonal-h3');
+    function initDiagonalH3() {
+        const h3Element = document.querySelector('.diagonal-h3');
 
-    if (h3Element) {
-        // Split h3 into words with mask
-        const split = new SplitText(h3Element, { type: "words", mask: "words" });
-        gsap.set(split.words, { yPercent: 110, opacity: 0 });
+        if (h3Element) {
+            // Split h3 into words with mask
+            const split = new SplitText(h3Element, { type: "words", mask: "words" });
+            gsap.set(split.words, { yPercent: 110, opacity: 0 });
 
-        gsap.to(split.words, {
-            yPercent: 0,
-            opacity: 1,
-            stagger: 0.05,
-            duration: 0.6,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: h3Element,
-                start: "top 70%",
-                end: "top 40%",
-                toggleActions: "play none none reverse"
-            }
-        });
+            gsap.to(split.words, {
+                yPercent: 0,
+                opacity: 1,
+                stagger: 0.05,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: h3Element,
+                    start: "top 70%",
+                    end: "top 40%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        }
+    }
+
+    // Initialize when fonts are ready
+    if (window.fontsLoaded) {
+        initDiagonalH3();
+    } else {
+        document.addEventListener('fontsReady', initDiagonalH3);
     }
 });
 </script>
@@ -870,32 +909,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    const footer = document.querySelector('.footer');
-    if (!footer) return;
+    function initFooterTypemark() {
+        const footer = document.querySelector('.footer');
+        if (!footer) return;
 
-    // Only animate the typemark
-    const typemark = footer.querySelector('.footer-typemark');
-    if (!typemark) return;
+        // Only animate the typemark
+        const typemark = footer.querySelector('.footer-typemark');
+        if (!typemark) return;
 
-    const split = new SplitText(typemark, { type: "chars" });
+        const split = new SplitText(typemark, { type: "chars" });
 
-    // Set initial state - start from above
-    gsap.set(split.chars, { yPercent: -200, opacity: 0 });
+        // Set initial state - start from above
+        gsap.set(split.chars, { yPercent: -200, opacity: 0 });
 
-    // Animate on scroll - fly in from above
-    gsap.to(split.chars, {
-        yPercent: 0,
-        opacity: 1,
-        stagger: 0.02,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: typemark,
-            start: "top 80%",
-            end: "top 50%",
-            toggleActions: "play none none reverse"
-        }
-    });
+        // Animate on scroll - fly in from above
+        gsap.to(split.chars, {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.02,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: typemark,
+                start: "top 80%",
+                end: "top 50%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    }
+
+    // Initialize when fonts are ready
+    if (window.fontsLoaded) {
+        initFooterTypemark();
+    } else {
+        document.addEventListener('fontsReady', initFooterTypemark);
+    }
 });
 </script>
 
@@ -906,29 +954,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    const coffeeHeading = document.querySelector('.read-more-heading');
-    if (!coffeeHeading) return;
+    function initCoffeeHeading() {
+        const coffeeHeading = document.querySelector('.read-more-heading');
+        if (!coffeeHeading) return;
 
-    // Split into words with mask
-    const split = new SplitText(coffeeHeading, { type: "words", mask: "words" });
+        // Split into words with mask
+        const split = new SplitText(coffeeHeading, { type: "words", mask: "words" });
 
-    // Set initial state
-    gsap.set(split.words, { yPercent: 110, opacity: 0 });
+        // Set initial state
+        gsap.set(split.words, { yPercent: 110, opacity: 0 });
 
-    // Animate on scroll
-    gsap.to(split.words, {
-        yPercent: 0,
-        opacity: 1,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: coffeeHeading,
-            start: "top 70%",
-            end: "top 40%",
-            toggleActions: "play none none reverse"
-        }
-    });
+        // Animate on scroll
+        gsap.to(split.words, {
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.05,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: coffeeHeading,
+                start: "top 70%",
+                end: "top 40%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    }
+
+    // Initialize when fonts are ready
+    if (window.fontsLoaded) {
+        initCoffeeHeading();
+    } else {
+        document.addEventListener('fontsReady', initCoffeeHeading);
+    }
 });
 </script>
 
@@ -1026,6 +1083,7 @@ document.addEventListener("DOMContentLoaded", () => {
     margin: 10vh 0 0 0;
     padding: 5vw;
     box-sizing: border-box;
+    min-height: 60vh;
   }
 
   /* All sections inside body-section - 100% width, 5vw padding */
@@ -1051,20 +1109,28 @@ document.addEventListener("DOMContentLoaded", () => {
     padding: 0;
   }
 
-  /* Mobile - maintain same layout structure */
+  /* Mobile - scale up panels proportionally */
   @media (max-width: 767px) {
     .body-section {
       width: 90vw;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
     }
 
     .side-menu-panel {
-      width: 20vw;
+      width: 45vw;
+    }
+
+    .side-panel {
+      width: 100%;
     }
 
     .calendar-module {
-      width: 20vw;
+      width: 45vw;
+    }
+
+    .calendar-panel-content {
+      width: 100%;
     }
 
     .universal-menu {
@@ -1208,11 +1274,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const bodySection = document.querySelector('.body-section');
   const calendarModule = document.querySelector('.calendar-module');
 
+  // Initialize body-section position to prevent jump on load
+  gsap.set(bodySection, { x: 0 });
+
   let isCalendarOpen = false;
 
   const openCalendar = () => {
     if (isCalendarOpen) return;
     isCalendarOpen = true;
+
+    // Calculate slide distance based on screen size
+    const isMobile = window.innerWidth <= 767;
+    const slideDistance = isMobile ? '-45vw' : '-15vw'; // Match panel width on mobile
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -1221,9 +1294,9 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'expo.out'
     });
 
-    // Slide body-section left 15vw (calendar button)
+    // Slide body-section left proportionally
     gsap.to(bodySection, {
-      x: '-15vw',
+      x: slideDistance,
       duration: 0.6,
       ease: 'expo.out'
     });
