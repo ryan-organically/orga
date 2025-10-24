@@ -1,0 +1,21 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect /blog.html to /blog
+RewriteCond %{THE_REQUEST} ^GET\ /blog\.html
+RewriteRule ^blog\.html$ /blog [R=301,L]
+
+# Serve blog.html for /blog requests
+RewriteRule ^blog/?$ blog.html [L]
+
+# Remove .html extension from all URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect .html URLs to pretty URLs (301 permanent redirect)
+RewriteCond %{THE_REQUEST} ^GET\ /([^\.]+)\.html
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# Custom error pages (optional)
+# ErrorDocument 404 /404.html

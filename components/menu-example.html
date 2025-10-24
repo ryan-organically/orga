@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Menu Component - Example</title>
+  <style>
+    /* Your global styles */
+    :root {
+      --orga: #7ec700;
+      --333: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      padding: 100px 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* This is your existing .universal-menu wrapper styles */
+    .universal-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1001;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .button-1 {
+      padding: 12px 24px;
+      background: var(--orga);
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .button-1:hover {
+      background: #000;
+      color: var(--orga);
+      transform: scale(1.05);
+    }
+
+    .light-dark-mode-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+    STEP 1: Add the wrapper div with your existing .universal-menu class
+    This controls the positioning and layout of the menu bar
+  -->
+  <div class="universal-menu">
+    <!--
+      STEP 2: Drop in the <universal-menu> custom element
+      This is your new Web Component - it contains the hamburger menu
+    -->
+    <universal-menu></universal-menu>
+
+    <!-- Your other menu items stay the same -->
+    <div class="light-dark-mode-wrapper">
+      <div class="dark-mode-button"></div>
+    </div>
+    <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1">Book call</a>
+  </div>
+
+  <!-- Your page content -->
+  <div class="content">
+    <h1>Universal Menu Component Example</h1>
+    <p>This page demonstrates how to use the <code>&lt;universal-menu&gt;</code> Web Component.</p>
+
+    <h2>How It Works:</h2>
+    <ol>
+      <li>The component is defined once in <code>components/universal-menu.js</code></li>
+      <li>You load the script once per page (see below)</li>
+      <li>You use the <code>&lt;universal-menu&gt;&lt;/universal-menu&gt;</code> tag anywhere</li>
+      <li>The component automatically includes its own HTML, CSS, and JavaScript</li>
+    </ol>
+
+    <h2>What's a Web Component?</h2>
+    <p>Web Components are a set of native browser APIs that let you create reusable custom HTML elements. Think of it like React components, but built into the browser—no framework needed.</p>
+
+    <h2>Benefits:</h2>
+    <ul>
+      <li><strong>Zero dependencies</strong> - No React, Vue, or other frameworks needed</li>
+      <li><strong>Reusable</strong> - Write once, use everywhere</li>
+      <li><strong>Encapsulated</strong> - CSS and JS don't leak out</li>
+      <li><strong>Native</strong> - Supported by all modern browsers</li>
+      <li><strong>Lightweight</strong> - Just vanilla JavaScript</li>
+    </ul>
+
+    <h2>Try It:</h2>
+    <p>Click the hamburger menu in the top left to see it in action!</p>
+  </div>
+
+  <!--
+    STEP 3: Load the Web Component script
+    Place this just before the closing </body> tag on every page
+  -->
+  <script src="components/universal-menu.js"></script>
+
+</body>
+</html>
