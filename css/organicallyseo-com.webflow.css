@@ -307,6 +307,32 @@ a {
 .hero-section.web-hero {
   z-index: 5;
   overflow: visible;
+  padding: 5vh 40px;
+}
+
+.hero-social-proof {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  max-width: 300px;
+  padding: 15px;
+}
+
+.hero-social-proof-stars {
+  margin-bottom: 8px;
+}
+
+.hero-social-proof-stars img {
+  width: 80px;
+  height: auto;
+  margin-left: -5px;
+}
+
+.hero-social-proof-quote {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.8;
 }
 
 .hero-section.gmb-hero {
@@ -2833,7 +2859,6 @@ a {
   z-index: 2;
   margin-top: 10px;
   margin-bottom: 10px;
-    font-weight: 600;
   position: relative;
 }
 
@@ -3395,7 +3420,7 @@ a {
 }
 
 .services-h2.web-design {
-  text-align: left;
+  text-align: center;
   flex: none;
 }
 
@@ -4044,6 +4069,7 @@ a {
   padding: 5vh 5vw;
   display: flex;
   position: relative;
+  border-top: 1px solid var(--black-40);
   border-left: 1px solid var(--black-40);
   border-right: 1px solid var(--black-40);
 }
@@ -4354,6 +4380,8 @@ a {
   align-items: center;
   gap: 5vw;
   border-top: 1px solid var(--black-40);
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
@@ -5136,6 +5164,7 @@ a {
 
   .hero-section.web-hero {
     height: 90vh;
+    padding: 5vh 20px;
   }
 
   .hero-section.gmb-hero {
@@ -6274,6 +6303,11 @@ a {
 }
 
 @media screen and (max-width: 767px) {
+  h1 {
+    font-size: 3rem;
+    line-height: 3.25rem;
+  }
+
   .hero-section {
     align-items: center;
     padding-bottom: 0;
@@ -7029,8 +7063,17 @@ a {
 }
 
 @media screen and (max-width: 479px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+
   .hero-section {
     height: 50vh;
+  }
+
+  .hero-section.web-hero {
+    padding: 5vh 20px;
   }
 
   .hero-section.gmb-hero {
