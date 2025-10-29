@@ -282,6 +282,36 @@ p {
   line-height: 1.75rem;
 }
 
+.p2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.4rem;
+}
+
+.social-proof-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4rem;
+  color: var(--black-60);
+  font-style: italic;
+}
+
+.small-feature-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: Coolvetica Rg, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4rem;
+  color: var(--black-75);
+}
+
 a {
   text-decoration: none;
 }
@@ -311,19 +341,25 @@ a {
 }
 
 .hero-social-proof {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   bottom: 20px;
   right: 20px;
-  max-width: 300px;
+  width: 500px;
+  max-width: 500px;
   padding: 15px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .hero-social-proof-stars {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .hero-social-proof-stars img {
-  width: 80px;
+  width: 100px;
   height: auto;
   margin-left: -5px;
 }
@@ -4459,7 +4495,7 @@ a {
   line-height: 1.2;
 }
 
-.hero-footer-description p {
+.hero-footer-description p:not(.small-feature-title):not(.p2) {
   font-family: Lato, sans-serif;
   color: var(--666);
   margin: 0;
@@ -4716,11 +4752,12 @@ a {
 
 .hero-social-proof {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   margin-top: 0;
   margin-bottom: 20px;
-  width: 100%;
-  max-width: 700px;
+  width: 500px;
+  max-width: 500px;
 }
 
 .social-proof-tile {
