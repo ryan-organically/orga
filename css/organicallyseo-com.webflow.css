@@ -363,6 +363,17 @@ a {
   z-index: 5;
   overflow: visible;
   padding: 5vh 40px;
+  position: relative;
+}
+
+.hero-treeline-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20vw;
+  height: auto;
+  display: block;
+  z-index: 5;
 }
 
 .hero-social-proof {
@@ -4426,8 +4437,9 @@ a {
 
 .services-showcase {
   position: relative;
-  width: 90vw;
-  height: 75vh;
+  width: 100%;
+  height: auto;
+  min-height: 75vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -4438,7 +4450,7 @@ a {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 0 5vh 0;
+  padding: 10vh 0;
 }
 
 .services-showcase-left {
@@ -4590,6 +4602,53 @@ a {
   white-space: nowrap;
   position: relative;
   z-index: 1;
+}
+
+/* Services Showcase Responsive Styles */
+@media (max-width: 800px) {
+  .services-showcase {
+    flex-direction: column;
+    min-height: auto;
+    gap: 3vh;
+    padding: 5vh 0;
+  }
+
+  .services-showcase-left,
+  .services-showcase-right {
+    width: 100%;
+    flex: none;
+  }
+
+  .services-showcase-left {
+    padding: 0 5vw;
+  }
+
+  .services-showcase-right {
+    padding: 0 5vw;
+  }
+
+  .services-showcase-content {
+    position: relative;
+    min-height: 200px;
+  }
+
+  .services-showcase-description {
+    padding: 3vh 0;
+  }
+}
+
+@media (max-width: 533px) {
+  .services-showcase-left {
+    padding: 0 2.5vw;
+  }
+
+  .services-showcase-right {
+    padding: 0 2.5vw;
+  }
+
+  .services-showcase-description {
+    padding: 2.5vh 0;
+  }
 }
 
 .author-cms-text-block, .date-cms-text-block {

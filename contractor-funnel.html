@@ -17,23 +17,6 @@
   <link href="css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
   <style>
     @media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844"] {-webkit-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);}}
-    /* Contractor page specific h1 sizing */
-    #contractor-hero-section .h1.h1-home {
-      font-size: 4.5rem;
-      line-height: 4.75rem;
-    }
-    @media (max-width: 991px) {
-      #contractor-hero-section .h1.h1-home {
-        font-size: 3.5rem;
-        line-height: 3.75rem;
-      }
-    }
-    @media (max-width: 479px) {
-      #contractor-hero-section .h1.h1-home {
-        font-size: 2.5rem;
-        line-height: 2.75rem;
-      }
-    }
     /* Contractor page hero footer stripe - vertical alignment */
     .hero-footer-stripe.vertical {
       flex-direction: column;
@@ -161,43 +144,37 @@ html.lenis {
 
     <!-- Center Body Section -->
     <div class="body-section">
-
-  <!-- Menu Panel -->
-  <div class="menu-panel">
-    <div class="menu-panel-content">
-      <nav class="menu-nav">
-        <a href="index.html" class="menu-nav-link">Home</a>
-        <a href="web-design.html" class="menu-nav-link">Web design</a>
-        <a href="seo.html" class="menu-nav-link">SEO</a>
-        <a href="branding.html" class="menu-nav-link">Creative</a>
-      </nav>
-      <div class="menu-footer">
-        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Schedule a call</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="body-section">
     <div class="universal-menu">
       <universal-menu></universal-menu>
       <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
         <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
       </div>
-      <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Book call</a>
+      <a href="#" class="button-1 w-button" id="calendar-toggle">Schedule a call</a>
     </div>
 
     <!-- Hero Section -->
     <div id="contractor-hero-section" class="hero-section home-hero">
-      <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div">
-        <h1 class="h1 h1-home">General Contractors<span class="green-span">...</span></h1>
-        <p class="shrunk-p">Crews ready, phones quiet, schedule patchy? That's not "the market"... that's fixable.</p>
+      <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div" style="position: relative; padding-bottom: 20vh;">
+        <h1 class="h1">Contractor SEO That Fills Your Calendar<span class="green-span">.</span></h1>
+        <p class="shrunk-p" style="width: 90%; max-width: 90%;">Most agencies promise page 1 rankings, collect a check, and disappear. We show you exactly which calls came from Google, which leads turned into jobs, and what your money actually bought you. No jargon. No excuses. Just proof.</p>
+        <a href="#" class="button-1 w-button" id="hero-calendar-toggle" style="margin-top: 20px;">Schedule a 1-on-1</a>
+
+        <!-- Social Proof Review -->
+        <div class="hero-social-proof" style="position: absolute; top: auto; bottom: 20px; left: auto; right: 0; align-items: flex-end;">
+          <div class="hero-social-proof-stars" style="text-align: right;">
+            <img src="green 5 star.png" alt="5 stars" style="margin-left: 0; margin-right: -5px;">
+          </div>
+          <p class="social-proof-title" style="font-style: italic; text-align: right;">IWC Cabinetry</p>
+          <p class="p2" style="font-style: italic; text-align: right;">"His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come."</p>
+        </div>
       </div>
+
+      <!-- Side Treeline Image -->
+      <img src="images/side treeline.png" alt="Treeline" style="position: absolute; top: auto; bottom: 0; left: auto; right: 0; width: 15%; height: auto; display: block;">
+
       <div class="ticker">
         <p class="ticker-p">Pittsburgh General Contractors aren't waiting on word-of-mouth… they built a system that makes the phone ring…</p>
       </div>
-
-      <!-- Steel Building Image -->
-      <img src="images/Steel-Building.png" loading="lazy" sizes="100vw" srcset="images/Steel-Building-p-500.png 500w, images/Steel-Building-p-800.png 800w, images/Steel-Building-p-1080.png 1080w, images/Steel-Building-p-1600.png 1600w, images/Steel-Building.png 2048w" alt="Pittsburgh Steel Building" class="hero-steel-building">
     </div>
 
     <!-- Grid Section -->
@@ -731,12 +708,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
-  </div><!-- .body-section -->
+    </div><!-- .body-section -->
 
-  <!-- Universal Menu Web Component -->
-      </div><!-- .body-section -->
-
-<!-- Right Calendar Panel -->
+    <!-- Right Calendar Panel -->
     <div class="calendar-module">
       <div class="calendar-panel-content">
         <div class="calendar-header">
@@ -758,6 +732,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="review-author">— Sarah M., Founder</p>
         </div>
       </div>
+    </div>
 
   <!-- Universal Menu Web Component -->
   <script src="components/universal-menu.js"></script>
@@ -882,20 +857,28 @@ document.addEventListener("DOMContentLoaded", () => {
     padding: 0;
   }
 
-  /* Mobile - maintain same layout structure */
+  /* Mobile - scale up panels proportionally */
   @media (max-width: 767px) {
     .body-section {
       width: 90vw;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
     }
 
     .side-menu-panel {
-      width: 20vw;
+      width: 45vw;
+    }
+
+    .side-panel {
+      width: 100%;
     }
 
     .calendar-module {
-      width: 20vw;
+      width: 45vw;
+    }
+
+    .calendar-panel-content {
+      width: 100%;
     }
 
     .universal-menu {
@@ -1039,11 +1022,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const bodySection = document.querySelector('.body-section');
   const calendarModule = document.querySelector('.calendar-module');
 
+  // Initialize body-section position to prevent jump on load
+  gsap.set(bodySection, { x: 0 });
+
   let isCalendarOpen = false;
 
   const openCalendar = () => {
     if (isCalendarOpen) return;
     isCalendarOpen = true;
+
+    // Calculate slide distance based on screen size
+    const isMobile = window.innerWidth <= 767;
+    const slideDistance = isMobile ? '-45vw' : '-15vw'; // Match panel width on mobile
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -1052,9 +1042,9 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'expo.out'
     });
 
-    // Slide body-section left 15vw (calendar button)
+    // Slide body-section left proportionally
     gsap.to(bodySection, {
-      x: '-15vw',
+      x: slideDistance,
       duration: 0.6,
       ease: 'expo.out'
     });
@@ -1090,9 +1080,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  // Also handle hero calendar toggle button
+  const heroCalendarToggle = document.getElementById('hero-calendar-toggle');
+  if (heroCalendarToggle) {
+    heroCalendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+  }
+
   // Close calendar when clicking outside
   document.addEventListener('click', (e) => {
-    if (isCalendarOpen && !calendarContent.contains(e.target) && !calendarToggle.contains(e.target)) {
+    const isHeroToggle = heroCalendarToggle && heroCalendarToggle.contains(e.target);
+    if (isCalendarOpen && !calendarContent.contains(e.target) && !calendarToggle.contains(e.target) && !isHeroToggle) {
       closeCalendar();
     }
   });
