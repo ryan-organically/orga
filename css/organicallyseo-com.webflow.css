@@ -4233,7 +4233,8 @@ a {
 .section.ticker-testimonial-section {
   border-top: 1px solid var(--black-40);
   width: 90vw;
-  padding: 5vh 0;
+  padding: 2vh 0;
+  max-height: 25vh;
   justify-content: center;
   align-items: center;
   overflow: hidden;
