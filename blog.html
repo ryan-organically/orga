@@ -29,144 +29,19 @@
     overflow-x: clip;
   }
 
-  /* Menu Panel - Push off-screen when inactive */
-  .menu-panel {
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-  }
-
-  .menu-panel.active {
-    transform: translateX(0);
-  }
-
-  /* Calendar Panel Styles - Mirror of Menu Panel */
-  .calendar-panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 15vw;
-    max-width: 15vw;
-    height: 100vh;
-    max-height: 100vh;
-    background: transparent;
-    z-index: 5;
-    overflow: hidden;
-    pointer-events: none;
-    border: none;
-    transform: translateX(100%);
-    transition: transform 0.6s ease;
-  }
-
-  .calendar-panel.active {
-    pointer-events: auto;
-    transform: translateX(0);
-  }
-
-  .calendar-panel-content {
-    padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: var(--e2);
-    border-left: 1px solid var(--black-40);
-  }
-
-  .calendar-header {
-    padding: 30px 30px 20px;
-    border-bottom: 1px solid var(--black-40);
-  }
-
-  .calendar-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--black);
-  }
-
-  .calendar-subtitle {
-    font-size: 14px;
-    opacity: 0.6;
-    margin: 0;
-  }
-
-  .calendar-embed-wrapper {
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .calendar-embed-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  /* Responsive Calendar Panel */
-  @media (max-width: 991px) {
-    .calendar-panel {
-      width: 40vw;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .calendar-panel {
-      width: 60vw;
-    }
-
-    .calendar-header {
-      padding: 25px 20px 15px;
-    }
-
-    .calendar-title {
-      font-size: 20px;
-    }
-  }
-
-  @media (max-width: 479px) {
-    .calendar-panel {
-      width: 80vw;
-    }
-
-    .calendar-header {
-      padding: 20px 15px 12px;
-    }
-
-    .calendar-title {
-      font-size: 18px;
-    }
-  }
-
-  /* Dark Mode Support for Calendar */
-  .dark-mode .calendar-panel-content {
-    background: var(--rich-black);
-    border-left-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .dark-mode .calendar-header {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .dark-mode .calendar-title {
-    color: var(--white);
-  }
-
   /* Blog Home Hero Styles */
   .blog-home-hero {
     border-right: 1px solid var(--black-40);
     border-bottom: 1px solid var(--black-40);
     border-left: 1px solid var(--black-40);
-    padding: 120px 5vw 60px;
+    padding: 5vw;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 50vh;
-    width: 90vw;
-    margin-top: 0;
+    width: 100%;
+    margin-top: 10vh;
     margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .blog-hero-container {
@@ -318,6 +193,7 @@
   .blog-card-read-time {
     font-size: 12px;
     opacity: 0.6;
+    margin-left: 12px;
   }
 
   /* Dark Mode Support */
@@ -438,43 +314,6 @@ html.lenis {
 
     <!-- Center Body Section -->
     <div class="body-section">
-
-  <!-- Left Menu Panel -->
-  <div class="menu-panel">
-    <div class="menu-panel-content">
-      <nav class="menu-nav">
-        <a href="index.html" class="menu-nav-link">Home</a>
-        <a href="web-design.html" class="menu-nav-link">Web design</a>
-        <a href="seo.html" class="menu-nav-link">SEO</a>
-        <a href="branding.html" class="menu-nav-link">Creative</a>
-        <a href="blog.html" class="menu-nav-link">Blog</a>
-      </nav>
-      <div class="menu-footer">
-        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Schedule a call</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right Calendar Panel -->
-  <div class="calendar-panel">
-    <div class="calendar-panel-content">
-      <div class="calendar-header">
-        <h3 class="calendar-title">Let's Connect</h3>
-        <p class="calendar-subtitle">Pick a time that works for you</p>
-      </div>
-      <div class="calendar-embed-wrapper">
-        <iframe
-          src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700"
-          width="100%"
-          height="100%"
-          frameborder="0"
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
-  </div>
-
-  <div class="body-section">
     <div class="universal-menu">
       <universal-menu></universal-menu>
       <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
@@ -492,18 +331,23 @@ html.lenis {
 
   <section class="blog-main-section">
     <div class="blog-sidebar">
-      <div class="sidebar-title">Browse Categories</div>
-      <a href="/blog" class="sidebar-link active">All Posts</a>
-      <a href="/blog/seo" class="sidebar-link">SEO</a>
-      <a href="/blog/web-design" class="sidebar-link">Web Design</a>
-      <a href="/blog/content-marketing" class="sidebar-link">Content Marketing</a>
-      <a href="/blog/case-studies" class="sidebar-link">Case Studies</a>
+      <div class="sidebar-title">Popular Posts</div>
+      <a href="what-is-seo.html" class="sidebar-link">What is SEO?</a>
+      <a href="seo-for-doctors.html" class="sidebar-link">SEO for Doctors</a>
+      <a href="branding-basics.html" class="sidebar-link">Basics of Branding</a>
+      <a href="webflow-launch-checklist.html" class="sidebar-link">Webflow Launch Checklist</a>
+      <a href="webflow-vs-figma.html" class="sidebar-link">Webflow vs. Figma</a>
+      <a href="ai-art.html" class="sidebar-link">What is AI Art?</a>
+      <a href="i-wrote-17-small-blogs-increased-my-traffic-by-x.html" class="sidebar-link">Increase Blog Traffic Case Study</a>
+      <a href="microblog-why-content-marketing-is-changing-the-game.html" class="sidebar-link">Content Marketing Trends</a>
+      <a href="the-ux-revolution-how-experience-is-evolving-daily.html" class="sidebar-link">The UX Revolution</a>
+      <a href="tools.html" class="sidebar-link">5 Elite Tools</a>
     </div>
 
     <div class="blog-grid-container">
       <div class="blog-grid">
         <div class="blog-card">
-          <a href="/seo-for-doctors" class="blog-card-link w-inline-block">
+          <a href="seo-for-doctors.html" class="blog-card-link w-inline-block">
             <div class="blog-card-image-wrapper">
               <img src="images/Hand-Writing.png" loading="lazy" alt="SEO for Doctors" class="blog-card-image">
             </div>
@@ -520,7 +364,7 @@ html.lenis {
         </div>
 
         <div class="blog-card">
-          <a href="/i-wrote-17-small-blogs-increased-my-traffic-by-x" class="blog-card-link w-inline-block">
+          <a href="i-wrote-17-small-blogs-increased-my-traffic-by-x.html" class="blog-card-link w-inline-block">
             <div class="blog-card-image-wrapper">
               <img src="images/Ahrefs-Snapshot.png" loading="lazy" alt="Keyword Research Case Study" class="blog-card-image">
             </div>
@@ -537,7 +381,7 @@ html.lenis {
         </div>
 
         <div class="blog-card">
-          <a href="/microblog-why-content-marketing-is-changing-the-game" class="blog-card-link w-inline-block">
+          <a href="microblog-why-content-marketing-is-changing-the-game.html" class="blog-card-link w-inline-block">
             <div class="blog-card-image-wrapper">
               <img src="images/Hand-Writing.png" loading="lazy" alt="Content Marketing" class="blog-card-image">
             </div>
@@ -554,7 +398,7 @@ html.lenis {
         </div>
 
         <div class="blog-card">
-          <a href="/ai-art" class="blog-card-link w-inline-block">
+          <a href="ai-art.html" class="blog-card-link w-inline-block">
             <div class="blog-card-image-wrapper">
               <img src="images/AI-Art-Painting.jpg" loading="lazy" alt="AI Art" class="blog-card-image">
             </div>
@@ -571,7 +415,7 @@ html.lenis {
         </div>
 
         <div class="blog-card">
-          <a href="/tools" class="blog-card-link w-inline-block">
+          <a href="tools.html" class="blog-card-link w-inline-block">
             <div class="blog-card-image-wrapper">
               <img src="images/My-favorite-tools.jpg" loading="lazy" alt="Tools" class="blog-card-image">
             </div>
@@ -779,20 +623,28 @@ html.lenis {
     padding: 0;
   }
 
-  /* Mobile - maintain same layout structure */
+  /* Mobile - scale up panels proportionally */
   @media (max-width: 767px) {
     .body-section {
       width: 90vw;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
     }
 
     .side-menu-panel {
-      width: 20vw;
+      width: 45vw;
+    }
+
+    .side-panel {
+      width: 100%;
     }
 
     .calendar-module {
-      width: 20vw;
+      width: 45vw;
+    }
+
+    .calendar-panel-content {
+      width: 100%;
     }
 
     .universal-menu {
@@ -936,11 +788,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const bodySection = document.querySelector('.body-section');
   const calendarModule = document.querySelector('.calendar-module');
 
+  // Initialize body-section position to prevent jump on load
+  gsap.set(bodySection, { x: 0 });
+
   let isCalendarOpen = false;
 
   const openCalendar = () => {
     if (isCalendarOpen) return;
     isCalendarOpen = true;
+
+    // Calculate slide distance based on screen size
+    const isMobile = window.innerWidth <= 767;
+    const slideDistance = isMobile ? '-45vw' : '-15vw'; // Match panel width on mobile
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -949,9 +808,9 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'expo.out'
     });
 
-    // Slide body-section left 15vw (calendar button)
+    // Slide body-section left proportionally
     gsap.to(bodySection, {
-      x: '-15vw',
+      x: slideDistance,
       duration: 0.6,
       ease: 'expo.out'
     });
@@ -1003,91 +862,26 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-  // Calendar Panel Toggle
-  document.addEventListener('DOMContentLoaded', function() {
-    const calendarToggle = document.getElementById('calendar-toggle');
-    const calendarPanel = document.querySelector('.calendar-panel');
-    const bodySection = document.querySelector('.body-section');
-    let isCalendarOpen = false;
-    let isAnimating = false;
-
-    const openCalendar = () => {
-      if (isAnimating) return;
-      isAnimating = true;
-      isCalendarOpen = true;
-
-      calendarPanel.classList.add('active');
-      document.body.style.overflow = 'hidden';
-
-      if (typeof gsap !== 'undefined') {
-        const calendarWidth = calendarPanel.offsetWidth;
-        const tl = gsap.timeline({
-          onComplete: () => { isAnimating = false; }
-        });
-
-        // Slide body-section to the LEFT (negative value)
-        tl.to(bodySection, {
-          x: -calendarWidth,
-          duration: 0.6,
-          ease: 'expo.out',
-        }, 0);
-      } else {
-        isAnimating = false;
-      }
-    };
-
-    const closeCalendar = () => {
-      if (isAnimating) return;
-      isAnimating = true;
-      isCalendarOpen = false;
-
-      if (typeof gsap !== 'undefined') {
-        const tl = gsap.timeline({
-          onComplete: () => {
-            calendarPanel.classList.remove('active');
-            document.body.style.overflow = '';
-            isAnimating = false;
-          }
-        });
-
-        // Slide body-section back to center
-        tl.to(bodySection, {
-          x: 0,
-          duration: 0.5,
-          ease: 'expo.inOut',
-        }, 0);
-      } else {
-        calendarPanel.classList.remove('active');
-        document.body.style.overflow = '';
-        isAnimating = false;
-      }
-    };
-
-    // Toggle calendar on button click
-    calendarToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (isCalendarOpen) {
-        closeCalendar();
-      } else {
-        openCalendar();
-      }
+document.addEventListener("DOMContentLoaded", () => {
+    /* Lenis + ScrollTrigger sync */
+    const lenis = new Lenis({
+        lerp: 0.1,
+        wheelMultiplier: 0.7,
+        gestureOrientation: "vertical",
+        normalizeWheel: false,
+        smoothTouch: false
     });
+    // ScrollTrigger auto-updates with Lenis - no need to manually call update() every frame
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    lenis.on('scroll', ScrollTrigger.update); // Only update on actual scroll events
 
-    // Close calendar when clicking outside
-    document.addEventListener('click', (e) => {
-      if (isCalendarOpen && !calendarPanel.contains(e.target) && !calendarToggle.contains(e.target)) {
-        closeCalendar();
-      }
+    // Optimize ScrollTrigger performance globally
+    ScrollTrigger.config({
+        limitCallbacks: true,  // Limit the rate of callback execution
+        syncInterval: 120,      // Increase interval between syncs for better performance
     });
-
-    // Close calendar on ESC key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isCalendarOpen) {
-        closeCalendar();
-      }
-    });
-  });
-  </script>
+});
+</script>
 </body>
 </html>
