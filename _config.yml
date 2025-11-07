@@ -1,0 +1,80 @@
+# GitHub Pages Jekyll Configuration
+# This file enables pretty URLs and controls what gets published
+
+# Site Information
+title: "Organically | Web Creative with Organic Potential"
+description: "Solo agency marketer delivering businesses with personalized & powerful websites that generate traffic."
+url: "https://organicallyseo.com"
+baseurl: ""
+
+# Author/Business Info
+author:
+  name: "Organically"
+  email: "ryan.organically@gmail.com"
+  location: "Pittsburgh, PA"
+
+# Pretty URLs - removes .html extensions automatically
+# blog.html becomes /blog/, seo.html becomes /seo/, etc.
+permalink: pretty
+
+# Exclude files/folders from GitHub Pages build
+exclude:
+  # Development/test components
+  - components/debug-3d.html
+  - components/menu-example.html
+  - components/test-3d-menu.html
+
+  # Template/incomplete pages
+  - detail_blog.html
+  - form.html
+  - tools.html
+
+  # Configuration files
+  - .htaccess
+  - ORGA_DOCS.md
+  - .claude/
+  - .git/
+  - .gitignore
+
+  # Documentation
+  - README.md
+  - components/COMPONENTS-GUIDE.md
+  - components/90-DEGREE-FLIP.md
+  - components/QUICK_START.md
+  - components/README.md
+
+# Include specific files that Jekyll normally excludes
+include:
+  - .htaccess
+
+# GitHub Pages will automatically use Jekyll 3.9.x
+# No plugins needed for basic pretty URLs
+
+# Markdown settings (if you add markdown content later)
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Sass/SCSS settings (your CSS is already compiled)
+sass:
+  style: compressed
+
+# Disable Jekyll's default processing for certain files
+# Your HTML files will still be served, just with pretty URLs
+keep_files:
+  - images
+  - css
+  - fonts
+  - videos
+  - documents
+
+# SEO and meta tags
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Allow GitHub Pages to build the site
+github:
+  pages:
+    url: "https://organicallyseo.com"
