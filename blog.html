@@ -34,16 +34,14 @@
     border-right: 1px solid var(--black-40);
     border-bottom: 1px solid var(--black-40);
     border-left: 1px solid var(--black-40);
-    padding: 120px 5vw 60px;
+    padding: 5vw;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 50vh;
-    width: 90vw;
-    margin-top: 0;
+    width: 100%;
+    margin-top: 10vh;
     margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .blog-hero-container {
@@ -316,24 +314,6 @@ html.lenis {
 
     <!-- Center Body Section -->
     <div class="body-section">
-
-  <!-- Left Menu Panel -->
-  <div class="menu-panel">
-    <div class="menu-panel-content">
-      <nav class="menu-nav">
-        <a href="index.html" class="menu-nav-link">Home</a>
-        <a href="web-design.html" class="menu-nav-link">Web design</a>
-        <a href="seo.html" class="menu-nav-link">SEO</a>
-        <a href="branding.html" class="menu-nav-link">Creative</a>
-        <a href="blog.html" class="menu-nav-link">Blog</a>
-      </nav>
-      <div class="menu-footer">
-        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Schedule a call</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="body-section">
     <div class="universal-menu">
       <universal-menu></universal-menu>
       <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
@@ -879,6 +859,28 @@ document.addEventListener('DOMContentLoaded', function() {
       closeCalendar();
     }
   });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    /* Lenis + ScrollTrigger sync */
+    const lenis = new Lenis({
+        lerp: 0.1,
+        wheelMultiplier: 0.7,
+        gestureOrientation: "vertical",
+        normalizeWheel: false,
+        smoothTouch: false
+    });
+    // ScrollTrigger auto-updates with Lenis - no need to manually call update() every frame
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    lenis.on('scroll', ScrollTrigger.update); // Only update on actual scroll events
+
+    // Optimize ScrollTrigger performance globally
+    ScrollTrigger.config({
+        limitCallbacks: true,  // Limit the rate of callback execution
+        syncInterval: 120,      // Increase interval between syncs for better performance
+    });
 });
 </script>
 </body>

@@ -2494,63 +2494,142 @@ a {
 .pricing-card-wrapper {
   justify-content: center;
   align-items: stretch;
-  margin-top: 0;
+  gap: 30px;
+  margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .pricing-card-1 {
-  background-image: linear-gradient(#ffffff4a, #fff0 50%, #ffffff2e);
+  background: var(--e2);
+  border: 1px solid var(--black-40);
+  border-radius: 0;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
-  min-height: 500px;
-  margin-top: 40px;
-  margin-left: 20px;
-  margin-right: 20px;
-  padding: 40px 40px 40px 20px;
-  transition: all .15s cubic-bezier(.25, .46, .45, .94);
+  flex: 1 1 280px;
+  max-width: 360px;
+  min-height: 640px;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: flex;
   position: relative;
-  box-shadow: 0 2px 5px #0003;
+  overflow: hidden;
 }
 
 .pricing-card-1:hover {
-  border: 1px solid #0000004d;
-  transform: scale(1.025);
-  box-shadow: 0 0 17px 6px #ffffff4d;
+  border-color: var(--orga);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .pricing-card-1.gmb-card {
-  background-image: linear-gradient(122deg, #ffffff4a, #6b6b6b00 50%, #ffffff2e);
+  background: var(--e2);
+}
+
+/* Pricing card header section with colored top bar */
+.pricing-card-top {
+  width: 100%;
+  background: var(--orga);
+  padding: 25px 30px;
+  border-bottom: 1px solid var(--black-40);
+}
+
+/* Pricing card body */
+.pricing-card-body {
+  width: 100%;
+  padding: 30px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .pricing-card-image {
-  width: 75px;
+  display: none;
+}
+
+.pricing-card-price {
+  color: var(--rich-black);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 .pricing-card-header {
-  color: var(--orga);
-  text-transform: uppercase;
-  max-width: 400px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 25px;
-  font-weight: 700;
-  line-height: 30px;
+  color: var(--black);
+  text-transform: none;
+  max-width: 100%;
+  margin: 8px 0 0 0;
+  padding: 0;
+  font-family: Coolvetica rg, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
 }
 
 .pricing-feature-div {
-  align-items: center;
-  max-width: 400px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: 16px;
+  align-items: flex-start;
+  width: 100%;
+  margin: 12px 0 0 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.4rem;
   display: flex;
+  color: var(--black);
+}
+
+.pricing-feature-div:first-of-type {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--black-40);
 }
 
 .ads-feature-check {
-  width: 25px;
-  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-right: 12px;
+  margin-top: 2px;
+  opacity: 0.6;
+}
+
+/* Responsive pricing cards */
+@media (max-width: 991px) {
+  .pricing-card-1 {
+    flex: 1 1 calc(50% - 15px);
+    max-width: 100%;
+    min-height: 1200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pricing-card-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pricing-card-1 {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-height: 2500px;
+  }
+
+  .pricing-card-top {
+    padding: 20px 25px;
+  }
+
+  .pricing-card-body {
+    padding: 25px;
+  }
+
+  .pricing-card-price {
+    font-size: 40px;
+  }
 }
 
 .pricing-card-banner {
@@ -2834,12 +2913,12 @@ a {
 }
 
 .button-1 {
-  z-index: 200;
+  z-index: 10;
   border: 1px solid #00000066;
   background-color: #ffffff0d;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  color: var(--black-75);
+  color: var(--black);
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 10px;
@@ -2876,7 +2955,6 @@ a {
 .button-1.universal {
   z-index: 10;
   text-align: center;
-  mix-blend-mode: difference;
   margin-top: 0;
 }
 
