@@ -1044,6 +1044,10 @@ a {
   display: flex;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--black-40);
+  border-bottom: 1px solid var(--black-40);
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
 }
 
 .blog-hero-section.ux {
@@ -1996,11 +2000,15 @@ a {
 .blog-content-section {
   justify-content: center;
   align-items: flex-start;
-  width: 100vw;
-  max-width: 100vw;
+  width: 100%;
+  max-width: 100%;
   padding-top: 20px;
+  margin-top: 0;
   display: flex;
   overflow: visible;
+  border-bottom: 1px solid var(--black-40);
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
 }
 
 .contents-horizontal-divider {
@@ -4186,14 +4194,15 @@ a {
 .h1 {
   color: var(--333);
   font-family: Coolvetica rg, sans-serif;
-    font-weight: 600;
+  font-size: 8vw;
+  font-weight: 600;
 }
 
 .h1.h1-home {
   z-index: 10;
   color: var(--black-75);
   font-family: Coolvetica rg, sans-serif;
-  font-size: 6vw;
+  font-size: 8vw;
   line-height: 1.2;
   position: relative;
   font-weight: 600;
@@ -4219,26 +4228,6 @@ a {
   border-top: 1px solid var(--black-40);
   border-left: 1px solid var(--black-40);
   border-right: 1px solid var(--black-40);
-}
-
-.section.home-id {
-  display: none;
-  z-index: 10;
-  box-sizing: border-box;
-  border-top: 1px solid var(--black-40);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background-image: none;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 90vw;
-  height: 250vh;
-  margin-top: -6vh;
-  padding-top: 0;
-  padding-left: 0;
-  padding-right: 0;
-  overflow: hidden;
 }
 
 .section.hero-section {
@@ -4529,7 +4518,7 @@ a {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  padding: 10vh 0;
+  padding: 10vh 5vw;
 }
 
 .services-showcase-left {
@@ -4834,8 +4823,8 @@ a {
 .shrunk-p {
   z-index: 1;
   color: var(--black-90);
-  width: auto;
-  max-width: 30vw;
+  width: 100%;
+  max-width: none;
   padding: 0;
   margin: 20px 0 0 0;
   font-size: 1.5rem;
@@ -5159,54 +5148,6 @@ a {
   color: var(--steeler);
 }
 
-.web-elements {
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 50%;
-  display: flex;
-}
-
-.color-element {
-  background-color: var(--red-1);
-  white-space: pre;
-  border-radius: 5px;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  padding: 20px;
-  font-family: Coolvetica Rg, sans-serif;
-  font-size: 3rem;
-  line-height: 3rem;
-  position: relative;
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-}
-
-.color-element.marketing {
-  background-color: var(--blue-2);
-  transform: rotate(1deg);
-}
-
-.color-element.design {
-  background-color: var(--orga);
-  transform: rotate(7deg);
-}
-
-.color-element.pittsburgh {
-  background-color: var(--steeler);
-}
-
-.color-element.dreams {
-  background-color: var(--rich-black);
-  color: var(--white-90);
-  transform: rotate(4deg);
-}
-
-.color-element.universe {
-  background-color: var(--white-90);
-  transform: rotate(12deg);
-}
-
 .ticking-text {
   color: var(--black-75);
   white-space: nowrap;
@@ -5260,12 +5201,6 @@ a {
   display: flex;
 }
 
-.steel-city-png {
-  width: 40vw;
-  position: absolute;
-  inset: auto 0% 0% auto;
-}
-
 .green-square {
   background-color: var(--orga);
   width: 10px;
@@ -5304,42 +5239,6 @@ a {
   border-right-style: solid;
 }
 
-.wildcard {
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10px;
-  display: flex;
-}
-
-.vert {
-  background-color: var(--red-1);
-  border-radius: 5px;
-  width: 5px;
-  height: 20px;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-
-.vert._2 {
-  background-color: var(--blue-2);
-  height: 30px;
-}
-
-.vert._3 {
-  background-color: var(--orga);
-  height: 40px;
-}
-
-.vert._4 {
-  background-color: var(--steeler);
-  height: 30px;
-}
-
-.vert._5 {
-  background-color: var(--rich-black);
-  height: 20px;
-}
-
 .huge-holder {
   border: 1px solid var(--white-40);
   width: 100%;
@@ -5347,32 +5246,6 @@ a {
   margin-top: 20px;
   display: flex;
   overflow: hidden;
-}
-
-.idp-div {
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  border-left: 1px solid #000000bf;
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 50%;
-  height: 80%;
-  display: flex;
-  position: relative;
-}
-
-.divagain {
-  flex-flow: column;
-  flex: none;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 65%;
-  padding-top: 15vh;
-  padding-bottom: 15vh;
-  display: flex;
-  position: sticky;
-  top: 25vh;
 }
 
 .reddiv {
@@ -6431,12 +6304,6 @@ a {
     transform: none;
   }
 
-  .section.home-id {
-    border-left-style: none;
-    border-right-style: none;
-    width: 90vw;
-  }
-
   .section._96-section {
     flex-flow: column;
   }
@@ -6545,19 +6412,6 @@ a {
     padding: 0;
     margin: 20px 0 0 0;
     text-align: left;
-  }
-
-  .color-element {
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-
-  .color-element.marketing, .color-element.design, .color-element.pittsburgh, .color-element.universe {
-    left: 0;
-  }
-
-  .divagain {
-    z-index: 0%;
   }
 }
 
@@ -7337,11 +7191,6 @@ a {
     font-size: 13vw;
   }
 
-  .section.home-id {
-    flex-flow: column;
-    width: 90vw;
-  }
-
   .home-hero-vid {
     width: 90vw;
     justify-self: center;
@@ -7357,24 +7206,8 @@ a {
     margin-right: 0;
   }
 
-  .web-elements {
-    width: 100%;
-  }
-
-  .color-element {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 2rem;
-  }
-
   .ticking-text {
     font-size: 5rem;
-  }
-
-  .idp-div {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    width: auto;
   }
 }
 

@@ -50,6 +50,7 @@
     background-color: #e2e2e2;
     color: var(--black-75);
     cursor: crosshair;
+    border-top: 1px solid var(--black-40);
   }
 </style>
   <style>
@@ -367,7 +368,7 @@ html.lenis {
     position: fixed;
     top: 0;
     right: 0;
-    width: 20vw;
+    width: 15vw;
     height: 100vh;
     z-index: 1;
     opacity: 1;
@@ -385,11 +386,11 @@ html.lenis {
     }
 
     .side-menu-panel {
-      width: 20vw;
+      width: 45vw;
     }
 
     .calendar-module {
-      width: 20vw;
+      width: 45vw;
     }
 
     .universal-menu {
@@ -540,6 +541,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isCalendarOpen) return;
     isCalendarOpen = true;
 
+    // Calculate slide distance based on screen size
+    const isMobile = window.innerWidth <= 767;
+    const slideDistance = isMobile ? '-45vw' : '-15vw'; // Match panel width (45vw mobile, 15vw desktop)
+
     // Show calendar content
     gsap.to(calendarContent, {
       autoAlpha: 1,
@@ -547,9 +552,9 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'expo.out'
     });
 
-    // Slide body-section left 15vw (calendar button)
+    // Slide body-section left
     gsap.to(bodySection, {
-      x: '-15vw',
+      x: slideDistance,
       duration: 0.6,
       ease: 'expo.out'
     });

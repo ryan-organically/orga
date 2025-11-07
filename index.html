@@ -54,6 +54,14 @@
     background-color: #e2e2e2;
     color: var(--black-75);
     cursor: crosshair;
+    border-top: 1px solid var(--black-40);
+  }
+
+  /* Social proof responsive width */
+  @media (max-width: 991px) {
+    .hero-social-proof {
+      max-width: 100% !important;
+    }
   }
 </style>
   <style>
@@ -98,9 +106,9 @@ html.lenis {
     <div class="announcement-banner" style="display: none;">
       <p class="announcement-text">New Report: 2025 SEO Trends & Strategies - Download Now</p>
     </div>
-  <div id="home-hero-section" class="hero-section home-hero">
+  <div id="home-hero-section" class="hero-section home-hero" style="padding-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
     <p class="p2 hero-floating-text">Websites for all!</p>
-    <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div">
+    <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div" style="width: 100%; max-width: 100%;">
       <h1 class="h1 h1-home">Organically<span class="green-span">.</span></h1>
       <p class="shrunk-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold. Combining web creative with organic potential.</p>
 
@@ -145,7 +153,7 @@ html.lenis {
     </div>
 
     <!-- Social Proof Tiles -->
-    <div class="hero-social-proof-tiles">
+    <div class="hero-social-proof-tiles" style="display: none;">
       <div class="social-proof-tile">
         <p class="social-proof-stat">2.5M</p>
         <p class="p2">Million impressions for a local business</p>
@@ -157,7 +165,7 @@ html.lenis {
     </div>
     </div>
 
-    <div class="hero-social-proof">
+    <div class="hero-social-proof" style="position: relative; top: auto; right: auto; width: auto; max-width: 50%;">
       <div class="hero-social-proof-stars">
         <img src="green 5 star.png" alt="5 stars">
       </div>
@@ -172,31 +180,8 @@ html.lenis {
     </div>
 
     <!-- Steel Building Image -->
-    <img src="images/Steel-Building.png" loading="lazy" sizes="100vw" srcset="images/Steel-Building-p-500.png 500w, images/Steel-Building-p-800.png 800w, images/Steel-Building-p-1080.png 1080w, images/Steel-Building-p-1600.png 1600w, images/Steel-Building.png 2048w" alt="Pittsburgh Steel Building" class="hero-steel-building">
+    <img src="images/Steel-Building.png" loading="lazy" sizes="100vw" srcset="images/Steel-Building-p-500.png 500w, images/Steel-Building-p-800.png 800w, images/Steel-Building-p-1080.png 1080w, images/Steel-Building-p-1600.png 1600w, images/Steel-Building.png 2048w" alt="Pittsburgh Steel Building" class="hero-steel-building" style="display: block;">
   </div>
-
-  <section id="home-id" class="section home-id">
-    <div class="web-elements">
-      <div class="color-element">An SEO</div>
-      <div class="color-element marketing">&amp; design-based</div>
-      <div class="color-element design"> marketing agency</div>
-      <div class="color-element pittsburgh">based in Pittsburgh, PA.</div>
-      <div class="color-element dreams">with dreams</div>
-      <div class="color-element universe">much farther beyond...</div>
-    </div><img src="images/Steel-Building.png" loading="lazy" sizes="100vw" srcset="images/Steel-Building-p-500.png 500w, images/Steel-Building-p-800.png 800w, images/Steel-Building-p-1080.png 1080w, images/Steel-Building-p-1600.png 1600w, images/Steel-Building.png 2048w" alt="" class="steel-city-png">
-    <div class="idp-div">
-      <div class="divagain">
-        <div class="wildcard">
-          <div class="vert"></div>
-          <div class="vert _2"></div>
-          <div class="vert _3"></div>
-          <div class="vert _4"></div>
-          <div class="vert _5"></div>
-        </div>
-        <img src="images/monstera-placeholder.png" alt="Monstera plant" style="width: 35vw; height: auto; display: block; margin: 0 auto;">
-      </div>
-    </div>
-  </section>
 
   <!-- Services Showcase -->
   <div class="services-showcase">
@@ -579,9 +564,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     ease: "power2.out"
                 }
             )
-            // Part 2: Rise to final position
+            // Part 2: Rise to final position (stops at 5% to leave small gap)
             .to(building, {
-                yPercent: 0,
+                yPercent: 5,
                 autoAlpha: 0.8,
                 duration: 0.7,
                 ease: "power3.out"
@@ -637,105 +622,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-    // --- .idp Text Fill Animation ---
-    const idp = document.querySelector(".idp");
-    if (idp) {
-        gsap.set(idp, { color: 'transparent' });
-        gsap.to(idp, {
-            color: '#000000',
-            duration: 1.5,
-            ease: 'power2.inOut',
-            delay: 1,
-            scrollTrigger: {
-                trigger: idp,
-                start: 'top 80%',
-                toggleActions: 'play none none none',
-                id: 'idp-text-fill'
-            }
-        });
-    }
-    // --- Color Element Animations (Optimized) ---
-    const colorElements = document.querySelectorAll('.color-element');
-    const homeSection = document.querySelector('.section.home-id');
-    colorElements.forEach((element, index) => {
-        const startX = (index % 2 === 0) ? -100 : 100;
-        gsap.set(element, {
-            x: startX,
-            opacity: 0,
-            scale: 0.8,
-            rotation: (index % 2 === 0) ? -5 : 5
-        });
-
-        // Use direct animation with ScrollTrigger instead of callbacks for better performance
-        const enterAnim = gsap.to(element, {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-            rotation: 0,
-            duration: 0.8,
-            ease: 'back.out(1.7)',
-            paused: true
-        });
-
-        ScrollTrigger.create({
-            trigger: element,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            animation: enterAnim,
-            toggleActions: 'play reverse play reverse',
-            fastScrollEnd: true,  // Skip animation if scrolling too fast
-            id: `color-element-entrance-${index}`
-        });
-    });
-    // --- Final "Fall to Bottom" Animation ---
-    if (homeSection) {
-        ScrollTrigger.create({
-            trigger: homeSection,
-            start: 'bottom bottom',
-            toggleActions: 'play none none none',
-            onEnter: () => {
-                const sectionRect = homeSection.getBoundingClientRect();
-                colorElements.forEach(element => {
-                    const elementRect = element.getBoundingClientRect();
-                    const currentRelativeLeft = elementRect.left - sectionRect.left;
-                    const currentRelativeTop = elementRect.top - sectionRect.top;
-                    gsap.set(element, {
-                        position: 'absolute',
-                        left: currentRelativeLeft,
-                        top: currentRelativeTop
-                    });
-                    const minBottomPadding = 50;
-                    const maxBottomPadding = 150;
-                    const randomBottomOffset = Math.random() * (maxBottomPadding - minBottomPadding) + minBottomPadding;
-                    const targetTop = sectionRect.height - elementRect.height - randomBottomOffset;
-                    const horizontalSpread = 400;
-                    const targetLeft = currentRelativeLeft + (Math.random() - 0.5) * horizontalSpread;
-                    const randomDuration = 1.8 + Math.random() * 1.5;
-                    const randomRotation = (Math.random() - 0.5) * 1080;
-                    gsap.to(element, {
-                        top: targetTop,
-                        left: targetLeft,
-                        rotation: randomRotation,
-                        duration: randomDuration,
-                        ease: 'bounce.out',
-                        onComplete: () => {
-                            Draggable.create(element, {
-                                type: 'x,y',
-                                bounds: homeSection,
-                                inertia: true,
-                                edgeResistance: 0.6,
-                                onDragStart: function() { gsap.to(this.target, { scale: 1.05, duration: 0.1 }); },
-                                onDragEnd: function() { gsap.to(this.target, { scale: 1, duration: 0.1 }); }
-                            });
-                        }
-                    });
-                });
-            },
-            id: 'fall-to-bottom-trigger'
-        });
-    } else {
-        console.warn('Element with class ".section.home-id" not found. The "fall to bottom" animation will not trigger.');
-    }
     }
 
     // Initialize SplitText animations when fonts are ready
@@ -793,14 +679,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Hero Video Bounce-in Animation + Scroll Animation
+// Hero Video Bounce-in Animation
 document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
 
     const heroVideo = document.querySelector('.home-hero-vid');
-    const nextSection = document.querySelector('.section.home-id');
 
-    if (heroVideo && nextSection) {
+    if (heroVideo) {
         // Set initial state for bounce-in effect
         gsap.set(heroVideo, {
             scale: 0,
@@ -817,7 +702,6 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: "back.out(1.7)",
             delay: 0.8
         });
-
     }
 });
 
@@ -1274,19 +1158,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* All sections inside body-section - 100% width, 5vw padding */
   .body-section > section:not(#Footer),
-  .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer) {
+  .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer):not(.services-showcase) {
     width: 100%;
     margin: 0;
     padding: 5vw;
     box-sizing: border-box;
   }
 
-  /* Right Calendar Module - 20vw, fixed to right edge */
+  /* Right Calendar Module - 15vw, fixed to right edge */
   .calendar-module {
     position: fixed;
     top: 0;
     right: 0;
-    width: 20vw;
+    width: 15vw;
     height: 100vh;
     z-index: 1;
     opacity: 1;
@@ -1328,7 +1212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     .body-section > section:not(#Footer),
-    .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer) {
+    .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer):not(.services-showcase) {
       padding: 2.5vw;
     }
   }
@@ -1471,7 +1355,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate slide distance based on screen size
     const isMobile = window.innerWidth <= 767;
-    const slideDistance = isMobile ? '-45vw' : '-15vw'; // Match panel width on mobile
+    const slideDistance = isMobile ? '-45vw' : '-15vw'; // Match panel width (45vw mobile, 15vw desktop)
 
     // Show calendar content
     gsap.to(calendarContent, {
