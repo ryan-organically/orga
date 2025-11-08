@@ -346,7 +346,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  align-items: center;
+  align-items: stretch;
   width: 100vw;
   height: 60vh;
   margin-top: 10vh;
@@ -1423,7 +1423,6 @@ a {
   margin-bottom: 40px;
   display: flex;
   position: relative;
-  max-width: 80%;
   width: 100%;
 }
 
