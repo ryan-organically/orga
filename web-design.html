@@ -92,7 +92,7 @@ html.lenis {
     <div style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
   </div>
   <div data-w-id="f7f33191-244a-154e-0c59-e323f2287ef9" class="hero-section web-hero">
-    <div class="service-hero-div wd-hero">
+    <div class="hero-div">
       <h1 class="h1">A website is the single most important tool a business can have online<span class="green-span h1-period">.</span></h1>
       <p data-w-id="6625ad03-f1b4-704c-87d6-e457eb916183">Get one that grows your customer base organically. </p>
       <h1 class="service-h1">The Most Organic SEO Agency in the World<span class="green-span h1-period">.</span></h1>
@@ -426,11 +426,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     .side-menu-panel {
-      width: 45vw;
+      width: 75vw;
     }
 
     .calendar-module {
-      width: 45vw;
+      width: 75vw;
     }
 
     .universal-menu {
@@ -586,7 +586,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate slide distance based on screen size
     const isMobile = window.innerWidth <= 767;
-    const slideDistance = isMobile ? '-45vw' : '-15vw';
+    const slideDistance = isMobile ? '-75vw' : '-15vw';
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -729,7 +729,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     // Target the h1 in the web design hero
-    const heroH1 = document.querySelector('.service-hero-div.wd-hero .h1');
+    const heroH1 = document.querySelector('.web-hero .hero-div .h1');
 
     if (!heroH1 || typeof SplitText === 'undefined') return;
 
@@ -754,7 +754,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Get the inner chars after wrapping
-    const innerChars = document.querySelectorAll('.service-hero-div.wd-hero .h1 .char-inner');
+    const innerChars = document.querySelectorAll('.web-hero .hero-div .h1 .char-inner');
 
     // Force scroll position to stay at top during manipulation
     window.scrollTo(0, 0);

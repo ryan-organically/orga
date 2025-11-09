@@ -1434,21 +1434,21 @@ a {
   align-self: flex-start;
 }
 
-.service-hero-div.wd-hero {
+.web-hero .hero-div {
   margin-top: 0;
   margin-bottom: 0;
 }
 
 
-.service-hero-div.wd-hero h1,
-.service-hero-div.wd-hero .service-h1,
-.service-hero-div.wd-hero p {
+.web-hero .hero-div h1,
+.web-hero .hero-div .service-h1,
+.web-hero .hero-div p {
   mix-blend-mode: difference;
   position: relative;
   z-index: 10;
 }
 
-.service-hero-div.wd-hero .h1 {
+.web-hero .hero-div .h1 {
   opacity: 0;
   display: block;
   font-kerning: none;
@@ -6439,7 +6439,7 @@ a {
 
   .shrunk-p {
     width: auto;
-    max-width: 90vw;
+    max-width: 100%;
     padding: 0;
     margin: 20px 0 0 0;
     text-align: left;
@@ -6491,7 +6491,7 @@ a {
 
   .shrunk-p {
     width: auto;
-    max-width: 90vw;
+    max-width: 100%;
   }
 
   .feature-ticker-container {
