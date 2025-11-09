@@ -927,22 +927,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cardWidth = firstCard.offsetWidth + 20; // 20px is margin-right
 
+    // Calculate proper bounds
+    function getBounds() {
+        const containerWidth = blogModule.parentElement.offsetWidth;
+        const contentWidth = blogModule.scrollWidth;
+        const minX = Math.min(0, containerWidth - contentWidth);
+        return { minX: minX, maxX: 0 };
+    }
+
     // Initialize GSAP Draggable
     if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
         gsap.registerPlugin(Draggable);
 
-        Draggable.create(blogModule, {
+        const draggableInstance = Draggable.create(blogModule, {
             type: "x",
             edgeResistance: 0.65,
-            bounds: {
-                minX: -(blogModule.scrollWidth - blogModule.parentElement.offsetWidth),
-                maxX: 0
-            },
+            bounds: getBounds(),
             inertia: true,
             onClick: function() {
                 // Allow clicks to pass through to links
                 return true;
+            },
+            onDrag: function() {
+                // Constrain during drag to prevent empty space
+                const bounds = getBounds();
+                const currentX = gsap.getProperty(blogModule, "x");
+                if (currentX > bounds.maxX) {
+                    gsap.set(blogModule, { x: bounds.maxX });
+                } else if (currentX < bounds.minX) {
+                    gsap.set(blogModule, { x: bounds.minX });
+                }
             }
+        })[0];
+
+        // Update bounds on window resize
+        window.addEventListener('resize', () => {
+            draggableInstance.applyBounds(getBounds());
         });
     }
 
@@ -959,8 +979,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nextBtn.addEventListener("click", () => {
         const currentX = gsap.getProperty(blogModule, "x") || 0;
-        const maxScroll = -(blogModule.scrollWidth - blogModule.parentElement.offsetWidth);
-        const newX = Math.max(currentX - cardWidth, maxScroll);
+        const bounds = getBounds();
+        const newX = Math.max(currentX - cardWidth, bounds.minX);
         gsap.to(blogModule, {
             x: newX,
             duration: 0.5,

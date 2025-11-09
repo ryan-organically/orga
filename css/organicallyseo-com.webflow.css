@@ -825,7 +825,7 @@ a {
 }
 
 .blog-p1.blog-bullet {
-  color: var(--c6-faded-text\<deleted\|variable-59d7e64e-6b52-750c-ec2d-48daf2f30b87\>);
+  color: var(--black-75);
   width: 660px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1007,13 +1007,14 @@ a {
   box-shadow: none;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: flex-start;
   width: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
   display: flex;
   position: relative;
   overflow: visible;
+  padding-right: 20px;
 }
 
 .seo-div {
@@ -1109,6 +1110,7 @@ a {
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  height: 10px;
   display: flex;
   position: relative;
 }
@@ -1280,10 +1282,11 @@ a {
   color: var(--black);
   background-color: #ffffff0d;
   flex-direction: column;
-  flex: none;
+  flex: 0 0 30vw;
   justify-content: center;
   align-items: center;
   width: 30vw;
+  min-width: 30vw;
   height: 30vh;
   margin-right: 20px;
   padding: 20px;
@@ -1291,6 +1294,7 @@ a {
   transition: all .3s;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 
 .blog-card-1:hover {
@@ -1498,6 +1502,8 @@ a {
   display: flex;
   position: relative;
   inset: auto 0% 0%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .home-h5 {
@@ -4104,9 +4110,10 @@ a {
   border: 1px #5b5b5b;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  width: max-content;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 0;
   display: flex;
   position: relative;
   overflow: visible;
@@ -4182,6 +4189,9 @@ a {
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
 }
 
 .blog-thumbs-blog-home {
@@ -5147,6 +5157,9 @@ a {
   color: var(--black);
   width: 100%;
   flex-grow: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
 
 .filter-text {
@@ -5591,12 +5604,14 @@ a {
   }
 
   .blog-card-1 {
-    flex: none;
+    flex: 0 0 45vw;
     justify-content: center;
     align-items: flex-start;
-    width: auto;
-    max-width: 50vw;
+    width: 45vw;
+    min-width: 45vw;
+    max-width: 45vw;
     height: 250px;
+    min-height: 250px;
   }
 
   .blog-card-1:hover {
@@ -6303,10 +6318,10 @@ a {
   .read-more-module {
     justify-content: flex-start;
     align-items: center;
-    width: 100vw;
+    width: max-content;
     height: auto;
-    padding-left: 5vw;
-    overflow: auto;
+    padding-left: 0;
+    overflow: visible;
   }
 
   .read-more-module.reverse {
@@ -6316,9 +6331,12 @@ a {
 
   .blog-module-card-title {
     font-family: Coolvetica rg, sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 600;
-    line-height: 35px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   .swiper-slide {
@@ -6746,10 +6764,15 @@ a {
   }
 
   .blog-card-1 {
-    height: auto;
+    flex: 0 0 55vw;
+    width: 55vw;
+    min-width: 55vw;
+    max-width: 55vw;
+    height: 250px;
+    min-height: 250px;
     margin-top: 20px;
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 20px;
   }
 
   .blog-card-subheading {
@@ -7207,9 +7230,13 @@ a {
 
   .blog-module-card-title {
     text-align: left;
-    width: 90vw;
+    width: 100%;
     padding-left: 0;
-    font-size: 25px;
+    font-size: 20px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   .swiper-slide {
@@ -7556,12 +7583,17 @@ a {
   }
 
   .blog-card-1 {
+    flex: 0 0 70vw;
     justify-content: center;
     align-items: flex-start;
+    width: 70vw;
+    min-width: 70vw;
+    max-width: 70vw;
+    height: 250px;
+    min-height: 250px;
     margin-top: 38px;
     margin-right: 20px;
     padding: 10px;
-    left: 74.8vw;
   }
 
   .blog-card-subheading {
@@ -8121,8 +8153,11 @@ a {
 
   .blog-module-card-title {
     text-align: left;
-    width: auto;
-    line-height: 25px;
+    width: 100%;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   .swiper-slide {
