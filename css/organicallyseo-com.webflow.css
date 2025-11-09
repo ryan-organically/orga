@@ -3714,7 +3714,7 @@ a {
   border-right: 1px solid var(--black-40);
   border-bottom: 1px solid var(--black-40);
   border-left: 1px solid var(--black-40);
-  background-color: #e2e2e233;
+  background-color: #e2e2e2bf;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   flex: none;
@@ -4855,7 +4855,7 @@ a {
   z-index: 1;
   color: var(--black-90);
   width: 100%;
-  max-width: none;
+  max-width: 30vw;
   padding: 0;
   margin: 20px 0 0 0;
   font-size: 1.5rem;
