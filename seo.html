@@ -87,17 +87,12 @@ html.lenis {
     <div style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
   </div>
   <div class="hero-section">
-    <div class="service-hero-div">
+    <div class="hero-div">
       <h1 class="h1">Organically SEO<span class="organically-span h1-period">.</span> Get clicked first<span class="organically-span h1-period">.</span></h1>
+      <p class="shrunk-p">Dominate search rankings with strategic SEO that drives organic traffic, boosts conversions, and outranks your competition.</p>
       <a href="https://calendly.com/organically/30min" class="button-1 margin-20-top w-button calendar-toggle-btn">Book a free call</a>
-      <div class="hero-social-proof" style="position: relative; top: 0; right: 0; bottom: 0; left: 0; margin-top: 10vh; padding: 0;">
-        <div class="hero-social-proof-stars">
-          <img src="green 5 star.png" alt="5 stars">
-        </div>
-        <p class="social-proof-title">Local Business Owner</p>
-        <p class="p2">"Ryan's SEO expertise transformed our online visibility. Within 6 months, we went from page 3 to ranking in the top 3 for our main keywords. Our organic traffic tripled and we're getting quality leads daily."</p>
-      </div>
     </div>
+    <img src="images/seo-climb.png" alt="SEO Climb" class="hero-treeline-image" style="width: 30vw; max-width: none;">
   </div>
   <section class="section">
     <div style="width: 100%; display: flex; justify-content: center;">
@@ -652,6 +647,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
+// Disable scroll restoration to prevent jump
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Force scroll to top immediately
+window.scrollTo(0, 0);
+
 document.addEventListener("DOMContentLoaded", () => {
     /* Lenis + ScrollTrigger sync */
     const lenis = new Lenis({
@@ -707,6 +710,66 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }, 50); // 50ms per character
         }
+    });
+});
+</script>
+
+<!-- H1 Character Stagger Animation -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Target the h1 in the hero section
+    const heroH1 = document.querySelector('.hero-section .hero-div .h1');
+
+    if (!heroH1 || typeof SplitText === 'undefined') return;
+
+    // Split the h1 into words AND characters to preserve word boundaries
+    const split = new SplitText(heroH1, {
+        type: "words, chars",
+        wordsClass: "word-wrapper",
+        charsClass: "char-inner"
+    });
+    const chars = split.chars;
+
+    // Wrap each character in a mask container
+    chars.forEach(char => {
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'inline-block';
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.verticalAlign = 'bottom';
+        wrapper.style.paddingBottom = '0.15em';
+        char.style.display = 'inline-block';
+        char.parentNode.insertBefore(wrapper, char);
+        wrapper.appendChild(char);
+    });
+
+    // Get the inner chars after wrapping
+    const innerChars = document.querySelectorAll('.hero-section .hero-div .h1 .char-inner');
+
+    // Force scroll position to stay at top during manipulation
+    window.scrollTo(0, 0);
+
+    // Refresh ScrollTrigger after DOM manipulation
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh(true);
+    }
+
+    // Make h1 visible now that it's split
+    gsap.set(heroH1, { opacity: 1 });
+
+    // Set initial state for each character - all from bottom
+    gsap.set(innerChars, {
+        y: 150,
+        opacity: 0,
+        willChange: 'transform, opacity'
+    });
+
+    // Animate all characters in with subtle stagger
+    gsap.to(innerChars, {
+        y: 0,
+        opacity: 1,
+        duration: 0.1,
+        ease: 'expo.out',
+        stagger: 0.02
     });
 });
 </script>

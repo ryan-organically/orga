@@ -91,7 +91,7 @@ html.lenis {
   <div data-w-id="e9a46cc5-a67b-904d-e4bb-6279db0cbc75" class="light-dark-mode-wrapper">
     <div style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
   </div>
-  <div data-w-id="f7f33191-244a-154e-0c59-e323f2287ef9" class="hero-section web-hero">
+  <div data-w-id="f7f33191-244a-154e-0c59-e323f2287ef9" class="hero-section">
     <div class="hero-div">
       <h1 class="h1">A website is the single most important tool a business can have online<span class="green-span h1-period">.</span></h1>
       <p data-w-id="6625ad03-f1b4-704c-87d6-e457eb916183">Get one that grows your customer base organically. </p>
@@ -728,8 +728,8 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- H1 Word Stagger Animation -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Target the h1 in the web design hero
-    const heroH1 = document.querySelector('.web-hero .hero-div .h1');
+    // Target the h1 in the hero section
+    const heroH1 = document.querySelector('.hero-section .hero-div .h1');
 
     if (!heroH1 || typeof SplitText === 'undefined') return;
 
@@ -754,7 +754,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Get the inner chars after wrapping
-    const innerChars = document.querySelectorAll('.web-hero .hero-div .h1 .char-inner');
+    const innerChars = document.querySelectorAll('.hero-section .hero-div .h1 .char-inner');
 
     // Force scroll position to stay at top during manipulation
     window.scrollTo(0, 0);
