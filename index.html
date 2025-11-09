@@ -110,10 +110,10 @@ html.lenis {
     <p class="p2 hero-floating-text">Websites for all!</p>
     <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div" style="width: 100%; max-width: 100%;">
       <h1 class="h1 h1-home">Organically<span class="green-span h1-period">.</span></h1>
-      <p class="shrunk-p" style="max-width: 30vw;">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold. Combining web creative with organic potential.</p>
+      <p class="shrunk-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold. Combining web creative with organic potential.</p>
 
       <!-- Feature Tickers -->
-      <div class="feature-ticker-container" style="width: 100%; max-width: 30vw;">
+      <div class="feature-ticker-container">
         <div class="feature-ticker feature-ticker-left">
           <div class="feature-ticker-track">
             <span class="feature-item">White Label Agency</span>
@@ -381,6 +381,8 @@ html.lenis {
       <button class="blog-nav-btn" id="blog-next">→</button>
     </div>
     <div class="read-more-module">
+      <div class="blog-cards-wrapper">
+        <div class="blog-cards-track">
       <a href="what-is-seo.html" class="blog-card-1 w-inline-block">
         <div class="blog-card-content">
           <div class="filter">
@@ -391,7 +393,7 @@ html.lenis {
           <div class="bog-comp-p">Ranking on search engines isn&#x27;t luck. The average person makes 3-4 searches on Google per day. Learn how to answer them.</div>
         </div>
       </a>
-      <a href="branding-basics.html" class="blog-card-1 w-inline-block">
+      <a href="webflow-launch-checklist.html" class="blog-card-1 w-inline-block">
         <div class="blog-card-content">
           <div class="filter">
             <div class="filter-text design">Design</div>
@@ -411,7 +413,7 @@ html.lenis {
           <div class="bog-comp-p">Deciding on an original name, colors, logo, and website that speak to you are big commitments.</div>
         </div>
       </a>
-      <a href="branding-basics.html" class="blog-card-1 w-inline-block">
+      <a href="webflow-vs-figma.html" class="blog-card-1 w-inline-block">
         <div class="blog-card-content">
           <div class="filter">
             <div class="filter-text design">Design</div>
@@ -421,7 +423,7 @@ html.lenis {
           <div class="bog-comp-p">In today&#x27;s shifting tides of creative design and development programs, selecting the right tools can significantly impact your creative journey.</div>
         </div>
       </a>
-      <a href="branding-basics.html" class="blog-card-1 w-inline-block">
+      <a href="ai-art.html" class="blog-card-1 w-inline-block">
         <div class="blog-card-content">
           <div class="filter">
             <div class="filter-text creative">Creative</div>
@@ -431,6 +433,8 @@ html.lenis {
           <div class="bog-comp-p">AI's threat to jobs and humanity as a whole jeopardizes life as we know it. Exploring the intersection of technology and creativity.</div>
         </div>
       </a>
+        </div>
+      </div>
     </div>
     </div>
   </section>
@@ -912,60 +916,128 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-  <!-- Blog Draggable & Navigation -->
+  <!-- Blog Navigation -->
   <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const blogModule = document.querySelector(".read-more-module");
+    const cardsTrack = document.querySelector(".blog-cards-track");
+    const cardsWrapper = document.querySelector(".blog-cards-wrapper");
     const prevBtn = document.getElementById("blog-prev");
     const nextBtn = document.getElementById("blog-next");
 
-    if (!blogModule || !prevBtn || !nextBtn) return;
+    if (!cardsTrack || !cardsWrapper || !prevBtn || !nextBtn) return;
 
-    // Calculate thumbnail width (including margin)
-    const firstCard = blogModule.querySelector(".blog-card-1");
-    if (!firstCard) return;
+    let draggableInstance;
+    let currentIndex = 0;
 
-    const cardWidth = firstCard.offsetWidth + 20; // 20px is margin-right
+    // Config
+    const config = {
+        getCardWidth: () => {
+            const card = cardsTrack.querySelector(".blog-card-1");
+            if (!card) return 300;
+            const style = window.getComputedStyle(card);
+            return card.offsetWidth + parseInt(style.marginRight || 0);
+        },
+        getCardCount: () => {
+            return cardsTrack.querySelectorAll(".blog-card-1").length;
+        },
+        getSnapPoints: () => {
+            const cardWidth = config.getCardWidth();
+            const cardCount = config.getCardCount();
+            const points = [];
 
-    // Initialize GSAP Draggable
-    if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
-        gsap.registerPlugin(Draggable);
+            for (let i = 0; i < cardCount; i++) {
+                points.push(-i * cardWidth);
+            }
 
-        Draggable.create(blogModule, {
+            return points;
+        },
+        getBounds: () => {
+            const cardWidth = config.getCardWidth();
+            const cardCount = config.getCardCount();
+            const maxScroll = (cardCount - 1) * cardWidth;
+            return { minX: -maxScroll, maxX: 0 };
+        }
+    };
+
+    // Snap to nearest card
+    function snapToCard(x) {
+        const snapPoints = config.getSnapPoints();
+        let closest = snapPoints[0];
+        let minDistance = Math.abs(x - closest);
+
+        for (let i = 1; i < snapPoints.length; i++) {
+            const distance = Math.abs(x - snapPoints[i]);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closest = snapPoints[i];
+                currentIndex = i;
+            }
+        }
+
+        return closest;
+    }
+
+    // Initialize GSAP Draggable with snap
+    if (typeof gsap !== 'undefined' && typeof Draggable !== 'undefined') {
+        draggableInstance = Draggable.create(cardsTrack, {
             type: "x",
-            edgeResistance: 0.65,
-            bounds: {
-                minX: -(blogModule.scrollWidth - blogModule.parentElement.offsetWidth),
-                maxX: 0
-            },
+            bounds: config.getBounds(),
             inertia: true,
-            onClick: function() {
-                // Allow clicks to pass through to links
-                return true;
+            edgeResistance: 0.85,
+            snap: {
+                x: (endValue) => snapToCard(endValue)
+            },
+            onThrowComplete: function() {
+                const snappedX = gsap.getProperty(cardsTrack, "x");
+                const snapPoints = config.getSnapPoints();
+                currentIndex = snapPoints.indexOf(snappedX);
+            }
+        })[0];
+    }
+
+    // Button navigation
+    function navigate(direction) {
+        const bounds = config.getBounds();
+        const snapPoints = config.getSnapPoints();
+
+        if (direction === 'prev') {
+            currentIndex = Math.max(0, currentIndex - 1);
+        } else {
+            currentIndex = Math.min(snapPoints.length - 1, currentIndex + 1);
+        }
+
+        const newX = snapPoints[currentIndex];
+
+        gsap.to(cardsTrack, {
+            x: newX,
+            duration: 0.5,
+            ease: "power2.out",
+            onComplete: () => {
+                if (draggableInstance) draggableInstance.update();
             }
         });
     }
 
-    // Navigation buttons
-    prevBtn.addEventListener("click", () => {
-        const currentX = gsap.getProperty(blogModule, "x") || 0;
-        const newX = Math.min(currentX + cardWidth, 0);
-        gsap.to(blogModule, {
-            x: newX,
-            duration: 0.5,
-            ease: "power2.out"
-        });
-    });
+    prevBtn.addEventListener("click", () => navigate('prev'));
+    nextBtn.addEventListener("click", () => navigate('next'));
 
-    nextBtn.addEventListener("click", () => {
-        const currentX = gsap.getProperty(blogModule, "x") || 0;
-        const maxScroll = -(blogModule.scrollWidth - blogModule.parentElement.offsetWidth);
-        const newX = Math.max(currentX - cardWidth, maxScroll);
-        gsap.to(blogModule, {
-            x: newX,
-            duration: 0.5,
-            ease: "power2.out"
-        });
+    // Update on resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const snapPoints = config.getSnapPoints();
+            const bounds = config.getBounds();
+
+            // Snap to current index after resize
+            const newX = snapPoints[currentIndex] || 0;
+            gsap.set(cardsTrack, { x: newX });
+
+            if (draggableInstance) {
+                draggableInstance.applyBounds(bounds);
+                draggableInstance.update();
+            }
+        }, 150);
     });
 });
 </script>

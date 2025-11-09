@@ -1278,24 +1278,25 @@ a {
 .blog-card-1 {
   border: 1px solid #00000066;
   color: var(--black);
-  background-color: #ffffff0d;
+  background-color: rgba(226, 226, 226, 0.90);
   flex-direction: column;
   flex: none;
   justify-content: center;
   align-items: center;
   width: 30vw;
-  height: 30vh;
+  height: 40vh;
   margin-right: 20px;
   padding: 20px;
   text-decoration: none;
   transition: all .3s;
   display: flex;
   position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .blog-card-1:hover {
   color: var(--black);
-  background-color: #ffffff26;
 }
 
 .blog-card-1:has(.filter-text):hover {
@@ -4109,11 +4110,42 @@ a {
   padding-bottom: 20px;
   display: flex;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+}
+
+.blog-cards-wrapper {
+  width: 100%;
+  border-top: 1px solid var(--black-40);
+  border-bottom: 1px solid var(--black-40);
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
+  padding: 40px 5vw;
+  position: relative;
+  overflow: hidden;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    var(--black-40) 10px,
+    var(--black-40) 11px
+  );
+}
+
+.blog-cards-track {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  padding-right: 20vw;
+  position: relative;
   cursor: grab;
 }
 
-.read-more-module:active {
+.blog-cards-track .blog-card-1:last-child {
+  margin-right: 0;
+}
+
+.blog-cards-track:active {
   cursor: grabbing;
 }
 
@@ -4331,11 +4363,13 @@ a {
 .section.ticker-testimonial-section {
   border-top: 1px solid var(--black-40);
   width: 90vw;
-  padding: 2vh 0;
-  max-height: 25vh;
+  padding: 0;
+  min-height: auto;
+  height: auto;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: #333;
 }
 
 .diagonal-main-text {
@@ -4734,6 +4768,15 @@ a {
   .services-showcase-description {
     padding: 3vh 0;
   }
+
+  .services-showcase-card {
+    padding: 12px;
+    min-height: 60px;
+  }
+
+  .services-showcase-label {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 533px) {
@@ -4747,6 +4790,15 @@ a {
 
   .services-showcase-description {
     padding: 2.5vh 0;
+  }
+
+  .services-showcase-card {
+    padding: 8px;
+    min-height: 50px;
+  }
+
+  .services-showcase-label {
+    font-size: 0.75rem;
   }
 }
 
@@ -4855,7 +4907,7 @@ a {
   z-index: 1;
   color: var(--black-90);
   width: 100%;
-  max-width: none;
+  max-width: 30vw;
   padding: 0;
   margin: 20px 0 0 0;
   font-size: 1.5rem;
@@ -4994,8 +5046,8 @@ a {
 }
 
 .feature-ticker-container {
-  width: 75%;
-  max-width: 100%;
+  width: 100%;
+  max-width: 30vw;
   margin: 40px 0 0 0;
   padding: 0;
   display: flex;
@@ -5007,7 +5059,8 @@ a {
 
 @media (max-width: 767px) {
   .feature-ticker-container {
-    width: 100%;
+    width: 90%;
+    max-width: 90%;
   }
 }
 
@@ -5180,10 +5233,10 @@ a {
 }
 
 .ticking-text {
-  color: var(--black-75);
+  color: #e2e2e2;
   white-space: nowrap;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
   font-family: Coolvetica Rg, sans-serif;
   font-size: 11rem;
   font-weight: 600;
@@ -5596,7 +5649,7 @@ a {
     align-items: flex-start;
     width: auto;
     max-width: 50vw;
-    height: 250px;
+    height: 40vh;
   }
 
   .blog-card-1:hover {
@@ -6303,10 +6356,10 @@ a {
   .read-more-module {
     justify-content: flex-start;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: auto;
     padding-left: 5vw;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .read-more-module.reverse {
@@ -6495,8 +6548,8 @@ a {
   }
 
   .feature-ticker-container {
-    width: auto;
-    max-width: 80vw;
+    width: 90%;
+    max-width: 90%;
   }
 
   .hero-div {
@@ -6692,6 +6745,18 @@ a {
     display: flex;
   }
 
+  .blog-nav-buttons {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .blog-nav-btn {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    min-width: 60px;
+  }
+
   .seo-div {
     flex-direction: column;
     max-width: 100vw;
@@ -6746,10 +6811,12 @@ a {
   }
 
   .blog-card-1 {
+    width: 80vw;
+    min-height: 60vh;
     height: auto;
     margin-top: 20px;
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 20px;
   }
 
   .blog-card-subheading {
@@ -7207,7 +7274,8 @@ a {
 
   .blog-module-card-title {
     text-align: left;
-    width: 90vw;
+    width: 100%;
+    max-width: 100%;
     padding-left: 0;
     font-size: 25px;
   }
@@ -7239,6 +7307,14 @@ a {
 
   .ticking-text {
     font-size: 5rem;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+  }
+
+  .section.ticker-testimonial-section {
+    padding: 0;
+    min-height: auto;
+    height: auto;
   }
 }
 
@@ -7474,7 +7550,19 @@ a {
     margin-bottom: 100px;
     padding-top: 100px;
     padding-bottom: 100px;
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  .blog-nav-buttons {
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .blog-nav-btn {
+    padding: 18px 35px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    min-width: 70px;
   }
 
   .seo-div {
@@ -7556,12 +7644,14 @@ a {
   }
 
   .blog-card-1 {
+    width: 90vw;
+    min-height: 75vh;
+    height: auto;
     justify-content: center;
     align-items: flex-start;
     margin-top: 38px;
     margin-right: 20px;
-    padding: 10px;
-    left: 74.8vw;
+    padding: 15px;
   }
 
   .blog-card-subheading {
@@ -7588,7 +7678,8 @@ a {
   .blog-card-content {
     justify-content: center;
     align-items: flex-start;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
   }
 
   .home-h5 {
@@ -8105,13 +8196,25 @@ a {
     flex-flow: row;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 40vw;
+    padding-left: 0;
   }
 
   .read-more-heading {
     margin-left: 5%;
     font-size: 32px;
     top: 4%;
+  }
+
+  .ticking-text {
+    font-size: 3rem;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+
+  .section.ticker-testimonial-section {
+    padding: 0;
+    min-height: auto;
+    height: auto;
   }
 
   .sticky-stacking-tab-wrapper {
