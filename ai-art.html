@@ -29,7 +29,95 @@
   <style>
   body {
     overflow-x: clip;
-  }  
+  }
+
+  /* Return to Blog Button */
+  .return-to-blog-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Coolvetica rg', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    cursor: pointer;
+  }
+
+  .return-to-blog-btn:hover {
+    border-color: #7ec700;
+    color: #7ec700;
+    transform: translateY(-2px);
+  }
+
+  .return-to-blog-wrapper {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Responsive Blog Fixes */
+  .blog-massive-wrapper {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .blog-massive-wrapper img,
+  .wide-image,
+  .blog-image {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 767px) {
+    .blog-massive-wrapper {
+      width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .wide-image,
+    .blog-image {
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .blog-p1,
+    .blog-h2,
+    .blog-h2-2,
+    .blog-h3,
+    .blog-h3-3,
+    .blog-h4 {
+      max-width: 100%;
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .embed-6,
+    .pizza-maker-embed,
+    .w-embed,
+    .w-iframe {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+    .embed-6 iframe,
+    .pizza-maker-embed iframe {
+      width: 100% !important;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
+  }
 </style><!--  Google tag (gtag.js)  -->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2LPK0F7PYW"></script>
   <script>
@@ -68,13 +156,13 @@ html.lenis {
 </head>
 <body data-w-id="62d856b64a8463bf0059f63a" class="horizontal-body">
 <!-- Left Menu Panel -->
-  <div class="side-menu-panel">
-      <div class="side-panel">
+  <div class="menu-panel">
+      <div class="menu-panel-content">
         <div class="menu-header">
           <p class="menu-tagline">Redefining agency marketing—one organic idea at a time.</p>
         </div>
         <nav class="menu-nav">
-          <a href="index.html" class="menu-nav-link">Home</a>
+          <a href="/" class="menu-nav-link">Home</a>
           <a href="web-design.html" class="menu-nav-link">Web design</a>
           <a href="seo.html" class="menu-nav-link">SEO</a>
           <a href="branding.html" class="menu-nav-link">Creative</a>
@@ -118,6 +206,9 @@ html.lenis {
       <a href="#" class="content-link">Technical SEO</a>
     </div>
     <div class="blog-massive-wrapper">
+      <div class="return-to-blog-wrapper">
+        <a href="blog.html" class="return-to-blog-btn">← Return to Other Articles</a>
+      </div>
       <h2 id="what-is-ai-art" class="blog-h2">What is AI Art?</h2>
       <p class="blog-p1 first-line">Artists and many other professionals are feeling the threat of AI taking over their livelihoods. AI’s threat to jobs and humanity as a whole jeopardizes life as we know it.</p><img src="images/AI-Art-Painting.jpg" loading="lazy" sizes="(max-width: 1920px) 100vw, 1920px" srcset="images/AI-Art-Painting-p-500.jpg 500w, images/AI-Art-Painting-p-800.jpg 800w, images/AI-Art-Painting-p-1080.jpg 1080w, images/AI-Art-Painting-p-1600.jpg 1600w, images/AI-Art-Painting.jpg 1920w" alt="" class="wide-image">
       <div class="spoiler-alert">Spoiler alert: almost all images on this webpage are AI-generated.</div>
@@ -162,6 +253,9 @@ html.lenis {
       <h3 id="prompt-engineer-salary" class="blog-h4">Do I own the AI Art that I create?</h3>
       <p class="blog-p1">No. AI Art cannot, as of July 2023, be protected by copyright. The database used to generate the image you prompted is created with millions if not billions of images that you do not own.</p>
       <p class="blog-p1">That&#x27;s about it for now. The legal landscape and conversation is always changing. Be sure to do your own research and make sure you&#x27;re up to date with the latest!</p>
+      <div class="return-to-blog-wrapper">
+        <a href="blog.html" class="return-to-blog-btn">← Return to Other Articles</a>
+      </div>
     </div>
     <div class="sticky-author-div"><img src="images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="135" alt="" class="blog-author-image">
       <div class="author-bio-heading">Ryan Scanlon, Author &amp; SEO</div>
@@ -190,7 +284,7 @@ html.lenis {
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
-      <a href="index.html" class="link-block w-inline-block">
+      <a href="/" class="link-block w-inline-block">
         <div class="footer-typemark">Organically</div>
       </a>
       <div class="footer-social-wrapper">

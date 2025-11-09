@@ -73,7 +73,7 @@ html.lenis {
           <p class="menu-tagline">Redefining agency marketing—one organic idea at a time.</p>
         </div>
         <nav class="menu-nav">
-          <a href="index.html" class="menu-nav-link">Home</a>
+          <a href="/" class="menu-nav-link">Home</a>
           <a href="web-design.html" class="menu-nav-link">Web design</a>
           <a href="seo.html" class="menu-nav-link">SEO</a>
           <a href="branding.html" class="menu-nav-link">Creative</a>
@@ -100,7 +100,7 @@ html.lenis {
   </div>
   <div data-w-id="007148a2-c2cb-89be-4393-b78dff9c656a" class="hero-section branding-hero">
     <div class="service-hero-div">
-      <h1>Branding services for small business and startups.</h1>
+      <h1>Branding services for small business and startups<span class="green-span h1-period">.</span></h1>
       <a href="https://calendly.com/organically/30min" class="button-1 margin-20-top w-button">Schedule a free call with me</a>
     </div>
   </div>
@@ -191,10 +191,80 @@ html.lenis {
     </div>
     <a href="#" class="button-1 universal w-button calendar-toggle-btn" style="margin-top: 40px;">Schedule call to book your project</a>
   </section>
+  <section class="section blog-section">
+    <div class="blog-preview">
+    <a href="blog.html" class="blog-thumbs-blog-home w-inline-block" style="width: 100%; display: flex; justify-content: flex-end;">
+      <div style="display: flex; flex-direction: column; align-items: flex-end;">
+        <img src="images/coffee-asset.png" alt="Coffee icon" style="width: 50px; height: 50px; margin-bottom: 8px; opacity: 0.9;">
+        <h5 class="read-more-heading" style="width: auto; margin-top: -10px; margin-bottom: -10px; margin-left: 0; margin-right: 0; white-space: nowrap;">Coffee Break </h5>
+      </div>
+    </a>
+    <div class="blog-nav-buttons" style="margin-top: 20px; width: 100%;">
+      <button class="blog-nav-btn" id="blog-prev">←</button>
+      <button class="blog-nav-btn" id="blog-next">→</button>
+    </div>
+    <div class="read-more-module">
+      <div class="blog-cards-wrapper">
+        <div class="blog-cards-track">
+      <a href="what-is-seo.html" class="blog-card-1 w-inline-block">
+        <div class="blog-card-content">
+          <div class="filter">
+            <div class="filter-text">Marketing</div>
+          </div>
+          <p class="blog-module-card-title">What is SEO?<br></p>
+          <p class="blog-component-date">Updated April 17, 2024</p>
+          <div class="bog-comp-p">Ranking on search engines isn&#x27;t luck. The average person makes 3-4 searches on Google per day. Learn how to answer them.</div>
+        </div>
+      </a>
+      <a href="webflow-launch-checklist.html" class="blog-card-1 w-inline-block">
+        <div class="blog-card-content">
+          <div class="filter">
+            <div class="filter-text design">Design</div>
+          </div>
+          <p class="blog-module-card-title">Webflow Launch Checklist<br></p>
+          <p class="blog-component-date">September 5, 2024</p>
+          <div class="bog-comp-p">Launching a website on Webflow can be terrifying, especially if it's your first time. Many things can go wrong; some things you may never have heard of. </div>
+        </div>
+      </a>
+      <a href="branding-basics.html" class="blog-card-1 w-inline-block">
+        <div class="blog-card-content">
+          <div class="filter">
+            <div class="filter-text branding">Branding</div>
+          </div>
+          <p class="blog-module-card-title">Basics of Branding: How to Build Your Own Brand<br></p>
+          <p class="blog-component-date">June 6, 2024</p>
+          <div class="bog-comp-p">Deciding on an original name, colors, logo, and website that speak to you are big commitments.</div>
+        </div>
+      </a>
+      <a href="webflow-vs-figma.html" class="blog-card-1 w-inline-block">
+        <div class="blog-card-content">
+          <div class="filter">
+            <div class="filter-text design">Design</div>
+          </div>
+          <p class="blog-module-card-title">Webflow vs. Figma<br></p>
+          <p class="blog-component-date">July 12, 2023</p>
+          <div class="bog-comp-p">In today&#x27;s shifting tides of creative design and development programs, selecting the right tools can significantly impact your creative journey.</div>
+        </div>
+      </a>
+      <a href="ai-art.html" class="blog-card-1 w-inline-block">
+        <div class="blog-card-content">
+          <div class="filter">
+            <div class="filter-text creative">Creative</div>
+          </div>
+          <p class="blog-module-card-title">What is AI Art? <br>And Will It Replace Artists? <br></p>
+          <p class="blog-component-date">July 12, 2023</p>
+          <div class="bog-comp-p">AI's threat to jobs and humanity as a whole jeopardizes life as we know it. Exploring the intersection of technology and creativity.</div>
+        </div>
+      </a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
-      <a href="index.html" class="link-block w-inline-block">
+      <a href="/" class="link-block w-inline-block">
         <div class="footer-typemark">Organically</div>
       </a>
       <div class="footer-social-wrapper">
@@ -386,11 +456,11 @@ html.lenis {
     }
 
     .side-menu-panel {
-      width: 45vw;
+      width: 75vw;
     }
 
     .calendar-module {
-      width: 45vw;
+      width: 75vw;
     }
 
     .universal-menu {
@@ -518,6 +588,11 @@ html.lenis {
   .dark-mode .calendar-title {
     color: var(--white);
   }
+
+  /* Hide pricing module */
+  .section:has(.pricing-card-wrapper) {
+    display: none !important;
+  }
 </style>
 
 <script>
@@ -543,7 +618,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate slide distance based on screen size
     const isMobile = window.innerWidth <= 767;
-    const slideDistance = isMobile ? '-45vw' : '-15vw'; // Match panel width (45vw mobile, 15vw desktop)
+    const slideDistance = isMobile ? '-75vw' : '-15vw'; // Match panel width (45vw mobile, 15vw desktop)
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -643,6 +718,133 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
+  <!-- Blog Navigation -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const cardsTrack = document.querySelector(".blog-cards-track");
+    const cardsWrapper = document.querySelector(".blog-cards-wrapper");
+    const prevBtn = document.getElementById("blog-prev");
+    const nextBtn = document.getElementById("blog-next");
+
+    if (!cardsTrack || !cardsWrapper || !prevBtn || !nextBtn) return;
+
+    let draggableInstance;
+    let currentIndex = 0;
+
+    // Config
+    const config = {
+        getCardWidth: () => {
+            const card = cardsTrack.querySelector(".blog-card-1");
+            if (!card) return 300;
+            const style = window.getComputedStyle(card);
+            return card.offsetWidth + parseInt(style.marginRight || 0);
+        },
+        getCardCount: () => {
+            return cardsTrack.querySelectorAll(".blog-card-1").length;
+        },
+        getSnapPoints: () => {
+            const cardWidth = config.getCardWidth();
+            const cardCount = config.getCardCount();
+            const points = [];
+
+            for (let i = 0; i < cardCount; i++) {
+                points.push(-i * cardWidth);
+            }
+
+            return points;
+        },
+        getBounds: () => {
+            const cardWidth = config.getCardWidth();
+            const cardCount = config.getCardCount();
+            const maxScroll = (cardCount - 1) * cardWidth;
+            return { minX: -maxScroll, maxX: 0 };
+        }
+    };
+
+    // Snap to nearest card
+    function snapToCard(x) {
+        const snapPoints = config.getSnapPoints();
+        let closest = snapPoints[0];
+        let minDistance = Math.abs(x - closest);
+
+        for (let i = 1; i < snapPoints.length; i++) {
+            const distance = Math.abs(x - snapPoints[i]);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closest = snapPoints[i];
+                currentIndex = i;
+            }
+        }
+
+        return closest;
+    }
+
+    // Initialize GSAP Draggable with snap
+    if (typeof gsap !== 'undefined' && typeof Draggable !== 'undefined') {
+        draggableInstance = Draggable.create(cardsTrack, {
+            type: "x",
+            bounds: config.getBounds(),
+            inertia: true,
+            edgeResistance: 0.85,
+            snap: {
+                x: (endValue) => snapToCard(endValue)
+            },
+            onThrowComplete: function() {
+                const snappedX = gsap.getProperty(cardsTrack, "x");
+                const snapPoints = config.getSnapPoints();
+                currentIndex = snapPoints.indexOf(snappedX);
+            }
+        })[0];
+    }
+
+    // Button navigation
+    function navigate(direction) {
+        const bounds = config.getBounds();
+        const snapPoints = config.getSnapPoints();
+
+        if (direction === 'prev') {
+            currentIndex = Math.max(0, currentIndex - 1);
+        } else {
+            currentIndex = Math.min(snapPoints.length - 1, currentIndex + 1);
+        }
+
+        const newX = snapPoints[currentIndex];
+
+        gsap.to(cardsTrack, {
+            x: newX,
+            duration: 0.5,
+            ease: "power2.out",
+            onComplete: () => {
+                if (draggableInstance) draggableInstance.update();
+            }
+        });
+    }
+
+    prevBtn.addEventListener("click", () => navigate('prev'));
+    nextBtn.addEventListener("click", () => navigate('next'));
+
+    // Update on resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const snapPoints = config.getSnapPoints();
+            const bounds = config.getBounds();
+
+            // Snap to current index after resize
+            const newX = snapPoints[currentIndex] || 0;
+            gsap.set(cardsTrack, { x: newX });
+
+            if (draggableInstance) {
+                draggableInstance.applyBounds(bounds);
+                draggableInstance.update();
+            }
+        }, 150);
+    });
+});
+</script>
+
 <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
 </body>
 </html>

@@ -206,7 +206,7 @@ body {
   }
 
   .menu-nav-link {
-    font-size: 22px;
+    font-size: 28px;
   }
 
   .menu-panel-content {
@@ -220,7 +220,7 @@ body {
   }
 
   .menu-nav-link {
-    font-size: 20px;
+    font-size: 26px;
   }
 }
 
@@ -231,13 +231,13 @@ h1 {
   font-family: Coolvetica Rg, sans-serif;
   font-size: 5rem;
   font-weight: 300;
-  line-height: 5.25rem;
+  line-height: 0.95;
 }
 
 h2 {
   font-family: Coolvetica Rg, sans-serif;
   font-size: 4rem;
-  line-height: 4.25rem;
+  line-height: 0.95;
 }
 
 h3 {
@@ -348,7 +348,6 @@ a {
   align-self: center;
   align-items: stretch;
   width: 100vw;
-  height: 60vh;
   margin-top: 10vh;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -360,6 +359,7 @@ a {
 }
 
 .hero-section.web-hero {
+  isolation: isolate;
   z-index: 5;
   overflow: visible;
   padding: 5vh 40px;
@@ -370,10 +370,14 @@ a {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 20vw;
+  width: 30vw;
+  max-width: 500px;
   height: auto;
   display: block;
   z-index: 5;
+  opacity: 0.85;
+  /* filter: invert(1); */
+  /* mix-blend-mode: multiply; */
 }
 
 .hero-social-proof {
@@ -404,7 +408,7 @@ a {
   margin: 0;
   font-size: 13px;
   line-height: 1.4;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .hero-section.gmb-hero {
@@ -460,7 +464,7 @@ a {
   letter-spacing: 2px;
   margin-bottom: 0;
   font-family: Coolvetica rg, sans-serif;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 8rem);
   font-style: normal;
     font-weight: 600;
   line-height: 1;
@@ -486,7 +490,7 @@ a {
   font-family: Ltmuseum, Times New Roman, sans-serif;
   font-size: 4vw;
     font-weight: 600;
-  line-height: 1.1;
+  line-height: 0.95;
 }
 
 .h3.center-h3 {
@@ -735,7 +739,7 @@ a {
 
 .footer-typemark.form {
   font-family: Ltmuseum, Times New Roman, sans-serif;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 8rem);
 }
 
 .link-block {
@@ -1274,24 +1278,25 @@ a {
 .blog-card-1 {
   border: 1px solid #00000066;
   color: var(--black);
-  background-color: #ffffff0d;
+  background-color: rgba(226, 226, 226, 0.90);
   flex-direction: column;
   flex: none;
   justify-content: center;
   align-items: center;
   width: 30vw;
-  height: 30vh;
+  height: 40vh;
   margin-right: 20px;
   padding: 20px;
   text-decoration: none;
   transition: all .3s;
   display: flex;
   position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .blog-card-1:hover {
   color: var(--black);
-  background-color: #ffffff26;
 }
 
 .blog-card-1:has(.filter-text):hover {
@@ -1317,7 +1322,7 @@ a {
 .blog-card-subheading {
   color: #fff;
   text-align: left;
-  max-width: 35vw;
+  max-width: 45vw;
   padding-left: 10px;
   font-size: 16px;
     font-weight: 600;
@@ -1415,7 +1420,7 @@ a {
 }
 
 .service-hero-div {
-  z-index: 10;
+  /* z-index: 10; */
   flex-flow: column;
   justify-content: center;
   align-items: flex-start;
@@ -1430,9 +1435,25 @@ a {
   align-self: flex-start;
 }
 
-.service-hero-div.wd-hero {
+.hero-section .hero-div {
   margin-top: 0;
-  margin-bottom: 100px;
+  margin-bottom: 0;
+}
+
+
+.hero-section .hero-div h1,
+.hero-section .hero-div .service-h1,
+.hero-section .hero-div p {
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-section .hero-div .h1 {
+  opacity: 0;
+  display: block;
+  font-kerning: none;
+  text-rendering: optimizespeed;
 }
 
 .service-hero-div.grass-hero-div {
@@ -1641,7 +1662,7 @@ a {
   margin-bottom: 10px;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   font-size: 1.1rem;
-  line-height: 1.2;
+  line-height: 0.95;
   position: relative;
 }
 
@@ -2360,7 +2381,7 @@ a {
 }
 
 .hero-embed {
-  width: 20vw;
+  width: 45vw;
   height: 40vh;
 }
 
@@ -2999,7 +3020,7 @@ a {
   flex: none;
   justify-content: center;
   align-items: flex-start;
-  max-width: 50vw;
+  max-width: 75vw;
   margin-bottom: 20px;
   padding: 0;
   display: flex;
@@ -3459,7 +3480,7 @@ a {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 4vw;
     font-weight: 600;
-  line-height: 1.1;
+  line-height: 0.95;
   position: relative;
 }
 
@@ -3488,7 +3509,7 @@ a {
 }
 
 .organically-span.paragraph-span {
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .organically-span.italic {
@@ -3597,7 +3618,7 @@ a {
   color: var(--333);
   font-size: 50px;
     font-weight: 600;
-  line-height: 1.1;
+  line-height: 0.95;
 }
 
 .thumbs-up {
@@ -3694,7 +3715,7 @@ a {
   border-right: 1px solid var(--black-40);
   border-bottom: 1px solid var(--black-40);
   border-left: 1px solid var(--black-40);
-  background-color: #e2e2e233;
+  background-color: #e2e2e2bf;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   flex: none;
@@ -3772,7 +3793,7 @@ a {
   color: var(--white);
   margin-top: 10px;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .tabs-superheading {
@@ -3819,7 +3840,7 @@ a {
   color: var(--white);
   text-align: center;
   font-size: 62px;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .h1-center-white.family-law-h1 {
@@ -3827,7 +3848,7 @@ a {
   text-align: left;
   padding-left: 100px;
   padding-right: 100px;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 8rem);
   line-height: 1;
 }
 
@@ -3886,6 +3907,11 @@ a {
 
 .green-span {
   color: var(--orga);
+}
+
+.green-span.h1-period,
+.organically-span.h1-period {
+  font-size: 1.15em;
 }
 
 .blog-home-thumbnail {
@@ -4026,7 +4052,7 @@ a {
 .latino-paragraph {
   color: #fff;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .saas-button {
@@ -4084,11 +4110,42 @@ a {
   padding-bottom: 20px;
   display: flex;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+}
+
+.blog-cards-wrapper {
+  width: 100%;
+  border-top: 1px solid var(--black-40);
+  border-bottom: 1px solid var(--black-40);
+  border-left: 1px solid var(--black-40);
+  border-right: 1px solid var(--black-40);
+  padding: 40px 5vw;
+  position: relative;
+  overflow: hidden;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    var(--black-40) 10px,
+    var(--black-40) 11px
+  );
+}
+
+.blog-cards-track {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  padding-right: 20vw;
+  position: relative;
   cursor: grab;
 }
 
-.read-more-module:active {
+.blog-cards-track .blog-card-1:last-child {
+  margin-right: 0;
+}
+
+.blog-cards-track:active {
   cursor: grabbing;
 }
 
@@ -4199,16 +4256,17 @@ a {
 .h1 {
   color: var(--333);
   font-family: Coolvetica rg, sans-serif;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 6.75rem);
   font-weight: 600;
+  max-width: 90%;
 }
 
 .h1.h1-home {
   z-index: 10;
   color: var(--black-75);
   font-family: Coolvetica rg, sans-serif;
-  font-size: 8vw;
-  line-height: 1.2;
+  font-size: clamp(2rem, 8vw, 8rem);
+  line-height: 0.95;
   position: relative;
   font-weight: 600;
   text-align: left;
@@ -4305,11 +4363,13 @@ a {
 .section.ticker-testimonial-section {
   border-top: 1px solid var(--black-40);
   width: 90vw;
-  padding: 2vh 0;
-  max-height: 25vh;
+  padding: 0;
+  min-height: auto;
+  height: auto;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: #333;
 }
 
 .diagonal-main-text {
@@ -4327,7 +4387,7 @@ a {
   font-family: Coolvetica rg, sans-serif;
   font-size: 4rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 0.95;
   margin: 0;
 }
 
@@ -4404,7 +4464,7 @@ a {
   flex-flow: column;
   justify-content: center;
   align-items: flex-start;
-  width: 20vw;
+  width: 45vw;
   font-family: Ltmuseum, Times New Roman, sans-serif;
   display: flex;
   position: relative;
@@ -4505,7 +4565,7 @@ a {
   height: auto;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .services-showcase {
@@ -4540,7 +4600,7 @@ a {
   color: var(--black-75);
   font-weight: 600;
   margin: 0;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .services-showcase-left p {
@@ -4594,7 +4654,7 @@ a {
   color: var(--black-75);
   font-weight: 600;
   margin: 0 0 15px 0;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .services-showcase-description p:not(.small-feature-title):not(.p2) {
@@ -4708,6 +4768,15 @@ a {
   .services-showcase-description {
     padding: 3vh 0;
   }
+
+  .services-showcase-card {
+    padding: 12px;
+    min-height: 60px;
+  }
+
+  .services-showcase-label {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 533px) {
@@ -4721,6 +4790,15 @@ a {
 
   .services-showcase-description {
     padding: 2.5vh 0;
+  }
+
+  .services-showcase-card {
+    padding: 8px;
+    min-height: 50px;
+  }
+
+  .services-showcase-label {
+    font-size: 0.75rem;
   }
 }
 
@@ -4829,7 +4907,7 @@ a {
   z-index: 1;
   color: var(--black-90);
   width: 100%;
-  max-width: none;
+  max-width: 30vw;
   padding: 0;
   margin: 20px 0 0 0;
   font-size: 1.5rem;
@@ -4964,12 +5042,12 @@ a {
   font-size: 0.6rem;
   color: var(--black-60);
   margin: 0;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .feature-ticker-container {
-  width: 75%;
-  max-width: 100%;
+  width: 100%;
+  max-width: 30vw;
   margin: 40px 0 0 0;
   padding: 0;
   display: flex;
@@ -4981,7 +5059,8 @@ a {
 
 @media (max-width: 767px) {
   .feature-ticker-container {
-    width: 100%;
+    width: 90%;
+    max-width: 90%;
   }
 }
 
@@ -5154,10 +5233,10 @@ a {
 }
 
 .ticking-text {
-  color: var(--black-75);
+  color: #e2e2e2;
   white-space: nowrap;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
   font-family: Coolvetica Rg, sans-serif;
   font-size: 11rem;
   font-weight: 600;
@@ -5261,22 +5340,22 @@ a {
 
 @media screen and (max-width: 991px) {
   .hero-section {
-    height: 75vh;
+    height: auto;
   }
 
   .hero-section.web-hero {
-    height: 90vh;
+    height: auto;
     padding: 5vh 20px;
   }
 
   .hero-section.gmb-hero {
-    height: 90vh;
+    height: auto;
     margin-bottom: -10rem;
     padding-bottom: 100px;
   }
 
   .hero-section.branding-hero, .hero-section.google-ads-hero-section {
-    height: 90vh;
+    height: auto;
     padding-bottom: 100px;
   }
 
@@ -5521,7 +5600,7 @@ a {
   }
 
   .service-image.show-ipad.small-peace-sign {
-    width: 20vw;
+    width: 45vw;
   }
 
   .service-h1 {
@@ -5570,7 +5649,7 @@ a {
     align-items: flex-start;
     width: auto;
     max-width: 50vw;
-    height: 250px;
+    height: 40vh;
   }
 
   .blog-card-1:hover {
@@ -6024,7 +6103,7 @@ a {
   }
 
   .p1-left-align.p1-large.plastic-seo {
-    font-size: 8vw;
+    font-size: clamp(2rem, 8vw, 8rem);
   }
 
   .adventure-card {
@@ -6277,10 +6356,10 @@ a {
   .read-more-module {
     justify-content: flex-start;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: auto;
     padding-left: 5vw;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .read-more-module.reverse {
@@ -6413,7 +6492,7 @@ a {
 
   .shrunk-p {
     width: auto;
-    max-width: 90vw;
+    max-width: 100%;
     padding: 0;
     margin: 20px 0 0 0;
     text-align: left;
@@ -6423,7 +6502,7 @@ a {
 @media screen and (max-width: 767px) {
   h1 {
     font-size: 3rem;
-    line-height: 3.25rem;
+    line-height: 0.95;
   }
 
   .hero-section {
@@ -6432,7 +6511,7 @@ a {
   }
 
   .hero-section.branding-hero {
-    height: 90vh;
+    height: auto;
   }
 
   .hero-section {
@@ -6465,12 +6544,12 @@ a {
 
   .shrunk-p {
     width: auto;
-    max-width: 90vw;
+    max-width: 100%;
   }
 
   .feature-ticker-container {
-    width: auto;
-    max-width: 80vw;
+    width: 90%;
+    max-width: 90%;
   }
 
   .hero-div {
@@ -6666,6 +6745,18 @@ a {
     display: flex;
   }
 
+  .blog-nav-buttons {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .blog-nav-btn {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    min-width: 60px;
+  }
+
   .seo-div {
     flex-direction: column;
     max-width: 100vw;
@@ -6720,10 +6811,12 @@ a {
   }
 
   .blog-card-1 {
+    width: 80vw;
+    min-height: 60vh;
     height: auto;
     margin-top: 20px;
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 20px;
   }
 
   .blog-card-subheading {
@@ -6756,7 +6849,7 @@ a {
   }
 
   .sticky-author-div {
-    min-width: 20vw;
+    min-width: 45vw;
     padding-right: 0;
     display: none;
   }
@@ -7028,7 +7121,7 @@ a {
   }
 
   .p1-left-align.p1-large {
-    font-size: 8vw;
+    font-size: clamp(2rem, 8vw, 8rem);
   }
 
   .p1-left-align.p1-large.plastic-seo {
@@ -7181,7 +7274,8 @@ a {
 
   .blog-module-card-title {
     text-align: left;
-    width: 90vw;
+    width: 100%;
+    max-width: 100%;
     padding-left: 0;
     font-size: 25px;
   }
@@ -7213,17 +7307,25 @@ a {
 
   .ticking-text {
     font-size: 5rem;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+  }
+
+  .section.ticker-testimonial-section {
+    padding: 0;
+    min-height: auto;
+    height: auto;
   }
 }
 
 @media screen and (max-width: 479px) {
   h1 {
     font-size: 2rem;
-    line-height: 2.25rem;
+    line-height: 0.95;
   }
 
   .hero-section {
-    height: 50vh;
+    height: auto;
   }
 
   .hero-section.web-hero {
@@ -7231,15 +7333,15 @@ a {
   }
 
   .hero-section.gmb-hero {
-    height: 90vh;
+    height: auto;
   }
 
   .hero-section.google-ads-hero-section {
-    height: 75vh;
+    height: auto;
   }
 
   .hero-section.grass-hero {
-    height: 90vh;
+    height: auto;
   }
 
   .home-h1 {
@@ -7448,7 +7550,19 @@ a {
     margin-bottom: 100px;
     padding-top: 100px;
     padding-bottom: 100px;
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  .blog-nav-buttons {
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .blog-nav-btn {
+    padding: 18px 35px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    min-width: 70px;
   }
 
   .seo-div {
@@ -7530,12 +7644,14 @@ a {
   }
 
   .blog-card-1 {
+    width: 90vw;
+    min-height: 75vh;
+    height: auto;
     justify-content: center;
     align-items: flex-start;
     margin-top: 38px;
     margin-right: 20px;
-    padding: 10px;
-    left: 74.8vw;
+    padding: 15px;
   }
 
   .blog-card-subheading {
@@ -7562,7 +7678,8 @@ a {
   .blog-card-content {
     justify-content: center;
     align-items: flex-start;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
   }
 
   .home-h5 {
@@ -7887,12 +8004,12 @@ a {
   .p1-left-align.p1-large.plastic-seo {
     text-shadow: none;
     font-size: 13vw;
-    line-height: 1.1;
+    line-height: 0.95;
   }
 
   .p1-left-align.p1-large.seo-audit-h1 {
     font-size: 13vw;
-    line-height: 1.1;
+    line-height: 0.95;
   }
 
   .p1-left-align.p1-bullets {
@@ -8079,13 +8196,25 @@ a {
     flex-flow: row;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 40vw;
+    padding-left: 0;
   }
 
   .read-more-heading {
     margin-left: 5%;
     font-size: 32px;
     top: 4%;
+  }
+
+  .ticking-text {
+    font-size: 3rem;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+
+  .section.ticker-testimonial-section {
+    padding: 0;
+    min-height: auto;
+    height: auto;
   }
 
   .sticky-stacking-tab-wrapper {
@@ -8111,7 +8240,7 @@ a {
 
   .h1.h1-home {
     font-size: 15vw;
-    line-height: 1.1;
+    line-height: 0.95;
   }
 
   .nav-brand-text {

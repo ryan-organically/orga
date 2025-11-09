@@ -187,7 +187,7 @@ class UniversalMenu extends HTMLElement {
 
         // Calculate slide distance based on screen size
         const isMobile = window.innerWidth <= 767;
-        const slideDistance = isMobile ? '45vw' : '15vw'; // Match panel width on mobile
+        const slideDistance = isMobile ? '75vw' : '15vw'; // Match panel width on mobile
 
         gsap.to(sidePanel, {
           autoAlpha: 1,
