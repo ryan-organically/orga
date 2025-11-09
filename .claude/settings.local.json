@@ -11,7 +11,9 @@
       "Bash(for file in index.html blog.html web-design.html seo.html branding.html)",
       "Bash(do echo \"=== $file ===\")",
       "Bash(done)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(identify:*)"
     ],
     "deny": [],
     "ask": []

@@ -231,13 +231,13 @@ h1 {
   font-family: Coolvetica Rg, sans-serif;
   font-size: 5rem;
   font-weight: 300;
-  line-height: 5.25rem;
+  line-height: 0.95;
 }
 
 h2 {
   font-family: Coolvetica Rg, sans-serif;
   font-size: 4rem;
-  line-height: 4.25rem;
+  line-height: 0.95;
 }
 
 h3 {
@@ -360,6 +360,7 @@ a {
 }
 
 .hero-section.web-hero {
+  isolation: isolate;
   z-index: 5;
   overflow: visible;
   padding: 5vh 40px;
@@ -370,10 +371,13 @@ a {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 20vw;
+  width: 45vw;
   height: auto;
   display: block;
   z-index: 5;
+  opacity: 1;
+  filter: invert(1);
+  /* mix-blend-mode: multiply; */
 }
 
 .hero-social-proof {
@@ -404,7 +408,7 @@ a {
   margin: 0;
   font-size: 13px;
   line-height: 1.4;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .hero-section.gmb-hero {
@@ -460,7 +464,7 @@ a {
   letter-spacing: 2px;
   margin-bottom: 0;
   font-family: Coolvetica rg, sans-serif;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 8rem);
   font-style: normal;
     font-weight: 600;
   line-height: 1;
@@ -486,7 +490,7 @@ a {
   font-family: Ltmuseum, Times New Roman, sans-serif;
   font-size: 4vw;
     font-weight: 600;
-  line-height: 1.1;
+  line-height: 0.95;
 }
 
 .h3.center-h3 {
@@ -735,7 +739,7 @@ a {
 
 .footer-typemark.form {
   font-family: Ltmuseum, Times New Roman, sans-serif;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 8rem);
 }
 
 .link-block {
@@ -1317,7 +1321,7 @@ a {
 .blog-card-subheading {
   color: #fff;
   text-align: left;
-  max-width: 35vw;
+  max-width: 45vw;
   padding-left: 10px;
   font-size: 16px;
     font-weight: 600;
@@ -1415,7 +1419,7 @@ a {
 }
 
 .service-hero-div {
-  z-index: 10;
+  /* z-index: 10; */
   flex-flow: column;
   justify-content: center;
   align-items: flex-start;
@@ -1433,6 +1437,15 @@ a {
 .service-hero-div.wd-hero {
   margin-top: 0;
   margin-bottom: 100px;
+}
+
+
+.service-hero-div.wd-hero h1,
+.service-hero-div.wd-hero .service-h1,
+.service-hero-div.wd-hero p {
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 10;
 }
 
 .service-hero-div.grass-hero-div {
@@ -1641,7 +1654,7 @@ a {
   margin-bottom: 10px;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   font-size: 1.1rem;
-  line-height: 1.2;
+  line-height: 0.95;
   position: relative;
 }
 
@@ -2360,7 +2373,7 @@ a {
 }
 
 .hero-embed {
-  width: 20vw;
+  width: 45vw;
   height: 40vh;
 }
 
@@ -3459,7 +3472,7 @@ a {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 4vw;
     font-weight: 600;
-  line-height: 1.1;
+  line-height: 0.95;
   position: relative;
 }
 
@@ -3488,7 +3501,7 @@ a {
 }
 
 .organically-span.paragraph-span {
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .organically-span.italic {
@@ -3597,7 +3610,7 @@ a {
   color: var(--333);
   font-size: 50px;
     font-weight: 600;
-  line-height: 1.1;
+  line-height: 0.95;
 }
 
 .thumbs-up {
@@ -3772,7 +3785,7 @@ a {
   color: var(--white);
   margin-top: 10px;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .tabs-superheading {
@@ -3819,7 +3832,7 @@ a {
   color: var(--white);
   text-align: center;
   font-size: 62px;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .h1-center-white.family-law-h1 {
@@ -3827,7 +3840,7 @@ a {
   text-align: left;
   padding-left: 100px;
   padding-right: 100px;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 8rem);
   line-height: 1;
 }
 
@@ -3886,6 +3899,11 @@ a {
 
 .green-span {
   color: var(--orga);
+}
+
+.green-span.h1-period,
+.organically-span.h1-period {
+  font-size: 1.15em;
 }
 
 .blog-home-thumbnail {
@@ -4026,7 +4044,7 @@ a {
 .latino-paragraph {
   color: #fff;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .saas-button {
@@ -4199,7 +4217,7 @@ a {
 .h1 {
   color: var(--333);
   font-family: Coolvetica rg, sans-serif;
-  font-size: 8vw;
+  font-size: clamp(2rem, 8vw, 8rem);
   font-weight: 600;
 }
 
@@ -4207,8 +4225,8 @@ a {
   z-index: 10;
   color: var(--black-75);
   font-family: Coolvetica rg, sans-serif;
-  font-size: 8vw;
-  line-height: 1.2;
+  font-size: clamp(2rem, 8vw, 8rem);
+  line-height: 0.95;
   position: relative;
   font-weight: 600;
   text-align: left;
@@ -4327,7 +4345,7 @@ a {
   font-family: Coolvetica rg, sans-serif;
   font-size: 4rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 0.95;
   margin: 0;
 }
 
@@ -4404,7 +4422,7 @@ a {
   flex-flow: column;
   justify-content: center;
   align-items: flex-start;
-  width: 20vw;
+  width: 45vw;
   font-family: Ltmuseum, Times New Roman, sans-serif;
   display: flex;
   position: relative;
@@ -4505,7 +4523,7 @@ a {
   height: auto;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .services-showcase {
@@ -4540,7 +4558,7 @@ a {
   color: var(--black-75);
   font-weight: 600;
   margin: 0;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .services-showcase-left p {
@@ -4594,7 +4612,7 @@ a {
   color: var(--black-75);
   font-weight: 600;
   margin: 0 0 15px 0;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .services-showcase-description p:not(.small-feature-title):not(.p2) {
@@ -4964,7 +4982,7 @@ a {
   font-size: 0.6rem;
   color: var(--black-60);
   margin: 0;
-  line-height: 1.2;
+  line-height: 0.95;
 }
 
 .feature-ticker-container {
@@ -5521,7 +5539,7 @@ a {
   }
 
   .service-image.show-ipad.small-peace-sign {
-    width: 20vw;
+    width: 45vw;
   }
 
   .service-h1 {
@@ -6024,7 +6042,7 @@ a {
   }
 
   .p1-left-align.p1-large.plastic-seo {
-    font-size: 8vw;
+    font-size: clamp(2rem, 8vw, 8rem);
   }
 
   .adventure-card {
@@ -6423,7 +6441,7 @@ a {
 @media screen and (max-width: 767px) {
   h1 {
     font-size: 3rem;
-    line-height: 3.25rem;
+    line-height: 0.95;
   }
 
   .hero-section {
@@ -6756,7 +6774,7 @@ a {
   }
 
   .sticky-author-div {
-    min-width: 20vw;
+    min-width: 45vw;
     padding-right: 0;
     display: none;
   }
@@ -7028,7 +7046,7 @@ a {
   }
 
   .p1-left-align.p1-large {
-    font-size: 8vw;
+    font-size: clamp(2rem, 8vw, 8rem);
   }
 
   .p1-left-align.p1-large.plastic-seo {
@@ -7219,7 +7237,7 @@ a {
 @media screen and (max-width: 479px) {
   h1 {
     font-size: 2rem;
-    line-height: 2.25rem;
+    line-height: 0.95;
   }
 
   .hero-section {
@@ -7887,12 +7905,12 @@ a {
   .p1-left-align.p1-large.plastic-seo {
     text-shadow: none;
     font-size: 13vw;
-    line-height: 1.1;
+    line-height: 0.95;
   }
 
   .p1-left-align.p1-large.seo-audit-h1 {
     font-size: 13vw;
-    line-height: 1.1;
+    line-height: 0.95;
   }
 
   .p1-left-align.p1-bullets {
@@ -8111,7 +8129,7 @@ a {
 
   .h1.h1-home {
     font-size: 15vw;
-    line-height: 1.1;
+    line-height: 0.95;
   }
 
   .nav-brand-text {
