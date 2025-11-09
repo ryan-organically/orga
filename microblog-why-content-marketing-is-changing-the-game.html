@@ -27,8 +27,97 @@
   <style>
   body {
     overflow-x: clip;
-  }  
-</style><!--  Google tag (gtag.js)  -->
+  }
+</style>
+  <style>
+  /* Return to Blog Button */
+  .return-to-blog-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Coolvetica rg', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    cursor: pointer;
+  }
+
+  .return-to-blog-btn:hover {
+    border-color: #7ec700;
+    color: #7ec700;
+    transform: translateY(-2px);
+  }
+
+  .return-to-blog-wrapper {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Responsive Blog Fixes */
+  .blog-massive-wrapper {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .blog-massive-wrapper img,
+  .wide-image,
+  .blog-image {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 767px) {
+    .blog-massive-wrapper {
+      width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .wide-image,
+    .blog-image {
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .blog-p1,
+    .blog-h2,
+    .blog-h2-2,
+    .blog-h3,
+    .blog-h3-3,
+    .blog-h4 {
+      max-width: 100%;
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .embed-6,
+    .pizza-maker-embed,
+    .w-embed,
+    .w-iframe {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+    .embed-6 iframe,
+    .pizza-maker-embed iframe {
+      width: 100% !important;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
+  }
+  </style><!--  Google tag (gtag.js)  -->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2LPK0F7PYW"></script>
   <script>
   window.dataLayer = window.dataLayer || [];
@@ -115,6 +204,9 @@ html.lenis {
       <a href="#" class="content-link">Technical SEO</a>
     </div>
     <div class="blog-massive-wrapper">
+      <div class="return-to-blog-wrapper">
+        <a href="blog.html" class="return-to-blog-btn">← Return to Other Articles</a>
+      </div>
       <p class="blog-p1">There&#x27;s been a tangible shift from traditional advertising to content-driven experiences. Consumers crave unique content that resonates with them and sets their soul on fire. <br><br>I&#x27;ll try my hardest to do just that. Got your coffee? And your fire extinguisher?</p>
       <h2 class="blog-h2">1. Content Marketing is Evolving Consumer Behavior</h2><img src="images/Human-evolution-into-smartphones.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 700px" srcset="images/Human-evolution-into-smartphones-p-500.jpg 500w, images/Human-evolution-into-smartphones-p-800.jpg 800w, images/Human-evolution-into-smartphones.jpg 1920w" alt="" class="wide-image">
       <div class="photo-attribution">Photo by <a href="https://unsplash.com/@eugenezhyvchik?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Eugene Zhyvchik</a> on <a href="https://unsplash.com/photos/xJY-7gtC38o?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
@@ -126,6 +218,9 @@ html.lenis {
       <p class="blog-p1">Utilize various channels to distribute your content and connect with consumers where they are most active.<br><br>For example, if you&#x27;re making a massive 6000 word blog post, create a plan where you can make a quick few Instagram reels, a Tweet thread, etc. If you&#x27;re not already <a href="https://ahrefs.com/blog/repurposing-content/#:~:text=Content%20repurposing%20is%20when%20you,video%20to%20a%20blog%20post." class="blink-1">repurposing </a>content, start now. <br><br>You already did the work and came up with the content. It&#x27;d be misuse of your time if it only went into the blog post. Diversify and dominate ladies &amp; gents.<br><br>Find platforms and channels that align with your target audience&#x27;s preferences and behaviors. The possibilities are endless on YouTube, Facebook, LinkedIn, &amp; about a hundred more.<br><br>Try dipping your toes into these short-form content algorithms. The amount of fresh exposure you get to strangers is not to be taken lightly.</p>
       <h3 class="blog-h2">Establishing Key Performance Indicators (KPIs) for Content Marketing</h3><img src="images/KPI.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 700px" srcset="images/KPI-p-500.jpg 500w, images/KPI-p-800.jpg 800w, images/KPI.jpg 1920w" alt="" class="wide-image">
       <p class="blog-p1">KPIs are specific metrics that help brands gauge the performance and impact of their content marketing efforts. The choice of KPIs should align with the objectives of the campaign or content piece. <br><br>Common content marketing KPIs include website traffic, engagement metrics (such as likes, comments, shares), conversion rates, time spent on page, email newsletter sign-ups, and brand mentions.<br><br>That&#x27;s all for now! Hopefully this was bite-sized enough for ya! :)</p>
+      <div class="return-to-blog-wrapper">
+        <a href="blog.html" class="return-to-blog-btn">← Return to Other Articles</a>
+      </div>
     </div>
     <div class="sticky-author-div"><img src="images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="135" alt="" class="blog-author-image">
       <div class="author-bio-heading">Ryan Scanlon, Author &amp; SEO</div>
