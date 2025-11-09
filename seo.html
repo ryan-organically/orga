@@ -148,6 +148,14 @@ html.lenis {
 
     .services-section-2-div {
       margin-bottom: 60px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .services-section-2-div p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
 
     .services-stack {
@@ -166,6 +174,15 @@ html.lenis {
       opacity: 0;
       transform: translateY(30px);
       transition: border-color 0.3s ease;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .service-item p,
+    .service-item h3 {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
 
     .service-item:hover {
@@ -269,6 +286,11 @@ html.lenis {
       .service-h3 {
         font-size: 18px;
       }
+    }
+
+    /* Hide pricing module */
+    .section:has(.pricing-card-wrapper) {
+      display: none !important;
     }
   </style>
 
