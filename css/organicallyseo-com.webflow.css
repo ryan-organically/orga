@@ -348,7 +348,6 @@ a {
   align-self: center;
   align-items: stretch;
   width: 100vw;
-  height: 60vh;
   margin-top: 10vh;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -371,12 +370,13 @@ a {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 45vw;
+  width: 30vw;
+  max-width: 500px;
   height: auto;
   display: block;
   z-index: 5;
-  opacity: 1;
-  filter: invert(1);
+  opacity: 0.85;
+  /* filter: invert(1); */
   /* mix-blend-mode: multiply; */
 }
 
@@ -1436,7 +1436,7 @@ a {
 
 .service-hero-div.wd-hero {
   margin-top: 0;
-  margin-bottom: 100px;
+  margin-bottom: 0;
 }
 
 
@@ -1446,6 +1446,13 @@ a {
   mix-blend-mode: difference;
   position: relative;
   z-index: 10;
+}
+
+.service-hero-div.wd-hero .h1 {
+  opacity: 0;
+  display: block;
+  font-kerning: none;
+  text-rendering: optimizespeed;
 }
 
 .service-hero-div.grass-hero-div {
@@ -4217,8 +4224,9 @@ a {
 .h1 {
   color: var(--333);
   font-family: Coolvetica rg, sans-serif;
-  font-size: clamp(2rem, 8vw, 8rem);
+  font-size: clamp(2rem, 8vw, 6.75rem);
   font-weight: 600;
+  max-width: 90%;
 }
 
 .h1.h1-home {
@@ -5279,22 +5287,22 @@ a {
 
 @media screen and (max-width: 991px) {
   .hero-section {
-    height: 75vh;
+    height: auto;
   }
 
   .hero-section.web-hero {
-    height: 90vh;
+    height: auto;
     padding: 5vh 20px;
   }
 
   .hero-section.gmb-hero {
-    height: 90vh;
+    height: auto;
     margin-bottom: -10rem;
     padding-bottom: 100px;
   }
 
   .hero-section.branding-hero, .hero-section.google-ads-hero-section {
-    height: 90vh;
+    height: auto;
     padding-bottom: 100px;
   }
 
@@ -6450,7 +6458,7 @@ a {
   }
 
   .hero-section.branding-hero {
-    height: 90vh;
+    height: auto;
   }
 
   .hero-section {
@@ -7241,7 +7249,7 @@ a {
   }
 
   .hero-section {
-    height: 50vh;
+    height: auto;
   }
 
   .hero-section.web-hero {
@@ -7249,15 +7257,15 @@ a {
   }
 
   .hero-section.gmb-hero {
-    height: 90vh;
+    height: auto;
   }
 
   .hero-section.google-ads-hero-section {
-    height: 75vh;
+    height: auto;
   }
 
   .hero-section.grass-hero {
-    height: 90vh;
+    height: auto;
   }
 
   .home-h1 {

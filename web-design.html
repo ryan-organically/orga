@@ -239,6 +239,14 @@ html.lenis {
   <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
   <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script>
   <script>
+// Disable scroll restoration to prevent jump
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Force scroll to top immediately
+window.scrollTo(0, 0);
+
 document.addEventListener("DOMContentLoaded", () => {
     /* Lenis + ScrollTrigger sync */
     const lenis = new Lenis({
@@ -716,6 +724,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
+<!-- H1 Word Stagger Animation -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Target the h1 in the web design hero
+    const heroH1 = document.querySelector('.service-hero-div.wd-hero .h1');
+
+    if (!heroH1 || typeof SplitText === 'undefined') return;
+
+    // Split the h1 into words AND characters to preserve word boundaries
+    const split = new SplitText(heroH1, {
+        type: "words, chars",
+        wordsClass: "word-wrapper",
+        charsClass: "char-inner"
+    });
+    const chars = split.chars;
+
+    // Wrap each character in a mask container
+    chars.forEach(char => {
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'inline-block';
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.verticalAlign = 'bottom';
+        wrapper.style.paddingBottom = '0.15em';
+        char.style.display = 'inline-block';
+        char.parentNode.insertBefore(wrapper, char);
+        wrapper.appendChild(char);
+    });
+
+    // Get the inner chars after wrapping
+    const innerChars = document.querySelectorAll('.service-hero-div.wd-hero .h1 .char-inner');
+
+    // Force scroll position to stay at top during manipulation
+    window.scrollTo(0, 0);
+
+    // Refresh ScrollTrigger after DOM manipulation
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh(true);
+    }
+
+    // Make h1 visible now that it's split
+    gsap.set(heroH1, { opacity: 1 });
+
+    // Set initial state for each character - all from bottom
+    gsap.set(innerChars, {
+        y: 150,
+        opacity: 0,
+        willChange: 'transform, opacity'
+    });
+
+    // Animate all characters in with subtle stagger
+    gsap.to(innerChars, {
+        y: 0,
+        opacity: 1,
+        duration: 0.1,
+        ease: 'expo.out',
+        stagger: 0.02
+    });
+});
+</script>
+
 <script async="" src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
 </body>
 </html>
