@@ -58,7 +58,7 @@
   .blog-hero-container {
     max-width: 1200px;
     width: 100%;
-    text-align: center;
+    text-align: start;
   }
 
   .blog-hero-subtitle {
@@ -80,10 +80,11 @@
   /* Sidebar Styles */
   .blog-sidebar {
     position: sticky;
-    top: 100px;
+    top: 150px;
     height: fit-content;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     padding-right: 40px;
+    margin-top: 1rem;
   }
 
   .sidebar-title {
@@ -129,14 +130,9 @@
   }
 
   .blog-card {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: none;
     border-radius: 8px;
     overflow: hidden;
-    transition: all 0.3s ease;
-  }
-
-  .blog-card:hover {
-    border-color: #7ec700;
   }
 
   .blog-card-link {
@@ -149,7 +145,10 @@
     width: 100%;
     height: 240px;
     overflow: hidden;
-    background: #f5f5f5;
+    background: linear-gradient(45deg, #e2e2e2 0%, #f0f0f0 50%, #e2e2e2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .blog-card-image {
@@ -209,13 +208,12 @@
 
   /* Dark Mode Support */
   .dark-mode .blog-home-hero,
-  .dark-mode .blog-sidebar,
-  .dark-mode .blog-card {
+  .dark-mode .blog-sidebar {
     border-color: rgba(255, 255, 255, 0.1);
   }
 
-  .dark-mode .blog-card:hover {
-    border-color: #7ec700;
+  .dark-mode .blog-card-image-wrapper {
+    background: #1a1a1a;
   }
 
   .dark-mode .blog-card-title {
@@ -336,21 +334,20 @@ html.lenis {
 
   <div class="hero-section blog-home-hero">
     <div class="blog-hero-container">
-      <h1 class="blog-h1">Nurture Your Online Presence<span class="green-span h1-period">.</span></h1>
+      <h1 class="h1">Nurture Your Online Presence<span class="green-span h1-period">.</span></h1>
       <p class="blog-hero-subtitle">Discover insights on SEO, web design, and digital marketing</p>
     </div>
+    <img src="images/coffee-break.png" alt="Coffee Break" class="hero-treeline-image" style="width: 40vw; max-width: none;">
   </div>
 
   <section class="blog-main-section">
     <div class="blog-sidebar">
       <div class="sidebar-title">Popular Posts</div>
       <a href="what-is-seo.html" class="sidebar-link">What is SEO?</a>
-      <a href="seo-for-doctors.html" class="sidebar-link">SEO for Doctors</a>
       <a href="branding-basics.html" class="sidebar-link">Basics of Branding</a>
       <a href="webflow-launch-checklist.html" class="sidebar-link">Webflow Launch Checklist</a>
       <a href="webflow-vs-figma.html" class="sidebar-link">Webflow vs. Figma</a>
       <a href="ai-art.html" class="sidebar-link">What is AI Art?</a>
-      <a href="i-wrote-17-small-blogs-increased-my-traffic-by-x.html" class="sidebar-link">Increase Blog Traffic Case Study</a>
       <a href="microblog-why-content-marketing-is-changing-the-game.html" class="sidebar-link">Content Marketing Trends</a>
       <a href="the-ux-revolution-how-experience-is-evolving-daily.html" class="sidebar-link">The UX Revolution</a>
       <a href="tools.html" class="sidebar-link">5 Elite Tools</a>
@@ -359,44 +356,7 @@ html.lenis {
     <div class="blog-grid-container">
       <div class="blog-grid">
         <div class="blog-card">
-          <a href="seo-for-doctors.html" class="blog-card-link w-inline-block">
-            <div class="blog-card-image-wrapper">
-              <img src="images/Hand-Writing.png" loading="lazy" alt="SEO for Doctors" class="blog-card-image">
-            </div>
-            <div class="blog-card-content">
-              <p class="blog-card-date">October 21, 2025</p>
-              <h3 class="blog-card-title">SEO for Doctors: A Complete Guide to Medical Practice Marketing</h3>
-              <p class="blog-card-excerpt">Discover proven SEO strategies to help doctors and medical practices increase online visibility, attract more patients, and grow their healthcare business.</p>
-              <div class="blog-card-meta">
-                <span class="blog-card-tag">SEO</span>
-                <span class="blog-card-read-time">8 min read</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="blog-card">
-          <a href="i-wrote-17-small-blogs-increased-my-traffic-by-x.html" class="blog-card-link w-inline-block">
-            <div class="blog-card-image-wrapper">
-              <img src="images/Ahrefs-Snapshot.png" loading="lazy" alt="Keyword Research Case Study" class="blog-card-image">
-            </div>
-            <div class="blog-card-content">
-              <p class="blog-card-date">May 19, 2023</p>
-              <h3 class="blog-card-title">How I Increased My Blog Traffic by X% Using Ahrefs Keyword Explorer</h3>
-              <p class="blog-card-excerpt">A case study on using Ahrefs' keyword explorer to target low competition keywords and increase blog traffic.</p>
-              <div class="blog-card-meta">
-                <span class="blog-card-tag">Case Study</span>
-                <span class="blog-card-read-time">6 min read</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="blog-card">
           <a href="microblog-why-content-marketing-is-changing-the-game.html" class="blog-card-link w-inline-block">
-            <div class="blog-card-image-wrapper">
-              <img src="images/Hand-Writing.png" loading="lazy" alt="Content Marketing" class="blog-card-image">
-            </div>
             <div class="blog-card-content">
               <p class="blog-card-date">April 15, 2023</p>
               <h3 class="blog-card-title">3 Ways Content Marketing is Changing the Game</h3>
@@ -411,9 +371,6 @@ html.lenis {
 
         <div class="blog-card">
           <a href="ai-art.html" class="blog-card-link w-inline-block">
-            <div class="blog-card-image-wrapper">
-              <img src="images/AI-Art-Painting.jpg" loading="lazy" alt="AI Art" class="blog-card-image">
-            </div>
             <div class="blog-card-content">
               <p class="blog-card-date">July 12, 2023</p>
               <h3 class="blog-card-title">What is AI Art? And Will It Replace Artists?</h3>
@@ -428,9 +385,6 @@ html.lenis {
 
         <div class="blog-card">
           <a href="tools.html" class="blog-card-link w-inline-block">
-            <div class="blog-card-image-wrapper">
-              <img src="images/My-favorite-tools.jpg" loading="lazy" alt="Tools" class="blog-card-image">
-            </div>
             <div class="blog-card-content">
               <p class="blog-card-date">December 7, 2022</p>
               <h3 class="blog-card-title">5 Elite Tools You Should Already Be Using</h3>
@@ -898,24 +852,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Wait for fonts to load before running SplitText
     function initSplitTextAnimations() {
-        /* 2 ▸ H1 — split lines and chars, use lines as mask */
-        const h1 = document.querySelector(".blog-h1");
+        /* 2 ▸ H1 — split words and chars, use mask wrappers like home page */
+        const h1 = document.querySelector(".h1");
 
-        if (h1) {
-            const splitH1 = SplitText.create(h1, {
-                type: "chars, lines",
-                linesClass: "line",
-                mask: "lines"
-            });
-            gsap.set(splitH1.chars, { yPercent: 110, opacity: 0 });
-            gsap.to(splitH1.chars, {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.8,
-                stagger: 0.06,
-                ease: "power3.out"
-            });
-        }
+        if (!h1 || typeof SplitText === 'undefined') return;
+
+        // Split the h1 into words AND characters to preserve word boundaries
+        const split = new SplitText(h1, {
+            type: "words, chars",
+            wordsClass: "word-wrapper",
+            charsClass: "char-inner"
+        });
+        const chars = split.chars;
+
+        // Wrap each character in a mask container
+        chars.forEach(char => {
+            const wrapper = document.createElement('div');
+            wrapper.style.display = 'inline-block';
+            wrapper.style.overflow = 'hidden';
+            wrapper.style.verticalAlign = 'bottom';
+            wrapper.style.paddingBottom = '0.15em';
+            char.style.display = 'inline-block';
+            char.parentNode.insertBefore(wrapper, char);
+            wrapper.appendChild(char);
+        });
+
+        // Get the inner chars after wrapping
+        const innerChars = document.querySelectorAll('.h1 .char-inner');
+
+        // Make h1 visible now that it's split
+        gsap.set(h1, { opacity: 1 });
+
+        // Set initial state for each character - all from bottom
+        gsap.set(innerChars, {
+            y: 150,
+            opacity: 0,
+            willChange: 'transform, opacity'
+        });
+
+        // Animate all characters in with subtle stagger
+        gsap.to(innerChars, {
+            y: 0,
+            opacity: 1,
+            duration: 0.1,
+            ease: 'expo.out',
+            stagger: 0.02,
+            onComplete: () => {
+                innerChars.forEach(char => {
+                    char.style.willChange = 'auto';
+                });
+            }
+        });
     }
 
     // Initialize SplitText animations when fonts are ready
