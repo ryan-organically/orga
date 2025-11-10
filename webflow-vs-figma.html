@@ -65,6 +65,53 @@ html.lenis {
 	overscroll-behavior: clip;
 }
 </style>
+  <style>
+  .blog-h1,
+  .blog-h2,
+  .blog-h3 {
+    color: #333;
+  }
+
+  .sticky-author-div:not(.contents-side) {
+    display: none;
+  }
+
+  .blog-author-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-author-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5vh;
+  }
+
+  .blog-author-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .blog-author-date {
+    margin: 0;
+    margin-left: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--black-60);
+  }
+
+  @media screen and (max-width: 991px) {
+    .blog-author-image {
+      width: 75px;
+      height: 75px;
+    }
+  }
+  </style>
 </head>
 <body data-w-id="62d856b64a8463bf0059f63a" class="horizontal-body">
 <!-- Left Menu Panel -->
@@ -102,7 +149,12 @@ html.lenis {
   <div class="blog-hero-section">
     <div class="blog-hero-div ai">
       <h1 class="blog-h1">Webflow vs. Figma (And Why You Should Probably Use Both)</h1>
-      <div class="blog-author-date">Ryan Scanlon • Aug. 1, 2023</div>
+      <div class="blog-author-div">
+        <div class="blog-author-wrapper">
+          <img src="images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="100" alt="" class="blog-author-image">
+          <p class="blog-author-date">Ryan Scanlon - August 1, 2023</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="blog-content-section">
@@ -141,24 +193,6 @@ html.lenis {
       <p class="blog-p1">In a realm where creative innovation is imperative, both Webflow and Figma play pivotal roles. Webflow&#x27;s prowess lies in transforming design visions into tangible web experiences, while Figma shines in fostering collaboration and streamlining the prototyping process. Whether utilized independently or synergistically, these tools provide designers with a dynamic arsenal, enabling them to craft captivating digital experiences that resonate profoundly with users.</p>
       <h3 id="prompt-engineer-salary" class="blog-h4">That&#x27;s about it for now</h3>
       <p class="blog-p1">Thanks for reading my tools that everyone already knew about. But if you didn&#x27;t, or forgot, every little bit helps! </p>
-    </div>
-    <div class="sticky-author-div"><img src="images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="135" alt="" class="blog-author-image">
-      <div class="author-bio-heading">Ryan Scanlon, Author &amp; SEO</div>
-      <div class="footer-social-wrapper author-social-div">
-        <a data-w-id="079875ab-7a66-c26b-b761-ebe27ef12007" href="https://twitter.com/organicallyseo" class="blog-author-social x w-inline-block"><img src="images/X-black.png" loading="lazy" width="25" data-w-id="079875ab-7a66-c26b-b761-ebe27ef12008" alt="" class="blog-socials white-socials"><img src="images/X-black.png" loading="lazy" width="25" data-w-id="079875ab-7a66-c26b-b761-ebe27ef12009" alt="" class="blog-socials black-socials"><img src="images/X-7ec700.png" loading="lazy" width="25" data-w-id="7c1121ca-8c82-ac82-1979-00576b2926ec" alt="" class="blog-socials green-socials"></a>
-        <a data-w-id="079875ab-7a66-c26b-b761-ebe27ef12004" href="https://www.linkedin.com/in/ryan-scanlon31/" class="blog-author-social lin w-inline-block"><img src="images/LinkedIn-Black.png" loading="lazy" width="25" data-w-id="079875ab-7a66-c26b-b761-ebe27ef12005" alt="" class="blog-socials white-socials"><img src="images/LinkedIn-Black.png" loading="lazy" width="25" data-w-id="079875ab-7a66-c26b-b761-ebe27ef12006" alt="" class="blog-socials black-socials"><img src="images/LinkedIn-7ec700.png" loading="lazy" width="25" data-w-id="1a47fbe7-1f7a-9a44-835e-a86000d4ee6c" alt="" class="blog-socials green-socials"></a>
-      </div>
-      <div class="seo-bio-prop">
-        <div class="author-bio-text">The self-proclaimed &quot;CEO of SEO&quot; loves the rain, coffee, plants and stealing keywords.</div>
-      </div>
-      <a href="https://calendly.com/organically/30min?month=2024-06" class="button-1 mini-button w-button">Call me maybe</a>
-      <div class="author-bio-heading">You&#x27;ll never see ads over here.</div>
-      <div class="what-is-seo-prop">
-        <a href="what-is-seo.html" class="blog-read-more w-inline-block"><img src="images/Minimalist-cutout-plants-thumbnail.jpg" loading="lazy" width="253" sizes="(max-width: 479px) 100vw, 253px" alt="" srcset="images/Minimalist-cutout-plants-thumbnail-p-500.jpg 500w, images/Minimalist-cutout-plants-thumbnail-p-800.jpg 800w, images/Minimalist-cutout-plants-thumbnail-p-1080.jpg 1080w, images/Minimalist-cutout-plants-thumbnail.jpg 1920w" class="read-more-thumbnail">
-          <div class="author-bio-heading">What is SEO? How to Get Organic Traffic in 2024</div>
-        </a>
-        <div class="author-bio-text">SEO tends to have a lot of jargon, so we simplified everything down to make sense for everyday people.</div>
-      </div>
     </div>
   </div>
   <div class="blog-section-2-div"></div>

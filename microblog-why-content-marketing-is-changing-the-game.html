@@ -117,6 +117,52 @@
       aspect-ratio: 16/9;
     }
   }
+
+  .blog-h1,
+  .blog-h2,
+  .blog-h3 {
+    color: #333;
+  }
+
+  .sticky-author-div:not(.contents-side) {
+    display: none;
+  }
+
+  .blog-author-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-author-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5vh;
+  }
+
+  .blog-author-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .blog-author-date {
+    margin: 0;
+    margin-left: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--black-60);
+  }
+
+  @media screen and (max-width: 991px) {
+    .blog-author-image {
+      width: 75px;
+      height: 75px;
+    }
+  }
   </style><!--  Google tag (gtag.js)  -->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2LPK0F7PYW"></script>
   <script>
@@ -186,10 +232,15 @@ html.lenis {
   <div id="particles-js" data-w-id="a3100d2b-6a75-7eab-0973-cbbf877df149" class="particles-js-div">
     <div class="cursor"></div>
   </div>
-  <div class="blog-hero-section cm-hero"><img src="images/Hand-Writing.png" loading="lazy" width="118" sizes="(max-width: 479px) 31vw, 120px" alt="" srcset="images/Hand-Writing-p-500.png 500w, images/Hand-Writing-p-800.png 800w, images/Hand-Writing.png 1920w" class="blog-hero-image">
+  <div class="blog-hero-section cm-hero">
     <div class="blog-hero-div">
       <h1 class="blog-h1">3 Ways Content Marketing is Changing the Game</h1>
-      <div class="blog-author-date">4 min read</div>
+      <div class="blog-author-div">
+        <div class="blog-author-wrapper">
+          <img src="images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="100" alt="" class="blog-author-image">
+          <p class="blog-author-date">Ryan Scanlon - 4 min read</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="blog-content-section">
@@ -204,9 +255,6 @@ html.lenis {
       <a href="#" class="content-link">Technical SEO</a>
     </div>
     <div class="blog-massive-wrapper">
-      <div class="return-to-blog-wrapper">
-        <a href="blog.html" class="return-to-blog-btn">← Return to Other Articles</a>
-      </div>
       <p class="blog-p1">There&#x27;s been a tangible shift from traditional advertising to content-driven experiences. Consumers crave unique content that resonates with them and sets their soul on fire. <br><br>I&#x27;ll try my hardest to do just that. Got your coffee? And your fire extinguisher?</p>
       <h2 class="blog-h2">1. Content Marketing is Evolving Consumer Behavior</h2><img src="images/Human-evolution-into-smartphones.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 700px" srcset="images/Human-evolution-into-smartphones-p-500.jpg 500w, images/Human-evolution-into-smartphones-p-800.jpg 800w, images/Human-evolution-into-smartphones.jpg 1920w" alt="" class="wide-image">
       <div class="photo-attribution">Photo by <a href="https://unsplash.com/@eugenezhyvchik?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Eugene Zhyvchik</a> on <a href="https://unsplash.com/photos/xJY-7gtC38o?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
@@ -455,16 +503,24 @@ document.addEventListener("DOMContentLoaded", () => {
   @media (max-width: 767px) {
     .body-section {
       width: 90vw;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
     }
 
     .side-menu-panel {
-      width: 20vw;
+      width: 75vw;
+    }
+
+    .side-panel {
+      width: 100%;
     }
 
     .calendar-module {
-      width: 20vw;
+      width: 75vw;
+    }
+
+    .calendar-panel-content {
+      width: 100%;
     }
 
     .universal-menu {

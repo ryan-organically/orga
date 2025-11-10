@@ -63,6 +63,53 @@ html.lenis {
 	overscroll-behavior: clip;
 }
 </style>
+  <style>
+  .blog-h1,
+  .blog-h2,
+  .blog-h3 {
+    color: #333;
+  }
+
+  .sticky-author-div:not(.contents-side) {
+    display: none;
+  }
+
+  .blog-author-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-author-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5vh;
+  }
+
+  .blog-author-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .blog-author-date {
+    margin: 0;
+    margin-left: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--black-60);
+  }
+
+  @media screen and (max-width: 991px) {
+    .blog-author-image {
+      width: 75px;
+      height: 75px;
+    }
+  }
+  </style>
 </head>
 <body data-w-id="62d856b64a8463bf0059f63a" class="horizontal-body">
 <!-- Left Menu Panel -->
@@ -102,7 +149,10 @@ html.lenis {
     <div class="blog-hero-div">
       <h1 class="blog-h1">How to Get Organic<br>Website Traffic in 2024<br></h1>
       <div class="blog-author-div">
-        <p class="blog-author-date">Ryan Scanlon - Updated April 17, 2024</p>
+        <div class="blog-author-wrapper">
+          <img src="images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="100" alt="" class="blog-author-image">
+          <p class="blog-author-date">Ryan Scanlon - Updated April 17, 2024</p>
+        </div>
       </div>
     </div>
   </div>
