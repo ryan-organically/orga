@@ -20,6 +20,27 @@
     .hero-section .hero-div .h1 {
       opacity: 0;
     }
+
+    /* Testimonial Section Mobile Responsive */
+    @media (max-width: 767px) {
+      .testimonial-slider {
+        padding-top: 4rem !important;
+        max-width: 100% !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .testimonial-slider img {
+        width: 120px !important;
+      }
+      .testimonial-item p:first-child {
+        font-size: 1.8rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .testimonial-slider > div {
+        min-height: 250px !important;
+      }
+    }
   </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -106,20 +127,47 @@ html.lenis {
     </div>
 
     <!-- Section 2 with Typer -->
-    <section class="section" style="display: flex; flex-direction: row; align-items: flex-start; gap: 5vw;">
-      <div style="flex: 1; align-self: flex-start;">
-        <h2 class="services-h3"><span class="contractor-typer" style="color: var(--black-75);">The contractors who show up first… get the job first.</span></h2>
-        <p>Most homeowners aren't calling 10 contractors for quotes. They're calling the first 2-3 that show up in Google. If your competitors are ranking above you, you're invisible—and they're cashing checks you should be depositing.</p>
-      </div>
-      <div style="flex: 1;">
-        <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--black-40);">
-          <source src="videos/theme video compressed.webm" type="video/webm">
-        </video>
+    <section class="section" style="display: flex; flex-direction: column; align-items: center; gap: 3rem;">
+      <h2 class="services-h3"><span class="contractor-typer" style="color: var(--black-75);">The contractors who show up first… get the job first.</span></h2>
+      <p>Most homeowners aren't calling 10 contractors for quotes. They're calling the first 2-3 that show up in Google. If your competitors are ranking above you, you're invisible—and they're cashing checks you should be depositing.</p>
+      <a href="#" class="button-1 w-button calendar-toggle-btn" style="margin-top: 20px;">Book a Free Call</a>
+      <video autoplay loop muted playsinline style="width: 100%; max-width: 800px; height: auto; border-radius: 10px; border: 1px solid var(--black-40); margin-top: 2rem;">
+        <source src="videos/theme video compressed.webm" type="video/webm">
+      </video>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+      <!-- Testimonial Slider Module -->
+      <div class="testimonial-slider" style="position: relative; width: 100%; max-width: 900px; margin: 0 auto; text-align: center; padding-top: 6rem;">
+        <!-- Static Star Rating -->
+        <img src="green 5 star.png" alt="5 stars" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 180px; height: auto; z-index: 1;">
+
+        <!-- Testimonials Container -->
+        <div style="position: relative; overflow: hidden; min-height: 300px;">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-item" style="position: absolute; top: 0; left: 0; width: 100%; opacity: 1;">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Ryan's SEO strategy completely transformed our business. We went from 2-3 calls a week to booking out months in advance.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Mike Thompson, Thompson Construction</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-item" style="position: absolute; top: 0; left: 0; width: 100%; opacity: 0;">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Finally, an agency that shows real results. We can track every single lead back to our investment. No smoke and mirrors.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Sarah Martinez, Martinez Remodeling</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-item" style="position: absolute; top: 0; left: 0; width: 100%; opacity: 0;">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Best decision we ever made. Our phone rings constantly now, and we're only getting qualified leads who are ready to start projects.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— David Chen, Chen Home Builders</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Ticker Text -->
-    <section id="contractor-services" class="section ticker-testimonial-section">
+    <section id="contractor-services" class="section ticker-testimonial-section" style="display: none;">
       <div class="ticking-text">So download it, book a call time, and we'll see you on the other side…<span class="green-span">. </span></div>
     </section>
 
@@ -722,6 +770,77 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 50); // 50ms per character
         }
     });
+});
+</script>
+
+<!-- Testimonial Slider Auto-Rotate with GSAP -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    if (testimonialItems.length === 0 || typeof gsap === 'undefined') return;
+
+    let currentIndex = 0;
+    const intervalTime = 6000; // 6 seconds per testimonial
+    let isAnimating = false;
+
+    // Set initial positions - all items start at x: 100% except first
+    gsap.set(testimonialItems, {
+        x: '100%',
+        opacity: 0,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+    });
+
+    // Set first testimonial visible and in position
+    gsap.set(testimonialItems[0], {
+        x: '0%',
+        opacity: 1
+    });
+
+    function showTestimonial(nextIndex) {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const currentItem = testimonialItems[currentIndex];
+        const nextItem = testimonialItems[nextIndex];
+
+        // Create timeline for smooth transition
+        const tl = gsap.timeline({
+            onComplete: () => {
+                currentIndex = nextIndex;
+                isAnimating = false;
+            }
+        });
+
+        // Animate current item out to the left
+        tl.to(currentItem, {
+            x: '-100%',
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.inOut'
+        }, 0);
+
+        // Animate next item in from the right
+        tl.fromTo(nextItem,
+            { x: '100%', opacity: 0 },
+            {
+                x: '0%',
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            },
+        0);
+    }
+
+    function nextTestimonial() {
+        const nextIndex = (currentIndex + 1) % testimonialItems.length;
+        showTestimonial(nextIndex);
+    }
+
+    // Start auto-rotation
+    setInterval(nextTestimonial, intervalTime);
 });
 </script>
 
