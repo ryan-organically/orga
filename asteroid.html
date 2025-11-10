@@ -1,637 +1,990 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Sep 09 2025 14:36:07 GMT+0000 (Coordinated Universal Time)  -->
-<html   lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Asteroid</title>
-  <meta content="Asteroid" property="og:title">
-  <meta content="Asteroid" property="twitter:title">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  
-  <link href="css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/organicallyseo-com.webflow.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script type="text/javascript">WebFont.load({  google: {    families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700"]  }});</script>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organically Defender - Retro Space Shooter</title>
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
-  <link href="images/webclip.jpg" rel="apple-touch-icon">
-  <link href="https://www.organicallyseo.com/asteroid" rel="canonical">
-  <html lang="en">
   <style>
-  body {
-    overflow-x: clip;
-  }  
-</style>
-</html><style>
-  body.horizontal-body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    overflow-x: clip;
-    background-color: #e2e2e2;
-    color: var(--black-75);
-    cursor: crosshair;
-  }
-</style>
-  <style>
-html.lenis {
-	height: auto;
-}
-.lenis.lenis-smooth {
-	scroll-behavior: auto;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-	overscroll-behavior: clip;
-}
-</style>
-</head>
-<body class="horizontal-body">
-<!-- Left Menu Panel -->
-  <div class="side-menu-panel">
-      <div class="side-panel">
-        <div class="menu-header">
-          <p class="menu-tagline">Redefining agency marketing—one organic idea at a time.</p>
-        </div>
-        <nav class="menu-nav">
-          <a href="/" class="menu-nav-link">Home</a>
-          <a href="/web-design" class="menu-nav-link">Web design</a>
-          <a href="/seo" class="menu-nav-link">SEO</a>
-          <a href="/branding" class="menu-nav-link">Creative</a>
-          <a href="/blog" class="menu-nav-link">Blog</a>
-        </nav>
-      </div>
-    </div>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-    <!-- Center Body Section -->
-    <div class="body-section">
-
-  <div class="universal-menu">
-    <universal-menu></universal-menu>
-    <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
-      <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
-    </div>
-    <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Book call</a>
-  </div>
-  <div id="particles-js" data-w-id="2be5e6bd-bf08-f347-c1d4-c74c6a23eed5" class="particles-js-div">
-    <div class="cursor"></div>
-  </div>
-  <div id="gameContainer" class="gamecontainer">
-    <article id="gameCanvas" class="gamecanvas"></article>
-  </div>
-  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b051031253bad4ba698d38" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script>
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/SplitText.min.js" type="text/javascript"></script>
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/InertiaPlugin.min.js" type="text/javascript"></script>
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js" type="text/javascript"></script>
-  <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
-      </div><!-- .body-section -->
-
-<!-- Right Calendar Panel -->
-    <div class="calendar-module">
-      <div class="calendar-panel-content">
-        <div class="calendar-header">
-          <h3 class="calendar-title">Let's Connect</h3>
-          <p class="calendar-subtitle">Pick a time that works for you</p>
-        </div>
-        <div class="calendar-embed-wrapper">
-          <iframe
-            src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&hide_event_type_details=1"
-            width="100%"
-            height="600"
-            frameborder="0"
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="calendar-review">
-          <img src="green 5 star.png" alt="5 stars" class="review-stars">
-          <p class="review-quote">"Ryan was an absolute beauty to work with—thoughtful, creative, and genuinely invested in making our vision come to life."</p>
-          <p class="review-author">— Sarah M., Founder</p>
-        </div>
-      </div>
-
-  <!-- Universal Menu Web Component -->
-  <script src="components/universal-menu.js"></script>
-
-<style>
-
-  /* Left Side Menu Panel - 20vw, fixed to left edge */
-  .side-menu-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20vw;
-    height: 100vh;
-    z-index: 1;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* Side Panel - child that toggles, 100% width, no padding or margin */
-  .side-panel {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0 0 5vh 0;
-    background: var(--e2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    opacity: 0;
-    visibility: hidden;
-    box-sizing: border-box;
-  }
-
-  /* Menu header - 10vh at top */
-  .menu-header {
-    height: 10vh;
-    padding: 20px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--black-40);
-    box-sizing: border-box;
-  }
-
-  .menu-tagline {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.4;
-    opacity: 0.8;
-    font-style: italic;
-  }
-
-  /* Menu nav links - only top margin allowed */
-  .menu-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    margin: 0;
-  }
-
-  .menu-nav-link {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0 20px;
-  }
-
-  .menu-footer {
-    padding: 0 20px 20px;
-    margin: 0;
-  }
-
-  /* Center Body Section - 90vw, centered, no side margins */
-  .body-section {
-    width: 90vw;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    z-index: 10;
-  }
-
-  /* Universal Menu - 100% width of body-section */
-  .universal-menu {
-    width: 100%;
-    margin: 0;
-    padding: 5vw;
-    box-sizing: border-box;
-    position: sticky;
-  }
-
-  /* All hero sections - 10vh top margin, 100% width, 5vw padding */
-  .hero-section {
-    width: 100%;
-    margin: 10vh 0 0 0;
-    padding: 5vw;
-    box-sizing: border-box;
-    min-height: 60vh;
-  }
-
-  /* All sections inside body-section - 100% width, 5vw padding */
-  .body-section > section:not(#Footer),
-  .body-section > div:not(.universal-menu):not(#Footer) {
-    width: 100%;
-    margin: 0;
-    padding: 5vw;
-    box-sizing: border-box;
-  }
-
-  /* Right Calendar Module - 20vw, fixed to right edge */
-  .calendar-module {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 20vw;
-    height: 100vh;
-    z-index: 1;
-    opacity: 1;
-    visibility: visible;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Mobile - maintain same layout structure */
-  @media (max-width: 767px) {
-    .body-section {
-      width: 90vw;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    .side-menu-panel {
-      width: 20vw;
+    body {
+      background: #0a0a0a;
+      font-family: 'Press Start 2P', 'Courier New', monospace;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      image-rendering: pixelated;
     }
 
-    .calendar-module {
-      width: 20vw;
+    #gameContainer {
+      position: relative;
+      max-width: 800px;
+      width: 100%;
+      height: 100vh;
+      background: #000;
+      border-left: 4px solid #7ec700;
+      border-right: 4px solid #7ec700;
+      box-shadow: inset 0 0 100px rgba(126, 199, 0, 0.1);
     }
 
-    .universal-menu {
-      padding: 2.5vw;
+    #gameCanvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at top, #001a0d 0%, #000000 60%);
+      filter: contrast(1.1);
     }
 
-    .hero-section {
-      padding: 2.5vw;
+    /* Arcade CRT scanlines effect */
+    #gameCanvas::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
     }
 
-    .body-section > section:not(#Footer),
-    .body-section > div:not(.universal-menu):not(#Footer) {
-      padding: 2.5vw;
-    }
-  }
-
-  .calendar-panel-content {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: var(--e2);
-    opacity: 0;
-    visibility: hidden;
-    box-sizing: border-box;
-    border-top: 1px solid var(--black-40);
-    border-bottom: 1px solid var(--black-40);
-  }
-
-  .calendar-header {
-    padding: 30px 30px 20px;
-    border-bottom: 1px solid var(--black-40);
-    box-sizing: border-box;
-  }
-
-  .calendar-title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--black);
-  }
-
-  .calendar-subtitle {
-    font-size: 14px;
-    opacity: 0.6;
-    margin: 0;
-  }
-
-  .calendar-embed-wrapper {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .calendar-embed-wrapper iframe {
-    width: 100%;
-    height: auto;
-    min-height: 600px;
-    border: none;
-    display: block;
-  }
-
-  .calendar-review {
-    padding: 30px;
-    border-top: 1px solid var(--black-40);
-    text-align: center;
-  }
-
-  .review-stars {
-    width: 125px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px;
-  }
-
-  .review-quote {
-    font-size: 16px;
-    line-height: 1.6;
-    font-style: italic;
-    margin: 0 0 12px 0;
-    color: var(--black-75);
-  }
-
-  .review-author {
-    font-size: 14px;
-    margin: 0;
-    opacity: 0.7;
-    font-weight: 600;
-  }
-
-  /* Responsive Calendar Content */
-  @media (max-width: 767px) {
-    .calendar-header {
-      padding: 25px 20px 15px;
+    /* HUD Overlay */
+    #hud {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      color: #7ec700;
+      font-size: 10px;
+      text-shadow: 0 0 10px #7ec700, 0 2px 0 #5a9500;
+      pointer-events: none;
+      z-index: 10;
+      border-bottom: 2px solid #7ec700;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
     }
 
-    .calendar-title {
-      font-size: 20px;
-    }
-  }
-
-  @media (max-width: 479px) {
-    .calendar-header {
-      padding: 20px 15px 12px;
+    .hud-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .calendar-title {
-      font-size: 18px;
+    .hud-label {
+      font-size: 8px;
+      color: #7ec700;
+      letter-spacing: 1px;
     }
-  }
 
-  /* Dark Mode Support for Calendar */
-  .dark-mode .calendar-panel-content {
-    background: var(--rich-black);
-  }
-
-  .dark-mode .calendar-header {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .dark-mode .calendar-title {
-    color: var(--white);
-  }
-</style>
-
-<script>
-// Panel Toggle with GSAP - Slide all three siblings together
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof gsap === 'undefined') {
-    console.warn('GSAP not loaded - panel animations disabled');
-    return;
-  }
-
-  const calendarToggle = document.getElementById('calendar-toggle');
-  const calendarContent = document.querySelector('.calendar-panel-content');
-  const sideMenuPanel = document.querySelector('.side-menu-panel');
-  const bodySection = document.querySelector('.body-section');
-  const calendarModule = document.querySelector('.calendar-module');
-
-  let isCalendarOpen = false;
-
-  const openCalendar = () => {
-    if (isCalendarOpen) return;
-    isCalendarOpen = true;
-
-    // Show calendar content
-    gsap.to(calendarContent, {
-      autoAlpha: 1,
-      duration: 0.6,
-      ease: 'expo.out'
-    });
-
-    // Slide body-section left 15vw (calendar button)
-    gsap.to(bodySection, {
-      x: '-15vw',
-      duration: 0.6,
-      ease: 'expo.out'
-    });
-  };
-
-  const closeCalendar = () => {
-    if (!isCalendarOpen) return;
-    isCalendarOpen = false;
-
-    // Hide calendar content
-    gsap.to(calendarContent, {
-      autoAlpha: 0,
-      duration: 0.6,
-      ease: 'expo.out'
-    });
-
-    // Slide body-section back to center
-    gsap.to(bodySection, {
-      x: 0,
-      duration: 0.6,
-      ease: 'expo.out'
-    });
-  };
-
-  // Toggle calendar on button click
-  calendarToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (isCalendarOpen) {
-      closeCalendar();
-    } else {
-      openCalendar();
+    .hud-value {
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 0 0 10px #7ec700, 0 3px 0 #3a5a00;
     }
-  });
 
-  // Close calendar when clicking outside
-  document.addEventListener('click', (e) => {
-    if (isCalendarOpen && !calendarContent.contains(e.target) && !calendarToggle.contains(e.target)) {
-      closeCalendar();
+    .lives {
+      display: flex;
+      gap: 6px;
     }
-  });
 
-  // Close calendar on ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && isCalendarOpen) {
-      closeCalendar();
+    .life {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #7ec700;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      background: #7ec700;
+      box-shadow: 0 0 8px #7ec700;
     }
-  });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const div = document.getElementById("gameCanvas");
-    const canvas = document.createElement("canvas");
-    canvas.id = "gameCanvas";
-    canvas.width = window.innerWidth; // Set to viewport width
-    canvas.height = window.innerHeight; // set to vh
-    div.replaceWith(canvas);
-    const ctx = canvas.getContext("2d");
-    canvas.width = 800;
-    canvas.height = 600;
+
+    /* Start Screen */
+    #startScreen, #gameOverScreen, #stageScreen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0, 26, 13, 0.95), rgba(0, 0, 0, 0.98));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #7ec700;
+      text-align: center;
+      z-index: 20;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .game-title {
+      font-size: 32px;
+      font-weight: bold;
+      text-shadow:
+        0 0 20px #7ec700,
+        0 0 40px #7ec700,
+        0 4px 0 #3a5a00,
+        0 6px 0 #2a4000;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow:
+          0 0 20px #7ec700,
+          0 0 40px #7ec700,
+          0 4px 0 #3a5a00;
+      }
+      50% {
+        text-shadow:
+          0 0 30px #7ec700,
+          0 0 60px #7ec700,
+          0 4px 0 #3a5a00;
+      }
+    }
+
+    .game-subtitle {
+      font-size: 10px;
+      color: #5a9500;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+
+    .controls {
+      margin: 30px 0;
+      padding: 20px;
+      border: 3px solid #7ec700;
+      background: rgba(126, 199, 0, 0.05);
+      max-width: 500px;
+      box-shadow: 0 0 20px rgba(126, 199, 0, 0.3);
+    }
+
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0;
+      font-size: 9px;
+      align-items: center;
+    }
+
+    .key {
+      background: #1a1a1a;
+      padding: 8px 12px;
+      border: 2px solid #7ec700;
+      border-radius: 4px;
+      font-weight: bold;
+      box-shadow:
+        0 0 10px rgba(126, 199, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.1);
+      font-size: 9px;
+    }
+
+    .btn {
+      background: #000;
+      border: 3px solid #7ec700;
+      color: #7ec700;
+      padding: 15px 40px;
+      font-size: 12px;
+      font-family: 'Press Start 2P', 'Courier New', monospace;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      box-shadow:
+        0 0 20px rgba(126, 199, 0, 0.5),
+        0 4px 0 #3a5a00;
+      position: relative;
+      top: 0;
+    }
+
+    .btn:hover {
+      background: #7ec700;
+      color: #000;
+      box-shadow:
+        0 0 30px #7ec700,
+        0 0 60px #7ec700,
+        0 2px 0 #3a5a00;
+      top: 2px;
+    }
+
+    .btn:active {
+      top: 4px;
+      box-shadow:
+        0 0 20px #7ec700,
+        0 0 0 #3a5a00;
+    }
+
+    .final-score {
+      font-size: 24px;
+      margin: 20px 0;
+      text-shadow: 0 0 10px #7ec700, 0 3px 0 #3a5a00;
+    }
+
+    .high-score {
+      font-size: 12px;
+      color: #5a9500;
+      margin-bottom: 30px;
+    }
+
+    .stage-number {
+      font-size: 48px;
+      margin: 20px 0;
+      animation: pulse 1s ease-in-out;
+      text-shadow: 0 0 20px #7ec700, 0 4px 0 #3a5a00;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .arcade-border-top,
+    .arcade-border-bottom {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: linear-gradient(to right,
+        #7ec700 0%,
+        #5a9500 25%,
+        #7ec700 50%,
+        #5a9500 75%,
+        #7ec700 100%
+      );
+      z-index: 5;
+      box-shadow: 0 0 20px #7ec700;
+    }
+
+    .arcade-border-top { top: 0; }
+    .arcade-border-bottom { bottom: 0; }
+
+    .credit-text {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 8px;
+      color: #5a9500;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 49%, 100% { opacity: 1; }
+      50%, 99% { opacity: 0.3; }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .game-title { font-size: 20px; }
+      .hud-value { font-size: 12px; }
+      .controls { max-width: 90%; padding: 15px; }
+      .control-row { font-size: 7px; }
+      .key { font-size: 7px; padding: 6px 10px; }
+      .btn { font-size: 9px; padding: 12px 30px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="gameContainer">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-section">
+        <div class="hud-label">SCORE</div>
+        <div class="hud-value" id="score">00000</div>
+      </div>
+      <div class="hud-section">
+        <div class="hud-label">WAVE</div>
+        <div class="hud-value" id="stage">1</div>
+      </div>
+      <div class="hud-section">
+        <div class="hud-label">SHIPS</div>
+        <div class="lives" id="lives">
+          <div class="life"></div>
+          <div class="life"></div>
+          <div class="life"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="startScreen">
+      <div class="game-title">ORGANICALLY<br>DEFENDER</div>
+      <div class="game-subtitle">Protect The Organic Web From Bad Actors</div>
+
+      <div class="controls">
+        <div class="control-row">
+          <span>Navigate Left</span>
+          <span class="key">◄ ARROW</span>
+        </div>
+        <div class="control-row">
+          <span>Navigate Right</span>
+          <span class="key">► ARROW</span>
+        </div>
+        <div class="control-row">
+          <span>Fire SEO Blast</span>
+          <span class="key">SPACE</span>
+        </div>
+        <div class="control-row">
+          <span>Pause Mission</span>
+          <span class="key">P</span>
+        </div>
+      </div>
+
+      <button class="btn" onclick="startGame()">Insert Coin</button>
+      <div class="high-score" id="highScoreDisplay"></div>
+      <div class="credit-text">PRESS START - 1 PLAYER</div>
+    </div>
+
+    <!-- Stage Screen -->
+    <div id="stageScreen" style="display: none;">
+      <div class="game-title">WAVE</div>
+      <div class="stage-number" id="stageNumber">1</div>
+      <div class="game-subtitle">Incoming Bad Actors!</div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" style="display: none;">
+      <div class="game-title">GAME OVER</div>
+      <div class="final-score">SCORE: <span id="finalScore">00000</span></div>
+      <div class="high-score" id="gameOverHighScore"></div>
+      <button class="btn" onclick="restartGame()">Continue</button>
+      <div class="credit-text">INSERT COIN TO RETRY</div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size
+    function resizeCanvas() {
+      canvas.width = 800;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Game state
+    let gameState = {
+      score: 0,
+      stage: 1,
+      lives: 3,
+      isPlaying: false,
+      isPaused: false,
+      highScore: localStorage.getItem('organicallyHighScore') || 0,
+      formationComplete: false
+    };
+
+    // Ship class
     class Ship {
-        constructor() {
-            this.x = canvas.width / 2;
-            this.y = canvas.height / 2;
-            this.radius = 15;
-            this.angle = 0;
-            this.speed = 0;
-            this.rotation = 0;
-            this.missiles = [];
+      constructor() {
+        this.width = 32;
+        this.height = 32;
+        this.currentLane = 2; // Start in middle lane (0-4)
+        this.x = this.getShipLaneX(this.currentLane);
+        this.y = canvas.height - 120;
+        this.targetX = this.x;
+        this.moveSpeed = 12; // Speed of lane transition
+        this.bullets = [];
+        this.canShoot = true;
+        this.shootCooldown = 0;
+        this.invulnerable = false;
+        this.invulnerableTime = 0;
+        this.canMove = true;
+      }
+
+      getShipLaneX(lane) {
+        const laneWidth = canvas.width / 5;
+        return (lane * laneWidth) + (laneWidth / 2) - (this.width / 2);
+      }
+
+      moveToLane(direction) {
+        if (!this.canMove) return;
+
+        const newLane = this.currentLane + direction;
+        if (newLane >= 0 && newLane < 5) {
+          this.currentLane = newLane;
+          this.targetX = this.getShipLaneX(this.currentLane);
+          this.canMove = false;
         }
-        rotate(dir) {
-            this.rotation = dir;
+      }
+
+      shoot() {
+        if (this.canShoot && this.bullets.length < 2) {
+          this.bullets.push(new Bullet(this.x + this.width / 2, this.y, -4));
+          this.canShoot = false;
+          this.shootCooldown = 20;
         }
-        accelerate(val) {
-            this.speed = val;
+      }
+
+      update() {
+        // Smooth movement to target lane
+        if (Math.abs(this.x - this.targetX) > 1) {
+          const direction = this.targetX > this.x ? 1 : -1;
+          this.x += direction * this.moveSpeed;
+
+          // Clamp to target
+          if (Math.abs(this.x - this.targetX) < this.moveSpeed) {
+            this.x = this.targetX;
+            this.canMove = true;
+          }
+        } else {
+          this.x = this.targetX;
+          this.canMove = true;
         }
-        shoot() {
-            this.missiles.push(new Missile(this.x, this.y, this.angle));
+
+        // Shoot cooldown
+        if (this.shootCooldown > 0) {
+          this.shootCooldown--;
+          if (this.shootCooldown === 0) this.canShoot = true;
         }
-        update() {
-            this.angle += this.rotation;
-            this.x += this.speed * Math.cos(this.angle);
-            this.y += this.speed * Math.sin(this.angle);
-            if (this.x < 0) this.x = canvas.width;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.y < 0) this.y = canvas.height;
-            if (this.y > canvas.height) this.y = 0;
-            this.missiles.forEach(missile => missile.update());
-            this.missiles = this.missiles.filter(missile => missile.isAlive());
+
+        // Update invulnerability
+        if (this.invulnerable) {
+          this.invulnerableTime--;
+          if (this.invulnerableTime <= 0) {
+            this.invulnerable = false;
+          }
         }
-        draw() {
-            ctx.save();
-            ctx.translate(this.x, this.y);
-            ctx.rotate(this.angle);
-            ctx.strokeStyle = "#7ec700";
-            console.log("Ship color:", ctx.strokeStyle); // Log color
-            ctx.beginPath();
-            ctx.moveTo(this.radius, 0);
-            ctx.lineTo(-this.radius, this.radius / 2);
-            ctx.lineTo(-this.radius, -this.radius / 2);
-            ctx.closePath();
-            ctx.stroke();
-            ctx.restore();
-            this.missiles.forEach(missile => missile.draw());
+
+        this.bullets.forEach(bullet => bullet.update());
+        this.bullets = this.bullets.filter(bullet => bullet.y > 0);
+      }
+
+      draw() {
+        if (!this.invulnerable || this.invulnerableTime % 4 > 1) {
+          ctx.save();
+          ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+
+          ctx.strokeStyle = '#7ec700';
+          ctx.fillStyle = '#7ec700';
+          ctx.lineWidth = 3;
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = '#7ec700';
+
+          // Ship body
+          ctx.beginPath();
+          ctx.moveTo(0, -this.height / 2);
+          ctx.lineTo(-this.width / 2.5, this.height / 2);
+          ctx.lineTo(0, this.height / 3);
+          ctx.lineTo(this.width / 2.5, this.height / 2);
+          ctx.closePath();
+          ctx.stroke();
+          ctx.fill();
+
+          ctx.restore();
         }
+
+        this.bullets.forEach(bullet => bullet.draw());
+      }
+
+      reset() {
+        this.currentLane = 2;
+        this.x = this.getShipLaneX(this.currentLane);
+        this.targetX = this.x;
+        this.canMove = true;
+        this.bullets = [];
+        this.invulnerable = true;
+        this.invulnerableTime = 150;
+      }
     }
-    class Asteroid {
-        constructor(x, y, radius) {
-            this.x = x;
-            this.y = y;
-            this.radius = radius;
-            this.angle = Math.random() * Math.PI * 2;
-            this.speed = Math.random() * 2 + 1;
+
+    // Enemy class (Bad Actors)
+    class Enemy {
+      constructor(x, y, type = 'spam') {
+        this.width = 32;
+        this.height = 32;
+        this.x = x;
+        this.y = y;
+        this.type = type;
+        this.formationX = x;
+        this.formationY = y;
+        this.inFormation = false;
+        this.diving = false;
+        this.diveAngle = 0;
+        this.diveSpeed = 2;
+        this.shootTimer = Math.random() * 1000 + 800;
+        this.bullets = [];
+        this.points = type === 'blackhat' ? 150 : type === 'troll' ? 100 : 50;
+      }
+
+      update() {
+        // Move to formation
+        if (!this.inFormation) {
+          const dx = this.formationX - this.x;
+          const dy = this.formationY - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 5) {
+            this.inFormation = true;
+            this.x = this.formationX;
+            this.y = this.formationY;
+          } else {
+            this.x += dx * 0.04;
+            this.y += dy * 0.04;
+          }
         }
-        update() {
-            this.x += this.speed * Math.cos(this.angle);
-            this.y += this.speed * Math.sin(this.angle);
-            if (this.x < 0) this.x = canvas.width;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.y < 0) this.y = canvas.height;
-            if (this.y > canvas.height) this.y = 0;
+
+        // Diving attack
+        if (this.diving) {
+          this.diveAngle += 0.04;
+          this.y += this.diveSpeed;
+          this.x += Math.sin(this.diveAngle) * 2.5;
+
+          if (this.y > canvas.height) {
+            this.diving = false;
+            this.y = -50;
+            this.x = this.formationX;
+            this.inFormation = false;
+          }
         }
-        draw() {
-        		ctx.strokeStyle = "#7ec700";
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.stroke();
+
+        // Formation movement (sway)
+        if (this.inFormation && gameState.formationComplete) {
+          this.x = this.formationX + Math.sin(Date.now() * 0.0008 + this.formationY) * 15;
         }
+
+        // Shooting
+        if (this.inFormation && !this.diving) {
+          this.shootTimer--;
+          if (this.shootTimer <= 0) {
+            this.shoot();
+            this.shootTimer = Math.random() * 1200 + 900 - (gameState.stage * 20);
+          }
+        }
+
+        this.bullets.forEach(bullet => bullet.update());
+        this.bullets = this.bullets.filter(bullet => bullet.y < canvas.height);
+      }
+
+      shoot() {
+        // Choose a random lane for the bullet to fall in (0-4 to match player lanes)
+        const randomLane = Math.floor(Math.random() * 5);
+        const laneX = getLaneX(randomLane);
+        this.bullets.push(new Bullet(laneX, this.y + this.height, 0.7));
+      }
+
+      startDive() {
+        if (this.inFormation && !this.diving) {
+          this.diving = true;
+          this.diveAngle = 0;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+
+        if (this.type === 'blackhat') {
+          // Black Hat SEO - Red
+          ctx.strokeStyle = '#ff3333';
+          ctx.fillStyle = '#ff3333';
+          ctx.shadowColor = '#ff3333';
+        } else if (this.type === 'troll') {
+          // Troll - Cyan
+          ctx.strokeStyle = '#00ffff';
+          ctx.fillStyle = '#00ffff';
+          ctx.shadowColor = '#00ffff';
+        } else {
+          // Spam Bot - Purple
+          ctx.strokeStyle = '#cc00ff';
+          ctx.fillStyle = '#cc00ff';
+          ctx.shadowColor = '#cc00ff';
+        }
+
+        ctx.lineWidth = 3;
+        ctx.shadowBlur = 12;
+
+        // Enemy body
+        const size = this.type === 'blackhat' ? 1.4 : 1;
+        ctx.beginPath();
+        ctx.arc(0, 0, 10 * size, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Antennae/Wings
+        ctx.beginPath();
+        ctx.ellipse(-9 * size, 0, 7 * size, 4 * size, -0.3, 0, Math.PI * 2);
+        ctx.ellipse(9 * size, 0, 7 * size, 4 * size, 0.3, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.restore();
+
+        this.bullets.forEach(bullet => bullet.draw());
+      }
     }
-    class Missile {
-        constructor(x, y, angle) {
-            this.x = x;
-            this.y = y;
-            this.angle = angle;
-            this.speed = 5;
-            this.radius = 2;
-            this.lifetime = 100;
-        }
-        update() {
-            this.x += this.speed * Math.cos(this.angle);
-            this.y += this.speed * Math.sin(this.angle);
-            this.lifetime--;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.y < 0) this.y = canvas.height;
-            if (this.y > canvas.height) this.y = 0;
-        }
-        isAlive() {
-            return this.lifetime > 0;
-        }
-        draw() {
-        		ctx.fillStyle = "#7ec700";
-            console.log("Missile color:", ctx.strokeStyle); // Log color
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fill();
-        }
+
+    // Bullet class
+    class Bullet {
+      constructor(x, y, speed) {
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.radius = 10;
+        this.fromPlayer = speed < 0;
+      }
+
+      update() {
+        this.y += this.speed;
+      }
+
+      draw() {
+        ctx.fillStyle = this.fromPlayer ? '#7ec700' : '#ff3333';
+        ctx.shadowBlur = 18;
+        ctx.shadowColor = this.fromPlayer ? '#7ec700' : '#ff3333';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
     }
+
+    // Particle effect
+    class Particle {
+      constructor(x, y, color = '#7ec700') {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 6;
+        this.vy = (Math.random() - 0.5) * 6;
+        this.life = 40;
+        this.maxLife = 40;
+        this.color = color;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life--;
+      }
+
+      draw() {
+        const opacity = this.life / this.maxLife;
+        const rgb = this.color === '#ff3333' ? '255, 51, 51' :
+                    this.color === '#00ffff' ? '0, 255, 255' :
+                    this.color === '#cc00ff' ? '204, 0, 255' : '126, 199, 0';
+        ctx.fillStyle = `rgba(${rgb}, ${opacity})`;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Game objects
     const ship = new Ship();
-    const asteroids = [];
-    function createAsteroids(num) {
-        for (let i = 0; i < num; i++) {
-            const x = Math.random() * canvas.width;
-            const y = Math.random() * canvas.height;
-            const radius = Math.random() * 20 + 15;
-            asteroids.push(new Asteroid(x, y, radius));
-        }
+    let enemies = [];
+    let particles = [];
+
+    // Lane system (shared with ship)
+    const LANES = 5;
+    const LANE_WIDTH = canvas.width / LANES;
+
+    function getLaneX(lane) {
+      return (lane * LANE_WIDTH) + (LANE_WIDTH / 2);
     }
+
+    // Draw stars background
+    const stars = [];
+    for (let i = 0; i < 80; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5 + 0.5,
+        speed: Math.random() * 0.3 + 0.1
+      });
+    }
+
+    function drawStars() {
+      ctx.fillStyle = 'rgba(126, 199, 0, 0.6)';
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Move stars down
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    // Create enemy formation
+    function createEnemyWave() {
+      enemies = [];
+      const rows = Math.min(2 + Math.floor(gameState.stage / 2), 4);
+      const cols = 5; // Match player lanes
+      const spacing = 90;
+      const startX = (canvas.width - (cols * spacing)) / 2;
+      const startY = -250;
+
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          let type = 'spam';
+          if (row === 0) type = 'blackhat';
+          else if (row === 1) type = 'troll';
+
+          const x = startX + col * spacing;
+          const y = startY + row * spacing;
+          const formationY = 60 + row * 55;
+
+          const enemy = new Enemy(x, y, type);
+          enemy.formationY = formationY;
+          enemies.push(enemy);
+        }
+      }
+
+      gameState.formationComplete = false;
+      setTimeout(() => {
+        gameState.formationComplete = true;
+        startDiveAttacks();
+      }, 4000);
+    }
+
+    // Dive attacks
+    function startDiveAttacks() {
+      if (!gameState.isPlaying || enemies.length === 0) return;
+
+      const availableEnemies = enemies.filter(e => e.inFormation && !e.diving);
+      if (availableEnemies.length > 0) {
+        const randomEnemy = availableEnemies[Math.floor(Math.random() * availableEnemies.length)];
+        randomEnemy.startDive();
+      }
+
+      setTimeout(startDiveAttacks, Math.max(1500 - gameState.stage * 100, 700));
+    }
+
+    // Collision detection
+    function checkCollision(obj1, obj2, radius1, radius2) {
+      const dx = obj1.x - obj2.x;
+      const dy = obj1.y - obj2.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      return distance < radius1 + radius2;
+    }
+
+    // Update game
     function update() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ship.update();
-        ship.draw();
-        asteroids.forEach(asteroid => {
-            asteroid.update();
-            asteroid.draw();
+      if (!gameState.isPlaying || gameState.isPaused) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawStars();
+
+      ship.update();
+      ship.draw();
+
+      // Update enemies
+      enemies.forEach(enemy => {
+        enemy.update();
+        enemy.draw();
+
+        // Check player bullet collisions
+        ship.bullets.forEach((bullet, bIndex) => {
+          if (checkCollision(
+            { x: bullet.x, y: bullet.y },
+            { x: enemy.x + enemy.width / 2, y: enemy.y + enemy.height / 2 },
+            bullet.radius,
+            16
+          )) {
+            gameState.score += enemy.points;
+            updateHUD();
+            createExplosion(enemy.x + enemy.width / 2, enemy.y + enemy.height / 2, enemy.type);
+            enemies = enemies.filter(e => e !== enemy);
+            ship.bullets.splice(bIndex, 1);
+          }
         });
-        requestAnimationFrame(update);
+
+        // Check enemy bullet collisions with player
+        enemy.bullets.forEach((bullet, bIndex) => {
+          if (!ship.invulnerable && checkCollision(
+            { x: bullet.x, y: bullet.y },
+            { x: ship.x + ship.width / 2, y: ship.y + ship.height / 2 },
+            bullet.radius,
+            16
+          )) {
+            gameState.lives--;
+            updateHUD();
+            createExplosion(ship.x + ship.width / 2, ship.y + ship.height / 2, 'player');
+
+            if (gameState.lives <= 0) {
+              gameOver();
+            } else {
+              ship.reset();
+            }
+            enemy.bullets.splice(bIndex, 1);
+          }
+        });
+
+        // Check enemy collision with player
+        if (!ship.invulnerable && checkCollision(
+          { x: ship.x + ship.width / 2, y: ship.y + ship.height / 2 },
+          { x: enemy.x + enemy.width / 2, y: enemy.y + enemy.height / 2 },
+          16,
+          16
+        )) {
+          gameState.lives--;
+          updateHUD();
+          createExplosion(ship.x + ship.width / 2, ship.y + ship.height / 2, 'player');
+
+          if (gameState.lives <= 0) {
+            gameOver();
+          } else {
+            ship.reset();
+          }
+          enemies = enemies.filter(e => e !== enemy);
+        }
+      });
+
+      // Update particles
+      particles.forEach(p => p.update());
+      particles = particles.filter(p => p.life > 0);
+      particles.forEach(p => p.draw());
+
+      // Check stage completion
+      if (enemies.length === 0) {
+        nextStage();
+      }
     }
-    createAsteroids(5);
-    update();
-    document.addEventListener("keydown", (e) => {
-        switch (e.code) {
-            case "ArrowLeft":
-                ship.rotate(-0.1);
-                break;
-            case "ArrowRight":
-                ship.rotate(0.1);
-                break;
-            case "ArrowUp":
-                ship.accelerate(2);
-                break;
-            case "ArrowDown":
-                ship.accelerate(-1);
-                break;
-            case "Space":
-                ship.shoot();
-                break;
+
+    function createExplosion(x, y, type) {
+      const color = type === 'blackhat' ? '#ff3333' :
+                    type === 'troll' ? '#00ffff' :
+                    type === 'spam' ? '#cc00ff' : '#7ec700';
+      for (let i = 0; i < 25; i++) {
+        particles.push(new Particle(x, y, color));
+      }
+    }
+
+    function updateHUD() {
+      document.getElementById('score').textContent = String(gameState.score).padStart(5, '0');
+      document.getElementById('stage').textContent = gameState.stage;
+
+      const livesContainer = document.getElementById('lives');
+      livesContainer.innerHTML = '';
+      for (let i = 0; i < gameState.lives; i++) {
+        const life = document.createElement('div');
+        life.className = 'life';
+        livesContainer.appendChild(life);
+      }
+    }
+
+    function nextStage() {
+      gameState.stage++;
+      gameState.isPaused = true;
+
+      document.getElementById('stageNumber').textContent = gameState.stage;
+      document.getElementById('stageScreen').style.display = 'flex';
+
+      setTimeout(() => {
+        document.getElementById('stageScreen').style.display = 'none';
+        gameState.isPaused = false;
+        createEnemyWave();
+      }, 2500);
+    }
+
+    function startGame() {
+      gameState = {
+        score: 0,
+        stage: 1,
+        lives: 3,
+        isPlaying: true,
+        isPaused: false,
+        highScore: localStorage.getItem('organicallyHighScore') || 0,
+        formationComplete: false
+      };
+
+      ship.reset();
+      enemies = [];
+      particles = [];
+      createEnemyWave();
+      updateHUD();
+
+      document.getElementById('startScreen').style.display = 'none';
+      document.getElementById('gameOverScreen').style.display = 'none';
+
+      gameLoop();
+    }
+
+    function restartGame() {
+      startGame();
+    }
+
+    function gameOver() {
+      gameState.isPlaying = false;
+
+      if (gameState.score > gameState.highScore) {
+        gameState.highScore = gameState.score;
+        localStorage.setItem('organicallyHighScore', gameState.score);
+      }
+
+      document.getElementById('finalScore').textContent = String(gameState.score).padStart(5, '0');
+      document.getElementById('gameOverHighScore').textContent =
+        `HI-SCORE: ${String(gameState.highScore).padStart(5, '0')}`;
+      document.getElementById('gameOverScreen').style.display = 'flex';
+    }
+
+    function gameLoop() {
+      update();
+      requestAnimationFrame(gameLoop);
+    }
+
+    // Display high score on start screen
+    document.getElementById('highScoreDisplay').textContent =
+      gameState.highScore > 0 ? `HI-SCORE: ${String(gameState.highScore).padStart(5, '0')}` : '';
+
+    // Controls
+    const keys = {};
+    const pressedKeys = {};
+
+    document.addEventListener('keydown', (e) => {
+      if (!gameState.isPlaying) return;
+
+      if (e.code === 'KeyP') {
+        gameState.isPaused = !gameState.isPaused;
+      }
+
+      if (e.code === 'Space') {
+        e.preventDefault();
+        ship.shoot();
+      }
+
+      // Lane-based movement - only trigger once per press
+      if ((e.code === 'ArrowLeft' || e.code === 'ArrowRight') && !pressedKeys[e.code]) {
+        pressedKeys[e.code] = true;
+        if (e.code === 'ArrowLeft') {
+          ship.moveToLane(-1);
+        } else if (e.code === 'ArrowRight') {
+          ship.moveToLane(1);
         }
+      }
     });
-    document.addEventListener("keyup", (e) => {
-        switch (e.code) {
-            case "ArrowLeft":
-            case "ArrowRight":
-                ship.rotate(0);
-                break;
-            case "ArrowUp":
-            case "ArrowDown":
-                ship.accelerate(0);
-                break;
-        }
+
+    document.addEventListener('keyup', (e) => {
+      pressedKeys[e.code] = false;
     });
-    window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        // Redraw game elements if necessary
-    });
-});
-</script>
+  </script>
 </body>
 </html>
