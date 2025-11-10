@@ -1579,18 +1579,21 @@ a {
   padding-right: 10px;
   display: flex;
   position: sticky;
-  top: 95px;
+  top: 150px;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .sticky-author-div.author-side {
   border-left: 1px solid #0000001a;
   width: 225px;
   padding-left: 20px;
-  top: -272px;
+  top: 150px;
 }
 
 .sticky-author-div.author-side.keyword-study {
-  top: -249px;
+  top: 150px;
 }
 
 .sticky-author-div.contents-side {
@@ -1599,7 +1602,7 @@ a {
 }
 
 .sticky-author-div.ux-sword-sticky {
-  top: -283px;
+  top: 150px;
 }
 
 .author-bio-text {
@@ -2998,10 +3001,11 @@ a {
   flex: none;
   justify-content: center;
   align-items: center;
-  height: 25px;
-  padding: 0 10px;
+  height: auto;
+  padding: 8px 12px;
   font-size: 14px;
   display: flex;
+  line-height: 1.4;
 }
 
 .button-1.margin-20-top {
@@ -5760,7 +5764,11 @@ a {
     margin-left: 0;
     padding-left: 0;
     padding-right: 5px;
-    display: none;
+    display: none !important;
+  }
+
+  .sticky-author-div.author-side {
+    display: none !important;
   }
 
   .blog-massive-wrapper {
