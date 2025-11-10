@@ -65,6 +65,53 @@ html.lenis {
 	overscroll-behavior: clip;
 }
 </style>
+  <style>
+  .blog-h1,
+  .blog-h2,
+  .blog-h3 {
+    color: #333;
+  }
+
+  .sticky-author-div:not(.contents-side) {
+    display: none;
+  }
+
+  .blog-author-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-author-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5vh;
+  }
+
+  .blog-author-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .blog-author-date {
+    margin: 0;
+    margin-left: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--black-60);
+  }
+
+  @media screen and (max-width: 991px) {
+    .blog-author-image {
+      width: 75px;
+      height: 75px;
+    }
+  }
+  </style>
 </head>
 <body data-w-id="62d856b64a8463bf0059f63a" class="horizontal-body">
 <!-- Left Menu Panel -->
@@ -101,7 +148,10 @@ html.lenis {
     <div class="blog-hero-div">
       <h1 class="blog-h1 launch-checklist">19 Checks before Launching on Webflow (w/ Simple SEO Best Practices)<br></h1>
       <div class="blog-author-div">
-        <p class="blog-author-date">by Ryan Scanlon - September 5, 2024</p>
+        <div class="blog-author-wrapper">
+          <img src="images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="100" alt="" class="blog-author-image">
+          <p class="blog-author-date">Ryan Scanlon - September 5, 2024</p>
+        </div>
       </div>
     </div>
   </div>
@@ -272,6 +322,29 @@ html.lenis {
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/InertiaPlugin.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js" type="text/javascript"></script>
+  <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
+  <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    /* Lenis + ScrollTrigger sync */
+    const lenis = new Lenis({
+        lerp: 0.1,
+        wheelMultiplier: 0.7,
+        gestureOrientation: "vertical",
+        normalizeWheel: false,
+        smoothTouch: false
+    });
+
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    lenis.on('scroll', ScrollTrigger.update);
+
+    ScrollTrigger.config({
+        limitCallbacks: true,
+        syncInterval: 120,
+    });
+});
+  </script>
       </div><!-- .body-section -->
 
 <!-- Right Calendar Panel -->
@@ -420,20 +493,28 @@ html.lenis {
     padding: 0;
   }
 
-  /* Mobile - maintain same layout structure */
+  /* Mobile - scale up panels proportionally */
   @media (max-width: 767px) {
     .body-section {
       width: 90vw;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
     }
 
     .side-menu-panel {
-      width: 20vw;
+      width: 75vw;
+    }
+
+    .side-panel {
+      width: 100%;
     }
 
     .calendar-module {
-      width: 20vw;
+      width: 75vw;
+    }
+
+    .calendar-panel-content {
+      width: 100%;
     }
 
     .universal-menu {
@@ -577,11 +658,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const bodySection = document.querySelector('.body-section');
   const calendarModule = document.querySelector('.calendar-module');
 
+  // Initialize body-section position to prevent jump on load
+  gsap.set(bodySection, { x: 0 });
+
   let isCalendarOpen = false;
 
   const openCalendar = () => {
     if (isCalendarOpen) return;
     isCalendarOpen = true;
+
+    // Calculate slide distance based on screen size
+    const isMobile = window.innerWidth <= 767;
+    const slideDistance = isMobile ? '-75vw' : '-15vw';
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -590,9 +678,9 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'expo.out'
     });
 
-    // Slide body-section left 15vw (calendar button)
+    // Slide body-section left proportionally
     gsap.to(bodySection, {
-      x: '-15vw',
+      x: slideDistance,
       duration: 0.6,
       ease: 'expo.out'
     });

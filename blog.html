@@ -53,6 +53,8 @@
     width: 100%;
     margin-top: 10vh;
     margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
   }
 
   .blog-hero-container {
@@ -62,29 +64,32 @@
   }
 
   .blog-hero-subtitle {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 16px;
     opacity: 0.7;
   }
 
   /* Blog Main Section */
-  .blog-main-section {
-    max-width: 1200px;
+  .body-section > .blog-main-section {
+    width: 100%;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 0 40px;
     display: grid;
     grid-template-columns: 240px 1fr;
     gap: 60px;
+    align-items: start;
+    border-left: 1px solid var(--black-40);
+    border-right: 1px solid var(--black-40);
   }
 
   /* Sidebar Styles */
   .blog-sidebar {
     position: sticky;
     top: 150px;
-    height: fit-content;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    align-self: stretch;
+    border-right: 1px solid var(--black-40);
     padding-right: 40px;
-    margin-top: 1rem;
+    margin-top: 0;
   }
 
   .sidebar-title {
@@ -162,19 +167,63 @@
   }
 
   .blog-card-date {
+    display: none;
+  }
+
+  .filter {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .filter-text {
+    display: inline-block;
+    background-color: #7ec7000d;
+    border: 1px solid #7ec7001a;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: Coolvetica rg, sans-serif;
+    font-weight: 600;
+    color: var(--orga);
+    font-size: .8rem;
+    line-height: 1rem;
+  }
+
+  .blog-card-read-time {
     font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     opacity: 0.6;
-    margin-bottom: 12px;
+  }
+
+  .filter-text.design {
+    background-color: #009fb70d;
+    border-color: #009fb71a;
+    color: var(--blue-2);
+  }
+
+  .filter-text.branding {
+    background-color: #e831510d;
+    border-color: #e831511a;
+    color: var(--red-1);
+  }
+
+  .filter-text.creative {
+    background-color: #ffb6120d;
+    border-color: #ffb6121a;
+    color: var(--steeler);
   }
 
   .blog-card-title {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 12px;
-    color: #000;
+    margin-bottom: 0;
+    color: #333;
+    transition: color 400ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .blog-card-link:hover .blog-card-title {
+    color: #7ec700;
   }
 
   .blog-card-excerpt {
@@ -185,11 +234,7 @@
   }
 
   .blog-card-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 16px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: none;
   }
 
   .blog-card-tag {
@@ -222,39 +267,33 @@
 
   /* Responsive */
   @media screen and (max-width: 991px) {
-    .blog-main-section {
+    .body-section > .blog-main-section {
+      width: 100%;
       grid-template-columns: 1fr;
       gap: 40px;
       padding: 40px 20px;
     }
 
     .blog-sidebar {
-      position: relative;
-      top: 0;
-      border-right: none;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      padding-right: 0;
-      padding-bottom: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      display: none;
     }
 
-    .sidebar-title {
+    .blog-grid-container {
       width: 100%;
     }
 
-    .sidebar-link {
-      padding: 8px 16px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
-      margin: 0;
+    .blog-grid {
+      width: 100%;
+      grid-template-columns: 1fr;
+      gap: 30px;
     }
 
-    .sidebar-link.active {
-      background: #7ec700;
-      color: #fff;
-      border-color: #7ec700;
+    .blog-card {
+      width: 100%;
+    }
+
+    .blog-card-content {
+      width: 100%;
     }
   }
 
@@ -263,9 +302,28 @@
       padding: 100px 20px 40px;
     }
 
+    .body-section > .blog-main-section {
+      width: 100%;
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+    }
+
+    .blog-grid-container {
+      width: 100%;
+    }
+
     .blog-grid {
+      width: 100%;
       grid-template-columns: 1fr;
       gap: 30px;
+    }
+
+    .blog-card {
+      width: 100%;
+    }
+
+    .blog-card-content {
+      width: 100%;
     }
   }
 </style><!--  Google tag (gtag.js)  -->
@@ -335,22 +393,22 @@ html.lenis {
   <div class="hero-section blog-home-hero">
     <div class="blog-hero-container">
       <h1 class="h1">Nurture Your Online Presence<span class="green-span h1-period">.</span></h1>
-      <p class="blog-hero-subtitle">Discover insights on SEO, web design, and digital marketing</p>
+      <p class="blog-hero-subtitle">Discover insights on SEO, web design, and digital marketing.</p>
     </div>
-    <img src="images/coffee-break.png" alt="Coffee Break" class="hero-treeline-image" style="width: 40vw; max-width: none;">
+    <img src="images/coffee-break.png" alt="Coffee Break" class="hero-treeline-image" style="width: 30vw; max-width: none;">
   </div>
 
   <section class="blog-main-section">
     <div class="blog-sidebar">
       <div class="sidebar-title">Popular Posts</div>
-      <a href="what-is-seo.html" class="sidebar-link">What is SEO?</a>
+      <a href="tools.html" class="sidebar-link">5 Elite Tools</a>
       <a href="branding-basics.html" class="sidebar-link">Basics of Branding</a>
+      <a href="microblog-why-content-marketing-is-changing-the-game.html" class="sidebar-link">Content Marketing Trends</a>
       <a href="webflow-launch-checklist.html" class="sidebar-link">Webflow Launch Checklist</a>
       <a href="webflow-vs-figma.html" class="sidebar-link">Webflow vs. Figma</a>
       <a href="ai-art.html" class="sidebar-link">What is AI Art?</a>
-      <a href="microblog-why-content-marketing-is-changing-the-game.html" class="sidebar-link">Content Marketing Trends</a>
-      <a href="the-ux-revolution-how-experience-is-evolving-daily.html" class="sidebar-link">The UX Revolution</a>
-      <a href="tools.html" class="sidebar-link">5 Elite Tools</a>
+      <a href="what-is-seo.html" class="sidebar-link">What is SEO?</a>
+      <!-- <a href="the-ux-revolution-how-experience-is-evolving-daily.html" class="sidebar-link">The UX Revolution</a> -->
     </div>
 
     <div class="blog-grid-container">
@@ -358,7 +416,10 @@ html.lenis {
         <div class="blog-card">
           <a href="microblog-why-content-marketing-is-changing-the-game.html" class="blog-card-link w-inline-block">
             <div class="blog-card-content">
-              <p class="blog-card-date">April 15, 2023</p>
+              <div class="filter">
+                <div class="filter-text">Content Marketing</div>
+                <span class="blog-card-read-time">4 min read</span>
+              </div>
               <h3 class="blog-card-title">3 Ways Content Marketing is Changing the Game</h3>
               <p class="blog-card-excerpt">Explore how evolving consumer behavior, personalized targeting, compelling storytelling, and effective measurement drive the new era of content marketing.</p>
               <div class="blog-card-meta">
@@ -372,7 +433,10 @@ html.lenis {
         <div class="blog-card">
           <a href="ai-art.html" class="blog-card-link w-inline-block">
             <div class="blog-card-content">
-              <p class="blog-card-date">July 12, 2023</p>
+              <div class="filter">
+                <div class="filter-text creative">Creative</div>
+                <span class="blog-card-read-time">5 min read</span>
+              </div>
               <h3 class="blog-card-title">What is AI Art? And Will It Replace Artists?</h3>
               <p class="blog-card-excerpt">Artists and many other professionals are feeling the threat of AI taking over their livelihoods. AI's threat to jobs and humanity as a whole jeopardizes life as we know it.</p>
               <div class="blog-card-meta">
@@ -386,7 +450,10 @@ html.lenis {
         <div class="blog-card">
           <a href="tools.html" class="blog-card-link w-inline-block">
             <div class="blog-card-content">
-              <p class="blog-card-date">December 7, 2022</p>
+              <div class="filter">
+                <div class="filter-text">Tools</div>
+                <span class="blog-card-read-time">7 min read</span>
+              </div>
               <h3 class="blog-card-title">5 Elite Tools You Should Already Be Using</h3>
               <p class="blog-card-excerpt">A few internet technologies that you could easily start a business with.</p>
               <div class="blog-card-meta">
@@ -397,76 +464,6 @@ html.lenis {
           </a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="section blog-section">
-    <div class="blog-preview">
-    <a href="blog.html" class="blog-thumbs-blog-home w-inline-block" style="width: 100%; display: flex; justify-content: flex-end;">
-      <div style="display: flex; flex-direction: column; align-items: flex-end;">
-        <img src="images/coffee-asset.png" alt="Coffee icon" style="width: 50px; height: 50px; margin-bottom: 8px; opacity: 0.9;">
-        <h5 class="read-more-heading" style="width: auto; margin-top: -10px; margin-bottom: -10px; margin-left: 0; margin-right: 0; white-space: nowrap;">Coffee Break </h5>
-      </div>
-    </a>
-    <div class="blog-nav-buttons" style="margin-top: 20px; width: 100%;">
-      <button class="blog-nav-btn" id="blog-prev">←</button>
-      <button class="blog-nav-btn" id="blog-next">→</button>
-    </div>
-    <div class="read-more-module">
-      <div class="blog-cards-wrapper">
-        <div class="blog-cards-track">
-      <a href="what-is-seo.html" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text">Marketing</div>
-          </div>
-          <p class="blog-module-card-title">What is SEO?<br></p>
-          <p class="blog-component-date">Updated April 17, 2024</p>
-          <div class="bog-comp-p">Ranking on search engines isn&#x27;t luck. The average person makes 3-4 searches on Google per day. Learn how to answer them.</div>
-        </div>
-      </a>
-      <a href="webflow-launch-checklist.html" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text design">Design</div>
-          </div>
-          <p class="blog-module-card-title">Webflow Launch Checklist<br></p>
-          <p class="blog-component-date">September 5, 2024</p>
-          <div class="bog-comp-p">Launching a website on Webflow can be terrifying, especially if it's your first time. Many things can go wrong; some things you may never have heard of. </div>
-        </div>
-      </a>
-      <a href="branding-basics.html" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text branding">Branding</div>
-          </div>
-          <p class="blog-module-card-title">Basics of Branding: How to Build Your Own Brand<br></p>
-          <p class="blog-component-date">June 6, 2024</p>
-          <div class="bog-comp-p">Deciding on an original name, colors, logo, and website that speak to you are big commitments.</div>
-        </div>
-      </a>
-      <a href="webflow-vs-figma.html" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text design">Design</div>
-          </div>
-          <p class="blog-module-card-title">Webflow vs. Figma<br></p>
-          <p class="blog-component-date">July 12, 2023</p>
-          <div class="bog-comp-p">In today&#x27;s shifting tides of creative design and development programs, selecting the right tools can significantly impact your creative journey.</div>
-        </div>
-      </a>
-      <a href="ai-art.html" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text creative">Creative</div>
-          </div>
-          <p class="blog-module-card-title">What is AI Art? <br>And Will It Replace Artists? <br></p>
-          <p class="blog-component-date">July 12, 2023</p>
-          <div class="bog-comp-p">AI's threat to jobs and humanity as a whole jeopardizes life as we know it. Exploring the intersection of technology and creativity.</div>
-        </div>
-      </a>
-        </div>
-      </div>
-    </div>
     </div>
   </section>
 
