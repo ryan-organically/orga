@@ -16,61 +16,9 @@
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
   <style>
-    @media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844"] {-webkit-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);}}
-    /* Contractor page hero footer stripe - vertical alignment */
-    .hero-footer-stripe.vertical {
-      flex-direction: column;
-      height: auto;
-      padding: 0;
-      gap: 0;
-    }
-    .hero-footer-stripe.vertical .hero-footer-main {
-      width: 100%;
-      height: auto;
-      min-height: 200px;
-      padding: 40px 5vw;
-    }
-    .hero-footer-stripe.vertical .hero-footer-card {
-      width: 100%;
-      height: 80px;
-      border-left: none;
-      border-top: 1px solid var(--black-40);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-footer-stripe.vertical .hero-footer-label {
-      transform: rotate(0deg);
-      font-size: 1.5rem;
-    }
-    .hero-footer-stripe.vertical .hero-footer-description {
-      position: relative;
-      left: 0;
-      max-width: 100%;
-    }
-
-    /* Editorial style improvements */
-    .diagonal-cta-text {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .home-p2, .home-p3 {
-      line-height: 1.8;
-      letter-spacing: 0.01em;
-    }
-    .h3.center-h3 {
-      font-size: 2.5rem;
-      line-height: 1.3;
-      margin-bottom: 2rem;
-    }
-    @media (max-width: 991px) {
-      .diagonal-cta-text {
-        font-size: 1.1rem;
-      }
-      .h3.center-h3 {
-        font-size: 2rem;
-      }
+    /* Hide H1 initially - will be revealed by animation */
+    .hero-section .hero-div .h1 {
+      opacity: 0;
     }
   </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -112,17 +60,6 @@ html.lenis {
     color: var(--black-75);
     cursor: crosshair;
   }
-</style>
-  <style>
-html.lenis {
-	height: auto;
-}
-.lenis.lenis-smooth {
-	scroll-behavior: auto;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-	overscroll-behavior: clip;
-}
 </style>
 </head>
 <body class="horizontal-body">
@@ -247,47 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
         syncInterval: 120,
     });
 
-    /* 2 ▸ H1 — split lines and chars, use lines as mask */
-    const h1 = document.querySelector(".h1.h1-home");
-    const shrunkP = document.querySelector(".shrunk-p");
-
-    if (shrunkP) {
-        gsap.set(shrunkP, { autoAlpha: 0 });
-    }
-
-    const splitH1 = SplitText.create(h1, {
-        type: "chars, lines",
-        linesClass: "line",
-        mask: "lines"
-    });
-    gsap.set(splitH1.chars, { yPercent: 110, opacity: 0 });
-    gsap.to(splitH1.chars, {
-        yPercent: 0,
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.02,
-        ease: "power3.out",
-        onComplete: animateShrunkP
-    });
-
-    function animateShrunkP() {
-        if (shrunkP) {
-            gsap.set(shrunkP, { autoAlpha: 1 });
-            const shrunkPSplit = SplitText.create(shrunkP, {
-                type: "lines",
-                linesClass: "shrunk-p-line"
-            });
-            gsap.set(shrunkPSplit.lines, { yPercent: 110, opacity: 0 });
-            gsap.to(shrunkPSplit.lines, {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.7,
-                stagger: 0.1,
-                ease: "power3.out"
-            });
-        }
-    }
-
     // Footer typemark reveal
     document.querySelectorAll(".footer-typemark").forEach(el => {
         const ft = SplitText.create(el, { type: "chars", mask: "lines", wordsClass: "masked-word" });
@@ -305,138 +201,67 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-
-    // Color Element Animations
-    const colorElements = document.querySelectorAll('.color-element');
-    const homeSection = document.querySelector('.section.home-id');
-    colorElements.forEach((element, index) => {
-        const startX = (index % 2 === 0) ? -100 : 100;
-        gsap.set(element, {
-            x: startX,
-            opacity: 0,
-            scale: 0.8,
-            rotation: (index % 2 === 0) ? -5 : 5
-        });
-
-        const enterAnim = gsap.to(element, {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-            rotation: 0,
-            duration: 0.8,
-            ease: 'back.out(1.7)',
-            paused: true
-        });
-
-        ScrollTrigger.create({
-            trigger: element,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            animation: enterAnim,
-            toggleActions: 'play reverse play reverse',
-            fastScrollEnd: true,
-            id: `color-element-entrance-${index}`
-        });
-    });
-
-    // Final "Fall to Bottom" Animation
-    if (homeSection) {
-        ScrollTrigger.create({
-            trigger: homeSection,
-            start: 'bottom bottom',
-            toggleActions: 'play none none none',
-            onEnter: () => {
-                const sectionRect = homeSection.getBoundingClientRect();
-                colorElements.forEach(element => {
-                    const elementRect = element.getBoundingClientRect();
-                    const currentRelativeLeft = elementRect.left - sectionRect.left;
-                    const currentRelativeTop = elementRect.top - sectionRect.top;
-                    gsap.set(element, {
-                        position: 'absolute',
-                        left: currentRelativeLeft,
-                        top: currentRelativeTop
-                    });
-                    const minBottomPadding = 50;
-                    const maxBottomPadding = 150;
-                    const randomBottomOffset = Math.random() * (maxBottomPadding - minBottomPadding) + minBottomPadding;
-                    const targetTop = sectionRect.height - elementRect.height - randomBottomOffset;
-                    const horizontalSpread = 400;
-                    const targetLeft = currentRelativeLeft + (Math.random() - 0.5) * horizontalSpread;
-                    const randomDuration = 1.8 + Math.random() * 1.5;
-                    const randomRotation = (Math.random() - 0.5) * 1080;
-                    gsap.to(element, {
-                        top: targetTop,
-                        left: targetLeft,
-                        rotation: randomRotation,
-                        duration: randomDuration,
-                        ease: 'bounce.out',
-                        onComplete: () => {
-                            Draggable.create(element, {
-                                type: 'x,y',
-                                bounds: homeSection,
-                                inertia: true,
-                                edgeResistance: 0.6,
-                                onDragStart: function() { gsap.to(this.target, { scale: 1.05, duration: 0.1 }); },
-                                onDragEnd: function() { gsap.to(this.target, { scale: 1, duration: 0.1 }); }
-                            });
-                        }
-                    });
-                });
-            },
-            id: 'fall-to-bottom-trigger'
-        });
-    }
 });
+</script>
 
-/* Hero Footer Stripe Ticker */
-(function() {
-    const cards = document.querySelectorAll('.hero-footer-card');
-    const descriptions = document.querySelectorAll('.hero-footer-description');
-    let currentIndex = 0;
-    let tickerInterval;
-    let isHovered = false;
+<!-- H1 Word Stagger Animation -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Target the h1 in the hero section
+    const heroH1 = document.querySelector('.hero-section .hero-div .h1');
 
-    function setActive(index) {
-        cards.forEach(card => card.classList.remove('active'));
-        descriptions.forEach(desc => desc.classList.remove('active'));
-        cards[index].classList.add('active');
-        descriptions[index].classList.add('active');
-        currentIndex = index;
-    }
+    if (!heroH1 || typeof SplitText === 'undefined') return;
 
-    function nextSlide() {
-        if (!isHovered) {
-            currentIndex = (currentIndex + 1) % cards.length;
-            setActive(currentIndex);
-        }
-    }
+    // Split the h1 into words AND characters to preserve word boundaries
+    const split = new SplitText(heroH1, {
+        type: "words, chars",
+        wordsClass: "word-wrapper",
+        charsClass: "char-inner"
+    });
+    const chars = split.chars;
 
-    function startTicker() {
-        tickerInterval = setInterval(nextSlide, 10000);
-    }
-
-    function stopTicker() {
-        clearInterval(tickerInterval);
-    }
-
-    cards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-            setActive(index);
-            stopTicker();
-            startTicker();
-        });
-
-        card.addEventListener('mouseenter', () => {
-            isHovered = true;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            isHovered = false;
-        });
+    // Wrap each character in a mask container
+    chars.forEach(char => {
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'inline-block';
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.verticalAlign = 'bottom';
+        wrapper.style.paddingBottom = '0.15em';
+        char.style.display = 'inline-block';
+        char.parentNode.insertBefore(wrapper, char);
+        wrapper.appendChild(char);
     });
 
-    startTicker();
-})();
+    // Get the inner chars after wrapping
+    const innerChars = document.querySelectorAll('.hero-section .hero-div .h1 .char-inner');
+
+    // Force scroll position to stay at top during manipulation
+    window.scrollTo(0, 0);
+
+    // Refresh ScrollTrigger after DOM manipulation
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh(true);
+    }
+
+    // Make h1 visible now that it's split
+    gsap.set(heroH1, { opacity: 1 });
+
+    // Set initial state for each character - all from bottom
+    gsap.set(innerChars, {
+        y: 150,
+        opacity: 0,
+        willChange: 'transform, opacity'
+    });
+
+    // Animate all characters in with subtle stagger
+    gsap.to(innerChars, {
+        y: 0,
+        opacity: 1,
+        duration: 0.1,
+        ease: 'expo.out',
+        stagger: 0.02
+    });
+});
 </script>
 
     <!-- Ticker Animation -->
@@ -456,68 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
         repeat: -1,
         modifiers: {
             x: (x) => `${parseFloat(x) % tickerWidth}px`
-        }
-    });
-});
-</script>
-
-    <!-- Diagonal Section ScrollTrigger Animation -->
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
-
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-
-    const h3Element = document.querySelector('.diagonal-h3');
-
-    if (h3Element) {
-        const split = new SplitText(h3Element, { type: "words", mask: "words" });
-        gsap.set(split.words, { yPercent: 110, opacity: 0 });
-
-        gsap.to(split.words, {
-            yPercent: 0,
-            opacity: 1,
-            stagger: 0.05,
-            duration: 0.6,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: h3Element,
-                start: "top 70%",
-                end: "top 40%",
-                toggleActions: "play none none reverse"
-            }
-        });
-    }
-});
-</script>
-
-    <!-- Footer SplitText Animation -->
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
-
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-
-    const footer = document.querySelector('.footer');
-    if (!footer) return;
-
-    const typemark = footer.querySelector('.footer-typemark');
-    if (!typemark) return;
-
-    const split = new SplitText(typemark, { type: "chars" });
-    gsap.set(split.chars, { yPercent: -200, opacity: 0 });
-
-    gsap.to(split.chars, {
-        yPercent: 0,
-        opacity: 1,
-        stagger: 0.02,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: typemark,
-            start: "top 80%",
-            end: "top 50%",
-            toggleActions: "play none none reverse"
         }
     });
 });
