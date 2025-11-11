@@ -16,60 +16,20 @@
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
   <style>
-    @media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844"] {-webkit-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);}}
-    /* Contractor page hero footer stripe - vertical alignment */
-    .hero-footer-stripe.vertical {
-      flex-direction: column;
-      height: auto;
-      padding: 0;
-      gap: 0;
-    }
-    .hero-footer-stripe.vertical .hero-footer-main {
-      width: 100%;
-      height: auto;
-      min-height: 200px;
-      padding: 40px 5vw;
-    }
-    .hero-footer-stripe.vertical .hero-footer-card {
-      width: 100%;
-      height: 80px;
-      border-left: none;
-      border-top: 1px solid var(--black-40);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-footer-stripe.vertical .hero-footer-label {
-      transform: rotate(0deg);
-      font-size: 1.5rem;
-    }
-    .hero-footer-stripe.vertical .hero-footer-description {
-      position: relative;
-      left: 0;
-      max-width: 100%;
+    /* Hide H1 initially - will be revealed by animation */
+    .hero-section .hero-div .h1 {
+      opacity: 0;
     }
 
-    /* Editorial style improvements */
-    .diagonal-cta-text {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .home-p2, .home-p3 {
-      line-height: 1.8;
-      letter-spacing: 0.01em;
-    }
-    .h3.center-h3 {
-      font-size: 2.5rem;
-      line-height: 1.3;
-      margin-bottom: 2rem;
-    }
-    @media (max-width: 991px) {
-      .diagonal-cta-text {
-        font-size: 1.1rem;
+    /* Section 2 Mobile Responsive - Stack Vertically */
+    @media (max-width: 767px) {
+      .section-2-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2rem !important;
       }
-      .h3.center-h3 {
-        font-size: 2rem;
+      .section-2-wrapper > div {
+        max-width: 100% !important;
       }
     }
   </style>
@@ -81,6 +41,100 @@
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.jpg" rel="apple-touch-icon">
   <link href="https://www.organicallyseo.com/contractor-funnel" rel="canonical">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://organicallyseo.com/#organization",
+        "name": "Organically SEO",
+        "url": "https://organicallyseo.com",
+        "logo": "https://organicallyseo.com/images/Organically-Logo-green.png",
+        "sameAs": [
+          "https://twitter.com/organicallyseo",
+          "https://www.linkedin.com/in/ryan-scanlon31/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "ryan.organically@gmail.com",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://organicallyseo.com/contractor-funnel/#webpage",
+        "url": "https://organicallyseo.com/contractor-funnel/",
+        "name": "Contractor Marketing Solutions | Organically",
+        "description": "Transform your contracting business with powerful web design and SEO that generates qualified leads.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://organicallyseo.com/#website"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://organicallyseo.com/contractor-funnel/#service",
+        "serviceType": "Contractor SEO and Marketing",
+        "name": "Contractor SEO That Fills Your Calendar",
+        "description": "We help contractors show up first on Google, track which leads turn into jobs, and prove ROI with transparent reporting. No jargon, just results.",
+        "provider": {
+          "@id": "https://organicallyseo.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "name": "General Contractors and Specialty Trades"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://organicallyseo.com/contractor-funnel/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What actually happens on the call?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This is not a sales call, this is a strategy call. We look at your website as well as your entire online presence. We will highlight what's working, what's not, what's holding back calls, and we'll agree on moves that will make the biggest difference for you first."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What will I gain?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The goal is for you to have a clear 2-3 next steps to take. You'll spend time with me and I tailor my advice to your business, industry, goals, and business structure. It will be 1 on 1 help specific to your current business challenges. You get clarity on what to do, why you should do it, and how to do it. Plus, you'll get a checklist and video recording so you don't miss anything we discuss on the call."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this right for my business?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If you are a general contractor or a specialty trade (remodeling, additions, kitchen/bath, roofing, concrete, exterior, etc) who is actively taking jobs and has the capacity to implement change, this is for you. We work nationwide and only take one client per service area to avoid conflicts. As a guide, we're the best fit for companies doing $200k-$5M/year (or running 2+ crews with at least a 4-8 week backlog goal) that want more consistent inbound."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are there any costs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The review is completely free. You own every asset we create for your business, and there are no long contracts. If you want help implementing the plan, we'll outline some options for you on how we can move forward. And if we can't find any real opportunities to help out your business, we'll donate $50 to a local charity."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
   body {
     overflow-x: clip;
@@ -112,17 +166,6 @@ html.lenis {
     color: var(--black-75);
     cursor: crosshair;
   }
-</style>
-  <style>
-html.lenis {
-	height: auto;
-}
-.lenis.lenis-smooth {
-	scroll-behavior: auto;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-	overscroll-behavior: clip;
-}
 </style>
 </head>
 <body class="horizontal-body">
@@ -161,7 +204,7 @@ html.lenis {
       </div>
 
       <!-- Side Treeline Image -->
-      <img src="images/treeline 2.png" alt="Treeline" style="position: absolute; top: auto; bottom: 0; left: auto; right: 0; width: 15%; height: auto; display: block; opacity: 0.9;">
+      <img src="images/climb-2.png" alt="Treeline" style="position: absolute; top: auto; bottom: 0; left: auto; right: 0; width: 25%; height: auto; display: block; opacity: 0.9;">
 
       <div class="ticker">
         <p class="ticker-p">Pittsburgh General Contractors aren't waiting on word-of-mouth… they built a system that makes the phone ring…</p>
@@ -169,20 +212,135 @@ html.lenis {
     </div>
 
     <!-- Section 2 with Typer -->
-    <section class="section" style="display: flex; flex-direction: row; align-items: flex-start; gap: 5vw;">
-      <div style="flex: 1; align-self: flex-start;">
-        <h2 class="services-h3"><span class="contractor-typer" style="color: var(--black-75);">The contractors who show up first… get the job first.</span></h2>
-        <p>Most homeowners aren't calling 10 contractors for quotes. They're calling the first 2-3 that show up in Google. If your competitors are ranking above you, you're invisible—and they're cashing checks you should be depositing.</p>
+    <section class="section">
+      <div class="section-2-wrapper" style="display: flex; flex-direction: row; align-items: center; gap: 5vw;">
+        <div style="flex: 1;">
+          <h2 class="services-h3"><span class="contractor-typer" style="color: var(--black-75);">The contractors who show up first… get the job first.</span></h2>
+          <p>Most homeowners aren't calling 10 contractors for quotes. They're calling the first 2-3 that show up in Google. If your competitors are ranking above you, you're invisible—and they're cashing checks you should be depositing.</p>
+          <a href="#" class="button-1 w-button calendar-toggle-btn" style="margin-top: 20px;">Book a Free Call</a>
+        </div>
+        <div style="flex: 1;">
+          <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--black-40);">
+            <source src="videos/theme video compressed.webm" type="video/webm">
+          </video>
+        </div>
       </div>
-      <div style="flex: 1;">
-        <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--black-40);">
-          <source src="videos/theme video compressed.webm" type="video/webm">
-        </video>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+      <!-- Testimonial Slider Module -->
+      <div class="testimonial-slider">
+        <!-- Static Star Rating -->
+        <img src="green 5 star.png" alt="5 stars" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 180px; height: auto; z-index: 1;">
+
+        <!-- Testimonials Container -->
+        <div style="position: relative; overflow: hidden; min-height: 400px;">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-item" style="opacity: 1;">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— IWC Cabinetry</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-item">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">We are #1 on Google in most of the categories we want to be in. Ryan already understands our business better than they ever did and gets more done on a monthly basis.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Q&A Landscaping</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-item">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Ryan was able to make my yacht management companies website, help grow my social media presence, and his communication throughout the process was great.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Sureshine Marine Detailing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Contractors Partner Section -->
+    <section class="section" style="background-color: #333; color: #e2e2e2;">
+      <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem; color: #e2e2e2;">Why Contractors Partner with Us</h2>
+
+      <div style="max-width: 900px; margin: 0 auto;">
+        <p style="margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.0rem; text-align: center;">You don't need another agency telling you to be "patient" while the phones stay quiet. You need someone who will look under the hood, show you what's actually holding you back, and will fix it without drama.</p>
+
+        <p style="margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.0rem; text-align: center;">Ryan has many years of experience supporting and growing local businesses. Through his time, he has learned what makes people take action online. He understands the timeless principles of growing an online presence as well as blending it in with emerging strategies.</p>
+
+        <p style="margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.0rem; text-align: center;">He has taken these principles and broken them down in a way that anyone can understand to make them basic, actionable, and easy to implement.</p>
+
+        <p style="margin-bottom: 0; line-height: 1.8; font-size: 1.0rem; text-align: center;">Whether you're a solo contractor who is looking to get online and start building your brand, or you have a team with countless guys and want to establish yourself as the local leader in your field, the goal is the same: more of the right estimates, less guesswork, and a partner who shows you their work.</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#" class="button-1 w-button calendar-toggle-btn" style="background-color: #e2e2e2; color: #333;">Book Your Free Call</a>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+      <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
+
+      <div class="faq-container">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What actually happens on the call?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem;">This is not a sales call, this is a strategy call. So no beating around the bush, just actionable insights. We look at your website as well as your entire online presence. We will highlight what's working, what's not, what's holding back calls, and we'll agree on moves that will make the biggest difference for you first.</div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What will I gain?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem;">
+              The goal is for you to have a clear 2-3 next steps to take.<br><br>
+              You'll spend time with me and I tailor my advice to your business, industry, goals, and business structure.<br><br>
+              It will be 1 on 1 help specific to your current business challenges.<br><br>
+              You get clarity on what to do, why you should do it, and how to do it. Plus, you'll get a checklist and video recording so you don't miss anything we discuss on the call.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is this right for my business?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem;">
+              If you are a general contractor or a specialty trade (remodeling, additions, kitchen/bath, roofing, concrete, exterior, etc). who is actively taking jobs and has the capacity to implement change. We work nationwide and only take one client per service area to avoid conflicts. As a guide, we're the best fit for companies doing $200k-$5M/year (or running 2+ crews with at least a 4-8 week backlog goal) that want more consistent inbound. If you're under ~$200k/year or only picking up occasional small jobs, you'll get more value from dialing in some of our basics first, we're happy to share some resources with you.<br><br>
+              If you fit these and are looking to grow, odds are we can help.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are there any costs?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem;">The review is completely free. You own every asset we create for your business, and there are no long contracts. If you want help implementing the plan, we'll outline some options for you on how we can move forward. And if we can't find any real opportunities to help out your business, we'll donate $50 to a local charity.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#" class="button-1 w-button calendar-toggle-btn">Book a Free Call</a>
       </div>
     </section>
 
     <!-- Ticker Text -->
-    <section id="contractor-services" class="section ticker-testimonial-section">
+    <section id="contractor-services" class="section ticker-testimonial-section" style="display: none;">
       <div class="ticking-text">So download it, book a call time, and we'll see you on the other side…<span class="green-span">. </span></div>
     </section>
 
@@ -213,7 +371,6 @@ html.lenis {
         <div class="footer-div">
           <div class="footer-subheading">Boring</div>
           <a href="privacy-policy.html" class="footer-text">Privacy Policy</a>
-          <a href="sitemap.html" class="footer-text">Sitemap</a>
         </div>
       </div>
     </div>
@@ -247,47 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
         syncInterval: 120,
     });
 
-    /* 2 ▸ H1 — split lines and chars, use lines as mask */
-    const h1 = document.querySelector(".h1.h1-home");
-    const shrunkP = document.querySelector(".shrunk-p");
-
-    if (shrunkP) {
-        gsap.set(shrunkP, { autoAlpha: 0 });
-    }
-
-    const splitH1 = SplitText.create(h1, {
-        type: "chars, lines",
-        linesClass: "line",
-        mask: "lines"
-    });
-    gsap.set(splitH1.chars, { yPercent: 110, opacity: 0 });
-    gsap.to(splitH1.chars, {
-        yPercent: 0,
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.02,
-        ease: "power3.out",
-        onComplete: animateShrunkP
-    });
-
-    function animateShrunkP() {
-        if (shrunkP) {
-            gsap.set(shrunkP, { autoAlpha: 1 });
-            const shrunkPSplit = SplitText.create(shrunkP, {
-                type: "lines",
-                linesClass: "shrunk-p-line"
-            });
-            gsap.set(shrunkPSplit.lines, { yPercent: 110, opacity: 0 });
-            gsap.to(shrunkPSplit.lines, {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.7,
-                stagger: 0.1,
-                ease: "power3.out"
-            });
-        }
-    }
-
     // Footer typemark reveal
     document.querySelectorAll(".footer-typemark").forEach(el => {
         const ft = SplitText.create(el, { type: "chars", mask: "lines", wordsClass: "masked-word" });
@@ -305,138 +421,67 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-
-    // Color Element Animations
-    const colorElements = document.querySelectorAll('.color-element');
-    const homeSection = document.querySelector('.section.home-id');
-    colorElements.forEach((element, index) => {
-        const startX = (index % 2 === 0) ? -100 : 100;
-        gsap.set(element, {
-            x: startX,
-            opacity: 0,
-            scale: 0.8,
-            rotation: (index % 2 === 0) ? -5 : 5
-        });
-
-        const enterAnim = gsap.to(element, {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-            rotation: 0,
-            duration: 0.8,
-            ease: 'back.out(1.7)',
-            paused: true
-        });
-
-        ScrollTrigger.create({
-            trigger: element,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            animation: enterAnim,
-            toggleActions: 'play reverse play reverse',
-            fastScrollEnd: true,
-            id: `color-element-entrance-${index}`
-        });
-    });
-
-    // Final "Fall to Bottom" Animation
-    if (homeSection) {
-        ScrollTrigger.create({
-            trigger: homeSection,
-            start: 'bottom bottom',
-            toggleActions: 'play none none none',
-            onEnter: () => {
-                const sectionRect = homeSection.getBoundingClientRect();
-                colorElements.forEach(element => {
-                    const elementRect = element.getBoundingClientRect();
-                    const currentRelativeLeft = elementRect.left - sectionRect.left;
-                    const currentRelativeTop = elementRect.top - sectionRect.top;
-                    gsap.set(element, {
-                        position: 'absolute',
-                        left: currentRelativeLeft,
-                        top: currentRelativeTop
-                    });
-                    const minBottomPadding = 50;
-                    const maxBottomPadding = 150;
-                    const randomBottomOffset = Math.random() * (maxBottomPadding - minBottomPadding) + minBottomPadding;
-                    const targetTop = sectionRect.height - elementRect.height - randomBottomOffset;
-                    const horizontalSpread = 400;
-                    const targetLeft = currentRelativeLeft + (Math.random() - 0.5) * horizontalSpread;
-                    const randomDuration = 1.8 + Math.random() * 1.5;
-                    const randomRotation = (Math.random() - 0.5) * 1080;
-                    gsap.to(element, {
-                        top: targetTop,
-                        left: targetLeft,
-                        rotation: randomRotation,
-                        duration: randomDuration,
-                        ease: 'bounce.out',
-                        onComplete: () => {
-                            Draggable.create(element, {
-                                type: 'x,y',
-                                bounds: homeSection,
-                                inertia: true,
-                                edgeResistance: 0.6,
-                                onDragStart: function() { gsap.to(this.target, { scale: 1.05, duration: 0.1 }); },
-                                onDragEnd: function() { gsap.to(this.target, { scale: 1, duration: 0.1 }); }
-                            });
-                        }
-                    });
-                });
-            },
-            id: 'fall-to-bottom-trigger'
-        });
-    }
 });
+</script>
 
-/* Hero Footer Stripe Ticker */
-(function() {
-    const cards = document.querySelectorAll('.hero-footer-card');
-    const descriptions = document.querySelectorAll('.hero-footer-description');
-    let currentIndex = 0;
-    let tickerInterval;
-    let isHovered = false;
+<!-- H1 Word Stagger Animation -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Target the h1 in the hero section
+    const heroH1 = document.querySelector('.hero-section .hero-div .h1');
 
-    function setActive(index) {
-        cards.forEach(card => card.classList.remove('active'));
-        descriptions.forEach(desc => desc.classList.remove('active'));
-        cards[index].classList.add('active');
-        descriptions[index].classList.add('active');
-        currentIndex = index;
-    }
+    if (!heroH1 || typeof SplitText === 'undefined') return;
 
-    function nextSlide() {
-        if (!isHovered) {
-            currentIndex = (currentIndex + 1) % cards.length;
-            setActive(currentIndex);
-        }
-    }
+    // Split the h1 into words AND characters to preserve word boundaries
+    const split = new SplitText(heroH1, {
+        type: "words, chars",
+        wordsClass: "word-wrapper",
+        charsClass: "char-inner"
+    });
+    const chars = split.chars;
 
-    function startTicker() {
-        tickerInterval = setInterval(nextSlide, 10000);
-    }
-
-    function stopTicker() {
-        clearInterval(tickerInterval);
-    }
-
-    cards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-            setActive(index);
-            stopTicker();
-            startTicker();
-        });
-
-        card.addEventListener('mouseenter', () => {
-            isHovered = true;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            isHovered = false;
-        });
+    // Wrap each character in a mask container
+    chars.forEach(char => {
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'inline-block';
+        wrapper.style.overflow = 'hidden';
+        wrapper.style.verticalAlign = 'bottom';
+        wrapper.style.paddingBottom = '0.15em';
+        char.style.display = 'inline-block';
+        char.parentNode.insertBefore(wrapper, char);
+        wrapper.appendChild(char);
     });
 
-    startTicker();
-})();
+    // Get the inner chars after wrapping
+    const innerChars = document.querySelectorAll('.hero-section .hero-div .h1 .char-inner');
+
+    // Force scroll position to stay at top during manipulation
+    window.scrollTo(0, 0);
+
+    // Refresh ScrollTrigger after DOM manipulation
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh(true);
+    }
+
+    // Make h1 visible now that it's split
+    gsap.set(heroH1, { opacity: 1 });
+
+    // Set initial state for each character - all from bottom
+    gsap.set(innerChars, {
+        y: 150,
+        opacity: 0,
+        willChange: 'transform, opacity'
+    });
+
+    // Animate all characters in with subtle stagger
+    gsap.to(innerChars, {
+        y: 0,
+        opacity: 1,
+        duration: 0.1,
+        ease: 'expo.out',
+        stagger: 0.02
+    });
+});
 </script>
 
     <!-- Ticker Animation -->
@@ -456,68 +501,6 @@ document.addEventListener("DOMContentLoaded", () => {
         repeat: -1,
         modifiers: {
             x: (x) => `${parseFloat(x) % tickerWidth}px`
-        }
-    });
-});
-</script>
-
-    <!-- Diagonal Section ScrollTrigger Animation -->
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
-
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-
-    const h3Element = document.querySelector('.diagonal-h3');
-
-    if (h3Element) {
-        const split = new SplitText(h3Element, { type: "words", mask: "words" });
-        gsap.set(split.words, { yPercent: 110, opacity: 0 });
-
-        gsap.to(split.words, {
-            yPercent: 0,
-            opacity: 1,
-            stagger: 0.05,
-            duration: 0.6,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: h3Element,
-                start: "top 70%",
-                end: "top 40%",
-                toggleActions: "play none none reverse"
-            }
-        });
-    }
-});
-</script>
-
-    <!-- Footer SplitText Animation -->
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
-
-    gsap.registerPlugin(ScrollTrigger, SplitText);
-
-    const footer = document.querySelector('.footer');
-    if (!footer) return;
-
-    const typemark = footer.querySelector('.footer-typemark');
-    if (!typemark) return;
-
-    const split = new SplitText(typemark, { type: "chars" });
-    gsap.set(split.chars, { yPercent: -200, opacity: 0 });
-
-    gsap.to(split.chars, {
-        yPercent: 0,
-        opacity: 1,
-        stagger: 0.02,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: typemark,
-            start: "top 80%",
-            end: "top 50%",
-            toggleActions: "play none none reverse"
         }
     });
 });
@@ -831,6 +814,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const calendarToggle = document.getElementById('calendar-toggle');
+  const calendarToggleBtns = document.querySelectorAll('.calendar-toggle-btn');
   const calendarContent = document.querySelector('.calendar-panel-content');
   const sideMenuPanel = document.querySelector('.side-menu-panel');
   const bodySection = document.querySelector('.body-section');
@@ -847,7 +831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate slide distance based on screen size
     const isMobile = window.innerWidth <= 767;
-    const slideDistance = isMobile ? '-75vw' : '-15vw'; // Match panel width on mobile
+    const slideDistance = isMobile ? '-75vw' : '-15vw';
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -883,15 +867,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-  // Toggle calendar on button click
-  calendarToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (isCalendarOpen) {
-      closeCalendar();
-    } else {
-      openCalendar();
-    }
+  // Toggle calendar on main button click
+  if (calendarToggle) {
+    calendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+  }
+
+  // Handle all calendar toggle buttons
+  calendarToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
   });
 
   // Also handle hero calendar toggle button
@@ -910,8 +909,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Close calendar when clicking outside
   document.addEventListener('click', (e) => {
+    const isToggleBtn = calendarToggle && calendarToggle.contains(e.target);
+    const isOtherToggleBtn = Array.from(calendarToggleBtns).some(btn => btn.contains(e.target));
     const isHeroToggle = heroCalendarToggle && heroCalendarToggle.contains(e.target);
-    if (isCalendarOpen && !calendarContent.contains(e.target) && !calendarToggle.contains(e.target) && !isHeroToggle) {
+
+    if (isCalendarOpen && !calendarContent.contains(e.target) && !isToggleBtn && !isOtherToggleBtn && !isHeroToggle) {
       closeCalendar();
     }
   });
@@ -958,6 +960,112 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }, 50); // 50ms per character
         }
+    });
+});
+</script>
+
+<!-- Testimonial Slider Auto-Rotate with GSAP -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    if (testimonialItems.length === 0 || typeof gsap === 'undefined') return;
+
+    let currentIndex = 0;
+    const intervalTime = 9000; // 9 seconds per testimonial
+    let isAnimating = false;
+
+    // Set initial positions - all items start at x: 100% except first
+    gsap.set(testimonialItems, {
+        x: '100%',
+        opacity: 0,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+    });
+
+    // Set first testimonial visible and in position
+    gsap.set(testimonialItems[0], {
+        x: '0%',
+        opacity: 1
+    });
+
+    function showTestimonial(nextIndex) {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const currentItem = testimonialItems[currentIndex];
+        const nextItem = testimonialItems[nextIndex];
+
+        // Create timeline for smooth transition
+        const tl = gsap.timeline({
+            onComplete: () => {
+                currentIndex = nextIndex;
+                isAnimating = false;
+            }
+        });
+
+        // Animate current item out to the left
+        tl.to(currentItem, {
+            x: '-100%',
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.inOut'
+        }, 0);
+
+        // Animate next item in from the right
+        tl.fromTo(nextItem,
+            { x: '100%', opacity: 0 },
+            {
+                x: '0%',
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            },
+        0);
+    }
+
+    function nextTestimonial() {
+        const nextIndex = (currentIndex + 1) % testimonialItems.length;
+        showTestimonial(nextIndex);
+    }
+
+    // Start auto-rotation
+    setInterval(nextTestimonial, intervalTime);
+});
+</script>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all other FAQs
+            faqItems.forEach((otherItem) => {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon');
+                otherAnswer.style.maxHeight = '0';
+                otherAnswer.style.paddingTop = '0';
+                otherIcon.textContent = '+';
+                otherIcon.style.transform = 'rotate(0deg)';
+            });
+
+            // Toggle current FAQ
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.paddingTop = '0.5rem';
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
     });
 });
 </script>

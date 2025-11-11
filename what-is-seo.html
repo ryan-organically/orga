@@ -23,6 +23,53 @@
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.jpg" rel="apple-touch-icon">
   <link href="https://www.organicallyseo.com/what-is-seo" rel="canonical">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://organicallyseo.com/#organization",
+        "name": "Organically SEO",
+        "url": "https://organicallyseo.com",
+        "logo": "https://organicallyseo.com/images/Organically-Logo-green.png"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://organicallyseo.com/#author",
+        "name": "Ryan Scanlon",
+        "url": "https://www.linkedin.com/in/ryan-scanlon31/",
+        "sameAs": [
+          "https://twitter.com/organicallyseo",
+          "https://www.linkedin.com/in/ryan-scanlon31/"
+        ]
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": "https://organicallyseo.com/what-is-seo/#article",
+        "url": "https://organicallyseo.com/what-is-seo/",
+        "headline": "What is SEO? And Why You Need It To Be Relevant",
+        "description": "SEO tends to have a lot of jargon, so we simplified everything down to make sense for everyday people.",
+        "datePublished": "2024-04-17",
+        "dateModified": "2024-04-17",
+        "author": {
+          "@id": "https://organicallyseo.com/#author"
+        },
+        "publisher": {
+          "@id": "https://organicallyseo.com/#organization"
+        },
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://organicallyseo.com/what-is-seo/"
+        }
+      }
+    ]
+  }
+  </script>
+
   <html lang="en">
   <style>
   body {

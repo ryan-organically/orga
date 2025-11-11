@@ -16,7 +16,8 @@
       "Bash(identify:*)",
       "Bash(for:*)",
       "Bash(do sed -i 's/class=\"\"side-menu-panel\"\"/class=\"\"menu-panel\"\"/g; s/class=\"\"side-panel\"\"/class=\"\"menu-panel-content\"\"/g' \"$file\")",
-      "Bash(do echo \"=== $file ===\" grep -B5 \"Webflow Launch Checklist\" \"$file\")"
+      "Bash(do echo \"=== $file ===\" grep -B5 \"Webflow Launch Checklist\" \"$file\")",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []

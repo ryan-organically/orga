@@ -5187,8 +5187,9 @@ a {
   font-weight: 600;
   line-height: 1.1rem;
   color: var(--black-60);
-  text-transform: uppercase;
   letter-spacing: 0.025em;
+  margin-top: 4px;
+  margin-bottom: 16px;
 }
   color: var(--black-75);
   text-transform: uppercase;
@@ -8437,4 +8438,82 @@ a {
     visibility: visible !important;
     pointer-events: auto !important;
   }
+}
+
+/* Testimonial Slider Styles */
+.testimonial-slider {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 6rem;
+}
+
+.testimonial-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+/* Testimonial Section Mobile Responsive */
+@media (max-width: 767px) {
+  .testimonial-slider {
+    padding-top: 4rem !important;
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .testimonial-slider img {
+    width: 120px !important;
+  }
+
+  .testimonial-item p:first-child {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .testimonial-slider > div {
+    min-height: 250px !important;
+  }
+}
+
+/* FAQ Accordion Styles */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--black-40);
+  margin-bottom: 1rem;
+}
+
+.faq-question {
+  padding: 1.5rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: Coolvetica rg, sans-serif;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.75rem;
 }

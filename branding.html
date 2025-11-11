@@ -23,6 +23,63 @@
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.jpg" rel="apple-touch-icon">
   <link href="https://www.organicallyseo.com/branding" rel="canonical">
+
+  <!-- Hreflang tags -->
+  <link rel="alternate" href="https://organicallyseo.com/branding/" hreflang="en" />
+  <link rel="alternate" href="https://organicallyseo.com/es/branding/" hreflang="es" />
+  <link rel="alternate" href="https://organicallyseo.com/branding/" hreflang="x-default" />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://organicallyseo.com/#organization",
+        "name": "Organically SEO",
+        "url": "https://organicallyseo.com",
+        "logo": "https://organicallyseo.com/images/Organically-Logo-green.png",
+        "sameAs": [
+          "https://twitter.com/organicallyseo",
+          "https://www.linkedin.com/in/ryan-scanlon31/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "ryan.organically@gmail.com",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://organicallyseo.com/branding/#webpage",
+        "url": "https://organicallyseo.com/branding/",
+        "name": "Affordable Branding & Logo Design for Small Business",
+        "description": "Branding services for small business and startups. We can design your logo, colors, typography, or website whilst you focus on you.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://organicallyseo.com/#website"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://organicallyseo.com/branding/#service",
+        "serviceType": "Branding and Logo Design",
+        "name": "Professional Branding Services",
+        "description": "Custom branding and logo design for small businesses and startups. We create cohesive brand identities including logos, color palettes, typography, and brand guidelines.",
+        "provider": {
+          "@id": "https://organicallyseo.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
+
   <html lang="en">
   <style>
   body {
