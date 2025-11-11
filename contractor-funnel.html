@@ -21,27 +21,6 @@
       opacity: 0;
     }
 
-    /* Testimonial Section Mobile Responsive */
-    @media (max-width: 767px) {
-      .testimonial-slider {
-        padding-top: 4rem !important;
-        max-width: 100% !important;
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-      .testimonial-slider img {
-        width: 120px !important;
-      }
-      .testimonial-item p:first-child {
-        font-size: 1.8rem !important;
-        line-height: 1.2 !important;
-        margin-bottom: 1.5rem !important;
-      }
-      .testimonial-slider > div {
-        min-height: 250px !important;
-      }
-    }
-
     /* Section 2 Mobile Responsive - Stack Vertically */
     @media (max-width: 767px) {
       .section-2-wrapper {
@@ -157,30 +136,93 @@ html.lenis {
     <!-- Testimonials Section -->
     <section class="section">
       <!-- Testimonial Slider Module -->
-      <div class="testimonial-slider" style="position: relative; width: 100%; max-width: 900px; margin: 0 auto; text-align: center; padding-top: 6rem;">
+      <div class="testimonial-slider">
         <!-- Static Star Rating -->
         <img src="green 5 star.png" alt="5 stars" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 180px; height: auto; z-index: 1;">
 
         <!-- Testimonials Container -->
-        <div style="position: relative; overflow: hidden; min-height: 300px;">
+        <div style="position: relative; overflow: hidden; min-height: 400px;">
           <!-- Testimonial 1 -->
-          <div class="testimonial-item" style="position: absolute; top: 0; left: 0; width: 100%; opacity: 1;">
-            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Ryan's SEO strategy completely transformed our business. We went from 2-3 calls a week to booking out months in advance.</p>
-            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Mike Thompson, Thompson Construction</p>
+          <div class="testimonial-item" style="opacity: 1;">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— IWC Cabinetry</p>
           </div>
 
           <!-- Testimonial 2 -->
-          <div class="testimonial-item" style="position: absolute; top: 0; left: 0; width: 100%; opacity: 0;">
-            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Finally, an agency that shows real results. We can track every single lead back to our investment. No smoke and mirrors.</p>
-            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Sarah Martinez, Martinez Remodeling</p>
+          <div class="testimonial-item">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">We are #1 on Google in most of the categories we want to be in. Ryan already understands our business better than they ever did and gets more done on a monthly basis.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Q&A Landscaping</p>
           </div>
 
           <!-- Testimonial 3 -->
-          <div class="testimonial-item" style="position: absolute; top: 0; left: 0; width: 100%; opacity: 0;">
-            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Best decision we ever made. Our phone rings constantly now, and we're only getting qualified leads who are ready to start projects.</p>
-            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— David Chen, Chen Home Builders</p>
+          <div class="testimonial-item">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Ryan was able to make my yacht management companies website, help grow my social media presence, and his communication throughout the process was great.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Sureshine Marine Detailing</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+      <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
+
+      <div class="faq-container">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What actually happens on the call?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem; line-height: 1.6;">This is not a sales call, this is a strategy call. So no beating around the bush, just actionable insights. We look at your website as well as your entire online presence. We will highlight what's working, what's not, what's holding back calls, and we'll agree on moves that will make the biggest difference for you first.</div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What will I gain?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem; line-height: 1.6;">
+              The goal is for you to have a clear 2-3 next steps to take.<br><br>
+              You'll spend time with me and I tailor my advice to your business, industry, goals, and business structure.<br><br>
+              It will be 1 on 1 help specific to your current business challenges.<br><br>
+              You get clarity on what to do, why you should do it, and how to do it. Plus, you'll get a checklist and video recording so you don't miss anything we discuss on the call.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is this right for my business?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem; line-height: 1.6;">
+              If you are a general contractor or a specialty trade (remodeling, additions, kitchen/bath, roofing, concrete, exterior, etc). who is actively taking jobs and has the capacity to implement change. We work nationwide and only take one client per service area to avoid conflicts. As a guide, we're the best fit for companies doing $200k-$5M/year (or running 2+ crews with at least a 4-8 week backlog goal) that want more consistent inbound. If you're under ~$200k/year or only picking up occasional small jobs, you'll get more value from dialing in some of our basics first, we're happy to share some resources with you.<br><br>
+              If you fit these and are looking to grow, odds are we can help.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are there any costs?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem; line-height: 1.6;">The review is completely free. You own every asset we create for your business, and there are no long contracts. If you want help implementing the plan, we'll outline some options for you on how we can move forward. And if we can't find any real opportunities to help out your business, we'll donate $50 to a local charity.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#" class="button-1 w-button calendar-toggle-btn">Book a Free Call</a>
       </div>
     </section>
 
@@ -798,7 +840,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (testimonialItems.length === 0 || typeof gsap === 'undefined') return;
 
     let currentIndex = 0;
-    const intervalTime = 6000; // 6 seconds per testimonial
+    const intervalTime = 9000; // 9 seconds per testimonial
     let isAnimating = false;
 
     // Set initial positions - all items start at x: 100% except first
@@ -859,6 +901,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Start auto-rotation
     setInterval(nextTestimonial, intervalTime);
+});
+</script>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all other FAQs
+            faqItems.forEach((otherItem) => {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon');
+                otherAnswer.style.maxHeight = '0';
+                otherAnswer.style.paddingTop = '0';
+                otherIcon.textContent = '+';
+                otherIcon.style.transform = 'rotate(0deg)';
+            });
+
+            // Toggle current FAQ
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.paddingTop = '0.5rem';
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
 });
 </script>
 
