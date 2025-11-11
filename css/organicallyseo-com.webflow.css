@@ -5187,8 +5187,9 @@ a {
   font-weight: 600;
   line-height: 1.1rem;
   color: var(--black-60);
-  text-transform: uppercase;
   letter-spacing: 0.025em;
+  margin-top: 4px;
+  margin-bottom: 16px;
 }
   color: var(--black-75);
   text-transform: uppercase;

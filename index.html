@@ -189,17 +189,7 @@ html.lenis {
       <img src="images/monstera-icon.png" alt="Monstera icon" style="width: 100px; height: 100px; margin-left: -20px;">
       <h2>Full-Service Digital Marketing That Grows Your Business</h2>
       <p>From custom web design and SEO to branding and development—we deliver comprehensive marketing solutions that drive real results. Let's build something that converts.</p>
-      <button class="button-1 hero-cta-button" id="hero-cta-toggle">Get Your Free Website Review</button>
-
-      <!-- Expandable Form -->
-      <div class="hero-cta-form" id="hero-cta-form">
-        <form class="hero-form">
-          <input type="text" name="name" placeholder="Your Name" class="hero-form-input" required>
-          <input type="email" name="email" placeholder="Your Email" class="hero-form-input" required>
-          <input type="url" name="website" placeholder="Your Website URL" class="hero-form-input" required>
-          <button type="submit" class="button-1 hero-form-submit">Submit for Free Review</button>
-        </form>
-      </div>
+      <button class="button-1 hero-cta-button calendar-toggle-btn">Get Your Free Website Review</button>
     </div>
     <div class="services-showcase-right">
       <div class="services-showcase-tabs">
@@ -800,51 +790,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Start the ticker
     startTicker();
-})();
-
-// Hero CTA Form Toggle
-(function() {
-    const ctaButton = document.getElementById('hero-cta-toggle');
-    const ctaForm = document.getElementById('hero-cta-form');
-
-    if (ctaButton && ctaForm) {
-        ctaButton.addEventListener('click', function() {
-            ctaForm.classList.toggle('active');
-
-            // Update button text
-            if (ctaForm.classList.contains('active')) {
-                ctaButton.textContent = 'Hide Form';
-            } else {
-                ctaButton.textContent = 'Get Your Free Website Review';
-            }
-        });
-
-        // Handle form submission
-        const form = ctaForm.querySelector('.hero-form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                // Get form data
-                const formData = {
-                    name: form.querySelector('[name="name"]').value,
-                    email: form.querySelector('[name="email"]').value,
-                    website: form.querySelector('[name="website"]').value
-                };
-
-                // Here you would typically send this to your backend/CRM
-                console.log('Form submitted:', formData);
-
-                // Show success message (you can customize this)
-                alert('Thank you! We\'ll review your website and get back to you soon.');
-
-                // Reset form and close
-                form.reset();
-                ctaForm.classList.remove('active');
-                ctaButton.textContent = 'Get Your Free Website Review';
-            });
-        }
-    }
 })();
 
 </script>
@@ -1448,6 +1393,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const calendarToggle = document.getElementById('calendar-toggle');
+  const calendarToggleBtns = document.querySelectorAll('.calendar-toggle-btn');
   const calendarContent = document.querySelector('.calendar-panel-content');
   const sideMenuPanel = document.querySelector('.side-menu-panel');
   const bodySection = document.querySelector('.body-section');
@@ -1464,7 +1410,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate slide distance based on screen size
     const isMobile = window.innerWidth <= 767;
-    const slideDistance = isMobile ? '-75vw' : '-15vw'; // Match panel width (45vw mobile, 15vw desktop)
+    const slideDistance = isMobile ? '-75vw' : '-15vw';
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -1500,20 +1446,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-  // Toggle calendar on button click
-  calendarToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (isCalendarOpen) {
-      closeCalendar();
-    } else {
-      openCalendar();
-    }
+  // Toggle calendar on main button click
+  if (calendarToggle) {
+    calendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+  }
+
+  // Handle all calendar toggle buttons
+  calendarToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
   });
 
   // Close calendar when clicking outside
   document.addEventListener('click', (e) => {
-    if (isCalendarOpen && !calendarContent.contains(e.target) && !calendarToggle.contains(e.target)) {
+    const isToggleBtn = calendarToggle && calendarToggle.contains(e.target);
+    const isOtherToggleBtn = Array.from(calendarToggleBtns).some(btn => btn.contains(e.target));
+
+    if (isCalendarOpen && !calendarContent.contains(e.target) && !isToggleBtn && !isOtherToggleBtn) {
       closeCalendar();
     }
   });
