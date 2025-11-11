@@ -41,6 +41,18 @@
         min-height: 250px !important;
       }
     }
+
+    /* Section 2 Mobile Responsive - Stack Vertically */
+    @media (max-width: 767px) {
+      .section-2-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2rem !important;
+      }
+      .section-2-wrapper > div {
+        max-width: 100% !important;
+      }
+    }
   </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -127,13 +139,19 @@ html.lenis {
     </div>
 
     <!-- Section 2 with Typer -->
-    <section class="section" style="display: flex; flex-direction: column; align-items: center; gap: 3rem;">
-      <h2 class="services-h3"><span class="contractor-typer" style="color: var(--black-75);">The contractors who show up first… get the job first.</span></h2>
-      <p>Most homeowners aren't calling 10 contractors for quotes. They're calling the first 2-3 that show up in Google. If your competitors are ranking above you, you're invisible—and they're cashing checks you should be depositing.</p>
-      <a href="#" class="button-1 w-button calendar-toggle-btn" style="margin-top: 20px;">Book a Free Call</a>
-      <video autoplay loop muted playsinline style="width: 100%; max-width: 800px; height: auto; border-radius: 10px; border: 1px solid var(--black-40); margin-top: 2rem;">
-        <source src="videos/theme video compressed.webm" type="video/webm">
-      </video>
+    <section class="section">
+      <div class="section-2-wrapper" style="display: flex; flex-direction: row; align-items: center; gap: 5vw;">
+        <div style="flex: 1;">
+          <h2 class="services-h3"><span class="contractor-typer" style="color: var(--black-75);">The contractors who show up first… get the job first.</span></h2>
+          <p>Most homeowners aren't calling 10 contractors for quotes. They're calling the first 2-3 that show up in Google. If your competitors are ranking above you, you're invisible—and they're cashing checks you should be depositing.</p>
+          <a href="#" class="button-1 w-button calendar-toggle-btn" style="margin-top: 20px;">Book a Free Call</a>
+        </div>
+        <div style="flex: 1;">
+          <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--black-40);">
+            <source src="videos/theme video compressed.webm" type="video/webm">
+          </video>
+        </div>
+      </div>
     </section>
 
     <!-- Testimonials Section -->
