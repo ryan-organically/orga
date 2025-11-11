@@ -8501,6 +8501,7 @@ a {
   align-items: center;
   font-size: 1.3rem;
   font-weight: 600;
+  font-family: Coolvetica rg, sans-serif;
 }
 
 .faq-icon {
@@ -8512,4 +8513,7 @@ a {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.75rem;
 }
