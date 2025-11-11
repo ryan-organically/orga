@@ -110,7 +110,7 @@ html.lenis {
       </div>
 
       <!-- Side Treeline Image -->
-      <img src="images/treeline 2.png" alt="Treeline" style="position: absolute; top: auto; bottom: 0; left: auto; right: 0; width: 15%; height: auto; display: block; opacity: 0.9;">
+      <img src="images/climb-2.png" alt="Treeline" style="position: absolute; top: auto; bottom: 0; left: auto; right: 0; width: 25%; height: auto; display: block; opacity: 0.9;">
 
       <div class="ticker">
         <p class="ticker-p">Pittsburgh General Contractors aren't waiting on word-of-mouth… they built a system that makes the phone ring…</p>
@@ -702,6 +702,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const calendarToggle = document.getElementById('calendar-toggle');
+  const calendarToggleBtns = document.querySelectorAll('.calendar-toggle-btn');
   const calendarContent = document.querySelector('.calendar-panel-content');
   const sideMenuPanel = document.querySelector('.side-menu-panel');
   const bodySection = document.querySelector('.body-section');
@@ -718,7 +719,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Calculate slide distance based on screen size
     const isMobile = window.innerWidth <= 767;
-    const slideDistance = isMobile ? '-75vw' : '-15vw'; // Match panel width on mobile
+    const slideDistance = isMobile ? '-75vw' : '-15vw';
 
     // Show calendar content
     gsap.to(calendarContent, {
@@ -754,15 +755,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-  // Toggle calendar on button click
-  calendarToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (isCalendarOpen) {
-      closeCalendar();
-    } else {
-      openCalendar();
-    }
+  // Toggle calendar on main button click
+  if (calendarToggle) {
+    calendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+  }
+
+  // Handle all calendar toggle buttons
+  calendarToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
   });
 
   // Also handle hero calendar toggle button
@@ -781,8 +797,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Close calendar when clicking outside
   document.addEventListener('click', (e) => {
+    const isToggleBtn = calendarToggle && calendarToggle.contains(e.target);
+    const isOtherToggleBtn = Array.from(calendarToggleBtns).some(btn => btn.contains(e.target));
     const isHeroToggle = heroCalendarToggle && heroCalendarToggle.contains(e.target);
-    if (isCalendarOpen && !calendarContent.contains(e.target) && !calendarToggle.contains(e.target) && !isHeroToggle) {
+
+    if (isCalendarOpen && !calendarContent.contains(e.target) && !isToggleBtn && !isOtherToggleBtn && !isHeroToggle) {
       closeCalendar();
     }
   });
