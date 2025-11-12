@@ -19,15 +19,86 @@
       font-family: 'Press Start 2P', 'Courier New', monospace;
       overflow: hidden;
       display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
       image-rendering: pixelated;
     }
 
+    /* Side Menu Panel */
+    .side-menu-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20vw;
+      min-width: 250px;
+      height: 100vh;
+      z-index: 998;
+      pointer-events: none;
+    }
+
+    .side-panel {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-right: 4px solid #7ec700;
+      box-shadow: 0 0 40px rgba(126, 199, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: all;
+    }
+
+    .menu-header {
+      padding: 100px 30px 30px;
+      border-bottom: 2px solid #7ec700;
+    }
+
+    .menu-tagline {
+      font-size: 9px;
+      color: #7ec700;
+      line-height: 1.6;
+      text-shadow: 0 0 10px rgba(126, 199, 0, 0.5);
+    }
+
+    .menu-nav {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      gap: 20px;
+    }
+
+    .menu-nav-link {
+      color: #7ec700;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 15px 20px;
+      border: 2px solid #7ec700;
+      background: rgba(126, 199, 0, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px rgba(126, 199, 0, 0.3);
+      text-transform: uppercase;
+    }
+
+    .menu-nav-link:hover {
+      background: #7ec700;
+      color: #000;
+      box-shadow: 0 0 20px #7ec700;
+      transform: translateX(5px);
+    }
+
+    /* Game Container */
+    .game-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      will-change: transform;
+    }
+
     #gameContainer {
       position: relative;
-      max-width: 800px;
+      max-width: 1200px;
       width: 100%;
       height: 100vh;
       background: #000;
@@ -244,7 +315,7 @@
     .high-score {
       font-size: 12px;
       color: #5a9500;
-      margin-bottom: 30px;
+      margin-top: 10px;
     }
 
     .stage-number {
@@ -280,19 +351,89 @@
     .arcade-border-bottom { bottom: 0; }
 
     .credit-text {
-      position: absolute;
-      bottom: 40px;
-      left: 0;
-      right: 0;
       text-align: center;
       font-size: 8px;
       color: #5a9500;
       animation: blink 2s ease-in-out infinite;
+      margin-top: 30px;
     }
 
     @keyframes blink {
       0%, 49%, 100% { opacity: 1; }
       50%, 99% { opacity: 0.3; }
+    }
+
+    /* Universal Menu Toggle */
+    .universal-menu {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .menu-toggle {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      border: 3px solid #7ec700;
+      box-shadow: 0 0 20px rgba(126, 199, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      background: #7ec700;
+      box-shadow: 0 0 30px #7ec700;
+    }
+
+    .menu-toggle span {
+      position: absolute;
+      width: 24px;
+      height: 3px;
+      background: #7ec700;
+      border-radius: 2px;
+      transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .menu-toggle:hover span {
+      background: #000;
+    }
+
+    .menu-toggle span:nth-child(1) {
+      transform: translateY(-8px);
+    }
+
+    .menu-toggle span:nth-child(2) {
+      /* Middle line - centered */
+    }
+
+    .menu-toggle span:nth-child(3) {
+      transform: translateY(8px);
+    }
+
+    /* Menu Overlay */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      z-index: 997;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Mobile responsiveness */
@@ -303,11 +444,58 @@
       .control-row { font-size: 7px; }
       .key { font-size: 7px; padding: 6px 10px; }
       .btn { font-size: 9px; padding: 12px 30px; }
+
+      .side-menu-panel {
+        width: 75vw;
+      }
+
+      .menu-header {
+        padding: 80px 20px 20px;
+      }
+
+      .menu-nav {
+        padding: 20px;
+      }
+
+      .menu-nav-link {
+        font-size: 10px;
+        padding: 12px 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="gameContainer">
+  <!-- Left Menu Panel -->
+  <div class="side-menu-panel">
+    <div class="side-panel">
+      <div class="menu-header">
+        <p class="menu-tagline">Defend the organic web from bad actors. Navigate with arrows, fire with space.</p>
+      </div>
+      <nav class="menu-nav">
+        <a href="/" class="menu-nav-link">Home</a>
+        <a href="/web-design" class="menu-nav-link">Web Design</a>
+        <a href="/seo" class="menu-nav-link">SEO</a>
+        <a href="/branding" class="menu-nav-link">Creative</a>
+        <a href="/blog" class="menu-nav-link">Blog</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <!-- Game Wrapper -->
+  <div class="game-wrapper" id="gameWrapper">
+    <!-- Universal Menu Toggle -->
+    <div class="universal-menu">
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="gameContainer">
     <canvas id="gameCanvas"></canvas>
 
     <!-- HUD -->
@@ -355,8 +543,8 @@
       </div>
 
       <button class="btn" onclick="startGame()">Insert Coin</button>
-      <div class="high-score" id="highScoreDisplay"></div>
       <div class="credit-text">PRESS START - 1 PLAYER</div>
+      <div class="high-score" id="highScoreDisplay"></div>
     </div>
 
     <!-- Stage Screen -->
@@ -375,6 +563,7 @@
       <div class="credit-text">INSERT COIN TO RETRY</div>
     </div>
   </div>
+  </div>
 
   <script>
     const canvas = document.getElementById('gameCanvas');
@@ -382,7 +571,7 @@
 
     // Set canvas size
     function resizeCanvas() {
-      canvas.width = 800;
+      canvas.width = 1200;
       canvas.height = window.innerHeight;
     }
     resizeCanvas();
@@ -549,11 +738,12 @@
           }
         }
 
-        // Diving attack
+        // Diving attack - stay in lane for fair gameplay
         if (this.diving) {
           this.diveAngle += 0.04;
           this.y += this.diveSpeed;
-          this.x += Math.sin(this.diveAngle) * 2.5;
+          // Keep enemy centered in their lane during dive
+          this.x = this.formationX;
 
           if (this.y > canvas.height) {
             this.diving = false;
@@ -582,10 +772,8 @@
       }
 
       shoot() {
-        // Choose a random lane for the bullet to fall in (0-4 to match player lanes)
-        const randomLane = Math.floor(Math.random() * 5);
-        const laneX = getLaneX(randomLane);
-        this.bullets.push(new Bullet(laneX, this.y + this.height, 0.7));
+        // Shoot from the enemy's current position (already lane-aligned)
+        this.bullets.push(new Bullet(this.x + this.width / 2, this.y + this.height, 0.7));
       }
 
       startDive() {
@@ -738,8 +926,6 @@
       enemies = [];
       const rows = Math.min(2 + Math.floor(gameState.stage / 2), 4);
       const cols = 5; // Match player lanes
-      const spacing = 90;
-      const startX = (canvas.width - (cols * spacing)) / 2;
       const startY = -250;
 
       for (let row = 0; row < rows; row++) {
@@ -748,12 +934,14 @@
           if (row === 0) type = 'blackhat';
           else if (row === 1) type = 'troll';
 
-          const x = startX + col * spacing;
-          const y = startY + row * spacing;
+          // Use the same lane system as the player for alignment
+          const x = getLaneX(col);
+          const y = startY + row * 90;
           const formationY = 60 + row * 55;
 
           const enemy = new Enemy(x, y, type);
           enemy.formationY = formationY;
+          enemy.formationX = x; // Ensure formation X is also lane-aligned
           enemies.push(enemy);
         }
       }
@@ -984,6 +1172,101 @@
 
     document.addEventListener('keyup', (e) => {
       pressedKeys[e.code] = false;
+    });
+
+    // Menu functionality (matching homepage behavior)
+    const menuToggle = document.getElementById('menuToggle');
+    const sidePanel = document.querySelector('.side-panel');
+    const gameWrapper = document.getElementById('gameWrapper');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuLinks = document.querySelectorAll('.menu-nav-link');
+    const universalMenu = document.querySelector('.universal-menu');
+    const lines = document.querySelectorAll('.menu-toggle span');
+
+    let isMenuOpen = false;
+    let isAnimating = false;
+
+    function animateToArrow() {
+      lines[0].style.transform = 'rotate(-45deg) translateY(0)';
+      lines[1].style.opacity = '0';
+      lines[1].style.transform = 'scale(0.3)';
+      lines[2].style.transform = 'rotate(45deg) translateY(0)';
+    }
+
+    function animateToHamburger() {
+      lines[0].style.transform = 'translateY(-8px)';
+      lines[1].style.opacity = '1';
+      lines[1].style.transform = 'scale(1)';
+      lines[2].style.transform = 'translateY(8px)';
+    }
+
+    function openMenu() {
+      if (isAnimating) return;
+      isAnimating = true;
+      isMenuOpen = true;
+
+      // Calculate slide distance
+      const isMobile = window.innerWidth <= 767;
+      const slideDistance = isMobile ? '75vw' : '15vw';
+
+      // Animate side panel to visible
+      sidePanel.style.opacity = '1';
+      sidePanel.style.visibility = 'visible';
+
+      // Slide game wrapper right
+      gameWrapper.style.transform = `translateX(${slideDistance})`;
+      universalMenu.style.transform = `translateX(${slideDistance})`;
+
+      menuOverlay.classList.add('active');
+      animateToArrow();
+
+      setTimeout(() => { isAnimating = false; }, 600);
+    }
+
+    function closeMenu() {
+      if (isAnimating) return;
+      isAnimating = true;
+      isMenuOpen = false;
+
+      animateToHamburger();
+
+      // Animate side panel to hidden
+      sidePanel.style.opacity = '0';
+      sidePanel.style.visibility = 'hidden';
+
+      // Slide game wrapper back to center
+      gameWrapper.style.transform = 'translateX(0)';
+      universalMenu.style.transform = 'translateX(0)';
+
+      setTimeout(() => {
+        menuOverlay.classList.remove('active');
+        isAnimating = false;
+      }, 600);
+    }
+
+    // Toggle menu on button click
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // Close menu on overlay click
+    menuOverlay.addEventListener('click', closeMenu);
+
+    // Close menu when clicking links
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
     });
   </script>
 </body>
