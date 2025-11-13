@@ -183,6 +183,69 @@ html.lenis {
       </div><img src="images/Organically-Logo-green.png" loading="lazy" sizes="(max-width: 1000px) 100vw, 1000px" srcset="images/Organically-Logo-green-p-500.png 500w, images/Organically-Logo-green-p-800.png 800w, images/Organically-Logo-green.png 1000w" alt="" class="service-image show-desktop">
     </div>
   </div>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
+
+    <div class="faq-container">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does it take to design and launch a custom website?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">Most custom website design projects take 4-8 weeks from initial consultation to launch. This includes strategy, design mockups, revisions, development in Webflow, content integration, SEO setup, and testing. The timeline depends on the complexity of your site, how quickly you provide feedback and content, and whether we're building additional features like e-commerce or custom integrations. We'll give you a clear timeline during our initial consultation.</div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's included in your web design services?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">
+            Our web design services include strategic planning, custom design in Webflow, mobile-responsive development, on-page SEO optimization, page speed optimization, content management system setup, contact forms, Google Analytics integration, and post-launch support.<br><br>
+            We focus on creating websites that not only look great but convert visitors into customers. Every site is built with SEO best practices, fast loading speeds, and user experience in mind.<br><br>
+            You'll own your website completely—no proprietary platforms or vendor lock-in.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Will my website be mobile-friendly and optimized for SEO?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">
+            Absolutely. Every website we design is fully responsive and optimized for mobile devices, tablets, and desktops. With over 60% of web traffic coming from mobile, this isn't optional—it's essential.<br><br>
+            We also build SEO into every website from day one. This includes optimized page titles, meta descriptions, header tags, image alt text, schema markup, fast loading speeds, clean code, and proper site structure. Your site will be ready to rank on Google from the moment it launches.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you offer website redesign services for existing sites?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">Yes, we specialize in website redesigns for businesses with outdated sites that aren't converting or ranking. Whether your site is slow, not mobile-friendly, difficult to update, or just not generating leads, we can rebuild it in Webflow with modern design, better SEO, and improved user experience. We'll analyze your current site, identify what's working and what's not, preserve your existing SEO equity, and create a better version that drives results.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="/form" class="button-1 w-button">Get Started</a>
+    </div>
+  </section>
+
   <section class="section blog-section">
     <div class="blog-preview">
     <a href="blog.html" class="blog-thumbs-blog-home w-inline-block" style="width: 100%; display: flex; justify-content: flex-end;">
@@ -253,6 +316,7 @@ html.lenis {
     </div>
     </div>
   </section>
+
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
@@ -968,5 +1032,41 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script async="" src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all other FAQs
+            faqItems.forEach((otherItem) => {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon');
+                otherAnswer.style.maxHeight = '0';
+                otherAnswer.style.paddingTop = '0';
+                otherIcon.textContent = '+';
+                otherIcon.style.transform = 'rotate(0deg)';
+            });
+
+            // Toggle current FAQ
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.paddingTop = '0.5rem';
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
