@@ -458,6 +458,70 @@ html.lenis {
     </div>
     <a href="https://calendly.com/organically/30min" class="button-1 universal w-button calendar-toggle-btn" style="margin-top: 40px;">Book your plan</a>
   </section>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
+
+    <div class="faq-container">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does it take to see results from SEO?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">SEO is a long-term strategy, not a quick fix. Most businesses start seeing measurable improvements in 3-6 months, with more significant results in 6-12 months. The timeline depends on your starting point, competition level, industry, website age, and how aggressively we optimize. If your site has technical issues or thin content, we can fix those quickly and see faster wins. But sustainable rankings that drive consistent traffic and leads take time to build. Anyone promising page 1 rankings in 30 days is either lying or using tactics that will get you penalized.</div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's included in your SEO services?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">
+            Our SEO services include comprehensive keyword research, technical SEO audits and fixes, on-page optimization, content strategy and creation, local SEO and Google Business Profile optimization, link building, competitor analysis, monthly reporting, and ongoing optimization.<br><br>
+            We focus on sustainable, white-hat SEO strategies that improve your rankings and drive qualified traffic that converts into customers. Every strategy is tailored to your business, industry, and goals.<br><br>
+            We're transparent about what we do and why we do it—no smoke and mirrors, just real work that drives real results.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's the difference between local SEO and national SEO?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">
+            Local SEO focuses on ranking in a specific geographic area—like "plumber in Houston" or "dentist near me." It involves optimizing your Google Business Profile, building local citations, earning local reviews, and creating location-specific content. Local SEO is essential for businesses that serve customers in person or within a specific service area.<br><br>
+            National SEO targets broader, non-location keywords and aims to rank across the entire country. It's more competitive and requires a different strategy focused on building domain authority, creating comprehensive content, and earning high-quality backlinks.<br><br>
+            Most businesses benefit from local SEO first, then expand to national SEO as they grow.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can you guarantee first page rankings on Google?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">No, and you should be skeptical of anyone who does. Google's algorithm considers over 200 ranking factors and changes constantly—no one can guarantee specific rankings. What we can guarantee is that we'll do the work: comprehensive keyword research, technical optimization, quality content creation, strategic link building, and transparent reporting. We focus on increasing your organic traffic, improving your visibility, and driving qualified leads—not chasing vanity metrics. Our goal is to get you ranking for keywords that actually matter to your business and bring in customers, not just traffic.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="/form" class="button-1 w-button">Get Started</a>
+    </div>
+  </section>
+
   <section class="section blog-section">
     <div class="blog-preview">
     <a href="blog.html" class="blog-thumbs-blog-home w-inline-block" style="width: 100%; display: flex; justify-content: flex-end;">
@@ -528,6 +592,7 @@ html.lenis {
     </div>
     </div>
   </section>
+
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
@@ -1247,5 +1312,41 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all other FAQs
+            faqItems.forEach((otherItem) => {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon');
+                otherAnswer.style.maxHeight = '0';
+                otherAnswer.style.paddingTop = '0';
+                otherIcon.textContent = '+';
+                otherIcon.style.transform = 'rotate(0deg)';
+            });
+
+            // Toggle current FAQ
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.paddingTop = '0.5rem';
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

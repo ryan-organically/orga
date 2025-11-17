@@ -248,6 +248,70 @@ html.lenis {
     </div>
     <a href="#" class="button-1 universal w-button calendar-toggle-btn" style="margin-top: 40px;">Schedule call to book your project</a>
   </section>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
+
+    <div class="faq-container">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's the difference between a logo and a brand identity?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">A logo is just one piece of your brand identity. Your logo is the visual mark that represents your business, but your brand identity is the complete system of visual elements that define how your business looks and feels. This includes your logo, color palette, typography, imagery style, patterns, icons, and brand guidelines. Think of it this way: your logo is your face, but your brand identity is your entire personality. A strong brand identity ensures consistency across all touchpoints—from your website to your business cards to your social media.</div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does the branding process take?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">
+            A complete brand identity project typically takes 3-6 weeks, depending on the scope. Logo design alone usually takes 2-3 weeks, while a full brand identity package takes 4-6 weeks.<br><br>
+            The process includes discovery and research, mood boards and concepts, initial design presentations, revisions, finalization, and delivery of all brand assets and guidelines.<br><br>
+            We don't rush the creative process—great branding takes time, strategy, and collaboration. You'll be involved at every stage to ensure the final brand truly represents your business.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's included in your branding services?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">
+            Our branding services include brand strategy and positioning, competitive research, custom logo design, color palette development, typography selection, brand style guide, business card design, letterhead and stationery, social media templates, and brand application examples.<br><br>
+            We deliver everything in multiple file formats (AI, EPS, PDF, PNG, SVG) so you can use your brand everywhere. You'll receive full ownership and commercial rights to all assets we create.<br><br>
+            We can also extend your brand to website design, packaging, signage, and marketing materials.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you offer rebranding for existing businesses?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div style="padding-bottom: 1.5rem;">Yes, we specialize in rebranding for businesses that have outgrown their current identity or need to reposition themselves in the market. Whether your brand feels outdated, doesn't reflect your quality, or isn't resonating with your target audience, a rebrand can transform how customers perceive you. We'll audit your current brand, identify opportunities, and create a refreshed identity that better represents who you are today. We can do a subtle refresh or a complete overhaul—it depends on your goals and what your business needs.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="/form" class="button-1 w-button">Get Started</a>
+    </div>
+  </section>
+
   <section class="section blog-section">
     <div class="blog-preview">
     <a href="blog.html" class="blog-thumbs-blog-home w-inline-block" style="width: 100%; display: flex; justify-content: flex-end;">
@@ -318,6 +382,7 @@ html.lenis {
     </div>
     </div>
   </section>
+
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
@@ -903,5 +968,41 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all other FAQs
+            faqItems.forEach((otherItem) => {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon');
+                otherAnswer.style.maxHeight = '0';
+                otherAnswer.style.paddingTop = '0';
+                otherIcon.textContent = '+';
+                otherIcon.style.transform = 'rotate(0deg)';
+            });
+
+            // Toggle current FAQ
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.paddingTop = '0.5rem';
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

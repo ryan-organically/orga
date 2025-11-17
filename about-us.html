@@ -491,6 +491,105 @@ document.addEventListener("DOMContentLoaded", () => {
     border-bottom: 1px solid var(--black-40);
   }
 
+  .calendar-header {
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid var(--black-40);
+    box-sizing: border-box;
+  }
+
+  .calendar-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+
+  .calendar-subtitle {
+    font-size: 14px;
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .calendar-embed-wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+
+  .calendar-embed-wrapper iframe {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    border: none;
+    display: block;
+  }
+
+  .calendar-review {
+    padding: 30px;
+    border-top: 1px solid var(--black-40);
+    text-align: center;
+  }
+
+  .review-stars {
+    width: 125px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .review-quote {
+    font-size: 16px;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 12px 0;
+    color: var(--black-75);
+  }
+
+  .review-author {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.7;
+    font-weight: 600;
+  }
+
+  /* Responsive Calendar Content */
+  @media (max-width: 767px) {
+    .calendar-header {
+      padding: 25px 20px 15px;
+    }
+
+    .calendar-title {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .calendar-header {
+      padding: 20px 15px 12px;
+    }
+
+    .calendar-title {
+      font-size: 18px;
+    }
+  }
+
+  /* Dark Mode Support for Calendar */
+  .dark-mode .calendar-panel-content {
+    background: var(--rich-black);
+  }
+
+  .dark-mode .calendar-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .calendar-title {
+    color: var(--white);
+  }
+
 </style>
       </div><!-- .body-section -->
 
