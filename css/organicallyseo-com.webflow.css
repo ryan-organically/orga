@@ -3879,9 +3879,9 @@ a {
 }
 
 .background-orga.website-management {
-  font-size: 800px;
+  font-size: 400px;
   display: flex;
-  inset: 69% auto auto -24%;
+  inset: 45% auto auto -24%;
   transform: rotate(90deg);
 }
 
