@@ -6515,6 +6515,8 @@ a {
     align-items: stretch !important;
     position: relative !important;
     z-index: auto !important;
+    height: auto !important;
+    max-height: none !important;
   }
 
   /* Ensure div-50 takes full width and doesn't sit side-by-side */
@@ -7361,6 +7363,8 @@ a {
     align-items: stretch !important;
     position: relative !important;
     z-index: auto !important;
+    height: auto !important;
+    max-height: none !important;
   }
 
   .div-50 {
@@ -8375,6 +8379,8 @@ a {
     align-items: stretch !important;
     position: relative !important;
     z-index: auto !important;
+    height: auto !important;
+    max-height: none !important;
   }
 
   .div-50 {
