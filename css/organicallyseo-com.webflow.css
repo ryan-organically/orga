@@ -8522,10 +8522,11 @@ a {
 @media (max-width: 991px) {
   /* Fix services-feature boxes to prevent overlapping on small windows */
   .div-horiz-space-around.services-feature {
+    width: 100% !important;
     height: auto !important;
     max-height: none !important;
     flex-flow: column;
-    align-items: flex-start;
+    align-items: stretch;
     margin-top: 6vh !important;
     margin-bottom: 6vh !important;
     gap: 3rem;
@@ -8539,7 +8540,16 @@ a {
 
   /* Add spacing between text and images */
   .div-50 {
+    width: 100% !important;
+    flex-basis: 100% !important;
     margin-bottom: 2rem;
+  }
+
+  /* Ensure ALL horizontal containers stack vertically on small windows */
+  .div-horiz-space-around {
+    width: 100% !important;
+    flex-flow: column !important;
+    align-items: stretch !important;
   }
 
   /* Fix heading spacing */
