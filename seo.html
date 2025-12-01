@@ -149,7 +149,7 @@ html.lenis {
       <p class="shrunk-p">Dominate search rankings with strategic SEO that drives organic traffic, boosts conversions, and outranks your competition.</p>
       <a href="https://calendly.com/organically/30min" class="button-1 margin-20-top w-button calendar-toggle-btn">Book a free call</a>
     </div>
-    <img src="images/climb-2.png" alt="SEO Climb" class="hero-treeline-image" style="width: 30vw; max-width: none;">
+    <img src="images/climb-2.png" alt="SEO Climb" class="hero-treeline-image" style="width: 35vw; max-width: none;">
   </div>
   <section class="section seo-services-section">
     <div class="services-section-2-div">
@@ -157,30 +157,35 @@ html.lenis {
       <p data-w-id="a2f9f71c-751a-7195-55a6-c82529076b2a" class="p1-left-align services-p3">Organic website traffic dials the best leads because consumers are already searching for you or your service. Every business website needs to be optimized for search to be a potent source of potential leads and revenue. </p>
     </div>
 
-    <div class="services-stack">
-      <div class="service-item">
-        <h3 class="service-h3">Understanding Search Intent</h3>
-        <p>Keyword research starts with understanding what your customers are actually searching for. I analyze search intent patterns to identify whether users want information, to make a purchase, or to find a specific website. This ensures we target keywords that align with your business goals and convert visitors into customers.</p>
+    <div class="seo-pillar-container">
+      <div class="seo-column seo-column-left">
+        <div class="seo-story-text" data-scroll="1">
+          <p class="shrunk-p">Most SEO agencies promise page one rankings, collect your money, and disappear into the shadows of vague monthly reports.</p>
+        </div>
+
+        <div class="seo-story-text" data-scroll="3">
+          <p class="shrunk-p">Real SEO isn't about gaming the system. It's about understanding what your customers are actually searching for.</p>
+        </div>
+
+        <div class="seo-story-text" data-scroll="5">
+          <p class="shrunk-p">When agencies hide behind jargon and refuse to show you real data, they're hoping you won't notice you're getting scammed.</p>
+        </div>
       </div>
 
-      <div class="service-item">
-        <h3 class="service-h3">Finding Low-Competition Opportunities</h3>
-        <p>Not all keywords are created equal. I specialize in discovering untapped keyword opportunities with high search volume and low competition. These "quick win" keywords allow you to rank faster and capture traffic your competitors are missing, giving you an immediate edge in search results.</p>
-      </div>
+      <div class="seo-pillar"></div>
 
-      <div class="service-item">
-        <h3 class="service-h3">Long-Tail Keyword Strategy</h3>
-        <p>Long-tail keywords are longer, more specific search phrases that convert better because they target users closer to making a decision. I identify these highly targeted phrases that match your services exactly, helping you attract qualified leads who are ready to take action.</p>
-      </div>
+      <div class="seo-column seo-column-right">
+        <div class="seo-story-text" data-scroll="2">
+          <p class="shrunk-p">They'll charge you thousands for "proprietary strategies" that are just basic keyword stuffing and buying cheap backlinks.</p>
+        </div>
 
-      <div class="service-item">
-        <h3 class="service-h3">Competitive Keyword Analysis</h3>
-        <p>I research what keywords your competitors are ranking for and identify gaps in their strategy. This competitive intelligence reveals opportunities to outrank them on valuable terms and claim market share they're leaving on the table.</p>
-      </div>
+        <div class="seo-story-text" data-scroll="4">
+          <p class="shrunk-p">It's about creating content that answers their questions, solves their problems, and earns their trust.</p>
+        </div>
 
-      <div class="service-item">
-        <h3 class="service-h3">Keyword Implementation & Tracking</h3>
-        <p>Finding keywords is only half the battle. I show you exactly how to implement them naturally into your content, track their performance over time, and adjust your strategy based on real data. You'll know which keywords are driving traffic and revenue so you can double down on what works.</p>
+        <div class="seo-story-text" data-scroll="6">
+          <p class="shrunk-p">I show you exactly what I'm doing, why I'm doing it, and what results you're getting. No smoke. No mirrors. Just growth.</p>
+        </div>
       </div>
     </div>
 
@@ -194,14 +199,8 @@ html.lenis {
       min-height: 120vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      background-color: #333;
-      color: #e2e2e2;
+      justify-content: flex-start;
       padding-bottom: 5vh;
-    }
-
-    .seo-services-section * {
-      color: #e2e2e2;
     }
 
     .services-section-2-div {
@@ -216,54 +215,63 @@ html.lenis {
       max-width: 100%;
     }
 
-    .services-stack {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    /* SEO Pillar Layout */
+    .seo-pillar-container {
+      position: relative;
       width: 100%;
-      max-width: 1200px;
+      min-height: 250vh;
+      display: grid;
+      grid-template-columns: 1fr 4px 1fr;
+      gap: 60px;
       margin: 0 auto;
+      max-width: 1200px;
     }
 
-    .service-item {
+    .seo-column {
       display: flex;
       flex-direction: column;
+      gap: 80vh;
+      padding-top: 20vh;
+    }
+
+    .seo-column-left {
+      justify-content: flex-start;
+      align-items: flex-end;
+      padding-right: 40px;
+    }
+
+    .seo-column-right {
+      justify-content: flex-start;
       align-items: flex-start;
-      padding: 40px;
-      border: 1px solid #888;
-      background: #555;
+      padding-left: 40px;
+      padding-top: 50vh;
+    }
+
+    .seo-pillar {
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.2) 0%,
+        #7ec700 50%,
+        rgba(0,0,0,0.2) 100%);
+      box-shadow: 0 0 10px rgba(126, 199, 0, 0.3);
+      position: sticky;
+      top: 0;
+      align-self: start;
+      min-height: 100vh;
+    }
+
+    .seo-story-text {
+      max-width: 400px;
       opacity: 0;
       transform: translateY(30px);
-      transition: border-color 0.3s ease;
-      max-width: 100%;
-      overflow: hidden;
+      position: relative;
     }
 
-    .service-item p {
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      max-width: 100%;
+    .seo-story-text .shrunk-p {
+      font-size: 18px;
+      line-height: 1.6;
       margin: 0;
-    }
-
-    .service-item h3 {
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      max-width: 100%;
-    }
-
-    .service-item:hover {
-      border-color: #7ec700;
-    }
-
-    .service-item:nth-child(3) {
-      grid-column: span 2;
-    }
-
-    .service-h3 {
-      font-size: 28px;
-      font-weight: 600;
-      margin: 0 0 20px 0;
     }
 
     .services-cta {
@@ -274,84 +282,47 @@ html.lenis {
     }
 
     @media (max-width: 991px) {
-      .services-stack {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        max-width: 80%;
-        margin: 0 auto;
+      .seo-pillar-container {
+        gap: 40px;
       }
 
-      .service-item:nth-child(3) {
-        grid-column: span 1;
+      .seo-column {
+        gap: 60vh;
       }
 
-      .service-item {
-        padding: 30px;
-        max-width: 100%;
-        width: 100%;
-        box-sizing: border-box;
+      .seo-column-left,
+      .seo-column-right {
+        padding-left: 20px;
+        padding-right: 20px;
       }
 
-      .service-h3 {
-        font-size: 24px;
-      }
-
-      .services-section-2-div {
-        margin-bottom: 40px;
-      }
-
-      .services-cta {
-        margin-top: 40px;
+      .seo-story-text .shrunk-p {
+        font-size: 16px;
       }
     }
 
     @media (max-width: 767px) {
-      .services-stack {
+      .seo-pillar-container {
+        grid-template-columns: 1fr 2px 1fr;
         gap: 20px;
-        max-width: 70%;
-        margin: 0 auto;
       }
 
-      .service-item {
-        padding: 20px;
-        max-width: 100%;
-        width: 100%;
+      .seo-column {
+        gap: 50vh;
       }
 
-      .service-h3 {
-        font-size: 20px;
-        margin-bottom: 15px;
+      .seo-column-left,
+      .seo-column-right {
+        padding-left: 10px;
+        padding-right: 10px;
       }
 
-      .services-section-2-div {
-        margin-bottom: 30px;
+      .seo-pillar {
+        width: 2px;
       }
 
-      .services-cta {
-        margin-top: 30px;
-      }
-
-      .seo-services-section {
-        min-height: auto !important;
-        padding-top: 40px;
-        padding-bottom: 40px;
-      }
-    }
-
-    @media (max-width: 479px) {
-      .services-stack {
-        max-width: 65%;
-        margin: 0 auto;
-      }
-
-      .service-item {
-        padding: 15px;
-        max-width: 100%;
-        width: 100%;
-      }
-
-      .service-h3 {
-        font-size: 18px;
+      .seo-story-text .shrunk-p {
+        font-size: 14px;
       }
     }
 
@@ -367,19 +338,46 @@ html.lenis {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const serviceItems = document.querySelectorAll('.service-item');
+    const storyTexts = document.querySelectorAll('.seo-story-text');
 
-    serviceItems.forEach((item, index) => {
-      gsap.to(item, {
+    // Animate each story text as it enters viewport
+    storyTexts.forEach((text, index) => {
+      const isLeft = text.closest('.seo-column-left') !== null;
+
+      gsap.to(text, {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        x: 0,
+        duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: item,
-          start: 'top 75%',
-          end: 'top 25%',
-          toggleActions: 'play none none reverse'
+          trigger: text,
+          start: 'top 85%',
+          end: 'top 30%',
+          toggleActions: 'play none none reverse',
+          onEnter: () => {
+            // Color splash effect
+            const splash = document.createElement('div');
+            splash.style.position = 'absolute';
+            splash.style.top = '50%';
+            splash.style[isLeft ? 'right' : 'left'] = '-10px';
+            splash.style.width = '15px';
+            splash.style.height = '15px';
+            splash.style.borderRadius = '50%';
+            splash.style.background = '#7ec700';
+            splash.style.transform = 'translate(-50%, -50%)';
+            splash.style.pointerEvents = 'none';
+            splash.style.zIndex = '10';
+            text.appendChild(splash);
+
+            gsap.to(splash, {
+              scale: 6,
+              opacity: 0,
+              duration: 1.2,
+              ease: 'power2.out',
+              onComplete: () => splash.remove()
+            });
+          }
         }
       });
     });
