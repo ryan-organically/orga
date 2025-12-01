@@ -6506,6 +6506,29 @@ a {
     margin: 20px 0 0 0;
     text-align: left;
   }
+
+  /* CRITICAL FIX: Prevent div-50 boxes from overlapping on small windows */
+  /* Force all horizontal containers to stack vertically */
+  .div-horiz-space-around {
+    flex-flow: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+
+  /* Ensure div-50 takes full width and doesn't sit side-by-side */
+  .div-50 {
+    width: 100% !important;
+    flex-basis: 100% !important;
+  }
+
+  /* Fix service-feature specific layout */
+  .div-horiz-space-around.services-feature {
+    height: auto !important;
+    max-height: none !important;
+    margin-top: 6vh !important;
+    margin-bottom: 6vh !important;
+    gap: 3rem;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -7324,6 +7347,26 @@ a {
     padding: 0;
     min-height: auto;
     height: auto;
+  }
+
+  /* CRITICAL FIX: Prevent div-50 boxes from overlapping on small windows */
+  .div-horiz-space-around {
+    flex-flow: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+
+  .div-50 {
+    width: 100% !important;
+    flex-basis: 100% !important;
+  }
+
+  .div-horiz-space-around.services-feature {
+    height: auto !important;
+    max-height: none !important;
+    margin-top: 4vh !important;
+    margin-bottom: 4vh !important;
+    gap: 2rem;
   }
 }
 
@@ -8314,6 +8357,26 @@ a {
     position: relative;
     top: 0;
   }
+
+  /* CRITICAL FIX: Prevent div-50 boxes from overlapping on mobile */
+  .div-horiz-space-around {
+    flex-flow: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+
+  .div-50 {
+    width: 100% !important;
+    flex-basis: 100% !important;
+  }
+
+  .div-horiz-space-around.services-feature {
+    height: auto !important;
+    max-height: none !important;
+    margin-top: 3vh !important;
+    margin-bottom: 3vh !important;
+    gap: 1.5rem;
+  }
 }
 
 
@@ -8518,174 +8581,3 @@ a {
   line-height: 1.75rem;
 }
 
-/* Fix spacing issues for small windows on audits, SEO, and reports pages */
-@media (max-width: 991px) {
-  /* Fix services-feature boxes to prevent overlapping on small windows */
-  .div-horiz-space-around.services-feature {
-    width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
-    flex-flow: column;
-    align-items: stretch;
-    margin-top: 6vh !important;
-    margin-bottom: 6vh !important;
-    gap: 3rem;
-  }
-
-  /* Add vertical spacing to service images */
-  .service-image {
-    margin-bottom: 2rem !important;
-    margin-right: 2rem !important;
-  }
-
-  /* Add spacing between text and images */
-  .div-50 {
-    width: 100% !important;
-    flex-basis: 100% !important;
-    margin-bottom: 2rem;
-  }
-
-  /* Ensure ALL horizontal containers stack vertically on small windows */
-  .div-horiz-space-around {
-    width: 100% !important;
-    flex-flow: column !important;
-    align-items: stretch !important;
-  }
-
-  /* Fix heading spacing */
-  .services-h3 {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Add padding to gears wrapper */
-  .gears-wrapper {
-    margin-bottom: 3rem;
-  }
-
-  /* Fix arm image cutoff and star section spacing */
-  .service-section-2 {
-    padding-bottom: 8vh !important;
-  }
-
-  /* Ensure proper spacing between arm image section and star section */
-  .div-horiz-space-around:last-of-type {
-    margin-top: 8vh !important;
-    margin-bottom: 8vh !important;
-  }
-}
-
-@media (max-width: 767px) {
-  /* Further optimization for tablet/small screens */
-  .div-horiz-space-around.services-feature {
-    height: auto !important;
-    margin-top: 4vh !important;
-    margin-bottom: 4vh !important;
-    gap: 2rem;
-  }
-
-  .service-image {
-    max-width: 100%;
-    height: auto !important;
-    margin-bottom: 1.5rem !important;
-    margin-right: 0 !important;
-  }
-
-  .div-50 {
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-
-  .thin-accent-text {
-    margin-bottom: 1rem;
-  }
-
-  .services-h3 {
-    margin-top: 1rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem;
-  }
-
-  .p1-left-align {
-    margin-bottom: 1.5rem;
-  }
-
-  /* Add space between buttons and content */
-  .button-1 {
-    margin-top: 1.5rem !important;
-  }
-
-  .gears-wrapper {
-    margin-bottom: 2rem;
-  }
-
-  /* Prevent hero image from overlapping text */
-  .hero-section {
-    flex-flow: column;
-  }
-
-  .hero-treeline-image {
-    margin-top: 2rem;
-    width: 100% !important;
-    max-width: 90vw !important;
-    height: auto !important;
-  }
-
-  /* Fix arm image and star section spacing on tablets */
-  .service-section-2 {
-    padding-bottom: 6vh !important;
-  }
-
-  .div-horiz-space-around:last-of-type {
-    margin-top: 6vh !important;
-    margin-bottom: 6vh !important;
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 479px) {
-  /* Ultra-small screens - maximize spacing */
-  .div-horiz-space-around.services-feature {
-    gap: 1.5rem;
-    margin-top: 3vh !important;
-    margin-bottom: 3vh !important;
-  }
-
-  .service-image {
-    margin-bottom: 1rem !important;
-  }
-
-  .services-h3 {
-    font-size: 1.1rem;
-    margin-top: 0.75rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .p1-left-align {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-
-  .div-vert-center {
-    margin-bottom: 1.5rem;
-  }
-
-  .bottom-right-absolute {
-    display: none !important;
-  }
-
-  .gears-wrapper {
-    margin-bottom: 1.5rem;
-  }
-
-  /* Fix arm image and star section spacing on mobile */
-  .service-section-2 {
-    padding-bottom: 5vh !important;
-  }
-
-  .div-horiz-space-around:last-of-type {
-    margin-top: 5vh !important;
-    margin-bottom: 5vh !important;
-    gap: 1.5rem;
-  }
-}
