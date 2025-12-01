@@ -3235,15 +3235,17 @@ a {
 
 .footer-organically-bg {
   z-index: -1;
-  opacity: .23;
+  opacity: 0 !important;
   color: #8d8d8d;
   text-align: left;
   font-family: Coolvetica rg, sans-serif;
   font-size: 30vw;
   line-height: 1;
-  display: none;
+  display: none !important;
+  visibility: hidden !important;
   position: absolute;
   inset: 26% -21% auto auto;
+  pointer-events: none !important;
 }
 
 .footer-social-image {
