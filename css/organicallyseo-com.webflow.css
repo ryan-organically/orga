@@ -8552,6 +8552,17 @@ a {
   .gears-wrapper {
     margin-bottom: 3rem;
   }
+
+  /* Fix arm image cutoff and star section spacing */
+  .service-section-2 {
+    padding-bottom: 8vh !important;
+  }
+
+  /* Ensure proper spacing between arm image section and star section */
+  .div-horiz-space-around:last-of-type {
+    margin-top: 8vh !important;
+    margin-bottom: 8vh !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -8609,6 +8620,17 @@ a {
     max-width: 90vw !important;
     height: auto !important;
   }
+
+  /* Fix arm image and star section spacing on tablets */
+  .service-section-2 {
+    padding-bottom: 6vh !important;
+  }
+
+  .div-horiz-space-around:last-of-type {
+    margin-top: 6vh !important;
+    margin-bottom: 6vh !important;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 479px) {
@@ -8644,5 +8666,16 @@ a {
 
   .gears-wrapper {
     margin-bottom: 1.5rem;
+  }
+
+  /* Fix arm image and star section spacing on mobile */
+  .service-section-2 {
+    padding-bottom: 5vh !important;
+  }
+
+  .div-horiz-space-around:last-of-type {
+    margin-top: 5vh !important;
+    margin-bottom: 5vh !important;
+    gap: 1.5rem;
   }
 }
