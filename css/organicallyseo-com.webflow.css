@@ -5775,9 +5775,13 @@ a {
   }
 
   .blog-massive-wrapper {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
 
   .p1 {
@@ -5966,7 +5970,9 @@ a {
   }
 
   .wide-image {
-    width: 680px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .ryan-1 {
@@ -6896,7 +6902,11 @@ a {
   }
 
   .blog-massive-wrapper {
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
 
   .blog-section-2-div {
@@ -7041,20 +7051,25 @@ a {
   }
 
   .blog-h2-2 {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     margin-top: 20px;
     margin-bottom: 0;
-    padding-left: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: 35px;
     line-height: 35px;
+    box-sizing: border-box;
   }
 
   .blog-h3-3 {
-    width: 100vw;
-    padding-left: 20px;
-    padding-right: 10px;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: 28px;
     line-height: 32px;
+    box-sizing: border-box;
   }
 
   .ryan-1 {
@@ -7523,11 +7538,14 @@ a {
   }
 
   .blog-p1 {
+    width: 100%;
+    max-width: 100%;
     font-weight: 300;
   }
 
   .blog-p1.embeds {
-    min-width: 100vw;
+    min-width: auto;
+    width: 100%;
     margin-right: 0;
   }
 
@@ -7541,7 +7559,10 @@ a {
   }
 
   .blog-p1.blog-bullet {
-    width: auto;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    box-sizing: border-box;
   }
 
   .blog-h2 {
@@ -7770,8 +7791,13 @@ a {
   }
 
   .blog-massive-wrapper {
+    width: 100%;
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
 
   .standout-text {
@@ -7936,13 +7962,24 @@ a {
     min-height: 90vh;
   }
 
+  .wide-image {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .wide-image.less-wide {
     width: 250px;
   }
 
   .blog-h2-2 {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 32px;
     line-height: 35px;
+    box-sizing: border-box;
   }
 
   .blog-author-date {
@@ -7951,7 +7988,12 @@ a {
   }
 
   .blog-h3-3 {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 25px;
+    box-sizing: border-box;
   }
 
   .ryan-1 {

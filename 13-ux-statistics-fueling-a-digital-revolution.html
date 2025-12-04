@@ -72,18 +72,12 @@ html.lenis {
     <!-- Center Body Section -->
     <div class="body-section">
 
-  <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-blog w-nav">
-    <a href="#" class="nav-brand-blog w-nav-brand"><img src="images/1-OSEO-Logo-White.png" loading="lazy" width="39" srcset="images/1-OSEO-Logo-White-p-500.png 500w, images/1-OSEO-Logo-White.png 1080w" sizes="39px" alt="White organically LOGO">
-      <div class="nav-brand-blog">Organically</div>
-    </a>
-    <nav role="navigation" class="w-nav-menu">
-      <a href="#" class="navlink-blog w-nav-link">Home</a>
-      <a href="#" class="navlink-blog w-nav-link">About</a>
-      <a href="#" class="navlink-blog w-nav-link">Contact</a>
-    </nav>
-    <div class="w-nav-button">
-      <div class="w-icon-nav-menu"></div>
+  <div class="universal-menu">
+    <universal-menu></universal-menu>
+    <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
+      <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
     </div>
+    <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 w-button">Book call</a>
   </div>
   <div class="blog-hero-section ux-stats">
     <div class="blog-hero-div"><img src="images/Sem-stats-hero.jpg" loading="lazy" width="216" srcset="images/Sem-stats-hero-p-500.jpg 500w, images/Sem-stats-hero-p-800.jpg 800w, images/Sem-stats-hero.jpg 1024w" sizes="216px" alt="stats graph">
@@ -94,11 +88,6 @@ html.lenis {
     </div>
   </div>
   <div class="blog-section-3">
-    <div class="contents">
-      <a href="#" class="content-link">Text Link</a>
-      <a href="#" class="content-link">Text Link</a>
-      <a href="#" class="content-link">Text Link</a>
-    </div>
     <div class="center-scroll-text-wrapper">
       <p class="blog-p2">Ever wonder how Search influences consumers and buying trends? </p>
       <p class="blog-p1">I looked far and wide to come up with a list of curated and indicative stats going into 2023.</p>
@@ -117,14 +106,6 @@ html.lenis {
       </p>
       <p class="blog-list"><span class="list-number">6.</span> Organic and paid search account for 68% of traffic for websites. <a href="#">(Media Post)</a>
       </p>
-      <p class="blog-p1">Lorem ipsum.</p>
-      <p class="blog-p1">Lorem ipsum.</p>
-      <p class="blog-p1">Lorem ipsum.</p>
-      <p class="blog-p1">Lorem ipsum.</p>
-      <p class="blog-p1">Lorem ipsum.</p>
-      <p class="blog-p1">Lorem ipsum.</p>
-      <p class="blog-p1">Lorem ipsum.</p>
-      <p class="blog-p1">Lorem ipsum.</p>
     </div>
     <div class="sticky-author-div"><img src="images/2-Profile-Pic-Mask.png" loading="lazy" width="141" srcset="images/2-Profile-Pic-Mask-p-500.png 500w, images/2-Profile-Pic-Mask-p-800.png 800w, images/2-Profile-Pic-Mask-p-1080.png 1080w, images/2-Profile-Pic-Mask-p-1600.png 1600w, images/2-Profile-Pic-Mask-p-2000.png 2000w, images/2-Profile-Pic-Mask-p-2600.png 2600w, images/2-Profile-Pic-Mask.png 3000w" sizes="(max-width: 767px) 100vw, 14vw" alt="Ryan picture">
       <div class="author-bio-heading">Ryan Scanlon, Author &amp; SEO</div>
@@ -339,17 +320,19 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Mobile - maintain same layout structure */
   @media (max-width: 767px) {
     .body-section {
-      width: 90vw;
-      margin: 0;
-      padding: 0;
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 15px !important;
+      margin: 0 !important;
+      overflow-x: hidden !important;
     }
 
     .side-menu-panel {
-      width: 20vw;
+      width: 75vw;
     }
 
     .calendar-module {
-      width: 20vw;
+      display: none;
     }
 
     .universal-menu {
@@ -363,6 +346,158 @@ document.addEventListener("DOMContentLoaded", () => {
     .body-section > section:not(#Footer),
     .body-section > div:not(.universal-menu):not(#Footer) {
       padding: 2.5vw;
+    }
+
+    .blog-hero-section {
+      width: 100% !important;
+      padding: 15px !important;
+      overflow: hidden !important;
+    }
+
+    .blog-section-3 {
+      width: 100% !important;
+      padding: 15px !important;
+      overflow-x: hidden !important;
+    }
+
+    .center-scroll-text-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .blog-p1,
+    .blog-p2,
+    .blog-list {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 5px 0 !important;
+      margin: 5px 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .blog-h1 {
+      width: 100% !important;
+      font-size: 28px !important;
+      line-height: 34px !important;
+      padding: 0 !important;
+      word-wrap: break-word !important;
+    }
+
+    .blog-heading-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 10px 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .sticky-author-div {
+      display: none !important;
+    }
+
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .body-section {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 10px !important;
+      margin: 0 !important;
+      overflow-x: hidden !important;
+    }
+
+    .blog-hero-section {
+      width: 100% !important;
+      padding: 10px !important;
+      overflow: hidden !important;
+    }
+
+    .blog-hero-div {
+      width: 100% !important;
+      padding: 0 !important;
+    }
+
+    .blog-h1 {
+      width: 100% !important;
+      font-size: 24px !important;
+      line-height: 30px !important;
+      padding: 0 !important;
+      word-wrap: break-word !important;
+    }
+
+    .blog-section-3 {
+      width: 100% !important;
+      padding: 10px !important;
+      overflow-x: hidden !important;
+    }
+
+    .center-scroll-text-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .blog-p1,
+    .blog-p2 {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 5px 0 !important;
+      margin: 5px 0 !important;
+      font-size: 16px !important;
+      line-height: 26px !important;
+      box-sizing: border-box !important;
+      word-wrap: break-word !important;
+    }
+
+    .blog-list {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 8px 0 !important;
+      margin: 5px 0 !important;
+      font-size: 16px !important;
+      line-height: 26px !important;
+      box-sizing: border-box !important;
+      word-wrap: break-word !important;
+    }
+
+    .blog-heading-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 10px 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .text-block-16 {
+      font-size: 20px !important;
+      line-height: 26px !important;
+    }
+
+    .blog-author-div {
+      width: 100% !important;
+      flex-wrap: wrap !important;
+    }
+
+    .sticky-author-div {
+      display: none !important;
+    }
+
+    .footer {
+      width: 100% !important;
+      padding: 20px 15px !important;
+      box-sizing: border-box !important;
+    }
+
+    img {
+      max-width: 100% !important;
+      height: auto !important;
     }
   }
 
