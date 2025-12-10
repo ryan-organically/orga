@@ -19,7 +19,8 @@
       "Bash(do echo \"=== $file ===\" grep -B5 \"Webflow Launch Checklist\" \"$file\")",
       "Bash(mkdir:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []
