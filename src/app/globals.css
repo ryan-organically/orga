@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/* Organically Design System */
+:root {
+  --orga: #7ec700;
+  --black: #000000;
+  --white: #ffffff;
+  --rich-black: #0e0f19;
+  --e2: #e2e2e2;
+  --333: #333333;
+  --blue: #009dff;
+  --blue-2: #009dff;
+  --red-1: #ff4444;
+  --compl: #8138ff;
+  --steeler: #ffb612;
+  --quaternary: #f7ff00;
+  --black-75: rgba(0, 0, 0, 0.75);
+  --black-60: rgba(0, 0, 0, 0.6);
+  --black-40: rgba(0, 0, 0, 0.4);
+  --trans: transparent;
+  --side-panel-width: 20vw;
+  --calendar-panel-width: 15vw;
+}
+
+/* Tailwind theme bridge */
+@theme inline {
+  --color-orga: var(--orga);
+  --color-black: var(--black);
+  --color-white: var(--white);
+  --color-rich-black: var(--rich-black);
+  --color-e2: var(--e2);
+  --color-333: var(--333);
+  --color-blue: var(--blue);
+  --color-compl: var(--compl);
+  --color-steeler: var(--steeler);
+  --font-coolvetica: var(--font-coolvetica), "Coolvetica Rg", system-ui, sans-serif;
+  --font-ltmuseum: var(--font-ltmuseum), "Ltmuseum", "Times New Roman", serif;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: clip;
+}
+
+/* Green span for period */
+.green-span {
+  color: var(--orga);
+}
+
+/* Feature ticker */
+.feature-ticker-container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.feature-ticker {
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.feature-ticker-track {
+  display: flex;
+  white-space: nowrap;
+}
+
+.feature-item {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 8px;
+  font-size: 14px;
+  font-family: "Coolvetica Rg", sans-serif;
+  color: var(--black-60);
+  border: 1px solid var(--black-40);
+  border-radius: 50px;
+}
+
+/* Universal Menu - transparent, not sticky */
+.universal-menu {
+  width: 100%;
+  padding: 20px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1000;
+  background: transparent;
+}
+
+/* Calendar module - min 500px width */
+.calendar-module {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: max(15vw, 500px);
+  height: 100vh;
+  z-index: 1;
+}
+
+.calendar-panel-content {
+  width: 100%;
+  min-width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--e2);
+  opacity: 0;
+  visibility: hidden;
+  border-left: 1px solid var(--black-40);
+  position: relative;
+}
+
+.calendar-header {
+  padding: 30px 30px 20px;
+  border-bottom: 1px solid var(--black-40);
+}
+
+.calendar-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--black);
+  font-family: "Coolvetica Rg", sans-serif;
+}
+
+.calendar-subtitle {
+  font-size: 14px;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.calendar-embed-wrapper {
+  flex: 1;
+  overflow: hidden;
+}
+
+.calendar-review {
+  padding: 30px;
+  border-top: 1px solid var(--black-40);
+  text-align: center;
+}
+
+.review-quote {
+  font-size: 16px;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0 0 12px 0;
+  color: var(--black-75);
+}
+
+.review-author {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
+/* Blog section - fix positioning and sizing */
+.blog-section,
+.blog-preview {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.section.blog-section {
+  width: 100%;
+  padding: 5vw;
+  display: block;
+}
+
+.read-more-heading {
+  position: relative !important;
+  inset: unset !important;
+  width: auto !important;
+  font-size: 2rem !important;
+  display: inline-block !important;
+}
+
+/* Mobile responsive for calendar */
+@media (max-width: 767px) {
+  .calendar-module {
+    width: 100vw;
+  }
+  .calendar-panel-content {
+    min-width: 100%;
+  }
+}
