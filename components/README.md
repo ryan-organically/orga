@@ -86,7 +86,7 @@ Use find-and-replace or a script to update all files at once:
 **Option B: Command Line (Linux/Mac/WSL)**
 ```bash
 # Navigate to your project directory
-cd "/mnt/c/dev/orga website"
+cd "/mnt/c/dev/orga"
 
 # Backup first!
 cp -r . ../orga-website-backup
