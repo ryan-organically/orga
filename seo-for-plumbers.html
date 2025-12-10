@@ -63,6 +63,43 @@ html.lenis {
 	overscroll-behavior: clip;
 }
 </style>
+<style>
+  /* Mobile screens - keep content within .section box */
+  @media (max-width: 767px) {
+    .form-page-section {
+      padding: 0 5vw !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .service-section,
+    .div-vert-center,
+    .div-50,
+    .div-horiz-space-around {
+      padding-left: 5vw !important;
+      padding-right: 5vw !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+    .p1-left-align,
+    .h2-center-white,
+    .h3,
+    .services-h2,
+    .lz-span,
+    .form-paragraph,
+    .form-p-2,
+    .form-p2 {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+    }
+    .form-block-2,
+    .form-page-form {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+</style>
 </head>
 <body data-w-id="62e165ca7b58b3e472d124d3" class="horizontal-body">
 <!-- Left Menu Panel -->
@@ -101,12 +138,13 @@ html.lenis {
       <a href="https://calendly.com/organically" class="button-1 universal w-button">Book a free call</a>
     </div>
   </div>
+  <section class="section">
   <div class="service-section">
     <div class="div-vert-center">
       <h2 class="services-h2"><span class="text-span-36" style="color: black;">Best SEO</span> for Plumbers</h2><img src="images/1-star.png" loading="lazy" alt="" class="lz-icon">
       <p class="p1-left-align p1-center">I have the know-how and expertise to put you in front of your target audience. You&#x27;re here aren&#x27;t you? I&#x27;ll generate measurable results that will add to your bottom line. </p>
     </div>
-    <div class="div-horiz-space-around"><img src="images/2-Profile-Pic-Mask.png" loading="lazy" width="270" sizes="(max-width: 479px) 83vw, (max-width: 767px) 30vw, (max-width: 991px) 40vw, 400px" alt="Ryan picture" srcset="images/2-Profile-Pic-Mask-p-500.png 500w, images/2-Profile-Pic-Mask-p-800.png 800w, images/2-Profile-Pic-Mask-p-1080.png 1080w, images/2-Profile-Pic-Mask-p-1600.png 1600w, images/2-Profile-Pic-Mask-p-2000.png 2000w, images/2-Profile-Pic-Mask-p-2600.png 2600w, images/2-Profile-Pic-Mask.png 3000w" class="ryan-1">
+    <div class="div-horiz-space-around"><img src="images/ryan-replacement-photo2.png" loading="lazy" width="270" sizes="(max-width: 479px) 83vw, (max-width: 767px) 30vw, (max-width: 991px) 40vw, 400px" alt="Ryan picture" class="ryan-1">
       <div class="div-50">
         <div class="lz-span">I&#x27;m Ryan.</div>
         <h2 class="h2-center-white left" style="color: black;">I run a solo Agency that&#x27;ll put you in front of local leads.</h2>
@@ -134,6 +172,8 @@ html.lenis {
       </div><img src="images/strong-arm-2.png" loading="lazy" alt="" class="service-image show-desktop">
     </div>
   </div>
+  </section>
+  <section class="section">
   <div class="form-page-section">
     <div class="form-div-1"><img src="images/Organically-Logo-green.png" loading="lazy" width="174" sizes="174px" alt="" srcset="images/Organically-Logo-green-p-500.png 500w, images/Organically-Logo-green-p-800.png 800w, images/Organically-Logo-green.png 1000w" class="form-orga-image"></div>
     <div class="form-block-2 w-form">
@@ -154,6 +194,7 @@ html.lenis {
       </div>
     </div>
   </div>
+  </section>
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">

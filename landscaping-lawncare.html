@@ -63,6 +63,124 @@ html.lenis {
 	overscroll-behavior: clip;
 }
 </style>
+<style>
+  /* Mobile screens - keep content within .section box */
+  @media (max-width: 767px) {
+    .form-page-section {
+      padding: 0 5vw !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .service-section,
+    .service-section-2,
+    .div-vert-center,
+    .div-50:not(.tabs-content),
+    .div-horiz-space-around:not(.tabs-horiz) {
+      padding-left: 5vw !important;
+      padding-right: 5vw !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+    .p1-left-align,
+    .h2-center-white,
+    .h3,
+    .services-h2,
+    .lz-span,
+    .form-paragraph,
+    .form-p-2,
+    .form-p2 {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+    }
+    .form-block-2,
+    .form-page-form {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .tabs-large-heading {
+      margin-top: 80px !important;
+      margin-bottom: 50px !important;
+    }
+    /* Tabs container - constrain to parent width */
+    .qa-case-study-tabs,
+    .qa-case-study-tabs.w-tabs {
+      width: calc(100% - 10vw) !important;
+      max-width: calc(100% - 10vw) !important;
+      margin: 0 5vw !important;
+      padding: 0 !important;
+      overflow-x: clip !important;
+      box-sizing: border-box !important;
+    }
+    .tabs-menu,
+    .w-tab-menu {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex-wrap: wrap !important;
+      gap: 10px !important;
+      justify-content: center !important;
+      box-sizing: border-box !important;
+    }
+    .qa-tabs-content,
+    .w-tab-content {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: clip !important;
+      box-sizing: border-box !important;
+      padding: 0 !important;
+    }
+    .qa-tab-pane-1,
+    .w-tab-pane {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: clip !important;
+      box-sizing: border-box !important;
+    }
+    /* Stack content vertically in tabs */
+    .tabs-horiz,
+    .div-horiz-space-around.tabs-horiz {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex-direction: column !important;
+      overflow-x: clip !important;
+      box-sizing: border-box !important;
+      padding: 0 !important;
+      gap: 20px !important;
+    }
+    .case-study-image {
+      max-width: 100% !important;
+      width: auto !important;
+      height: auto !important;
+      display: block !important;
+      object-fit: contain !important;
+    }
+    .tabs-content,
+    .div-50.tabs-content {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    }
+    .tabs-p1 {
+      line-height: 1.6 !important;
+    }
+    .case-study-qa-gif {
+      max-width: 100% !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+    }
+    .case-study-qa-gif div,
+    .case-study-qa-gif iframe {
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    .qa-tab-link {
+      flex: 0 1 auto !important;
+    }
+  }
+</style>
 </head>
 <body data-w-id="62e165ca7b58b3e472d124d3" class="horizontal-body">
 <!-- Left Menu Panel -->
@@ -101,6 +219,7 @@ html.lenis {
       <a href="form.html" class="button-1 universal w-button">Take the next step</a>
     </div>
   </div>
+  <section class="section">
   <div class="service-section-2">
     <div class="div-vert-center">
       <h2 class="services-h2">I make custom landscaping websites and do SEO to capture local leads</h2>
@@ -174,6 +293,8 @@ html.lenis {
       </div>
     </div>
   </div>
+  </section>
+  <section class="section">
   <div class="form-page-section">
     <div class="form-div-1"><img src="images/Organically-Logo-green.png" loading="lazy" width="174" sizes="174px" alt="" srcset="images/Organically-Logo-green-p-500.png 500w, images/Organically-Logo-green-p-800.png 800w, images/Organically-Logo-green.png 1000w" class="form-orga-image"></div>
     <div class="form-block-2 w-form">
@@ -194,6 +315,7 @@ html.lenis {
       </div>
     </div>
   </div>
+  </section>
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
