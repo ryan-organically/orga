@@ -63,6 +63,28 @@ html.lenis {
 	overscroll-behavior: clip;
 }
 </style>
+<style>
+  /* Responsive font sizing for blog hero header and author */
+  .blog-h1 {
+    font-size: clamp(24px, 4vw, 60px) !important;
+    line-height: 1.2 !important;
+  }
+  .author-1 {
+    font-size: clamp(12px, 2vw, 16px) !important;
+  }
+  .blog-author-div {
+    display: flex !important;
+  }
+  /* Mobile specific adjustments */
+  @media (max-width: 767px) {
+    .blog-h1 {
+      font-size: clamp(18px, 5vw, 28px) !important;
+    }
+    .author-1 {
+      font-size: clamp(11px, 2.5vw, 14px) !important;
+    }
+  }
+</style>
 </head>
 <body data-w-id="62d856b64a8463bf0059f63a" class="horizontal-body">
 <!-- Left Menu Panel -->

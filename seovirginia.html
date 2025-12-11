@@ -63,6 +63,50 @@ html.lenis {
 	overscroll-behavior: clip;
 }
 </style>
+<style>
+  /* Add padding to div-vert-left for breathing room */
+  .div-vert-left {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  /* Mobile screens - keep content within .section box */
+  @media (max-width: 767px) {
+    .form-page-section {
+      padding: 0 5vw !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .service-section,
+    .div-vert-center,
+    .div-vert-left,
+    .div-50,
+    .div-horiz-space-around {
+      padding-left: 5vw !important;
+      padding-right: 5vw !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+    .p1-left-align,
+    .h2-center-white,
+    .h2,
+    .h3,
+    .services-h2,
+    .lz-span,
+    .form-paragraph,
+    .form-p-2,
+    .form-p2 {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+    }
+    .form-block-2,
+    .form-page-form {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+</style>
 </head>
 <body data-w-id="62e165ca7b58b3e472d124d3" class="horizontal-body">
 <!-- Left Menu Panel -->
@@ -101,6 +145,7 @@ html.lenis {
       <a href="form.html" class="button-1 universal w-button">Take the next step</a>
     </div>
   </div>
+  <section class="section">
   <div class="service-section">
     <div class="div-vert-left">
       <h2 class="h2">We do Local SEO in Virginia to<br> Capture local Leads</h2>
@@ -129,6 +174,8 @@ html.lenis {
       </div>
     </div>
   </div>
+  </section>
+  <section class="section">
   <div class="form-page-section">
     <div class="form-div-1"><img src="images/Organically-Logo-green.png" loading="lazy" width="174" sizes="174px" alt="" srcset="images/Organically-Logo-green-p-500.png 500w, images/Organically-Logo-green-p-800.png 800w, images/Organically-Logo-green.png 1000w" class="form-orga-image"></div>
     <div class="form-block-2 w-form">
@@ -149,6 +196,7 @@ html.lenis {
       </div>
     </div>
   </div>
+  </section>
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">

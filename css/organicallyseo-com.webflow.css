@@ -7268,6 +7268,7 @@ a {
 
   .div-vert-center {
     width: 90vw;
+    margin-bottom: 60px;
   }
 
   .rolling-gmb {
@@ -8247,7 +8248,12 @@ a {
   }
 
   .tabs-large-heading {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    padding: 20px 5vw;
+    box-sizing: border-box;
   }
 
   .h1-center-white {
