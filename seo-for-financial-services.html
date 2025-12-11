@@ -63,6 +63,45 @@ html.lenis {
 	overscroll-behavior: clip;
 }
 </style>
+<style>
+  /* Mobile screens - keep content within .section box */
+  @media (max-width: 767px) {
+    /* Keep form section within .section box */
+    .form-page-section {
+      padding: 0 5vw !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    /* Prevent text from being cut off on the right */
+    .service-section,
+    .div-vert-center,
+    .div-50,
+    .div-horiz-space-around {
+      padding-left: 5vw !important;
+      padding-right: 5vw !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+    }
+    .p1-left-align,
+    .h2-center-white,
+    .h3,
+    .services-h2,
+    .lz-span,
+    .form-paragraph,
+    .form-p-2,
+    .form-p2 {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+    }
+    .form-block-2,
+    .form-page-form {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+</style>
 </head>
 <body data-w-id="62e165ca7b58b3e472d124d3" class="horizontal-body">
 <!-- Left Menu Panel -->
@@ -96,20 +135,21 @@ html.lenis {
   </div>
   <div class="lz-hero-section finance-hero">
     <div class="div-vert-center finance-hero-div">
-      <h1 class="big-white-h1">SEO For Financial Services</h1>
-      <p class="p1-left-align p1-center">I get website traffic for financial advisors and firms. I can get you more leads to your website with search engine traffic by researching keywords, expanding your content, and building backlinks. </p>
+      <h1 class="big-white-h1" style="color: white;">SEO For Financial Services</h1>
+      <p class="p1-left-align p1-center" style="color: white;">I get website traffic for financial advisors and firms. I can get you more leads to your website with search engine traffic by researching keywords, expanding your content, and building backlinks. </p>
       <a href="https://calendly.com/organically" class="button-1 universal w-button">Book a free call</a>
     </div>
   </div>
+  <section class="section">
   <div class="service-section">
     <div class="div-vert-center">
-      <h2 class="services-h2"><span class="text-span-36">White Label</span> SEO for Financial Advisors</h2><img src="images/1-star.png" loading="lazy" alt="" class="lz-icon">
+      <h2 class="services-h2"><span class="text-span-36" style="color: black;">White Label</span> SEO for Financial Advisors</h2><img src="images/1-star.png" loading="lazy" alt="" class="lz-icon">
       <p class="p1-left-align p1-center">I have the know-how and expertise to increase your website&#x27;s traffic and get more local business. You&#x27;re here aren&#x27;t you? I&#x27;ll generate measurable results that will add to your bottom line. </p>
     </div>
-    <div class="div-horiz-space-around"><img src="images/2-Profile-Pic-Mask.png" loading="lazy" width="270" sizes="(max-width: 479px) 83vw, (max-width: 767px) 30vw, (max-width: 991px) 40vw, 400px" alt="Ryan picture" srcset="images/2-Profile-Pic-Mask-p-500.png 500w, images/2-Profile-Pic-Mask-p-800.png 800w, images/2-Profile-Pic-Mask-p-1080.png 1080w, images/2-Profile-Pic-Mask-p-1600.png 1600w, images/2-Profile-Pic-Mask-p-2000.png 2000w, images/2-Profile-Pic-Mask-p-2600.png 2600w, images/2-Profile-Pic-Mask.png 3000w" class="ryan-1">
+    <div class="div-horiz-space-around"><img src="images/ryan-replacement-photo2.png" loading="lazy" width="270" sizes="(max-width: 479px) 83vw, (max-width: 767px) 30vw, (max-width: 991px) 40vw, 400px" alt="Ryan picture" class="ryan-1">
       <div class="div-50">
         <div class="lz-span">I&#x27;m Ryan.</div>
-        <h2 class="h2-center-white left">I run a solo Agency that&#x27;ll put you in front of local leads.</h2>
+        <h2 class="h2-center-white left" style="color: black;">I run a solo Agency that&#x27;ll put you in front of local leads.</h2>
         <p class="p1-left-align">With a deep understanding of the intricacies of search engines like Google, I&#x27;ve successfully helped businesses optimize for search and get consistent web traffic. I offer transparent reporting, close communication, and improved website visibility.</p>
         <a href="https://calendly.com/organically" class="button-1 universal w-button">Book a free call</a>
       </div>
@@ -134,12 +174,14 @@ html.lenis {
       </div><img src="images/strong-arm-2.png" loading="lazy" alt="" class="service-image show-desktop">
     </div>
   </div>
+  </section>
+  <section class="section">
   <div class="form-page-section">
     <div class="form-div-1"><img src="images/Organically-Logo-green.png" loading="lazy" width="174" sizes="174px" alt="" srcset="images/Organically-Logo-green-p-500.png 500w, images/Organically-Logo-green-p-800.png 800w, images/Organically-Logo-green.png 1000w" class="form-orga-image"></div>
     <div class="form-block-2 w-form">
       <form id="Home-page-form" name="wf-form-Email-and-Business-Form" data-name="Email and Business Form" method="get" class="form-page-form" data-wf-page-id="663275260df339be6d56bb1b" data-wf-element-id="31e81389-e73c-0d1f-522e-5a611944e276">
         <div>
-          <div class="form-heading">Let&#x27;s get it done <span class="green-span">organically. </span></div>
+          <div class="form-heading" style="line-height: 1.2;">Let&#x27;s get it done <span class="green-span">organically. </span></div>
           <p class="form-paragraph form-p-2">Want to get in touch about my services? Fill out a form below. </p>
         </div>
         <div class="form-page-div"><input class="field-1 w-input" maxlength="256" name="Name-2" data-name="Name 2" placeholder="Enter your name*" type="text" id="Name-2" required=""><input class="field-1 w-input" maxlength="256" name="Email-3" data-name="Email 3" placeholder="Enter your email*" type="email" id="Email-3" required=""></div><input class="field-1 w-input" maxlength="256" name="Website-2" data-name="Website 2" placeholder="Enter your website" type="text" id="Website-2" required=""><input class="field-2 w-input" maxlength="256" name="Note-2" data-name="Note 2" placeholder="Add some details about your business" type="text" id="Note-2" required="">
@@ -154,6 +196,7 @@ html.lenis {
       </div>
     </div>
   </div>
+  </section>
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">

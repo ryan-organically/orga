@@ -32,11 +32,6 @@
 
   <!-- About & Info Pages -->
   <url>
-    <loc>https://organicallyseo.com/about-us</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://organicallyseo.com/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

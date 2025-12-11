@@ -30,7 +30,7 @@
 
 ```bash
 # Navigate to your project directory
-cd "/mnt/c/dev/orga"
+cd "/mnt/c/dev/orga website"
 
 # Check current git status
 git status
