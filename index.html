@@ -169,7 +169,7 @@ html.lenis {
       <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
         <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
       </div>
-      <a href="#" class="button-1 w-button" id="calendar-toggle">Schedule a call</a>
+      <a href="/form" class="button-1 w-button">Get started</a>
     </div>
     <!-- Announcement Banner -->
     <div class="announcement-banner" style="display: none;">
@@ -180,6 +180,25 @@ html.lenis {
     <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div" style="width: 100%; max-width: 100%;">
       <h1 class="h1 h1-home">Organically<span class="green-span h1-period">.</span></h1>
       <p class="shrunk-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold. Combining web creative with organic potential.</p>
+
+      <!-- Social Proof Checkmarks -->
+      <div class="hero-social-proof-checks" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="color: var(--orga); font-weight: bold; font-size: 1.2rem;">✓</span>
+          <span style="font-size: 0.95rem; color: var(--black-75);">50+ websites launched</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="color: var(--orga); font-weight: bold; font-size: 1.2rem;">✓</span>
+          <span style="font-size: 0.95rem; color: var(--black-75);">5-star rated on every project</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="color: var(--orga); font-weight: bold; font-size: 1.2rem;">✓</span>
+          <span style="font-size: 0.95rem; color: var(--black-75);">No contracts, cancel anytime</span>
+        </div>
+      </div>
+
+      <!-- Hero CTA Button -->
+      <a href="/form" class="hero-magnetic-cta" style="display: inline-block; margin-top: 1.5rem; padding: 1.25rem 3rem; font-size: 1.25rem; font-family: Coolvetica Rg, sans-serif; font-weight: 400; background: var(--orga); color: var(--black-90); border: none; border-radius: 4px; cursor: pointer; text-decoration: none; transition: background 0.3s ease;">Get Your Free Website Audit</a>
 
       <!-- Feature Tickers -->
       <div class="feature-ticker-container">
@@ -564,13 +583,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const h1 = document.querySelector(".h1.h1-home");
         const shrunkP = document.querySelector(".shrunk-p");
         const building = document.querySelector(".hero-steel-building");
+        const socialProofChecks = document.querySelectorAll(".hero-social-proof-checks > div");
 
-        // Hide shrunk-p and building initially
+        // Hide shrunk-p, building, and social proof initially
         if (shrunkP) {
             gsap.set(shrunkP, { autoAlpha: 0 });
         }
         if (building) {
             gsap.set(building, { autoAlpha: 0 });
+        }
+        if (socialProofChecks.length) {
+            gsap.set(socialProofChecks, { autoAlpha: 0, x: -100, rotation: -15, scale: 0.5 });
         }
 
         if (!h1 || typeof SplitText === 'undefined') return;
@@ -642,12 +665,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 duration: 0.7,
                 stagger: 0.1,
                 ease: "power3.out",
-                onComplete: animateBuilding
+                onComplete: animateSocialProof
             });
         }
     }
 
-    // 4 ▸ Building animation (starts after shrunk-p animation completes)
+    // 4 ▸ Social proof checkmarks animation (wild entrance after shrunk-p)
+    function animateSocialProof() {
+        const checks = document.querySelectorAll(".hero-social-proof-checks > div");
+        if (checks.length) {
+            gsap.to(checks, {
+                autoAlpha: 1,
+                x: 0,
+                rotation: 0,
+                scale: 1,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "elastic.out(1, 0.5)",
+                onComplete: animateBuilding
+            });
+        } else {
+            animateBuilding();
+        }
+    }
+
+    // 5 ▸ Building animation (starts after social proof animation completes)
     function animateBuilding() {
         const floatingText = document.querySelector('.hero-floating-text');
 
@@ -731,6 +773,131 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         document.addEventListener('fontsReady', initSplitTextAnimations);
     }
+});
+
+// Magnetic Cursor + Jiggle Effect for Floating Text
+document.addEventListener('DOMContentLoaded', function() {
+    const floatingText = document.querySelector('.hero-floating-text');
+    if (!floatingText || typeof gsap === 'undefined') return;
+
+    const magnetStrength = 20; // pixels of magnetic pull
+    let isHovering = false;
+    let bounds;
+
+    // Update bounds on scroll/resize
+    function updateBounds() {
+        bounds = floatingText.getBoundingClientRect();
+    }
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    window.addEventListener('scroll', updateBounds);
+
+    // Track mouse and apply magnetic effect
+    document.addEventListener('mousemove', (e) => {
+        updateBounds();
+        const centerX = bounds.left + bounds.width / 2;
+        const centerY = bounds.top + bounds.height / 2;
+        const distX = e.clientX - centerX;
+        const distY = e.clientY - centerY;
+        const distance = Math.sqrt(distX * distX + distY * distY);
+        const magnetRange = 100; // pixels away to start attracting
+
+        if (distance < magnetRange) {
+            isHovering = true;
+            const pullX = (distX / magnetRange) * magnetStrength;
+            const pullY = (distY / magnetRange) * magnetStrength;
+            gsap.to(floatingText, {
+                x: pullX,
+                y: pullY,
+                duration: 0.3,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+        } else if (isHovering) {
+            isHovering = false;
+            // Jiggle back into place
+            gsap.to(floatingText, {
+                x: 0,
+                y: 0,
+                duration: 0.6,
+                ease: 'elastic.out(1.2, 0.4)',
+                overwrite: 'auto'
+            });
+        }
+    });
+
+    // Extra jiggle on mouse leave from element
+    floatingText.addEventListener('mouseleave', () => {
+        gsap.to(floatingText, {
+            x: 0,
+            y: 0,
+            duration: 0.6,
+            ease: 'elastic.out(1.2, 0.4)',
+            overwrite: 'auto'
+        });
+    });
+});
+
+// Magnetic Cursor + Jiggle Effect for Hero CTA Button (larger range)
+document.addEventListener('DOMContentLoaded', function() {
+    const heroCta = document.querySelector('.hero-magnetic-cta');
+    if (!heroCta || typeof gsap === 'undefined') return;
+
+    const magnetStrength = 35; // stronger pull for bigger button
+    const magnetRange = 150; // magnetic field
+    let isHovering = false;
+    let bounds;
+
+    function updateBounds() {
+        bounds = heroCta.getBoundingClientRect();
+    }
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    window.addEventListener('scroll', updateBounds);
+
+    document.addEventListener('mousemove', (e) => {
+        updateBounds();
+        const centerX = bounds.left + bounds.width / 2;
+        const centerY = bounds.top + bounds.height / 2;
+        const distX = e.clientX - centerX;
+        const distY = e.clientY - centerY;
+        const distance = Math.sqrt(distX * distX + distY * distY);
+
+        if (distance < magnetRange) {
+            isHovering = true;
+            const pullX = (distX / magnetRange) * magnetStrength;
+            const pullY = (distY / magnetRange) * magnetStrength;
+            gsap.to(heroCta, {
+                x: pullX,
+                y: pullY,
+                scale: 1.05,
+                duration: 0.3,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+        } else if (isHovering) {
+            isHovering = false;
+            gsap.to(heroCta, {
+                x: 0,
+                y: 0,
+                scale: 1,
+                duration: 0.6,
+                ease: 'elastic.out(1.2, 0.4)',
+                overwrite: 'auto'
+            });
+        }
+    });
+
+    heroCta.addEventListener('mouseleave', () => {
+        gsap.to(heroCta, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            ease: 'elastic.out(1.2, 0.4)',
+            overwrite: 'auto'
+        });
+    });
 });
 
 // GSAP SplitText Animation for Intro Text
