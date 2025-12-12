@@ -16,9 +16,405 @@
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
   <style>
-    /* Hide H1 initially - will be revealed by animation */
-    .hero-section .hero-div .h1 {
-      opacity: 0;
+    @media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844"] {-webkit-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);}}
+
+    /* Override global home-hero constraints */
+    #contractor-hero-section.hero-section.home-hero {
+      height: auto !important;
+      overflow: visible !important;
+      min-height: auto !important;
+    }
+
+    /* Contractor Hero Section Styles */
+    .contractor-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: min-content auto;
+      gap: 3rem 4rem;
+      align-items: start;
+      width: 100%;
+      padding: 0;
+      min-height: 60vh;
+    }
+
+    .contractor-hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Desktop grid positioning */
+    .contractor-hero-top {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+
+    .contractor-hero-vsl {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: start;
+    }
+
+    .contractor-hero-bottom {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: start;
+      margin-top: 0;
+    }
+
+    .contractor-hero-eyebrow {
+      margin-bottom: 1rem;
+      opacity: 0.7;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contractor-hero-h1 {
+      margin-bottom: 1.5rem;
+      font-size: clamp(1.8rem, 7.2vw, 6.075rem) !important;
+    }
+
+    .contractor-hero-subhead {
+      margin-bottom: 3rem;
+      max-width: 90%;
+      line-height: 1.6;
+      font-size: 90%;
+    }
+
+    .contractor-benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 3rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contractor-benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contractor-benefit-item::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: var(--orga);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .benefit-text {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--black-75);
+      line-height: 1.4;
+    }
+
+    .contractor-hero-cta {
+      align-self: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .contractor-trust-indicators {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-indicator-text {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    .trust-indicator-text.qualifier {
+      font-weight: 600;
+      opacity: 0.8;
+    }
+
+    .contractor-hero-vsl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vsl-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background-color: var(--black-10);
+      border: 2px dashed var(--black-40);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vsl-placeholder-text {
+      opacity: 0.5;
+      font-size: 1.2rem;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* Tablet/Mid-range Responsive */
+    @media (max-width: 991px) and (min-width: 768px) {
+      .hero-section {
+        padding: 3vw 3vw 10vh 3vw;
+      }
+    }
+
+    /* Mobile/Tablet Responsive */
+    @media (max-width: 991px) {
+      .contractor-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contractor-hero-subhead {
+        max-width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .contractor-benefits-list {
+        margin-bottom: 2rem;
+      }
+
+      .contractor-hero-cta {
+        align-self: stretch;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .contractor-hero-grid {
+        gap: 2.5rem;
+        min-height: auto;
+      }
+
+      /* Mobile order: top content, VSL, bottom content */
+      .contractor-hero-top {
+        order: 1;
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .contractor-hero-vsl {
+        order: 2;
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .contractor-hero-bottom {
+        order: 3;
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .contractor-hero-eyebrow {
+        font-size: 0.85rem;
+      }
+
+      .benefit-text {
+        font-size: 1rem;
+      }
+
+      .hero-section {
+        padding: 2.5vw 2.5vw 8vh 2.5vw;
+      }
+    }
+
+    /* Contractor page hero footer stripe - vertical alignment */
+    .hero-footer-stripe.vertical {
+      flex-direction: column;
+      height: auto;
+      padding: 0;
+      gap: 0;
+    }
+    .hero-footer-stripe.vertical .hero-footer-main {
+      width: 100%;
+      height: auto;
+      min-height: 200px;
+      padding: 40px 5vw;
+    }
+    .hero-footer-stripe.vertical .hero-footer-card {
+      width: 100%;
+      height: 80px;
+      border-left: none;
+      border-top: 1px solid var(--black-40);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-footer-stripe.vertical .hero-footer-label {
+      transform: rotate(0deg);
+      font-size: 1.5rem;
+    }
+    .hero-footer-stripe.vertical .hero-footer-description {
+      position: relative;
+      left: 0;
+      max-width: 100%;
+    }
+
+    /* Editorial style improvements */
+    .diagonal-cta-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Dark Breakdown Section */
+    .dark-breakdown-section {
+      background-color: #333;
+      color: #e2e2e2;
+      padding: 8vh 5vw;
+      position: relative;
+      overflow: visible;
+    }
+
+    /* Green accent stripes on sides */
+    .dark-breakdown-section::before,
+    .dark-breakdown-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background-color: var(--orga);
+    }
+
+    .dark-breakdown-section::before {
+      left: 2vw;
+    }
+
+    .dark-breakdown-section::after {
+      right: 2vw;
+    }
+
+    .dark-breakdown-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .dark-breakdown-headline {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #e2e2e2;
+    }
+
+    .dark-breakdown-subhead {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 4rem;
+      color: var(--orga);
+      opacity: 0.95;
+    }
+
+    .dark-breakdown-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .dark-breakdown-text {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: rgba(226, 226, 226, 0.9);
+      margin: 0;
+      text-align: left;
+    }
+
+    .dark-breakdown-callout {
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--orga);
+      margin: 1rem 0;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .dark-breakdown-text-final {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: rgba(226, 226, 226, 0.9);
+      margin: 0;
+      text-align: left;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(126, 199, 0, 0.2);
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 767px) {
+      .dark-breakdown-section {
+        padding: 6vh 8vw;
+      }
+
+      .dark-breakdown-section::before {
+        left: 1vw;
+        width: 3px;
+      }
+
+      .dark-breakdown-section::after {
+        right: 1vw;
+        width: 3px;
+      }
+
+      .dark-breakdown-headline {
+        margin-bottom: 1rem;
+      }
+
+      .dark-breakdown-subhead {
+        margin-bottom: 3rem;
+      }
+
+      .dark-breakdown-content {
+        gap: 1.5rem;
+      }
+
+      .dark-breakdown-text,
+      .dark-breakdown-text-final {
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .dark-breakdown-callout {
+        font-size: 1.25rem;
+      }
+    }
+
+    .home-p2, .home-p3 {
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+    }
+    .h3.center-h3 {
+      font-size: 2.5rem;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 991px) {
+      .diagonal-cta-text {
+        font-size: 1.1rem;
+      }
+      .h3.center-h3 {
+        font-size: 2rem;
+      }
     }
 
     /* Section 2 Mobile Responsive - Stack Vertically */
@@ -30,6 +426,124 @@
       }
       .section-2-wrapper > div {
         max-width: 100% !important;
+      }
+    }
+
+    /* Services Accordion Styles - Matching original hero footer stripe */
+    .services-accordion {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 0;
+      background-color: var(--e2);
+    }
+
+    .service-accordion-item {
+      width: 100%;
+      border-top: 1px solid var(--black-40);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .service-accordion-item:last-child {
+      border-bottom: 1px solid var(--black-40);
+    }
+
+    .service-accordion-header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      position: relative;
+    }
+
+    .service-accordion-header:hover {
+      background-color: var(--black-10);
+    }
+
+    .service-accordion-title {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--black-75);
+      transition: color 0.2s ease;
+      text-align: center;
+    }
+
+    .service-accordion-header:hover .service-accordion-title {
+      color: var(--orga);
+    }
+
+    .service-accordion-item.active .service-accordion-title {
+      color: var(--orga);
+      font-weight: 600;
+    }
+
+    .service-accordion-item {
+      position: relative;
+    }
+
+    .service-accordion-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background-color: var(--orga);
+      transition: width 0.3s ease;
+    }
+
+    .service-accordion-item.active::before {
+      width: 5px;
+    }
+
+    .service-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      background-color: var(--black-05);
+      border-top: 1px solid var(--black-40);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-accordion-item.active .service-accordion-content {
+      max-height: 150px;
+      padding: 30px 5vw;
+    }
+
+    .service-accordion-content p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      .service-accordion-header {
+        height: 60px;
+      }
+
+      .service-accordion-title {
+        font-size: 1.2rem;
+      }
+
+      .service-accordion-item.active::before {
+        width: 4px;
+      }
+
+      .service-accordion-item.active .service-accordion-content {
+        padding: 25px 5vw;
+        max-height: 120px;
+      }
+
+      .service-accordion-content p {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -195,39 +709,192 @@ html.lenis {
       <a href="#" class="button-1 w-button" id="calendar-toggle">Schedule a call</a>
     </div>
 
-    <!-- Hero Section -->
-    <div id="contractor-hero-section" class="hero-section home-hero" style="display: flex; align-items: center; justify-content: center; height: auto;">
-      <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div" style="width: 100%; max-width: 100%; text-align: center; align-items: center;">
-        <h1 class="h1">Contractor SEO That Fills Your Calendar<span class="green-span">.</span></h1>
-        <p class="shrunk-p" style="width: 100%; max-width: 75vw; text-align: center; margin: 40px auto;">Most agencies promise page 1 rankings, collect a check, and disappear. We show you exactly which calls came from Google, which leads turned into jobs, and what your money actually bought you. No jargon. No excuses. Just proof.</p>
-        <a href="#" class="button-1 w-button" id="hero-calendar-toggle" style="margin-top: 20px; display: inline-block; position: relative; left: 0; right: 0;">Schedule a 1-on-1</a>
-      </div>
+    <!-- Hero Section - Grid Layout from braeden-funnel-test -->
+    <div id="contractor-hero-section" class="hero-section home-hero">
+      <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="contractor-hero-grid">
 
-      <!-- Side Treeline Image -->
-      <img src="images/climb-2.png" alt="Treeline" style="position: absolute; top: auto; bottom: 0; left: auto; right: 0; width: 25%; height: auto; display: block; opacity: 0.9;">
+        <!-- Top Content: Heading & Subheading -->
+        <div class="contractor-hero-content contractor-hero-top">
+          <!-- Eyebrow -->
+          <p class="p2 contractor-hero-eyebrow">10 Review/Week • Local Contractors</p>
+
+          <!-- Main Heading -->
+          <h1 class="h1 contractor-hero-h1">Free Contractor SEO Breakdown<span class="green-span">.</span></h1>
+
+          <!-- Subheading -->
+          <p class="shrunk-p contractor-hero-subhead">Discover why your website and Google presence aren't producing calls yet and what to fix first so leads start coming in over the next 30 days.</p>
+        </div>
+
+        <!-- VSL - Will be reordered on mobile -->
+        <div class="contractor-hero-vsl">
+          <div class="vsl-placeholder">
+            <p class="p2 vsl-placeholder-text">Video Sales Letter</p>
+          </div>
+        </div>
+
+        <!-- Bottom Content: Benefits, CTA, Trust -->
+        <div class="contractor-hero-content contractor-hero-bottom">
+          <!-- Key Benefits List -->
+          <ul class="contractor-benefits-list">
+            <li class="contractor-benefit-item">
+              <span class="benefit-text">See what's killing your inbound leads</span>
+            </li>
+            <li class="contractor-benefit-item">
+              <span class="benefit-text">Get your next 30 days mapped out</span>
+            </li>
+            <li class="contractor-benefit-item">
+              <span class="benefit-text">Know exactly where you stand vs. competition</span>
+            </li>
+          </ul>
+
+          <!-- Primary CTA -->
+          <a href="#" class="button-1 contractor-hero-cta" id="hero-calendar-toggle">Claim Your Free Review</a>
+
+          <!-- Trust Indicators -->
+          <div class="contractor-trust-indicators">
+            <p class="p2 trust-indicator-text qualifier">For Contractors doing 250K+/Year</p>
+          </div>
+        </div>
+
+      </div>
 
       <div class="ticker">
         <p class="ticker-p">Pittsburgh General Contractors aren't waiting on word-of-mouth… they built a system that makes the phone ring…</p>
       </div>
     </div>
 
-    <!-- Section 2 with Typer -->
-    <section class="section">
-      <div class="section-2-wrapper" style="display: flex; flex-direction: row; align-items: center; gap: 5vw;">
-        <div style="flex: 1;">
-          <h2 class="services-h3"><span class="contractor-typer" style="color: var(--black-75);">The contractors who show up first… get the job first.</span></h2>
-          <p>Most homeowners aren't calling 10 contractors for quotes. They're calling the first 2-3 that show up in Google. If your competitors are ranking above you, you're invisible—and they're cashing checks you should be depositing.</p>
-          <a href="#" class="button-1 w-button calendar-toggle-btn" style="margin-top: 20px;">Book a Free Call</a>
+    <!-- Diagonal CTA Section with Services -->
+    <section class="section diagonal-section" style="padding-bottom: 0; flex-direction: column !important;">
+      <!-- 2 Column Row: Image + Text -->
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div class="diagonal-left">
+          <img src="images/monstera-placeholder.png" alt="Monstera plant" style="width: 25vw; height: auto; display: block; transform: scaleX(-1);">
         </div>
-        <div style="flex: 1;">
-          <video autoplay loop muted playsinline style="width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--black-40);">
-            <source src="videos/theme video compressed.webm" type="video/webm">
-          </video>
+        <div class="diagonal-right">
+          <h3 class="diagonal-h3">Your website isn't broken. It's just invisible.</h3>
+          <p class="diagonal-cta-text">While you're waiting on the phone to ring, homeowners are searching for exactly what you do.</p>
+          <p class="diagonal-cta-text">But the contractor they call isn't the best one. It's the one who shows up first, looks credible, and makes it easy to say yes.</p>
+          <p class="diagonal-cta-text" style="font-weight: 600; color: var(--orga);">That could be you. And it doesn't take months to fix.</p>
+        </div>
+      </div>
+
+      <!-- 1 Column Row: Services Accordion -->
+      <div class="services-accordion" style="margin-top: 3rem; width: 100%;">
+        <!-- Service 1 -->
+        <div class="service-accordion-item">
+          <div class="service-accordion-header">
+            <span class="service-accordion-title">Custom Websites</span>
+          </div>
+          <div class="service-accordion-content">
+            <p>Your website should pre-sell jobs before the estimate. We build sites that showcase your work, answer objections, and make homeowners want to work with you specifically.</p>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-accordion-item">
+          <div class="service-accordion-header">
+            <span class="service-accordion-title">Local SEO</span>
+          </div>
+          <div class="service-accordion-content">
+            <p>When someone searches for what you do, they're ready to buy. We make sure you're the contractor they see first, not your competition.</p>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-accordion-item">
+          <div class="service-accordion-header">
+            <span class="service-accordion-title">Lead Generation</span>
+          </div>
+          <div class="service-accordion-content">
+            <p>Stop relying on referrals and word-of-mouth. Get qualified leads flowing into your calendar automatically, even while you're on the job.</p>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-accordion-item">
+          <div class="service-accordion-header">
+            <span class="service-accordion-title">Professional Branding</span>
+          </div>
+          <div class="service-accordion-content">
+            <p>Charge what you're worth. A professional brand signals quality and builds trust instantly, so homeowners choose you over cheaper competitors.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Dark Breakdown Section -->
+    <section class="section dark-breakdown-section">
+      <div class="dark-breakdown-container">
+        <h2 class="dark-breakdown-headline">Your website isn't meant to sit there looking good.</h2>
+        <p class="dark-breakdown-subhead">It's supposed to bring in work.</p>
+
+        <div class="dark-breakdown-content">
+          <p class="dark-breakdown-text">Most contracting businesses have a few quiet breakdowns happening online. Not seven fires. Usually one or two pressure points that stop calls from ever coming through.</p>
+
+          <p class="dark-breakdown-text">Those pressure points aren't the same for every business. What's holding back a roofer is often different from what's holding back a landscaper or GC in the same city.</p>
+
+          <p class="dark-breakdown-callout">That's what this breakdown is for.</p>
+
+          <p class="dark-breakdown-text">We look at seven core areas that affect inbound calls and trace where momentum is breaking down for your business specifically.</p>
+
+          <p class="dark-breakdown-text">Once that's clear, the next steps become obvious. You're not guessing. You're not rebuilding everything. You're fixing what matters first.</p>
+
+          <p class="dark-breakdown-text-final">Most of these corrections can be made within a few weeks, which is why contractors usually feel the difference faster than they expect.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section diagonal-section">
+      <div class="diagonal-right">
+        <h3 class="diagonal-h3">Most agencies sell rankings because they're easy to report</h3>
+        <p class="diagonal-cta-text">They'll show you graphs going up and to the right, screenshots of keywords moving a few spots, and traffic numbers that look impressive on paper.</p>
+        <p class="diagonal-cta-text">But rankings don't pay for crews.<br>Traffic doesn't fill your calendar.</p>
+        <p class="diagonal-cta-text">What matters is whether homeowners are calling you when they search for what you do.</p>
+        <p class="diagonal-cta-text">That's the gap most contractors feel and can't explain.<br>The work is happening, but the phone stays quiet.</p>
+        <p class="diagonal-cta-text" style="font-weight: 600; color: var(--orga);">In your free breakdown, we trace exactly where that gap is coming from.</p>
+      </div>
+      <div class="diagonal-left">
+        <img src="images/monstera-placeholder.png" alt="Monstera plant" style="width: 25vw; height: auto; display: block;">
+      </div>
+    </section>
+
+    <!-- Framework Details -->
+    <address data-w-id="framework-detail" style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section-home-3">
+      <h3 class="h3 center-h3">Why contractors choose to work with us</h3>
+      <div class="revealed-content-div left">
+        <div class="revealed-content">
+          <div class="home-p2">Every dollar you invest is tied to proof: proof of calls, proof of estimates requested, proof of new jobs landing in your inbox.</div>
+        </div>
+        <div class="adv-arrow-div"><img src="images/down-right-arrow-7ec700.png" loading="lazy" alt="" class="adventure-arrow green"><img src="images/down-right-arrow-black.png" loading="lazy" alt="" class="adventure-arrow light"></div>
+      </div>
+      <div class="revealed-content-div right">
+        <div class="adv-arrow-div"><img src="images/down-left-arrow-7ec700.png" loading="lazy" alt="" class="adventure-arrow green"><img src="images/down-right-arrow-black.png" loading="lazy" alt="" class="adventure-arrow light"></div>
+        <div class="revealed-content">
+          <div class="home-p2">No fluff reports or vanity metrics. We show you the exact phone calls that came from "kitchen remodeling near me" searches and which ones turned into signed contracts.</div>
+        </div>
+      </div>
+      <h3 class="h3 center-h3 revealed-h3">You'll see this transparency in your free breakdown.</h3>
+      <div class="revealed-content-div left">
+        <div class="revealed-content">
+          <div class="home-p2">Most agencies bury you in technical jargon and impressive-sounding metrics that don't actually put jobs on your calendar.</div>
+        </div>
+        <div class="adv-arrow-div"><img src="images/down-right-arrow-7ec700.png" loading="lazy" alt="" class="adventure-arrow green"><img src="images/down-right-arrow-black.png" loading="lazy" alt="" class="adventure-arrow light"></div>
+      </div>
+      <div class="revealed-content-div right">
+        <div class="adv-arrow-div"><img src="images/down-left-arrow-7ec700.png" loading="lazy" alt="" class="adventure-arrow green"><img src="images/down-right-arrow-black.png" loading="lazy" alt="" class="adventure-arrow light"></div>
+        <div class="revealed-content">
+          <div class="home-p2">We track what matters to your bottom line: inbound calls, estimate requests, and signed contracts. The stuff that pays your crew.</div>
+        </div>
+      </div>
+      <div class="revealed-content-div center">
+        <div class="revealed-content center">
+          <div class="home-p3">You're running a business, not a science experiment. In your free breakdown, I'll show you exactly what's working, what's broken, and what's costing you jobs, in plain English.</div>
+        </div>
+      </div>
+    </address>
+
+    <!-- Testimonials Section - KEPT FROM CURRENT VERSION -->
     <section class="section">
       <!-- Testimonial Slider Module -->
       <div class="testimonial-slider">
@@ -257,7 +924,7 @@ html.lenis {
       </div>
     </section>
 
-    <!-- Why Contractors Partner Section -->
+    <!-- Why Contractors Partner Section - KEPT FROM CURRENT VERSION -->
     <section class="section" style="background-color: #333; color: #e2e2e2;">
       <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem; color: #e2e2e2;">Why Contractors Partner with Us</h2>
 
@@ -276,7 +943,7 @@ html.lenis {
       </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section - KEPT FROM CURRENT VERSION -->
     <section class="section">
       <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
 
@@ -339,9 +1006,24 @@ html.lenis {
       </div>
     </section>
 
+    <!-- Final CTA Section - FROM BRAEDEN-FUNNEL-TEST -->
+    <section class="section diagonal-section">
+      <div class="diagonal-left">
+        <img src="images/monstera-placeholder.png" alt="Monstera plant" style="width: 25vw; height: auto; display: block; transform: scaleX(-1);">
+      </div>
+      <div class="diagonal-right">
+        <h3 class="diagonal-h3">Here's what happens next.</h3>
+        <p class="diagonal-cta-text">Book your free 15-minute breakdown. I'll review your website, your Google presence, and your local competition beforehand.</p>
+        <p class="diagonal-cta-text">On the call, I'll show you exactly what's holding back leads right now and walk you through your custom 30-day action plan to fix it.</p>
+        <p class="diagonal-cta-text">You'll leave knowing your next 2-3 moves. Whether you implement it yourself or want help, you'll have total clarity.</p>
+        <p class="diagonal-cta-text" style="font-weight: 600; color: var(--orga);">No fluff. No pressure. Just a clear plan to get your phone ringing.</p>
+        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1">Book Your Free Breakdown</a>
+      </div>
+    </section>
+
     <!-- Ticker Text -->
-    <section id="contractor-services" class="section ticker-testimonial-section" style="display: none;">
-      <div class="ticking-text">So download it, book a call time, and we'll see you on the other side…<span class="green-span">. </span></div>
+    <section id="contractor-services" class="section ticker-testimonial-section">
+      <div class="ticking-text">Book your free breakdown, discover what's holding you back, and start filling your calendar with qualified leads.<span class="green-span"> </span></div>
     </section>
 
     <!-- Footer -->
@@ -420,66 +1102,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 toggleActions: "play none none none"
             }
         });
-    });
-});
-</script>
-
-<!-- H1 Word Stagger Animation -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // Target the h1 in the hero section
-    const heroH1 = document.querySelector('.hero-section .hero-div .h1');
-
-    if (!heroH1 || typeof SplitText === 'undefined') return;
-
-    // Split the h1 into words AND characters to preserve word boundaries
-    const split = new SplitText(heroH1, {
-        type: "words, chars",
-        wordsClass: "word-wrapper",
-        charsClass: "char-inner"
-    });
-    const chars = split.chars;
-
-    // Wrap each character in a mask container
-    chars.forEach(char => {
-        const wrapper = document.createElement('div');
-        wrapper.style.display = 'inline-block';
-        wrapper.style.overflow = 'hidden';
-        wrapper.style.verticalAlign = 'bottom';
-        wrapper.style.paddingBottom = '0.15em';
-        char.style.display = 'inline-block';
-        char.parentNode.insertBefore(wrapper, char);
-        wrapper.appendChild(char);
-    });
-
-    // Get the inner chars after wrapping
-    const innerChars = document.querySelectorAll('.hero-section .hero-div .h1 .char-inner');
-
-    // Force scroll position to stay at top during manipulation
-    window.scrollTo(0, 0);
-
-    // Refresh ScrollTrigger after DOM manipulation
-    if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.refresh(true);
-    }
-
-    // Make h1 visible now that it's split
-    gsap.set(heroH1, { opacity: 1 });
-
-    // Set initial state for each character - all from bottom
-    gsap.set(innerChars, {
-        y: 150,
-        opacity: 0,
-        willChange: 'transform, opacity'
-    });
-
-    // Animate all characters in with subtle stagger
-    gsap.to(innerChars, {
-        y: 0,
-        opacity: 1,
-        duration: 0.1,
-        ease: 'expo.out',
-        stagger: 0.02
     });
 });
 </script>
@@ -620,15 +1242,18 @@ document.addEventListener("DOMContentLoaded", () => {
     padding: 5vw;
     box-sizing: border-box;
     position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--e2);
   }
 
   /* All hero sections - 10vh top margin, 100% width, 5vw padding */
   .hero-section {
     width: 100%;
     margin: 10vh 0 0 0;
-    padding: 5vw;
+    padding: 5vw 5vw 10vh 5vw;
     box-sizing: border-box;
-    min-height: 60vh;
+    min-height: auto;
   }
 
   /* All sections inside body-section - 100% width, 5vw padding */
@@ -927,43 +1552,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Contractor Typer Animation -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const typerElement = document.querySelector(".contractor-typer");
-    if (!typerElement) return;
-
-    // Store the full text
-    const fullText = typerElement.textContent;
-
-    // Clear the text initially
-    typerElement.textContent = "";
-
-    // Split into characters for animation
-    const chars = fullText.split('');
-
-    // Create ScrollTrigger to start typing when section is visible
-    ScrollTrigger.create({
-        trigger: typerElement,
-        start: "top 80%",
-        once: true,
-        onEnter: () => {
-            let charIndex = 0;
-
-            // Type out each character
-            const typeInterval = setInterval(() => {
-                if (charIndex < chars.length) {
-                    typerElement.textContent += chars[charIndex];
-                    charIndex++;
-                } else {
-                    clearInterval(typeInterval);
-                }
-            }, 50); // 50ms per character
-        }
-    });
-});
-</script>
-
 <!-- Testimonial Slider Auto-Rotate with GSAP -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1064,6 +1652,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 answer.style.paddingTop = '0.5rem';
                 icon.textContent = '−';
                 icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+});
+</script>
+
+<!-- Services Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const serviceItems = document.querySelectorAll('.service-accordion-item');
+
+    serviceItems.forEach((item) => {
+        const header = item.querySelector('.service-accordion-header');
+
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all other services
+            serviceItems.forEach((otherItem) => {
+                otherItem.classList.remove('active');
+            });
+
+            // Toggle current service
+            if (!isActive) {
+                item.classList.add('active');
             }
         });
     });
