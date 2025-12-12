@@ -5,7 +5,7 @@
 ## 🏗️ PROJECT STRUCTURE
 
 ```
-orga website/
+orga/
 ├── index.html (614 lines) - Main homepage
 ├── 50+ HTML pages (blog posts, services, landing pages)
 ├── css/

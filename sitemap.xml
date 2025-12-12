@@ -163,6 +163,23 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Vertical SEO Landing Pages -->
+  <url>
+    <loc>https://organicallyseo.com/law-firm-seo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/healthcare-seo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/home-services-seo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog Posts & Resources -->
   <url>
     <loc>https://organicallyseo.com/branding-basics</loc>
@@ -243,6 +260,52 @@
     <loc>https://organicallyseo.com/youtopia</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+
+  <!-- Legal SEO Blog Posts -->
+  <url>
+    <loc>https://organicallyseo.com/law-firm-seo-audit</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-personal-injury-lawyers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/family-law-digital-marketing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Healthcare SEO Blog Posts -->
+  <url>
+    <loc>https://organicallyseo.com/seo-for-dentists</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/google-ads-for-doctors</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Home Services SEO Blog Posts -->
+  <url>
+    <loc>https://organicallyseo.com/hvac-seo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-roofers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-pest-control-companies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
