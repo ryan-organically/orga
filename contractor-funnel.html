@@ -295,6 +295,197 @@
       margin-bottom: 0;
     }
 
+    /* Final CTA Section - 3 Part Structure */
+    .final-cta-section {
+      /* Inherits .section borders through class combination */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .final-cta-headline {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 600;
+      text-align: center;
+      margin: 0 0 1rem 0;
+      color: var(--black-75);
+    }
+
+    /* Process Cards */
+    .process-cards-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .process-card {
+      background-color: white;
+      border: 1px solid var(--black-20);
+      border-top: 3px solid var(--orga);
+      border-radius: 6px;
+      padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-top 0.25s ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(126, 199, 0, 0.15);
+      border-top: 4px solid var(--orga);
+    }
+
+    .process-card-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--orga);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .process-card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--black-75);
+    }
+
+    .process-card-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--black-75);
+      margin: 0;
+      opacity: 0.85;
+    }
+
+    /* Mini Testimonial - Hidden by default, add back when real testimonial ready */
+    .final-cta-testimonial {
+      display: none;
+      background-color: rgba(126, 199, 0, 0.06);
+      border-left: 4px solid var(--orga);
+      padding: 1.5rem 2rem;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .final-cta-testimonial-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      margin: 0 0 0.75rem 0;
+      font-style: italic;
+    }
+
+    .final-cta-testimonial-author {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--black-75);
+      margin: 0;
+      opacity: 0.8;
+    }
+
+    /* Risk Reversal - Integrated with button */
+    .final-cta-button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 650px;
+      width: 100%;
+    }
+
+    .risk-reversal-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      margin: 0;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .final-cta-button {
+      font-size: 1.15rem;
+      padding: 0.9rem 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .trust-badges {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0.65;
+      margin-top: 0.5rem;
+    }
+
+    .trust-badge-item {
+      font-size: 0.85rem;
+      color: var(--black-75);
+    }
+
+    /* Bonus Risk Reversals - Below button */
+    .bonus-risk-reversals {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      max-width: 550px;
+      width: 100%;
+    }
+
+    .bonus-risk-item {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--black-75);
+      opacity: 0.75;
+      text-align: center;
+      margin: 0;
+    }
+
+    .bonus-risk-item::before {
+      content: "• ";
+      color: var(--orga);
+      font-weight: 700;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 991px) {
+      .process-cards-container {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .final-cta-section {
+        gap: 2.5rem;
+      }
+
+      .final-cta-headline {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+      }
+
+      .process-card {
+        padding: 1.25rem 1rem;
+      }
+
+      .risk-reversal-text {
+        font-size: 0.95rem;
+      }
+    }
+
     /* Dark Breakdown Section */
     .dark-breakdown-section {
       background-color: #333;
@@ -1038,19 +1229,72 @@ html.lenis {
       </div>
     </section>
 
-    <!-- Final CTA Section - FROM BRAEDEN-FUNNEL-TEST -->
-    <section class="section diagonal-section">
-      <div class="diagonal-left">
-        <img src="images/monstera-placeholder.png" alt="Monstera plant" style="width: 25vw; height: auto; display: block; transform: scaleX(-1);">
+    <!-- Final CTA Section - 3 Part Visual Structure -->
+    <section class="section final-cta-section">
+
+      <!-- Headline -->
+      <h2 class="final-cta-headline">What The Breakdown Looks Like<span class="green-span">.</span></h2>
+
+      <!-- 3 Process Cards -->
+      <div class="process-cards-container">
+
+        <!-- Card 1 -->
+        <div class="process-card">
+          <div class="process-card-number">1</div>
+          <h3 class="process-card-title">Book Your Breakdown</h3>
+          <p class="process-card-text">Pick a time that works. 15 minutes. No prep required.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="process-card">
+          <div class="process-card-number">2</div>
+          <h3 class="process-card-title">We Review First</h3>
+          <p class="process-card-text">We review your site, Google presence, and local competitors before the call.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="process-card">
+          <div class="process-card-number">3</div>
+          <h3 class="process-card-title">Get Your Plan</h3>
+          <p class="process-card-text">Walk away with 2 to 3 specific fixes to improve calls quickly.</p>
+        </div>
+
       </div>
-      <div class="diagonal-right">
-        <h3 class="diagonal-h3">Here's what happens next.</h3>
-        <p class="diagonal-cta-text">Book your free 15-minute breakdown. I'll review your website, your Google presence, and your local competition beforehand.</p>
-        <p class="diagonal-cta-text">On the call, I'll show you exactly what's holding back leads right now and walk you through your custom 30-day action plan to fix it.</p>
-        <p class="diagonal-cta-text">You'll leave knowing your next 2-3 moves. Whether you implement it yourself or want help, you'll have total clarity.</p>
-        <p class="diagonal-cta-text" style="font-weight: 600; color: var(--orga);">No fluff. No pressure. Just a clear plan to get your phone ringing.</p>
-        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1">Book Your Free Breakdown</a>
+
+      <!-- Mini Testimonial (HIDDEN - Add back when real testimonial ready) -->
+      <!-- To show: change CSS .final-cta-testimonial { display: none; } to display: block; -->
+      <div class="final-cta-testimonial">
+        <p class="final-cta-testimonial-text">"We did the breakdown call and implemented 2 of the 3 recommendations. Started getting calls within 3 weeks."</p>
+        <p class="final-cta-testimonial-author">— [Client Name], [Company/Trade]</p>
       </div>
+
+      <!-- Risk Reversal + CTA Button + Bonus Reversals + Trust Badges -->
+      <div class="final-cta-button-container">
+
+        <!-- Primary Risk Reversal (Above Button) -->
+        <p class="risk-reversal-text">Everything we create during the breakdown is yours to keep, whether you work with us or not.</p>
+        <p class="risk-reversal-text">After the call, you decide what happens next. Use it yourself, work with us, or hand it to another team.</p>
+
+        <!-- CTA Button -->
+        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 final-cta-button">Book Free Breakdown</a>
+
+        <!-- Bonus Risk Reversals (Below Button) -->
+        <div class="bonus-risk-reversals">
+          <p class="bonus-risk-item">This session is about clarity, not selling. If you want help after, you can bring it up.</p>
+          <p class="bonus-risk-item">We start on time and finish fast. If we go over 20 minutes, that's on us.</p>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <span class="trust-badge-item">No contracts</span>
+          <span class="trust-badge-item">•</span>
+          <span class="trust-badge-item">No obligation</span>
+          <span class="trust-badge-item">•</span>
+          <span class="trust-badge-item">Typical response within 2 hours</span>
+        </div>
+
+      </div>
+
     </section>
 
     <!-- ========== HIDDEN: DUPLICATE TICKER ========== -->
