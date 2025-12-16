@@ -275,6 +275,26 @@
       margin-bottom: 1.5rem;
     }
 
+    /* Gap Callout Box */
+    .gap-callout-box {
+      background-color: rgba(126, 199, 0, 0.06);
+      border-left: 4px solid var(--orga);
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .gap-line {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      color: var(--black-75);
+      font-weight: 500;
+    }
+
+    .gap-line:last-child {
+      margin-bottom: 0;
+    }
+
     /* Dark Breakdown Section */
     .dark-breakdown-section {
       background-color: #333;
@@ -414,6 +434,13 @@
       }
       .h3.center-h3 {
         font-size: 2rem;
+      }
+      .gap-callout-box {
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0;
+      }
+      .gap-line {
+        font-size: 1.05rem;
       }
     }
 
@@ -715,8 +742,8 @@ html.lenis {
 
         <!-- Top Content: Heading & Subheading -->
         <div class="contractor-hero-content contractor-hero-top">
-          <!-- Eyebrow -->
-          <p class="p2 contractor-hero-eyebrow">10 Review/Week • Local Contractors</p>
+          <!-- Qualifier (moved up) -->
+          <p class="p2 contractor-hero-eyebrow">For Contractors Doing $250K+/Year</p>
 
           <!-- Main Heading -->
           <h1 class="h1 contractor-hero-h1">Free Contractor SEO Breakdown<span class="green-span">.</span></h1>
@@ -749,11 +776,6 @@ html.lenis {
 
           <!-- Primary CTA -->
           <a href="#" class="button-1 contractor-hero-cta" id="hero-calendar-toggle">Claim Your Free Review</a>
-
-          <!-- Trust Indicators -->
-          <div class="contractor-trust-indicators">
-            <p class="p2 trust-indicator-text qualifier">For Contractors doing 250K+/Year</p>
-          </div>
         </div>
 
       </div>
@@ -763,24 +785,30 @@ html.lenis {
       </div>
     </div>
 
-    <!-- Diagonal CTA Section with Services -->
+    <!-- ========== HIDDEN: EMPATHY SECTION ========== -->
+    <!-- Uncomment to restore this section
     <section class="section diagonal-section" style="padding-bottom: 0; flex-direction: column !important;">
-      <!-- 2 Column Row: Image + Text -->
       <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
         <div class="diagonal-left">
           <img src="images/monstera-placeholder.png" alt="Monstera plant" style="width: 25vw; height: auto; display: block; transform: scaleX(-1);">
         </div>
         <div class="diagonal-right">
-          <h3 class="diagonal-h3">Your website isn't broken. It's just invisible.</h3>
-          <p class="diagonal-cta-text">While you're waiting on the phone to ring, homeowners are searching for exactly what you do.</p>
-          <p class="diagonal-cta-text">But the contractor they call isn't the best one. It's the one who shows up first, looks credible, and makes it easy to say yes.</p>
-          <p class="diagonal-cta-text" style="font-weight: 600; color: var(--orga);">That could be you. And it doesn't take months to fix.</p>
+          <h3 class="diagonal-h3">Your website isn't broken. It's being ignored.</h3>
+          <p class="diagonal-cta-text">Homeowners are searching for your service every day. The reason they aren't calling you usually isn't price, quality, or experience.</p>
+          <p class="diagonal-cta-text">It's that they never really see you.</p>
+          <p class="diagonal-cta-text">Google decides who shows up first. Homeowners decide who feels safe enough to call.</p>
+          <p class="diagonal-cta-text">Most contractor websites fall into a quiet middle ground where neither one is convinced.</p>
+          <p class="diagonal-cta-text">You're not doing anything wrong. You're just missing a few signals that tell Google and buyers, "This is the right choice."</p>
+          <p class="diagonal-cta-text">That's why it feels frustrating. The demand exists. The work exists. The calls don't.</p>
+          <p class="diagonal-cta-text" style="font-weight: 600; color: var(--orga);">This breakdown exists to show you where that disconnect is happening.</p>
         </div>
       </div>
+    </section>
+    -->
 
-      <!-- 1 Column Row: Services Accordion -->
+    <!-- ========== HIDDEN: SERVICES ACCORDION ========== -->
+      <!-- Uncomment to restore this section
       <div class="services-accordion" style="margin-top: 3rem; width: 100%;">
-        <!-- Service 1 -->
         <div class="service-accordion-item">
           <div class="service-accordion-header">
             <span class="service-accordion-title">Custom Websites</span>
@@ -790,7 +818,6 @@ html.lenis {
           </div>
         </div>
 
-        <!-- Service 2 -->
         <div class="service-accordion-item">
           <div class="service-accordion-header">
             <span class="service-accordion-title">Local SEO</span>
@@ -800,7 +827,6 @@ html.lenis {
           </div>
         </div>
 
-        <!-- Service 3 -->
         <div class="service-accordion-item">
           <div class="service-accordion-header">
             <span class="service-accordion-title">Lead Generation</span>
@@ -810,7 +836,6 @@ html.lenis {
           </div>
         </div>
 
-        <!-- Service 4 -->
         <div class="service-accordion-item">
           <div class="service-accordion-header">
             <span class="service-accordion-title">Professional Branding</span>
@@ -820,9 +845,11 @@ html.lenis {
           </div>
         </div>
       </div>
+      -->
     </section>
 
-    <!-- Dark Breakdown Section -->
+    <!-- ========== HIDDEN: DARK BREAKDOWN SECTION ========== -->
+    <!-- Uncomment to restore this section
     <section class="section dark-breakdown-section">
       <div class="dark-breakdown-container">
         <h2 class="dark-breakdown-headline">Your website isn't meant to sit there looking good.</h2>
@@ -843,6 +870,7 @@ html.lenis {
         </div>
       </div>
     </section>
+    -->
 
     <!-- Problem Section -->
     <section class="section diagonal-section">
@@ -859,7 +887,8 @@ html.lenis {
       </div>
     </section>
 
-    <!-- Framework Details -->
+    <!-- ========== HIDDEN: FRAMEWORK DETAILS SECTION ========== -->
+    <!-- Uncomment to restore this section
     <address data-w-id="framework-detail" style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section-home-3">
       <h3 class="h3 center-h3">Why contractors choose to work with us</h3>
       <div class="revealed-content-div left">
@@ -893,6 +922,7 @@ html.lenis {
         </div>
       </div>
     </address>
+    -->
 
     <!-- Testimonials Section - KEPT FROM CURRENT VERSION -->
     <section class="section">
@@ -924,7 +954,8 @@ html.lenis {
       </div>
     </section>
 
-    <!-- Why Contractors Partner Section - KEPT FROM CURRENT VERSION -->
+    <!-- ========== HIDDEN: WHY CONTRACTORS PARTNER (BIO SECTION) ========== -->
+    <!-- Uncomment to restore this section
     <section class="section" style="background-color: #333; color: #e2e2e2;">
       <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem; color: #e2e2e2;">Why Contractors Partner with Us</h2>
 
@@ -942,6 +973,7 @@ html.lenis {
         <a href="#" class="button-1 w-button calendar-toggle-btn" style="background-color: #e2e2e2; color: #333;">Book Your Free Call</a>
       </div>
     </section>
+    -->
 
     <!-- FAQ Section - KEPT FROM CURRENT VERSION -->
     <section class="section">
@@ -1021,10 +1053,12 @@ html.lenis {
       </div>
     </section>
 
-    <!-- Ticker Text -->
+    <!-- ========== HIDDEN: DUPLICATE TICKER ========== -->
+    <!-- Uncomment to restore this section
     <section id="contractor-services" class="section ticker-testimonial-section">
       <div class="ticking-text">Book your free breakdown, discover what's holding you back, and start filling your calendar with qualified leads.<span class="green-span"> </span></div>
     </section>
+    -->
 
     <!-- Footer -->
     <div id="Footer" class="footer">
