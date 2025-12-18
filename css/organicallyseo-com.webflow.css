@@ -8530,17 +8530,6 @@ a {
   margin-bottom: 8px;
 }
 
-/* Ensure consistent padding for all blog card content */
-.blog-card-content {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-/* Fix the bog-comp-p class that might conflict */
-.blog-card-content .bog-comp-p {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
 
 /* Ensure menu button is clickable */
 .side-menu-button {
