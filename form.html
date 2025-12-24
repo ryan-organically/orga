@@ -320,7 +320,7 @@ html.lenis {
     right: 0;
     width: 20vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 100;
     opacity: 1;
     visibility: visible;
     margin: 0;
@@ -435,14 +435,58 @@ html.lenis {
     font-weight: 600;
   }
 
-  /* Responsive Calendar Content */
+  /* Responsive Calendar Content - Gradual Font Scaling */
+  @media (max-width: 1400px) {
+    .calendar-title {
+      font-size: 22px;
+    }
+    .calendar-subtitle {
+      font-size: 13px;
+    }
+    .review-quote {
+      font-size: 15px;
+    }
+    .review-author {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .calendar-title {
+      font-size: 21px;
+    }
+    .review-quote {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .calendar-title {
+      font-size: 20px;
+    }
+    .calendar-subtitle {
+      font-size: 12px;
+    }
+    .review-quote {
+      font-size: 13px;
+    }
+    .review-author {
+      font-size: 12px;
+    }
+  }
+
   @media (max-width: 767px) {
     .calendar-header {
       padding: 25px 20px 15px;
     }
-
     .calendar-title {
-      font-size: 20px;
+      font-size: 18px;
+    }
+    .calendar-subtitle {
+      font-size: 11px;
+    }
+    .review-quote {
+      font-size: 12px;
     }
   }
 
@@ -450,9 +494,20 @@ html.lenis {
     .calendar-header {
       padding: 20px 15px 12px;
     }
-
     .calendar-title {
-      font-size: 18px;
+      font-size: 16px;
+    }
+    .calendar-subtitle {
+      font-size: 10px;
+    }
+    .review-quote {
+      font-size: 11px;
+    }
+    .review-author {
+      font-size: 11px;
+    }
+    .review-stars {
+      width: 100px;
     }
   }
 
@@ -479,6 +534,12 @@ html.lenis {
 
   .dark-mode .calendar-title {
     color: var(--white);
+  }
+
+  /* Disable Schedule a Call button on form.html page only */
+  #calendar-toggle {
+    pointer-events: none;
+    opacity: 0.5;
   }
 </style>
 

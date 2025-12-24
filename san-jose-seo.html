@@ -27,7 +27,144 @@
   <style>
   body {
     overflow-x: clip;
-  }  
+  }
+  .hero-section .div-horiz-50 {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+  }
+  .hero-section ._96 {
+    flex: 1;
+    padding: 30px;
+    height: auto;
+  }
+  .hero-section .large-96 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-section .large-96-text {
+    font-family: Coolvetica rg, sans-serif;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    line-height: 1;
+    color: var(--black-75);
+  }
+  .fixed-image {
+    margin-left: 20px;
+  }
+  ._96 {
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  ._96:hover {
+    background-color: transparent;
+    border-color: rgba(126, 199, 0, 0.6);
+  }
+  /* Contact section */
+  .contact-section {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 60px;
+  }
+  .contact-calendar {
+    flex: 1.2;
+    min-width: 400px;
+    max-width: 700px;
+  }
+  .contact-content {
+    flex: 1;
+    max-width: 500px;
+  }
+  /* Tabs styles */
+  .services-tabs {
+    display: flex;
+    gap: 60px;
+    width: 100%;
+    margin-top: 40px;
+    align-items: flex-start;
+  }
+  .tabs-headings {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 0 0 40%;
+  }
+  .h3 {
+    font-family: Coolvetica rg, sans-serif;
+  }
+  .tab-heading {
+    cursor: pointer;
+    margin: 0;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: var(--black-60);
+    transition: color 0.3s ease;
+  }
+  .tab-heading:hover {
+    color: var(--black-75);
+  }
+  .tab-heading.active {
+    color: var(--orga);
+  }
+  .tabs-content {
+    flex: 1;
+    position: relative;
+    min-height: 150px;
+  }
+  .tab-panel {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .tab-panel.active {
+    opacity: 1;
+  }
+  @media (max-width: 991px) {
+    .hero-section {
+      padding-top: 5vh;
+      padding-bottom: 5vh;
+    }
+    .fixed-image {
+      width: 100%;
+      margin-left: 0;
+    }
+    .services-tabs {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .tabs-headings {
+      flex: none;
+      width: 100%;
+    }
+    .tabs-content {
+      position: relative;
+      min-height: auto;
+    }
+    .tab-panel {
+      position: relative;
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+      position: relative;
+    }
+    .contact-section {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .contact-calendar {
+      min-width: unset;
+      max-width: none;
+      width: 100%;
+    }
+    .contact-content {
+      max-width: none;
+      width: 100%;
+    }
+  }
 </style><!--  Google tag (gtag.js)  -->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5P2BXC0HHH"></script>
   <script>
@@ -94,7 +231,7 @@ html.lenis {
   <div id="particles-js" data-w-id="2be5e6bd-bf08-f347-c1d4-c74c6a23eed5" class="particles-js-div">
     <div class="cursor"></div>
   </div>
-  <div class="lz-hero-section san-jose-hero">
+  <div class="hero-section">
     <div class="div-100-space-between vert-mobile">
       <div class="div-vert-50">
         <h1 class="h1 san-jose-h1">San Jose SEO </h1>
@@ -103,13 +240,7 @@ html.lenis {
       </div>
       <div class="fixed-image sj-image"></div>
     </div>
-  </div>
-  <div class="div-horiz-space-between">
-    <div class="space-around-counterpart"></div>
-    <div class="div-50"></div>
-  </div>
-  <section class="section _96-section">
-    <div class="div-horiz-50 _100-mobile">
+    <div class="div-horiz-50 _100-mobile" style="margin-top: 60px;">
       <div class="_96">
         <div class="large-96">
           <div id="scramble1" class="large-96-text">96.55%</div>
@@ -119,105 +250,73 @@ html.lenis {
       <div class="_96">
         <div class="large-96">
           <div id="scramble2" class="large-96-text">10%</div>
-          <div>of the SERP has been indexed for 3+ years</div>
+          <div>of the SERP has been indexed for 3+ years</div>
         </div>
       </div>
     </div>
-    <div>
-      <h2 class="h2 san-jose">I run a solo design &amp; seo agency that can get you local leads. Need proof? You&#x27;re here aren&#x27;t you...</h2>
+  </div>
+  <section class="section" style="padding-bottom: 10vh;">
+    <h2 class="h2" style="text-align: center;">I run a solo design &amp; seo agency that can get you local leads. Need proof? You're here aren't you...</h2>
+    <div class="services-tabs">
+      <div class="tabs-headings">
+        <h3 class="h3 tab-heading active" data-tab="0">Local SEO for San Jose Businesses</h3>
+        <h3 class="h3 tab-heading" data-tab="1">Technical SEO &amp; Site Architecture</h3>
+        <h3 class="h3 tab-heading" data-tab="2">Content Strategy &amp; Keyword Research</h3>
+      </div>
+      <div class="tabs-content">
+        <div class="tab-panel active" data-panel="0">
+          <p class="p1-left-align">Dominate the Silicon Valley market with hyperlocal optimization. From Google Business Profile to location-based keywords, we position your business in front of San Jose customers actively searching for your services. Map pack rankings, local citations, and neighborhood-specific content that converts.</p>
+        </div>
+        <div class="tab-panel" data-panel="1">
+          <p class="p1-left-align">Speed, structure, and crawlability matter. We audit your site for technical bottlenecks, fix indexing issues, optimize Core Web Vitals, and build a URL structure that search engines love. Clean code, fast load times, and mobile-first design that ranks.</p>
+        </div>
+        <div class="tab-panel" data-panel="2">
+          <p class="p1-left-align">Identify high-intent keywords your San Jose competitors are missing. We map content to the buyer journey, craft pages that satisfy search intent, and build topical authority in your niche. Data-driven content that earns traffic and trust.</p>
+        </div>
+      </div>
     </div>
   </section>
-  <div class="service-section">
-    <div class="div-horiz-space-around services-feature">
-      <div class="lz-feature-spline" data-w-id="a7cb0cef-e15b-4574-ba42-ab826ea7c532" data-animation-type="spline" data-spline-url="https://prod.spline.design/V1XzeARDXU5ZRNYM/scene.splinecode"><canvas></canvas></div>
-      <div class="div-vert-50">
-        <h3 class="h3">SEO Content Writing Services</h3>
-        <p class="p1-left-align">Organic search traffic reaches your website from search results. To appear in search results, your content must include the right keywords. We&#x27;ll adjust your content and chart the shortest course to Google stardom. Stay ahead of the game and get traffic from untapped keywords.</p>
+  <section class="section contact-section">
+    <div class="contact-content">
+      <h2 class="h2">Let's Connect<span class="green-span">.</span></h2>
+      <p class="p1-left-align">Pick a time that works for you. Whether it's about a project, networking, consulting, or just chatting about ideas—I'm here for it.</p>
+      <div style="margin-top: 30px; margin-bottom: 10px;">
+        <p style="font-family: 'Coolvetica rg', sans-serif; font-weight: 400; font-size: 18px; margin-bottom: 15px; opacity: 0.9;">What you'll get:</p>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--orga); font-size: 16px; line-height: 1.5;">✓</span>
+            <span class="p2" style="line-height: 1.5;">Honest feedback on your digital presence</span>
+          </li>
+          <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--orga); font-size: 16px; line-height: 1.5;">✓</span>
+            <span class="p2" style="line-height: 1.5;">Ideas tailored to your goals</span>
+          </li>
+          <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--orga); font-size: 16px; line-height: 1.5;">✓</span>
+            <span class="p2" style="line-height: 1.5;">Strategic insights &amp; recommendations</span>
+          </li>
+          <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+            <span style="color: var(--orga); font-size: 16px; line-height: 1.5;">✓</span>
+            <span class="p2" style="line-height: 1.5;">No pressure, just real conversation</span>
+          </li>
+        </ul>
+      </div>
+      <div style="margin-top: 40px;">
+        <img src="green 5 star.png" alt="5 stars" style="width: 125px; margin-bottom: 15px;">
+        <p class="p2" style="font-style: italic; font-size: 12px; margin-bottom: 5px;">IWC Cabinetry</p>
+        <p class="p2" style="font-style: italic; font-size: 12px; line-height: 1.5;">"His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come."</p>
       </div>
     </div>
-    <div class="div-horiz-space-around services-feature">
-      <div class="lz-feature-spline" data-w-id="acab3b53-a750-d5e5-6640-067fa4ccb2a7" data-animation-type="spline" data-spline-url="https://prod.spline.design/WeUPNkioqMZV3Uez/scene.splinecode"><canvas></canvas></div>
-      <div class="div-vert-50"><img src="images/Web-Design-for-Lawn-Care-Hero.png" loading="lazy" alt="" class="lz-image-1 filter-2">
-        <h3 class="h3">In-depth Keyword Research</h3>
-        <p class="p1-left-align">Identify keywords in your niche that have search demand. We help you write content that pleases users &amp; search engines alike. Learn how to satisfy search intent with content and answer search queries that have massive traffic potential.</p>
-      </div>
+    <div class="contact-calendar">
+      <iframe
+        src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&background_color=e2e2e2&text_color=000000&hide_event_type_details=1"
+        style="width: 100%;"
+        height="700"
+        frameborder="0"
+        loading="lazy">
+      </iframe>
     </div>
-    <div class="div-horiz-space-around services-feature">
-      <div class="lz-feature-spline" data-w-id="ba7a982b-c310-1229-e67c-2e05e6b2e848" data-animation-type="spline" data-spline-url="https://prod.spline.design/QCQtYOcsOak7IyWm/scene.splinecode"><canvas></canvas></div>
-      <div class="div-vert-50"><img src="images/Web-Design-for-Lawn-Care-Hero.png" loading="lazy" alt="" class="lz-image-1 filter-2">
-        <h3 class="h3">In-depth Keyword Research</h3>
-        <p class="p1-left-align">Identify keywords in your niche that have search demand. We help you write content that pleases users &amp; search engines alike. Learn how to satisfy search intent with content and answer search queries that have massive traffic potential.</p>
-      </div>
-    </div>
-  </div>
-  <div class="form-page-section">
-    <div class="form-div-1"><img src="images/Organically-Logo-green.png" loading="lazy" width="174" sizes="174px" alt="" srcset="images/Organically-Logo-green-p-500.png 500w, images/Organically-Logo-green-p-800.png 800w, images/Organically-Logo-green.png 1000w" class="form-orga-image"></div>
-    <div class="form-block-2 w-form">
-      <form id="Home-page-form" name="wf-form-Email-and-Business-Form" data-name="Email and Business Form" method="get" class="form-page-form" data-wf-page-id="64f0ded03bb87a4e50e76262" data-wf-element-id="31e81389-e73c-0d1f-522e-5a611944e276">
-        <div>
-          <div class="form-heading">Let&#x27;s get it done <span class="green-span">organically. </span></div>
-          <p class="form-paragraph form-p-2">Want to get in touch about my services? Fill out a form below. </p>
-        </div>
-        <div class="form-page-div"><input class="field-1 w-input" maxlength="256" name="Name-2" data-name="Name 2" placeholder="Enter your name*" type="text" id="Name-2" required=""><input class="field-1 w-input" maxlength="256" name="Email-3" data-name="Email 3" placeholder="Enter your email*" type="email" id="Email-3" required=""></div><input class="field-1 w-input" maxlength="256" name="Website-2" data-name="Website 2" placeholder="Enter your website" type="text" id="Website-2" required=""><input class="field-2 w-input" maxlength="256" name="Note-2" data-name="Note 2" placeholder="Add some details about your business" type="text" id="Note-2" required="">
-        <p class="p1-left-align form-p2">By clicking &quot;Submit,&quot; you agree to the terms laid out in the <a href="privacy-policy.html" class="privacy-policy-text">Privacy Policy.</a>
-        </p><input type="submit" data-wait="Getting in touch with our experts..." class="button-1 w-button" value="Submit">
-      </form>
-      <div class="success-message w-form-done">
-        <div class="text-block-10">Thank you! Your submission has been received!</div>
-      </div>
-      <div class="w-form-fail">
-        <div>Oops! Something went wrong while submitting the form.</div>
-      </div>
-    </div>
-  </div>
-  <div class="blog-preview">
-    <a href="blog.html" class="blog-thumbs-blog-home w-inline-block">
-      <h5 class="read-more-heading">Organically Written </h5>
-    </a>
-    <div class="read-more-module">
-      <a href="what-is-seo.html" class="blog-card-1 w-inline-block"><img src="images/Webflow-Launch-Checklist.png" loading="lazy" sizes="100vw" srcset="images/Webflow-Launch-Checklist-p-500.png 500w, images/Webflow-Launch-Checklist-p-800.png 800w, images/Webflow-Launch-Checklist-p-1080.png 1080w, images/Webflow-Launch-Checklist-p-1600.png 1600w, images/Webflow-Launch-Checklist.png 1920w" alt="" class="blog-component-thumbnail">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text">Marketing</div>
-          </div>
-          <p class="blog-module-card-title">What is SEO?<br></p>
-          <p class="blog-component-date">Updated April 17, 2024</p>
-          <div class="bog-comp-p">Ranking on search engines isn&#x27;t luck. The average person makes 3-4 searches on Google per day. Learn how to answer them.</div>
-        </div>
-      </a>
-      <a href="webflow-launch-checklist.html" class="blog-card-1 w-inline-block"><img src="images/Webflow-Launch-Checklist.png" loading="lazy" sizes="100vw" srcset="images/Webflow-Launch-Checklist-p-500.png 500w, images/Webflow-Launch-Checklist-p-800.png 800w, images/Webflow-Launch-Checklist-p-1080.png 1080w, images/Webflow-Launch-Checklist-p-1600.png 1600w, images/Webflow-Launch-Checklist.png 1920w" alt="" class="blog-component-thumbnail">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text design">Design</div>
-          </div>
-          <p class="blog-module-card-title">Webflow Launch Checklist<br></p>
-          <p class="blog-component-date">September 5, 2024</p>
-          <div>Launching a website on Webflow can be terrifying, especially if it’s your first time. Many things can go wrong; some things you may never have heard of. </div>
-        </div>
-      </a>
-      <a href="webflow-launch-checklist.html" class="blog-card-1 w-inline-block"><img src="images/Webflow-Launch-Checklist.png" loading="lazy" sizes="100vw" srcset="images/Webflow-Launch-Checklist-p-500.png 500w, images/Webflow-Launch-Checklist-p-800.png 800w, images/Webflow-Launch-Checklist-p-1080.png 1080w, images/Webflow-Launch-Checklist-p-1600.png 1600w, images/Webflow-Launch-Checklist.png 1920w" alt="" class="blog-component-thumbnail">
-        <div class="blog-card-content">
-          <p class="blog-module-card-title">Basics of Branding: How to Build Your Own Brand<br></p>
-          <p class="blog-component-date">June 6, 2024</p>
-          <div>Deciding on an original name, colors, logo, and website that speak to you are big commitments.</div>
-        </div>
-      </a>
-      <a href="webflow-launch-checklist.html" class="blog-card-1 w-inline-block"><img src="images/Webflow-Launch-Checklist.png" loading="lazy" sizes="100vw" srcset="images/Webflow-Launch-Checklist-p-500.png 500w, images/Webflow-Launch-Checklist-p-800.png 800w, images/Webflow-Launch-Checklist-p-1080.png 1080w, images/Webflow-Launch-Checklist-p-1600.png 1600w, images/Webflow-Launch-Checklist.png 1920w" alt="" class="blog-component-thumbnail">
-        <div class="blog-card-content">
-          <p class="blog-module-card-title">Webflow vs. Figma<br></p>
-          <div class="p1-left-align blog-card-p1">In today&#x27;s shifting tides of creative design and development programs, selecting the right tools can significantly impact your creative journey.</div>
-          <p class="p1-left-align blog-card-p1 blog-card-date">July 12, 2023</p>
-        </div>
-      </a>
-      <a href="webflow-launch-checklist.html" class="blog-card-1 w-inline-block"><img src="images/Webflow-Launch-Checklist.png" loading="lazy" sizes="100vw" srcset="images/Webflow-Launch-Checklist-p-500.png 500w, images/Webflow-Launch-Checklist-p-800.png 800w, images/Webflow-Launch-Checklist-p-1080.png 1080w, images/Webflow-Launch-Checklist-p-1600.png 1600w, images/Webflow-Launch-Checklist.png 1920w" alt="" class="blog-component-thumbnail">
-        <div class="blog-card-content">
-          <p class="blog-module-card-title">What is AI Art? <br>And Will It Replace Artists? <br></p>
-          <p class="p1-left-align blog-card-p1 blog-card-date">July 12, 2023</p>
-          <div class="p1-left-align blog-card-p1">AI’s threat to jobs and humanity as a whole jeopardizes life as we know it.</div>
-        </div>
-      </a>
-    </div>
-  </div>
+  </section>
   <div id="Footer" class="footer">
     <div class="footer-organically-bg">Organically</div>
     <div class="footer-typemark-div">
@@ -630,39 +729,58 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-    console.log("Fetching ScrambleText plugin...");
-    fetch("https://cdn.prod.website-files.com/62b051031253bad4ba698d38/67ccd486adfd00776efdaf24_scrambleText.txt")
-        .then(response => response.text())
-        .then(scriptText => {
-            console.log("ScrambleText plugin fetched successfully.");
-            // Force execution of the fetched script
-            try {
-                eval(scriptText); // Execute the script as JS
-                console.log("ScrambleText plugin executed.");
-            } catch (error) {
-                console.error("Error executing ScrambleText plugin:", error);
-                return;
-            }
-            // Ensure the plugin is available
-            if (typeof gsap === "undefined") {
-                console.error("GSAP is not defined.");
-                return;
-            }
-            if (typeof ScrambleTextPlugin === "undefined") {
-                console.error("ScrambleTextPlugin is not available.");
-                return;
-            }
-            console.log("GSAP and ScrambleTextPlugin are successfully loaded.");
-            // Register ScrambleTextPlugin and run animation
-            gsap.registerPlugin(ScrambleTextPlugin);
-            let tl = gsap.timeline();
-            tl.to("#scramble1", { 
-                duration: 3, 
-                scrambleText: { text: "96%", chars: "0123456789", tweenLength: false } 
-            });
-            console.log("ScrambleText animation triggered.");
-        })
-        .catch(error => console.error("Error loading ScrambleText plugin:", error));
+// Services Tabs with GSAP Ticker Timeline
+document.addEventListener("DOMContentLoaded", () => {
+  const headings = document.querySelectorAll('.tab-heading');
+  const panels = document.querySelectorAll('.tab-panel');
+  const duration = 20; // seconds per tab
+  let currentIndex = 0;
+
+  function showTab(index) {
+    // Update headings
+    headings.forEach((h, i) => {
+      if (i === index) {
+        h.classList.add('active');
+      } else {
+        h.classList.remove('active');
+      }
+    });
+    // Crossfade panels - show new one first, then hide old
+    panels.forEach((p, i) => {
+      if (i === index) {
+        p.classList.add('active');
+        gsap.to(p, { opacity: 1, duration: 0.8, ease: 'power2.out' });
+      } else {
+        gsap.to(p, { opacity: 0, duration: 0.6, ease: 'power2.out', onComplete: () => {
+          p.classList.remove('active');
+        }});
+      }
+    });
+    currentIndex = index;
+  }
+
+  // Initialize first tab
+  showTab(0);
+
+  // Auto-progress with setInterval for reliability
+  let autoProgress = setInterval(() => {
+    currentIndex = (currentIndex + 1) % headings.length;
+    showTab(currentIndex);
+  }, duration * 1000);
+
+  // Click to manually select
+  headings.forEach((heading, i) => {
+    heading.addEventListener('click', () => {
+      clearInterval(autoProgress);
+      showTab(i);
+      // Resume auto-progress after duration
+      autoProgress = setInterval(() => {
+        currentIndex = (currentIndex + 1) % headings.length;
+        showTab(currentIndex);
+      }, duration * 1000);
+    });
+  });
+});
 </script>
 </body>
 </html>
