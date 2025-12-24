@@ -115,6 +115,7 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     position: relative;
     margin: 0;
@@ -149,7 +150,7 @@ html.lenis {
   <!-- Left Menu Panel -->
   <div class="side-menu-panel">
       <div class="side-panel">
-        <div class="menu-header">
+        <div class="menu-header" style="display: none;">
           <p class="menu-tagline">Redefining agency marketing—one organic idea at a time.</p>
         </div>
         <nav class="menu-nav">
@@ -159,6 +160,7 @@ html.lenis {
           <a href="/branding" class="menu-nav-link">Creative</a>
           <a href="/blog" class="menu-nav-link">Blog</a>
         </nav>
+        <img src="images/Steel-Building.png" alt="Pittsburgh Steel Building" class="side-panel-logo">
       </div>
     </div>
 
@@ -169,7 +171,7 @@ html.lenis {
       <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
         <div class="dark-mode-button"></div><img src="images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon"><img src="images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
       </div>
-      <a href="#" class="button-1 w-button" id="calendar-toggle">Schedule a call</a>
+      <a href="/form" class="button-1 w-button">Schedule a call</a>
     </div>
     <!-- Announcement Banner -->
     <div class="announcement-banner" style="display: none;">
@@ -1222,102 +1224,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <style>
 
-  /* Left Side Menu Panel - 5vw, fixed to left edge */
+  /* Left Side Menu Panel - 5% width, flex child */
   .side-menu-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 5vw;
-    height: 100vh;
+    position: relative;
+    width: 5%;
+    min-height: 100vh;
     z-index: 1;
-    opacity: 1;
-    visibility: visible;
   }
 
-  /* Side Panel - child that toggles, 100% width, no padding or margin */
+  /* Side Panel - full width, vertically centered */
   .side-panel {
+    position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     margin: 0;
-    padding: 0 0 5vh 0;
+    padding: 0;
     background: var(--e2);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     opacity: 0;
     visibility: hidden;
     box-sizing: border-box;
   }
 
-  /* Menu header - 10vh at top */
-  .menu-header {
-    height: 10vh;
-    padding: 20px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--black-40);
-    box-sizing: border-box;
-  }
-
-  .menu-tagline {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.4;
-    opacity: 0.8;
-    font-style: italic;
-  }
-
-  /* Menu nav links - only top margin allowed */
+  /* Menu nav - full width of parent */
   .menu-nav {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    width: 100%;
     padding: 0;
     margin: 0;
   }
 
   .menu-nav-link {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0 20px;
-  }
-
-  .menu-footer {
-    padding: 0 20px 20px;
+    width: 100%;
     margin: 0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    white-space: nowrap;
   }
 
-  /* Center Body Section - centered with equal margins */
-  .body-section {
-    width: 90vw;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-    z-index: 10;
-  }
-
-  /* Tablet - keep centered */
-  @media (max-width: 991px) {
-    .side-menu-panel {
-      width: 5vw;
-    }
-
-    .calendar-module {
-      width: 5vw;
-    }
-
-    .body-section {
-      width: 90vw;
-      margin: 0 auto;
-    }
-
-    .body-section > section:not(#Footer),
-    .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer) {
-      padding: 5vw;
-    }
+  .side-panel-logo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 30vw;
+    opacity: 0.6;
   }
 
   /* Universal Menu - 100% width of body-section */
@@ -1347,58 +1300,35 @@ document.addEventListener("DOMContentLoaded", () => {
     box-sizing: border-box;
   }
 
-  /* Right Calendar Module - 5vw, fixed to right edge */
+  /* Right Calendar Module - 5% width, flex child */
   .calendar-module {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 5vw;
-    height: 100vh;
+    position: relative;
+    width: 5%;
+    min-height: 100vh;
     z-index: 1;
-    opacity: 1;
-    visibility: visible;
-    margin: 0;
-    padding: 0;
   }
 
-  /* Mobile - scale up panels proportionally */
+  /* Mobile - keep same proportions */
   @media (max-width: 767px) {
-    .body-section {
-      width: 100vw;
-      margin: 0;
-      padding: 0 5vw;
-      box-sizing: border-box;
-    }
-
     .side-menu-panel {
-      width: 75vw;
-      left: -75vw;
-    }
-
-    .side-panel {
-      width: 100%;
+      width: 5%;
     }
 
     .calendar-module {
-      width: 75vw;
-      right: -75vw;
-    }
-
-    .calendar-panel-content {
-      width: 100%;
+      width: 5%;
     }
 
     .universal-menu {
-      padding: 2.5vw;
+      padding: 2.5%;
     }
 
     .hero-section {
-      padding: 2.5vw;
+      padding: 2.5%;
     }
 
     .body-section > section:not(#Footer),
     .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer) {
-      padding: 5vw;
+      padding: 5%;
     }
   }
 
@@ -1709,8 +1639,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const bodySection = document.querySelector('.body-section');
   const calendarModule = document.querySelector('.calendar-module');
 
-  // Initialize body-section position to prevent jump on load
-  gsap.set(bodySection, { x: 0 });
+  // Body-section position handled by CSS margin: 0 auto
 
   let isCalendarOpen = false;
 
