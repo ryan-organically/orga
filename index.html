@@ -604,15 +604,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const shrunkP = document.querySelector(".shrunk-p");
         const building = document.querySelector(".hero-steel-building");
 
-        // Hide shrunk-p and building initially
+        // Early return if SplitText not loaded - don't hide elements
+        if (!h1 || typeof SplitText === 'undefined') return;
+
+        // Hide shrunk-p and building initially (only after confirming animation will run)
         if (shrunkP) {
             gsap.set(shrunkP, { autoAlpha: 0 });
         }
         if (building) {
             gsap.set(building, { autoAlpha: 0 });
         }
-
-        if (!h1 || typeof SplitText === 'undefined') return;
 
         // Split the h1 into words AND characters to preserve word boundaries
         const split = new SplitText(h1, {
@@ -683,6 +684,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: "power3.out",
                 onComplete: animateBuilding
             });
+        } else {
+            // If no shrunkP, still continue the animation chain
+            animateBuilding();
         }
     }
 
