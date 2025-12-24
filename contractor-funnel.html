@@ -30,7 +30,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: min-content auto;
-      gap: 3rem 4rem;
+      gap: 1.5rem 4rem;
       align-items: start;
       width: 100%;
       padding: 0;
@@ -151,22 +151,12 @@
       justify-content: center;
     }
 
-    .vsl-placeholder {
+    .vsl-video {
       width: 100%;
       aspect-ratio: 16/9;
       background-color: var(--black-10);
-      border: 2px dashed var(--black-40);
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .vsl-placeholder-text {
-      opacity: 0.5;
-      font-size: 1.2rem;
-      font-style: italic;
-      margin: 0;
+      object-fit: cover;
     }
 
     /* Tablet/Mid-range Responsive */
@@ -940,14 +930,18 @@ html.lenis {
           <h1 class="h1 contractor-hero-h1">Free Contractor SEO Breakdown<span class="green-span">.</span></h1>
 
           <!-- Subheading -->
-          <p class="shrunk-p contractor-hero-subhead">Discover why your website and Google presence aren't producing calls yet and what to fix first so leads start coming in over the next 30 days.</p>
+          <p class="shrunk-p">Discover why your website and Google presence aren't producing calls yet and what to fix first so leads start coming in over the next 30 days.</p>
+
+          <!-- Primary CTA -->
+          <a href="#" class="button-1 contractor-hero-cta" id="hero-calendar-toggle" style="margin-top: 20px;">Claim Your Free Review</a>
         </div>
 
         <!-- VSL - Will be reordered on mobile -->
         <div class="contractor-hero-vsl">
-          <div class="vsl-placeholder">
-            <p class="p2 vsl-placeholder-text">Video Sales Letter</p>
-          </div>
+          <video class="vsl-video" controls poster="images/vsl-poster.jpg">
+            <source src="videos/contractor-vsl.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <!-- Bottom Content: Benefits, CTA, Trust -->
