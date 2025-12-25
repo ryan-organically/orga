@@ -132,7 +132,7 @@ html.lenis {
         <p class="p2" style="font-style: italic; font-size: 11px; line-height: 1.5;">"His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come."</p>
       </div>
     </div>
-    <div style="flex: 1.2; min-width: 600px; width: 100%; height: auto; min-height: 900px; background: transparent; box-shadow: none; display: flex; justify-content: center;">
+    <div class="form-calendar-container" style="flex: 1.2; width: 100%; height: auto; min-height: 700px; background: transparent; box-shadow: none; display: flex; justify-content: center;">
       <iframe
         src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&background_color=e2e2e2&text_color=000000&hide_event_type_details=1"
         style="max-width: 700px; width: 100%;"
@@ -277,10 +277,11 @@ html.lenis {
     margin: 0;
   }
 
-  /* Center Body Section - 90vw, centered, no side margins */
+  /* Center Body Section - 90vw, centered with auto margins */
   .body-section {
     width: 90vw;
-    margin: 0;
+    max-width: 90vw;
+    margin: 0 auto;
     padding: 0;
     position: relative;
     z-index: 10;
@@ -513,6 +514,12 @@ html.lenis {
 
   /* Responsive Hero Section */
   @media (max-width: 991px) {
+    .body-section {
+      width: 90vw;
+      max-width: 90vw;
+      margin: 0 auto;
+    }
+
     .hero-section[style*="flex-direction: row"] {
       flex-direction: column !important;
       gap: 40px !important;
@@ -520,6 +527,42 @@ html.lenis {
 
     .hero-section > div[style*="max-width: 500px"] {
       max-width: 100% !important;
+    }
+
+    .form-calendar-container {
+      min-height: 700px !important;
+      width: 100% !important;
+    }
+
+    .form-calendar-container iframe {
+      max-width: 100% !important;
+      height: 750px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .body-section {
+      width: 90vw;
+      max-width: 90vw;
+      margin: 0 auto;
+    }
+
+    .hero-section {
+      padding-top: 10vw !important;
+    }
+
+    .form-calendar-container {
+      min-height: 650px !important;
+    }
+
+    .form-calendar-container iframe {
+      height: 700px !important;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .form-calendar-container iframe {
+      height: 650px !important;
     }
   }
 
