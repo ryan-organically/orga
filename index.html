@@ -193,15 +193,15 @@ html.lenis {
       <div class="hero-social-proof-checks" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; margin-bottom: 1rem;">
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <span style="color: var(--orga); font-weight: bold; font-size: 1.2rem;">✓</span>
-          <span style="font-size: 0.95rem; color: var(--black-75);">50+ websites launched</span>
+          <span style="font-size: 0.95rem; color: var(--black-75);">SEO-optimized from day one</span>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <span style="color: var(--orga); font-weight: bold; font-size: 1.2rem;">✓</span>
-          <span style="font-size: 0.95rem; color: var(--black-75);">5-star rated on every project</span>
+          <span style="font-size: 0.95rem; color: var(--black-75);">Fast, mobile-first designs</span>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <span style="color: var(--orga); font-weight: bold; font-size: 1.2rem;">✓</span>
-          <span style="font-size: 0.95rem; color: var(--black-75);">No contracts, cancel anytime</span>
+          <span style="font-size: 0.95rem; color: var(--black-75);">Transparent monthly pricing</span>
         </div>
       </div>
 
@@ -822,6 +822,19 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         document.addEventListener('fontsReady', initSplitTextAnimations);
     }
+
+    // Fallback: ensure building shows after 3s if animation chain fails
+    setTimeout(() => {
+        const building = document.querySelector(".hero-steel-building");
+        if (building && gsap.getProperty(building, "autoAlpha") === 0) {
+            gsap.to(building, {
+                autoAlpha: 0.8,
+                yPercent: 5,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        }
+    }, 3000);
 });
 
 // Magnetic Cursor + Jiggle Effect for Hero CTA Button
@@ -1416,10 +1429,10 @@ document.addEventListener("DOMContentLoaded", () => {
     position: sticky;
   }
 
-  /* All hero sections - 10vh top margin, 100% width, 5vw padding */
+  /* All hero sections - 5vh top margin on desktop, 100% width, 5vw padding */
   .hero-section {
     width: 100%;
-    margin: 10vh 0 0 0;
+    margin: 5vh 0 0 0;
     padding: 5vw;
     box-sizing: border-box;
     min-height: 60vh;
