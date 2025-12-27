@@ -146,12 +146,12 @@ html.lenis {
   <div class="hero-section" style="min-height: 60vh;">
     <div class="hero-div">
       <h1 class="h1">Organically SEO<span class="organically-span h1-period">.</span> Get clicked first<span class="organically-span h1-period">.</span></h1>
-      <p class="shrunk-p">Dominate search rankings with strategic SEO that drives organic traffic, boosts conversions, and outranks your competition.</p>
-      <a href="https://calendly.com/organically/30min" class="button-1 margin-20-top w-button calendar-toggle-btn">Book a free call</a>
+      <p class="shrunk-p" style="font-size: 1.75rem; line-height: 2.25rem;">Dominate search rankings with strategic SEO that drives organic traffic, boosts conversions, and outranks your competition.</p>
+      <a href="/form" class="button-1 margin-20-top w-button">Book a free call</a>
     </div>
-    <img src="images/climb-2.png" alt="SEO Climb" class="hero-treeline-image" style="width: 35vw; max-width: none;">
+    <img src="images/climb-2.png" alt="SEO Climb" class="hero-treeline-image" style="width: 45vw; max-width: none;">
   </div>
-  <section class="section seo-services-section">
+  <section class="section seo-services-section" style="display: none;">
     <div class="services-section-2-div">
       <h2 class="services-h2"><span class="seo-typer">SEO provides any business a chance to flourish online</span></h2>
       <p data-w-id="a2f9f71c-751a-7195-55a6-c82529076b2a" class="p1-left-align services-p3">Organic website traffic dials the best leads because consumers are already searching for you or your service. Every business website needs to be optimized for search to be a potent source of potential leads and revenue. </p>
@@ -386,7 +386,7 @@ html.lenis {
 
   <!-- My SEO Process Section -->
   <section class="section">
-    <h2 class="services-h2" style="text-align: center; margin-bottom: 1rem;">How I Actually Do SEO</h2>
+    <h2 class="services-h2 split-h2" style="text-align: center; margin-bottom: 1rem;">How I Actually Do SEO</h2>
     <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">No black boxes. No "proprietary methods." Here's exactly what happens when you work with me.</p>
 
     <div class="process-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
@@ -417,7 +417,7 @@ html.lenis {
   </section>
 
   <!-- What You Get Section -->
-  <section class="section" style="background: var(--white);">
+  <section class="section">
     <h2 class="services-h2" style="text-align: center; margin-bottom: 1rem;">What You Actually Get</h2>
     <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Every deliverable is yours. No proprietary dashboards you lose access to when you leave. No vendor lock-in.</p>
 
@@ -536,7 +536,7 @@ html.lenis {
   </section>
 
   <!-- Why SEO Matters Stats Section -->
-  <section class="section" style="background: var(--white);">
+  <section class="section">
     <h2 class="services-h2" style="text-align: center; margin-bottom: 3rem;">Why Organic Traffic Wins</h2>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; text-align: center;">
@@ -809,6 +809,41 @@ html.lenis {
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/InertiaPlugin.min.js" type="text/javascript"></script>
   <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js" type="text/javascript"></script>
   <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    function initSplitH2() {
+      const h2Element = document.querySelector('.split-h2');
+      if (!h2Element) return;
+
+      const split = new SplitText(h2Element, { type: "words", mask: "words" });
+      gsap.set(split.words, { yPercent: 110, opacity: 0 });
+
+      gsap.to(split.words, {
+        yPercent: 0,
+        opacity: 1,
+        stagger: 0.05,
+        duration: 0.6,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: h2Element,
+          start: "top 70%",
+          end: "top 40%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    }
+
+    if (window.fontsLoaded) {
+      initSplitH2();
+    } else {
+      document.addEventListener('fontsReady', initSplitH2);
+    }
+  });
+  </script>
   <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script>
       </div><!-- .body-section -->
 
