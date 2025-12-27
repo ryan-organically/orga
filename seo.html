@@ -146,10 +146,10 @@ html.lenis {
   <div class="hero-section" style="min-height: 60vh;">
     <div class="hero-div">
       <h1 class="h1">Organically SEO<span class="organically-span h1-period">.</span> Get clicked first<span class="organically-span h1-period">.</span></h1>
-      <p class="shrunk-p" style="font-size: 1.75rem; line-height: 2.25rem;">Dominate search rankings with strategic SEO that drives organic traffic, boosts conversions, and outranks your competition.</p>
+      <p class="shrunk-p hero-shrunk-p">Dominate search rankings with strategic SEO that drives organic traffic, boosts conversions, and outranks your competition.</p>
       <a href="/form" class="button-1 margin-20-top w-button">Book a free call</a>
     </div>
-    <img src="images/climb-2.png" alt="SEO Climb" class="hero-treeline-image" style="width: 45vw; max-width: none;">
+    <img src="images/climb-2.png" alt="SEO Climb" class="hero-treeline-image">
   </div>
   <section class="section seo-services-section" style="display: none;">
     <div class="services-section-2-div">
@@ -389,7 +389,7 @@ html.lenis {
     <h2 class="services-h2 split-h2" style="text-align: center; margin-bottom: 1rem;">How I Actually Do SEO</h2>
     <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">No black boxes. No "proprietary methods." Here's exactly what happens when you work with me.</p>
 
-    <div class="process-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+    <div class="process-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
       <div class="process-step" style="padding: 2rem; border: 1px solid var(--black-10); border-radius: 8px;">
         <div style="font-size: 3rem; font-weight: 700; color: var(--orga); margin-bottom: 1rem;">01</div>
         <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Technical Audit</h3>
@@ -421,7 +421,7 @@ html.lenis {
     <h2 class="services-h2" style="text-align: center; margin-bottom: 1rem;">What You Actually Get</h2>
     <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Every deliverable is yours. No proprietary dashboards you lose access to when you leave. No vendor lock-in.</p>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+    <div class="deliverables-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
       <div>
         <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--orga);">Monthly Deliverables</h3>
         <ul style="list-style: none; padding: 0; margin: 0;">
@@ -481,8 +481,8 @@ html.lenis {
     <h2 class="services-h2" style="text-align: center; margin-bottom: 1rem;">SEO vs. Your Other Options</h2>
     <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">There's more than one way to get traffic. Here's how they compare.</p>
 
-    <div style="max-width: 1000px; margin: 0 auto; overflow-x: auto;">
-      <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+    <div class="table-wrapper" style="max-width: 1000px; margin: 0 auto; overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
         <thead>
           <tr style="border-bottom: 2px solid var(--black-10);">
             <th style="padding: 1rem; text-align: left; font-weight: 600;"></th>
@@ -539,7 +539,7 @@ html.lenis {
   <section class="section">
     <h2 class="services-h2" style="text-align: center; margin-bottom: 3rem;">Why Organic Traffic Wins</h2>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; text-align: center;">
+    <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; text-align: center;">
       <div>
         <div style="font-size: 3.5rem; font-weight: 700; color: var(--orga); line-height: 1;">53%</div>
         <p style="margin-top: 0.5rem;">of all website traffic comes from organic search</p>
@@ -558,7 +558,7 @@ html.lenis {
       </div>
     </div>
 
-    <div style="max-width: 700px; margin: 3rem auto 0; padding: 2rem; background: var(--e2); border-radius: 8px;">
+    <div class="bottom-callout" style="max-width: 700px; margin: 3rem auto 0; padding: 2rem; background: var(--e2); border-radius: 8px;">
       <p style="font-size: 1.1rem; line-height: 1.7; margin: 0;"><strong>The bottom line:</strong> People trust organic results more than ads. They click on them more. And those clicks convert at nearly 9x the rate of outbound marketing. If you're not investing in SEO, you're paying a tax every time someone searches for what you sell and finds your competitor instead.</p>
     </div>
   </section>
@@ -1133,6 +1133,273 @@ html.lenis {
 
   .dark-mode .calendar-title {
     color: var(--white);
+  }
+
+  /* ===== SEO PAGE RESPONSIVE FIXES ===== */
+
+  /* Hero section responsive */
+  .hero-shrunk-p {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+
+  .hero-section .hero-treeline-image {
+    width: 45vw;
+    max-width: 500px;
+    height: auto;
+  }
+
+  @media (max-width: 991px) {
+    .hero-section .hero-treeline-image {
+      width: 50vw;
+      max-width: 400px;
+    }
+
+    .hero-section .h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-shrunk-p {
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-section .hero-treeline-image {
+      width: 70vw;
+      max-width: 300px;
+      margin-top: 2rem;
+    }
+
+    .hero-section .h1 {
+      font-size: 1.75rem;
+    }
+
+    .hero-shrunk-p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .hero-section .h1 {
+      font-size: 1.5rem;
+    }
+
+    .hero-shrunk-p {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Process grid responsive */
+  .process-grid {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 767px) {
+    .process-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .process-step {
+      padding: 1.5rem;
+    }
+
+    .process-step h3 {
+      font-size: 1.25rem;
+    }
+
+    .process-step p {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Stats section responsive */
+  .stats-grid > div > div:first-child {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--orga);
+    line-height: 1;
+  }
+
+  @media (max-width: 767px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stats-grid > div > div:first-child {
+      font-size: 2.5rem;
+    }
+
+    .stats-grid p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Table responsive */
+  .table-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-wrapper table {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 767px) {
+    .table-wrapper {
+      margin-left: -2.5vw;
+      margin-right: -2.5vw;
+      padding-left: 2.5vw;
+      padding-right: 2.5vw;
+    }
+
+    .table-wrapper table {
+      font-size: 0.8rem;
+      min-width: 450px;
+    }
+
+    .table-wrapper table th,
+    .table-wrapper table td {
+      padding: 0.6rem 0.4rem;
+    }
+  }
+
+  /* FAQ responsive */
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--black-10);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1rem;
+    gap: 1rem;
+  }
+
+  .faq-question span:first-child {
+    flex: 1;
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding-top 0.3s ease;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 767px) {
+    .faq-question {
+      font-size: 1rem;
+      padding: 1rem 0;
+    }
+
+    .faq-answer div {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* General section text overflow prevention */
+  .section p,
+  .section h2,
+  .section h3,
+  .section h4,
+  .section li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* What You Get section responsive */
+  @media (max-width: 767px) {
+    .deliverables-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .deliverables-grid ul li {
+      font-size: 0.95rem;
+    }
+
+    .deliverables-grid h3 {
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Services H2 responsive */
+  @media (max-width: 767px) {
+    .services-h2 {
+      font-size: 1.75rem;
+    }
+
+    .section h2[style*="font-size: 2.5rem"] {
+      font-size: 1.75rem;
+    }
+  }
+
+  /* Bottom line box responsive */
+  @media (max-width: 767px) {
+    .bottom-callout {
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .bottom-callout p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  }
+
+  /* Pricing cards responsive */
+  .pricing-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  @media (max-width: 991px) {
+    .pricing-card-1 {
+      flex: 1 1 280px;
+      max-width: 350px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .pricing-card-1 {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
   }
 </style>
 
