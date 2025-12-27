@@ -26,7 +26,6 @@ exclude:
 
   # Template/incomplete pages
   - detail_blog.html
-  - form.html
 
   # Configuration files
   - .htaccess
