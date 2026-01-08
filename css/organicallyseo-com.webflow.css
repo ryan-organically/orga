@@ -1121,7 +1121,7 @@ a {
 
 .blog-h1 {
   z-index: 5;
-  color: var(--black);
+  color: #333;
   text-align: center;
   text-shadow: none;
   margin-top: 10px;
@@ -1480,15 +1480,19 @@ a {
   display: flex;
 }
 
-.blog-antihero {
-  color: var(--orga);
+.blog-attribute {
+  color: var(--black-60);
+  background: var(--orga);
   text-align: center;
   justify-content: center;
-  font-family: Antihero;
-  font-size: 75px;
-    font-weight: 600;
-  line-height: 75px;
-  display: flex;
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 4px;
+  letter-spacing: 1px;
 }
 
 .blog-card-content {
@@ -6879,9 +6883,10 @@ a {
     margin-bottom: 60px;
   }
 
-  .blog-antihero {
-    font-size: 50px;
-    line-height: 50px;
+  .blog-attribute {
+    font-size: 11px;
+    padding: 3px 10px;
+    letter-spacing: 0.8px;
   }
 
   .home-h5 {
@@ -7759,10 +7764,11 @@ a {
     height: auto;
   }
 
-  .blog-antihero {
+  .blog-attribute {
     text-align: center;
-    font-size: 35px;
-    line-height: 50px;
+    font-size: 10px;
+    padding: 2px 8px;
+    letter-spacing: 0.5px;
   }
 
   .blog-card-content {
