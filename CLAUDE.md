@@ -1,5 +1,68 @@
 # Claude Code Guidelines
 
+## URL Strategy (IMPORTANT - Read Before Editing Links)
+
+This site uses Jekyll with `permalink: pretty` in `_config.yml`. This has critical implications for internal links.
+
+### How Jekyll Pretty Permalinks Work
+
+| Source File | Jekyll Serves At | Direct Access |
+|-------------|------------------|---------------|
+| `blog.html` | `/blog/` | `/blog` 301→ `/blog/` |
+| `seo.html` | `/seo/` | `/seo` 301→ `/seo/` |
+| `es/seo.html` | `/es/seo/` | `/es/seo` 301→ `/es/seo/` |
+
+### Internal Link Rules
+
+**ALWAYS use trailing slashes for internal links:**
+
+```html
+<!-- CORRECT -->
+<a href="/blog/">Blog</a>
+<a href="/seo/">SEO Services</a>
+<a href="/web-design/">Web Design</a>
+<a href="/es/seo/">SEO (Spanish)</a>
+
+<!-- WRONG - causes 301 redirect -->
+<a href="/blog">Blog</a>
+<a href="/seo">SEO Services</a>
+
+<!-- WRONG - breaks on trailing-slash pages, causes 404 -->
+<a href="blog.html">Blog</a>
+<a href="seo.html">SEO Services</a>
+
+<!-- WRONG - .html with absolute path, may not resolve -->
+<a href="/blog.html">Blog</a>
+```
+
+### Why This Matters
+
+1. **Relative `.html` links break**: If user accesses `/seo-for-dentists/` (with trailing slash), a relative link `href="blog.html"` resolves to `/seo-for-dentists/blog.html` which 404s.
+
+2. **No-trailing-slash links cause 301s**: `href="/blog"` works but 301 redirects to `/blog/`. This wastes crawl budget and slows page loads.
+
+3. **Trailing-slash links work directly**: `href="/blog/"` serves the page immediately with no redirect.
+
+### Quick Reference
+
+| Page | Correct Link |
+|------|--------------|
+| Homepage | `/` |
+| SEO | `/seo/` |
+| Web Design | `/web-design/` |
+| Branding | `/branding/` |
+| Blog | `/blog/` |
+| About | `/about-us/` |
+| Privacy Policy | `/privacy-policy/` |
+| Spanish Homepage | `/es/` |
+| Spanish SEO | `/es/seo/` |
+
+### Current State (as of Jan 2025)
+
+The site historically used mixed URL formats. A cleanup was performed to fix broken relative links, but not all links have trailing slashes yet. When editing any file, ensure new links follow the trailing-slash convention above.
+
+---
+
 ## CSS Rules
 
 - Never use `!important` in CSS. Use higher specificity selectors instead (e.g., `[style]` attribute selector to override inline styles).
