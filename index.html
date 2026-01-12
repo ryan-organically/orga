@@ -179,7 +179,7 @@ html.lenis {
     <p class="p2 hero-floating-text">Websites for all!</p>
     <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div" style="width: 100%; max-width: 100%;">
       <h1 class="h1 h1-home">Organically<span class="green-span h1-period">.</span></h1>
-      <p class="shrunk-p">Welcome to Organically: a vast space where stray ideas can wander, take root, and quietly grow bold. Combining web creative with organic potential.</p>
+      <p class="shrunk-p">Developing sleek, powerful websites that generate search traffic <em>organically.</em></p>
 
       <!-- Feature Tickers -->
       <div class="feature-ticker-container">
@@ -252,6 +252,44 @@ html.lenis {
     <img src="images/Steel-Building.png" loading="lazy" sizes="100vw" srcset="images/Steel-Building-p-500.png 500w, images/Steel-Building-p-800.png 800w, images/Steel-Building-p-1080.png 1080w, images/Steel-Building-p-1600.png 1600w, images/Steel-Building.png 2048w" alt="Pittsburgh Steel Building" class="hero-steel-building" style="display: block;">
   </div>
 
+  <!-- Works Section -->
+  <section class="section works-section" style="padding-top: 10vh; padding-bottom: 10vh;">
+    <img src="assets/fishing.png" alt="" class="fishing-img">
+    <h2 class="works-h2">Works</h2>
+    <div class="works-tiles-container">
+      <a href="https://qalandscaping.com" target="_blank" class="works-tile" data-project="qa">
+        <div class="works-tile-media">
+          <img src="assets/qa homepage.jpg" alt="Q&A Project" class="works-tile-img">
+        </div>
+        <span class="works-tile-title">Q&A</span>
+      </a>
+      <a href="https://icrpgh.com" target="_blank" class="works-tile" data-project="integrated">
+        <div class="works-tile-media">
+          <img src="assets/integrated homepage.jpg" alt="Integrated Project" class="works-tile-img">
+        </div>
+        <span class="works-tile-title">Integrated</span>
+      </a>
+      <a href="https://malleable.cloud" target="_blank" class="works-tile" data-project="malleable">
+        <div class="works-tile-media">
+          <img src="assets/malleable.png" alt="Malleable Project" class="works-tile-img">
+        </div>
+        <span class="works-tile-title">Malleable</span>
+      </a>
+      <a href="https://www.tccustomized.shop/" target="_blank" class="works-tile" data-project="tc-customs">
+        <div class="works-tile-media">
+          <img src="assets/tc customs.jpg" alt="TC Customs Project" class="works-tile-img">
+        </div>
+        <span class="works-tile-title">TC Customs</span>
+      </a>
+      <a href="https://www.iwccabinetry.com/" target="_blank" class="works-tile" data-project="iwc">
+        <div class="works-tile-media">
+          <img src="assets/iwc cabinetry.png" alt="IWC Cabinetry Project" class="works-tile-img">
+        </div>
+        <span class="works-tile-title">IWC</span>
+      </a>
+    </div>
+  </section>
+
   <!-- Services Showcase -->
   <div class="services-showcase">
     <div class="services-showcase-left">
@@ -296,7 +334,7 @@ html.lenis {
     </div>
   </div>
 
-  <section class="section ticker-testimonial-section">
+  <section class="section ticker-testimonial-section" style="padding-top: 10vh; padding-bottom: 10vh;">
     <div class="ticking-text">Proven to move the needle Organically<span class="green-span">. </span></div>
   </section>
   <address id="choose-adventure" data-w-id="76ca32a2-4ec2-eb02-d5aa-23c5b7d05ca3" style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section-home-3">
@@ -523,7 +561,6 @@ html.lenis {
       <div class="footer-div">
         <div class="footer-subheading">Boring</div>
         <a href="privacy-policy.html" class="footer-text">Privacy Policy</a>
-        <a href="sitemap.html" class="footer-text">Sitemap</a>
       </div>
     </div>
   </div>
@@ -1185,12 +1222,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <style>
 
-  /* Left Side Menu Panel - 20vw, fixed to left edge */
+  /* Left Side Menu Panel - 5vw, fixed to left edge */
   .side-menu-panel {
     position: fixed;
     top: 0;
     left: 0;
-    width: 20vw;
+    width: 5vw;
     height: 100vh;
     z-index: 1;
     opacity: 1;
@@ -1253,13 +1290,34 @@ document.addEventListener("DOMContentLoaded", () => {
     margin: 0;
   }
 
-  /* Center Body Section - 90vw, centered, no side margins */
+  /* Center Body Section - centered with equal margins */
   .body-section {
     width: 90vw;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     position: relative;
     z-index: 10;
+  }
+
+  /* Tablet - keep centered */
+  @media (max-width: 991px) {
+    .side-menu-panel {
+      width: 5vw;
+    }
+
+    .calendar-module {
+      width: 5vw;
+    }
+
+    .body-section {
+      width: 90vw;
+      margin: 0 auto;
+    }
+
+    .body-section > section:not(#Footer),
+    .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer) {
+      padding: 5vw;
+    }
   }
 
   /* Universal Menu - 100% width of body-section */
@@ -1282,19 +1340,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* All sections inside body-section - 100% width, 5vw padding */
   .body-section > section:not(#Footer),
-  .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer):not(.services-showcase) {
+  .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer) {
     width: 100%;
     margin: 0;
     padding: 5vw;
     box-sizing: border-box;
   }
 
-  /* Right Calendar Module - 15vw, fixed to right edge */
+  /* Right Calendar Module - 5vw, fixed to right edge */
   .calendar-module {
     position: fixed;
     top: 0;
     right: 0;
-    width: 15vw;
+    width: 5vw;
     height: 100vh;
     z-index: 1;
     opacity: 1;
@@ -1313,6 +1371,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     .side-menu-panel {
       width: 75vw;
+      left: -75vw;
     }
 
     .side-panel {
@@ -1321,6 +1380,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     .calendar-module {
       width: 75vw;
+      right: -75vw;
     }
 
     .calendar-panel-content {
@@ -1336,8 +1396,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     .body-section > section:not(#Footer),
-    .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer):not(.services-showcase) {
-      padding: 2.5vw;
+    .body-section > div:not(.universal-menu):not(.announcement-banner):not(#Footer) {
+      padding: 5vw;
     }
   }
 
@@ -1452,6 +1512,185 @@ document.addEventListener("DOMContentLoaded", () => {
   .dark-mode .calendar-title {
     color: var(--white);
   }
+
+  /* Works Section */
+  .works-section {
+    padding: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fishing-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .works-h2 {
+    font-family: 'Coolvetica Rg', sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5vh 0;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .works-tiles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  .works-tile {
+    width: 30vw;
+    height: 10vh;
+    min-height: 80px;
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--e2);
+    border: 1px solid var(--black-40);
+    border-bottom: none;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .works-tile:last-child {
+    border-bottom: 1px solid var(--black-40);
+  }
+
+  .works-tile:hover {
+    background: #333;
+    border-color: #333;
+    border-bottom-color: #333;
+  }
+
+  .works-tile:last-child:hover {
+    border-bottom-color: #333;
+  }
+
+  .works-tile-media {
+    display: none;
+  }
+
+  /* Floating preview popup */
+  .works-preview {
+    position: fixed;
+    width: 480px;
+    height: 270px;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: opacity 0.2s ease;
+    border: 1px solid #333;
+    background: #333;
+    overflow: hidden;
+  }
+
+  .works-preview.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    animation: popJiggle 0.5s ease-out;
+  }
+
+  .works-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .works-preview.iwc-preview {
+    height: 180px;
+  }
+
+  .works-preview {
+    --pop-angle: 0deg;
+    --pop-scale: 0.5;
+  }
+
+  @keyframes popJiggle {
+    0% {
+      transform: translate(-50%, -50%) scale(var(--pop-scale)) rotate(var(--pop-angle));
+    }
+    30% {
+      transform: translate(-50%, -50%) scale(1.08) rotate(calc(var(--pop-angle) * -0.3));
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(0.96) rotate(calc(var(--pop-angle) * 0.2));
+    }
+    70% {
+      transform: translate(-50%, -50%) scale(1.03) rotate(calc(var(--pop-angle) * -0.1));
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+  }
+
+  .works-tile-title {
+    font-family: 'Coolvetica Rg', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    font-weight: 600;
+    color: #333;
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease;
+  }
+
+  .works-tile:hover .works-tile-title {
+    color: #fff;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 991px) {
+    .works-tile {
+      width: 50vw;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .works-section {
+      min-height: auto;
+      height: auto;
+    }
+
+    .works-tile {
+      width: 80vw;
+      height: auto;
+      min-height: 12vh;
+      padding: 20px;
+    }
+
+    .works-h2 {
+      font-size: clamp(3rem, 12vw, 5rem);
+    }
+
+    .works-tile.scroll-active {
+      background: #333;
+      border-color: #333;
+    }
+
+    .works-tile.scroll-active .works-tile-title {
+      color: #fff;
+    }
+
+    .fishing-img {
+      display: none;
+    }
+  }
 </style>
 
 <script>
@@ -1516,6 +1755,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
+  // Calendar slideover disabled - functionality commented out
+  /*
   // Toggle calendar on main button click
   if (calendarToggle) {
     calendarToggle.addEventListener('click', (e) => {
@@ -1558,7 +1799,216 @@ document.addEventListener('DOMContentLoaded', function() {
       closeCalendar();
     }
   });
+  */
 });
+</script>
+
+<!-- Works Section Spinning Giggly Cursor + Preview Popup -->
+<script>
+(function() {
+  const isMobile = window.matchMedia('(max-width: 767px)').matches || 'ontouchstart' in window;
+  const tiles = document.querySelectorAll('.works-tile');
+
+  // Create floating preview element
+  const preview = document.createElement('div');
+  preview.className = 'works-preview';
+  document.body.appendChild(preview);
+
+  if (!isMobile) {
+    // DESKTOP: Cursor + hover behavior
+    const cursor = document.createElement('div');
+    cursor.className = 'works-cursor';
+    cursor.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 20 20">
+        <circle cx="10" cy="10" r="8" fill="#e2e2e2" />
+      </svg>
+    `;
+    document.body.appendChild(cursor);
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .works-cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+        z-index: 99999;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.2s ease;
+      }
+      .works-cursor.active { opacity: 1; }
+      .works-cursor.active svg {
+        animation: spinGiggle 0.6s ease-in-out infinite;
+      }
+      @keyframes spinGiggle {
+        0% { transform: rotate(0deg) scale(1) translate(0, 0); }
+        25% { transform: rotate(90deg) scale(1.1) translate(2px, -2px); }
+        50% { transform: rotate(180deg) scale(0.95) translate(-1px, 2px); }
+        75% { transform: rotate(270deg) scale(1.05) translate(1px, -1px); }
+        100% { transform: rotate(360deg) scale(1) translate(0, 0); }
+      }
+      .works-tile { cursor: none !important; }
+    `;
+    document.head.appendChild(style);
+
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    let previewX = 0, previewY = 0;
+    let isHovering = false;
+    let currentTile = null;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+      if (isHovering) {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        previewX += (mouseX - previewX) * 0.1;
+        previewY += (mouseY - previewY) * 0.1;
+        preview.style.left = previewX + 'px';
+        preview.style.top = previewY + 'px';
+      }
+      requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
+
+    let hoverTimeout = null;
+    let isFirstHover = true;
+
+    tiles.forEach(tile => {
+      const img = tile.querySelector('.works-tile-img');
+      const imgSrc = img ? img.src : '';
+
+      tile.addEventListener('mouseenter', () => {
+        isHovering = true;
+        cursorX = mouseX;
+        cursorY = mouseY;
+        previewX = mouseX;
+        previewY = mouseY;
+        cursor.classList.add('active');
+
+        // Delay preview appearance (first tile 50% longer)
+        const delay = isFirstHover ? 225 : 150;
+        if (hoverTimeout) clearTimeout(hoverTimeout);
+        hoverTimeout = setTimeout(() => {
+          if (imgSrc && isHovering) {
+            const randomAngle = (Math.random() - 0.5) * 30;
+            const randomScale = 0.4 + Math.random() * 0.2;
+            preview.classList.remove('active', 'iwc-preview');
+            preview.style.setProperty('--pop-angle', `${randomAngle}deg`);
+            preview.style.setProperty('--pop-scale', randomScale);
+            if (tile.dataset.project === 'iwc') {
+              preview.classList.add('iwc-preview');
+            }
+            void preview.offsetWidth;
+            preview.innerHTML = `<img src="${imgSrc}" alt="Preview">`;
+            preview.classList.add('active');
+            isFirstHover = false;
+          }
+        }, delay);
+        currentTile = tile;
+      });
+
+      tile.addEventListener('mouseleave', (e) => {
+        const relatedTarget = e.relatedTarget;
+        const movingToTile = relatedTarget && relatedTarget.closest('.works-tile');
+        if (!movingToTile) {
+          isHovering = false;
+          cursor.classList.remove('active');
+          preview.classList.remove('active');
+          if (hoverTimeout) clearTimeout(hoverTimeout);
+          currentTile = null;
+        }
+      });
+    });
+
+  } else {
+    // MOBILE: Scroll-based preview
+    const mobileStyle = document.createElement('style');
+    mobileStyle.textContent = `
+      .works-preview.mobile-preview {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        width: 65vw;
+        height: auto;
+        aspect-ratio: 16/9;
+        max-height: 30vh;
+      }
+      .works-preview.mobile-preview.active {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    `;
+    document.head.appendChild(mobileStyle);
+
+    preview.classList.add('mobile-preview');
+    let currentIndex = -1;
+
+    function checkScroll() {
+      const viewportCenter = window.innerHeight / 2;
+      let closestTile = null;
+      let closestDistance = Infinity;
+
+      tiles.forEach((tile, index) => {
+        const rect = tile.getBoundingClientRect();
+        const tileCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(tileCenter - viewportCenter);
+
+        if (distance < closestDistance && rect.top < window.innerHeight && rect.bottom > 0) {
+          closestDistance = distance;
+          closestTile = { tile, index };
+        }
+      });
+
+      if (closestTile && closestTile.index !== currentIndex) {
+        currentIndex = closestTile.index;
+        const tile = closestTile.tile;
+        const img = tile.querySelector('.works-tile-img');
+        const imgSrc = img ? img.src : '';
+
+        if (imgSrc) {
+          const randomAngle = (Math.random() - 0.5) * 30;
+          const randomScale = 0.4 + Math.random() * 0.2;
+          preview.classList.remove('active', 'iwc-preview');
+          preview.style.setProperty('--pop-angle', `${randomAngle}deg`);
+          preview.style.setProperty('--pop-scale', randomScale);
+          if (tile.dataset.project === 'iwc') {
+            preview.classList.add('iwc-preview');
+          }
+          void preview.offsetWidth;
+          preview.innerHTML = `<img src="${imgSrc}" alt="Preview">`;
+          preview.classList.add('active');
+
+          // Highlight active tile
+          tiles.forEach(t => t.classList.remove('scroll-active'));
+          tile.classList.add('scroll-active');
+        }
+      }
+
+      // Hide preview if works section not substantially in view
+      const worksSection = document.querySelector('.works-section');
+      if (worksSection) {
+        const rect = worksSection.getBoundingClientRect();
+        const sectionVisible = rect.top < window.innerHeight * 0.4 && rect.bottom > window.innerHeight * 0.6;
+        if (!sectionVisible) {
+          preview.classList.remove('active');
+          tiles.forEach(t => t.classList.remove('scroll-active'));
+          currentIndex = -1;
+        }
+      }
+    }
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+  }
+})();
 </script>
 </body>
 </html>

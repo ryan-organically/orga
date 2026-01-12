@@ -1,13 +1,5 @@
-# Claude Working Guidelines
+# Claude Code Guidelines
 
-## Commit Messages
-- Never include "Co-Authored-By: Claude" in commits
+## CSS Rules
 
-## Questions vs Actions
-- When asked a question, answer it - don't make edits
-- Only edit files when explicitly instructed
-
-## Error Recovery
-- If an edit isn't right, investigate why
-- Reverse any unseen changes before continuing
-- Check git diff to verify what actually changed
+- Never use `!important` in CSS. Use higher specificity selectors instead (e.g., `[style]` attribute selector to override inline styles).
