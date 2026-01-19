@@ -1,0 +1,1966 @@
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Tue Sep 09 2025 14:36:07 GMT+0000 (Coordinated Universal Time)  -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contractor Marketing Solutions | Organically</title>
+  <meta content="Transform your contracting business with powerful web design and SEO that generates qualified leads." name="description">
+  <meta content="Contractor Marketing Solutions | Organically" property="og:title">
+  <meta content="Transform your contracting business with powerful web design and SEO that generates qualified leads." property="og:description">
+  <meta content="Contractor Marketing Solutions | Organically" property="twitter:title">
+  <meta content="Transform your contracting business with powerful web design and SEO that generates qualified leads." property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
+  <style>
+    @media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="11ffdc7c-90a5-ba77-fbdb-78f2b0f41844"] {-webkit-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);}}
+
+    /* Override global home-hero constraints */
+    #contractor-hero-section.hero-section.home-hero {
+      height: auto !important;
+      overflow: visible !important;
+      min-height: auto !important;
+    }
+
+    /* Contractor Hero Section Styles */
+    .contractor-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: min-content auto;
+      gap: 1.5rem 4rem;
+      align-items: start;
+      width: 100%;
+      padding: 0;
+      min-height: 60vh;
+    }
+
+    .contractor-hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Desktop grid positioning */
+    .contractor-hero-top {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+
+    .contractor-hero-vsl {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: start;
+    }
+
+    .contractor-hero-bottom {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: start;
+      margin-top: 0;
+    }
+
+    .contractor-hero-eyebrow {
+      margin-bottom: 1rem;
+      opacity: 0.7;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contractor-hero-h1 {
+      margin-bottom: 1.5rem;
+      font-size: clamp(1.8rem, 7.2vw, 6.075rem) !important;
+    }
+
+    .contractor-hero-subhead {
+      margin-bottom: 3rem;
+      max-width: 90%;
+      line-height: 1.6;
+      font-size: 90%;
+    }
+
+    .contractor-benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 3rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contractor-benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contractor-benefit-item::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: var(--orga);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .benefit-text {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--black-75);
+      line-height: 1.4;
+    }
+
+    .contractor-hero-cta {
+      align-self: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .contractor-trust-indicators {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-indicator-text {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    .trust-indicator-text.qualifier {
+      font-weight: 600;
+      opacity: 0.8;
+    }
+
+    .contractor-hero-vsl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vsl-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background-color: var(--black-10);
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    /* Tablet/Mid-range Responsive */
+    @media (max-width: 991px) and (min-width: 768px) {
+      .hero-section {
+        padding: 3vw 3vw 10vh 3vw;
+      }
+    }
+
+    /* Mobile/Tablet Responsive */
+    @media (max-width: 991px) {
+      .contractor-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contractor-hero-subhead {
+        max-width: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .contractor-benefits-list {
+        margin-bottom: 2rem;
+      }
+
+      .contractor-hero-cta {
+        align-self: stretch;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .contractor-hero-grid {
+        gap: 2.5rem;
+        min-height: auto;
+      }
+
+      /* Mobile order: top content, VSL, bottom content */
+      .contractor-hero-top {
+        order: 1;
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .contractor-hero-vsl {
+        order: 2;
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .contractor-hero-bottom {
+        order: 3;
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .contractor-hero-eyebrow {
+        font-size: 0.85rem;
+      }
+
+      .benefit-text {
+        font-size: 1rem;
+      }
+
+      .hero-section {
+        padding: 2.5vw 2.5vw 8vh 2.5vw;
+      }
+    }
+
+    /* Contractor page hero footer stripe - vertical alignment */
+    .hero-footer-stripe.vertical {
+      flex-direction: column;
+      height: auto;
+      padding: 0;
+      gap: 0;
+    }
+    .hero-footer-stripe.vertical .hero-footer-main {
+      width: 100%;
+      height: auto;
+      min-height: 200px;
+      padding: 40px 5vw;
+    }
+    .hero-footer-stripe.vertical .hero-footer-card {
+      width: 100%;
+      height: 80px;
+      border-left: none;
+      border-top: 1px solid var(--black-40);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-footer-stripe.vertical .hero-footer-label {
+      transform: rotate(0deg);
+      font-size: 1.5rem;
+    }
+    .hero-footer-stripe.vertical .hero-footer-description {
+      position: relative;
+      left: 0;
+      max-width: 100%;
+    }
+
+    /* Editorial style improvements */
+    .diagonal-cta-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Gap Callout Box */
+    .gap-callout-box {
+      background-color: rgba(126, 199, 0, 0.06);
+      border-left: 4px solid var(--orga);
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+    }
+
+    .gap-line {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      color: var(--black-75);
+      font-weight: 500;
+    }
+
+    .gap-line:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Final CTA Section - 3 Part Structure */
+    .final-cta-section {
+      /* Inherits .section borders through class combination */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .final-cta-headline {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 600;
+      text-align: center;
+      margin: 0 0 1rem 0;
+      color: var(--black-75);
+    }
+
+    /* Process Cards */
+    .process-cards-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .process-card {
+      background-color: white;
+      border: 1px solid var(--black-20);
+      border-top: 3px solid var(--orga);
+      border-radius: 6px;
+      padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-top 0.25s ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(126, 199, 0, 0.15);
+      border-top: 4px solid var(--orga);
+    }
+
+    .process-card-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--orga);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .process-card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--black-75);
+    }
+
+    .process-card-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--black-75);
+      margin: 0;
+      opacity: 0.85;
+    }
+
+    /* Mini Testimonial - Hidden by default, add back when real testimonial ready */
+    .final-cta-testimonial {
+      display: none;
+      background-color: rgba(126, 199, 0, 0.06);
+      border-left: 4px solid var(--orga);
+      padding: 1.5rem 2rem;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .final-cta-testimonial-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      margin: 0 0 0.75rem 0;
+      font-style: italic;
+    }
+
+    .final-cta-testimonial-author {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--black-75);
+      margin: 0;
+      opacity: 0.8;
+    }
+
+    /* Risk Reversal - Integrated with button */
+    .final-cta-button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 650px;
+      width: 100%;
+    }
+
+    .risk-reversal-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      margin: 0;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .final-cta-button {
+      font-size: 1.15rem;
+      padding: 0.9rem 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .trust-badges {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0.65;
+      margin-top: 0.5rem;
+    }
+
+    .trust-badge-item {
+      font-size: 0.85rem;
+      color: var(--black-75);
+    }
+
+    /* Bonus Risk Reversals - Below button */
+    .bonus-risk-reversals {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      max-width: 550px;
+      width: 100%;
+    }
+
+    .bonus-risk-item {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--black-75);
+      opacity: 0.75;
+      text-align: center;
+      margin: 0;
+    }
+
+    .bonus-risk-item::before {
+      content: "• ";
+      color: var(--orga);
+      font-weight: 700;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 991px) {
+      .process-cards-container {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .final-cta-section {
+        gap: 2.5rem;
+      }
+
+      .final-cta-headline {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+      }
+
+      .process-card {
+        padding: 1.25rem 1rem;
+      }
+
+      .risk-reversal-text {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Dark Breakdown Section */
+    .dark-breakdown-section {
+      background-color: #333;
+      color: #e2e2e2;
+      padding: 8vh 5vw;
+      position: relative;
+      overflow: visible;
+    }
+
+    /* Green accent stripes on sides */
+    .dark-breakdown-section::before,
+    .dark-breakdown-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background-color: var(--orga);
+    }
+
+    .dark-breakdown-section::before {
+      left: 2vw;
+    }
+
+    .dark-breakdown-section::after {
+      right: 2vw;
+    }
+
+    .dark-breakdown-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .dark-breakdown-headline {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #e2e2e2;
+    }
+
+    .dark-breakdown-subhead {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 4rem;
+      color: var(--orga);
+      opacity: 0.95;
+    }
+
+    .dark-breakdown-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .dark-breakdown-text {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: rgba(226, 226, 226, 0.9);
+      margin: 0;
+      text-align: left;
+    }
+
+    .dark-breakdown-callout {
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--orga);
+      margin: 1rem 0;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .dark-breakdown-text-final {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: rgba(226, 226, 226, 0.9);
+      margin: 0;
+      text-align: left;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(126, 199, 0, 0.2);
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 767px) {
+      .dark-breakdown-section {
+        padding: 6vh 8vw;
+      }
+
+      .dark-breakdown-section::before {
+        left: 1vw;
+        width: 3px;
+      }
+
+      .dark-breakdown-section::after {
+        right: 1vw;
+        width: 3px;
+      }
+
+      .dark-breakdown-headline {
+        margin-bottom: 1rem;
+      }
+
+      .dark-breakdown-subhead {
+        margin-bottom: 3rem;
+      }
+
+      .dark-breakdown-content {
+        gap: 1.5rem;
+      }
+
+      .dark-breakdown-text,
+      .dark-breakdown-text-final {
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .dark-breakdown-callout {
+        font-size: 1.25rem;
+      }
+    }
+
+    .home-p2, .home-p3 {
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+    }
+    .h3.center-h3 {
+      font-size: 2.5rem;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 991px) {
+      .diagonal-cta-text {
+        font-size: 1.1rem;
+      }
+      .h3.center-h3 {
+        font-size: 2rem;
+      }
+      .gap-callout-box {
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0;
+      }
+      .gap-line {
+        font-size: 1.05rem;
+      }
+    }
+
+    /* Section 2 Mobile Responsive - Stack Vertically */
+    @media (max-width: 767px) {
+      .section-2-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2rem !important;
+      }
+      .section-2-wrapper > div {
+        max-width: 100% !important;
+      }
+    }
+
+    /* Services Accordion Styles - Matching original hero footer stripe */
+    .services-accordion {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 0;
+      background-color: var(--e2);
+    }
+
+    .service-accordion-item {
+      width: 100%;
+      border-top: 1px solid var(--black-40);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .service-accordion-item:last-child {
+      border-bottom: 1px solid var(--black-40);
+    }
+
+    .service-accordion-header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      position: relative;
+    }
+
+    .service-accordion-header:hover {
+      background-color: var(--black-10);
+    }
+
+    .service-accordion-title {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--black-75);
+      transition: color 0.2s ease;
+      text-align: center;
+    }
+
+    .service-accordion-header:hover .service-accordion-title {
+      color: var(--orga);
+    }
+
+    .service-accordion-item.active .service-accordion-title {
+      color: var(--orga);
+      font-weight: 600;
+    }
+
+    .service-accordion-item {
+      position: relative;
+    }
+
+    .service-accordion-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      background-color: var(--orga);
+      transition: width 0.3s ease;
+    }
+
+    .service-accordion-item.active::before {
+      width: 5px;
+    }
+
+    .service-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      background-color: var(--black-05);
+      border-top: 1px solid var(--black-40);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-accordion-item.active .service-accordion-content {
+      max-height: 150px;
+      padding: 30px 5vw;
+    }
+
+    .service-accordion-content p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      .service-accordion-header {
+        height: 60px;
+      }
+
+      .service-accordion-title {
+        font-size: 1.2rem;
+      }
+
+      .service-accordion-item.active::before {
+        width: 4px;
+      }
+
+      .service-accordion-item.active .service-accordion-content {
+        padding: 25px 5vw;
+        max-height: 120px;
+      }
+
+      .service-accordion-content p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700"]  }});</script>
+
+  <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.jpg" rel="apple-touch-icon">
+  <link href="https://www.organicallyseo.com/contractor-funnel" rel="canonical">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://organicallyseo.com/#organization",
+        "name": "Organically SEO",
+        "url": "https://organicallyseo.com",
+        "logo": "https://organicallyseo.com/images/Organically-Logo-green.png",
+        "sameAs": [
+          "https://twitter.com/organicallyseo",
+          "https://www.linkedin.com/in/ryan-scanlon31/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "ryan.organically@gmail.com",
+          "contactType": "customer service"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://organicallyseo.com/contractor-funnel/#webpage",
+        "url": "https://organicallyseo.com/contractor-funnel/",
+        "name": "Contractor Marketing Solutions | Organically",
+        "description": "Transform your contracting business with powerful web design and SEO that generates qualified leads.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://organicallyseo.com/#website"
+        }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://organicallyseo.com/contractor-funnel/#service",
+        "serviceType": "Contractor SEO and Marketing",
+        "name": "Contractor SEO That Fills Your Calendar",
+        "description": "We help contractors show up first on Google, track which leads turn into jobs, and prove ROI with transparent reporting. No jargon, just results.",
+        "provider": {
+          "@id": "https://organicallyseo.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "name": "General Contractors and Specialty Trades"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://organicallyseo.com/contractor-funnel/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What actually happens on the call?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This is not a sales call, this is a strategy call. We look at your website as well as your entire online presence. We will highlight what's working, what's not, what's holding back calls, and we'll agree on moves that will make the biggest difference for you first."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What will I gain?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The goal is for you to have a clear 2-3 next steps to take. You'll spend time with me and I tailor my advice to your business, industry, goals, and business structure. It will be 1 on 1 help specific to your current business challenges. You get clarity on what to do, why you should do it, and how to do it. Plus, you'll get a checklist and video recording so you don't miss anything we discuss on the call."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this right for my business?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If you are a general contractor or a specialty trade (remodeling, additions, kitchen/bath, roofing, concrete, exterior, etc) who is actively taking jobs and has the capacity to implement change, this is for you. We work nationwide and only take one client per service area to avoid conflicts. As a guide, we're the best fit for companies doing $200k-$5M/year (or running 2+ crews with at least a 4-8 week backlog goal) that want more consistent inbound."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are there any costs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The review is completely free. You own every asset we create for your business, and there are no long contracts. If you want help implementing the plan, we'll outline some options for you on how we can move forward. And if we can't find any real opportunities to help out your business, we'll donate $50 to a local charity."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+  body {
+    overflow-x: clip;
+  }
+</style>
+  <style>
+html.lenis {
+	height: auto;
+}
+.lenis.lenis-smooth {
+	scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: clip;
+}
+</style>
+<style>
+  body.horizontal-body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+    background-color: #e2e2e2;
+    color: var(--black-75);
+    cursor: crosshair;
+  }
+</style>
+</head>
+<body class="horizontal-body">
+<!-- Left Menu Panel -->
+  <div class="side-menu-panel">
+  <div class="side-panel">
+    <div class="menu-header">
+      <p class="menu-tagline">Redefining agency marketing—one organic idea at a time.</p>
+    </div>
+    <nav class="menu-nav">
+      <a href="/" class="menu-nav-link">Home</a>
+      <a href="/web-design/" class="menu-nav-link">Web design</a>
+      <a href="/seo/" class="menu-nav-link">SEO</a>
+      <a href="/branding/" class="menu-nav-link">Creative</a>
+      <a href="/blog/" class="menu-nav-link">Blog</a>
+    </nav>
+  </div>
+</div>
+
+
+    <!-- Center Body Section -->
+    <div class="body-section">
+    <div class="universal-menu">
+  <universal-menu></universal-menu>
+  <a href="/form/" class="button-1 w-button">Schedule an Estimate</a>
+  <button class="theme-toggle" aria-label="Toggle dark mode">
+    <span class="sun-icon">☀</span>
+    <span class="moon-icon">☾</span>
+  </button>
+</div>
+
+
+    <!-- Hero Section - Grid Layout from braeden-funnel-test -->
+    <div id="contractor-hero-section" class="hero-section home-hero">
+      <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="contractor-hero-grid">
+
+        <!-- Top Content: Heading & Subheading -->
+        <div class="contractor-hero-content contractor-hero-top">
+          <!-- Qualifier (moved up) -->
+          <p class="p2 contractor-hero-eyebrow">For Contractors Doing $250K+/Year</p>
+
+          <!-- Main Heading -->
+          <h1 class="h1 contractor-hero-h1">Free Contractor SEO Breakdown<span class="green-span">.</span></h1>
+
+          <!-- Subheading -->
+          <p class="shrunk-p">Discover why your website and Google presence aren't producing calls yet and what to fix first so leads start coming in over the next 30 days.</p>
+
+          <!-- Primary CTA -->
+          <a href="#" class="button-1 contractor-hero-cta" id="hero-calendar-toggle" style="margin-top: 20px;">Claim Your Free Review</a>
+        </div>
+
+        <!-- VSL - Will be reordered on mobile -->
+        <div class="contractor-hero-vsl">
+          <video class="vsl-video" controls poster="images/vsl-poster.jpg">
+            <source src="videos/contractor-vsl.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Bottom Content: Benefits, CTA, Trust -->
+        <div class="contractor-hero-content contractor-hero-bottom">
+          <!-- Key Benefits List -->
+          <ul class="contractor-benefits-list">
+            <li class="contractor-benefit-item">
+              <span class="benefit-text">See what's killing your inbound leads</span>
+            </li>
+            <li class="contractor-benefit-item">
+              <span class="benefit-text">Get your next 30 days mapped out</span>
+            </li>
+            <li class="contractor-benefit-item">
+              <span class="benefit-text">Know exactly where you stand vs. competition</span>
+            </li>
+          </ul>
+
+          <!-- Primary CTA -->
+          <a href="#" class="button-1 contractor-hero-cta" id="hero-calendar-toggle">Claim Your Free Review</a>
+        </div>
+
+      </div>
+
+      <div class="ticker">
+        <p class="ticker-p">Pittsburgh General Contractors aren't waiting on word-of-mouth… they built a system that makes the phone ring…</p>
+      </div>
+    </div>
+
+    <!-- ========== HIDDEN: EMPATHY SECTION ========== -->
+    <!-- Uncomment to restore this section
+    <section class="section diagonal-section" style="padding-bottom: 0; flex-direction: column !important;">
+      <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div class="diagonal-left">
+          <img src="/images/monstera-placeholder.png" alt="Monstera plant" style="width: 25vw; height: auto; display: block; transform: scaleX(-1);">
+        </div>
+        <div class="diagonal-right">
+          <h3 class="diagonal-h3">Your website isn't broken. It's being ignored.</h3>
+          <p class="diagonal-cta-text">Homeowners are searching for your service every day. The reason they aren't calling you usually isn't price, quality, or experience.</p>
+          <p class="diagonal-cta-text">It's that they never really see you.</p>
+          <p class="diagonal-cta-text">Google decides who shows up first. Homeowners decide who feels safe enough to call.</p>
+          <p class="diagonal-cta-text">Most contractor websites fall into a quiet middle ground where neither one is convinced.</p>
+          <p class="diagonal-cta-text">You're not doing anything wrong. You're just missing a few signals that tell Google and buyers, "This is the right choice."</p>
+          <p class="diagonal-cta-text">That's why it feels frustrating. The demand exists. The work exists. The calls don't.</p>
+          <p class="diagonal-cta-text" style="font-weight: 600; color: var(--orga);">This breakdown exists to show you where that disconnect is happening.</p>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ========== HIDDEN: SERVICES ACCORDION ========== -->
+      <!-- Uncomment to restore this section
+      <div class="services-accordion" style="margin-top: 3rem; width: 100%;">
+        <div class="service-accordion-item">
+          <div class="service-accordion-header">
+            <span class="service-accordion-title">Custom Websites</span>
+          </div>
+          <div class="service-accordion-content">
+            <p>Your website should pre-sell jobs before the estimate. We build sites that showcase your work, answer objections, and make homeowners want to work with you specifically.</p>
+          </div>
+        </div>
+
+        <div class="service-accordion-item">
+          <div class="service-accordion-header">
+            <span class="service-accordion-title">Local SEO</span>
+          </div>
+          <div class="service-accordion-content">
+            <p>When someone searches for what you do, they're ready to buy. We make sure you're the contractor they see first, not your competition.</p>
+          </div>
+        </div>
+
+        <div class="service-accordion-item">
+          <div class="service-accordion-header">
+            <span class="service-accordion-title">Lead Generation</span>
+          </div>
+          <div class="service-accordion-content">
+            <p>Stop relying on referrals and word-of-mouth. Get qualified leads flowing into your calendar automatically, even while you're on the job.</p>
+          </div>
+        </div>
+
+        <div class="service-accordion-item">
+          <div class="service-accordion-header">
+            <span class="service-accordion-title">Professional Branding</span>
+          </div>
+          <div class="service-accordion-content">
+            <p>Charge what you're worth. A professional brand signals quality and builds trust instantly, so homeowners choose you over cheaper competitors.</p>
+          </div>
+        </div>
+      </div>
+      -->
+    </section>
+
+    <!-- ========== HIDDEN: DARK BREAKDOWN SECTION ========== -->
+    <!-- Uncomment to restore this section
+    <section class="section dark-breakdown-section">
+      <div class="dark-breakdown-container">
+        <h2 class="dark-breakdown-headline">Your website isn't meant to sit there looking good.</h2>
+        <p class="dark-breakdown-subhead">It's supposed to bring in work.</p>
+
+        <div class="dark-breakdown-content">
+          <p class="dark-breakdown-text">Most contracting businesses have a few quiet breakdowns happening online. Not seven fires. Usually one or two pressure points that stop calls from ever coming through.</p>
+
+          <p class="dark-breakdown-text">Those pressure points aren't the same for every business. What's holding back a roofer is often different from what's holding back a landscaper or GC in the same city.</p>
+
+          <p class="dark-breakdown-callout">That's what this breakdown is for.</p>
+
+          <p class="dark-breakdown-text">We look at seven core areas that affect inbound calls and trace where momentum is breaking down for your business specifically.</p>
+
+          <p class="dark-breakdown-text">Once that's clear, the next steps become obvious. You're not guessing. You're not rebuilding everything. You're fixing what matters first.</p>
+
+          <p class="dark-breakdown-text-final">Most of these corrections can be made within a few weeks, which is why contractors usually feel the difference faster than they expect.</p>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- Problem Section -->
+    <section class="section diagonal-section">
+      <div class="diagonal-right">
+        <h3 class="diagonal-h3">Most agencies sell rankings because they're easy to report</h3>
+        <p class="diagonal-cta-text">They'll show you graphs going up and to the right, screenshots of keywords moving a few spots, and traffic numbers that look impressive on paper.</p>
+        <p class="diagonal-cta-text">But rankings don't pay for crews.<br>Traffic doesn't fill your calendar.</p>
+        <p class="diagonal-cta-text">What matters is whether homeowners are calling you when they search for what you do.</p>
+        <p class="diagonal-cta-text">That's the gap most contractors feel and can't explain.<br>The work is happening, but the phone stays quiet.</p>
+        <p class="diagonal-cta-text" style="font-weight: 600; color: var(--orga);">In your free breakdown, we trace exactly where that gap is coming from.</p>
+      </div>
+      <div class="diagonal-left">
+        <img src="/images/monstera-placeholder.png" alt="Monstera plant" style="width: 25vw; height: auto; display: block;">
+      </div>
+    </section>
+
+    <!-- ========== HIDDEN: FRAMEWORK DETAILS SECTION ========== -->
+    <!-- Uncomment to restore this section
+    <address data-w-id="framework-detail" style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section-home-3">
+      <h3 class="h3 center-h3">Why contractors choose to work with us</h3>
+      <div class="revealed-content-div left">
+        <div class="revealed-content">
+          <div class="home-p2">Every dollar you invest is tied to proof: proof of calls, proof of estimates requested, proof of new jobs landing in your inbox.</div>
+        </div>
+        <div class="adv-arrow-div"><img src="/images/down-right-arrow-7ec700.png" loading="lazy" alt="" class="adventure-arrow green"><img src="/images/down-right-arrow-black.png" loading="lazy" alt="" class="adventure-arrow light"></div>
+      </div>
+      <div class="revealed-content-div right">
+        <div class="adv-arrow-div"><img src="/images/down-left-arrow-7ec700.png" loading="lazy" alt="" class="adventure-arrow green"><img src="/images/down-right-arrow-black.png" loading="lazy" alt="" class="adventure-arrow light"></div>
+        <div class="revealed-content">
+          <div class="home-p2">No fluff reports or vanity metrics. We show you the exact phone calls that came from "kitchen remodeling near me" searches and which ones turned into signed contracts.</div>
+        </div>
+      </div>
+      <h3 class="h3 center-h3 revealed-h3">You'll see this transparency in your free breakdown.</h3>
+      <div class="revealed-content-div left">
+        <div class="revealed-content">
+          <div class="home-p2">Most agencies bury you in technical jargon and impressive-sounding metrics that don't actually put jobs on your calendar.</div>
+        </div>
+        <div class="adv-arrow-div"><img src="/images/down-right-arrow-7ec700.png" loading="lazy" alt="" class="adventure-arrow green"><img src="/images/down-right-arrow-black.png" loading="lazy" alt="" class="adventure-arrow light"></div>
+      </div>
+      <div class="revealed-content-div right">
+        <div class="adv-arrow-div"><img src="/images/down-left-arrow-7ec700.png" loading="lazy" alt="" class="adventure-arrow green"><img src="/images/down-right-arrow-black.png" loading="lazy" alt="" class="adventure-arrow light"></div>
+        <div class="revealed-content">
+          <div class="home-p2">We track what matters to your bottom line: inbound calls, estimate requests, and signed contracts. The stuff that pays your crew.</div>
+        </div>
+      </div>
+      <div class="revealed-content-div center">
+        <div class="revealed-content center">
+          <div class="home-p3">You're running a business, not a science experiment. In your free breakdown, I'll show you exactly what's working, what's broken, and what's costing you jobs, in plain English.</div>
+        </div>
+      </div>
+    </address>
+    -->
+
+    <!-- Testimonials Section - KEPT FROM CURRENT VERSION -->
+    <section class="section">
+      <!-- Testimonial Slider Module -->
+      <div class="testimonial-slider">
+        <!-- Static Star Rating -->
+        <img src="green 5 star.png" alt="5 stars" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 180px; height: auto; z-index: 1;">
+
+        <!-- Testimonials Container -->
+        <div style="position: relative; overflow: hidden; min-height: 400px;">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-item" style="opacity: 1;">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— IWC Cabinetry</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-item">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">We are #1 on Google in most of the categories we want to be in. Ryan already understands our business better than they ever did and gets more done on a monthly basis.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Q&A Landscaping</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-item">
+            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Ryan was able to make my yacht management companies website, help grow my social media presence, and his communication throughout the process was great.</p>
+            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Sureshine Marine Detailing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HIDDEN: WHY CONTRACTORS PARTNER (BIO SECTION) ========== -->
+    <!-- Uncomment to restore this section
+    <section class="section" style="background-color: #333; color: #e2e2e2;">
+      <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem; color: #e2e2e2;">Why Contractors Partner with Us</h2>
+
+      <div style="max-width: 900px; margin: 0 auto;">
+        <p style="margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.0rem; text-align: center;">You don't need another agency telling you to be "patient" while the phones stay quiet. You need someone who will look under the hood, show you what's actually holding you back, and will fix it without drama.</p>
+
+        <p style="margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.0rem; text-align: center;">Ryan has many years of experience supporting and growing local businesses. Through his time, he has learned what makes people take action online. He understands the timeless principles of growing an online presence as well as blending it in with emerging strategies.</p>
+
+        <p style="margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.0rem; text-align: center;">He has taken these principles and broken them down in a way that anyone can understand to make them basic, actionable, and easy to implement.</p>
+
+        <p style="margin-bottom: 0; line-height: 1.8; font-size: 1.0rem; text-align: center;">Whether you're a solo contractor who is looking to get online and start building your brand, or you have a team with countless guys and want to establish yourself as the local leader in your field, the goal is the same: more of the right estimates, less guesswork, and a partner who shows you their work.</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#" class="button-1 w-button calendar-toggle-btn" style="background-color: #e2e2e2; color: #333;">Book Your Free Call</a>
+      </div>
+    </section>
+    -->
+
+    <!-- FAQ Section - KEPT FROM CURRENT VERSION -->
+    <section class="section">
+      <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
+
+      <div class="faq-container">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What actually happens on the call?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem;">This is not a sales call, this is a strategy call. So no beating around the bush, just actionable insights. We look at your website as well as your entire online presence. We will highlight what's working, what's not, what's holding back calls, and we'll agree on moves that will make the biggest difference for you first.</div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What will I gain?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem;">
+              The goal is for you to have a clear 2-3 next steps to take.<br><br>
+              You'll spend time with me and I tailor my advice to your business, industry, goals, and business structure.<br><br>
+              It will be 1 on 1 help specific to your current business challenges.<br><br>
+              You get clarity on what to do, why you should do it, and how to do it. Plus, you'll get a checklist and video recording so you don't miss anything we discuss on the call.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is this right for my business?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem;">
+              If you are a general contractor or a specialty trade (remodeling, additions, kitchen/bath, roofing, concrete, exterior, etc). who is actively taking jobs and has the capacity to implement change. We work nationwide and only take one client per service area to avoid conflicts. As a guide, we're the best fit for companies doing $200k-$5M/year (or running 2+ crews with at least a 4-8 week backlog goal) that want more consistent inbound. If you're under ~$200k/year or only picking up occasional small jobs, you'll get more value from dialing in some of our basics first, we're happy to share some resources with you.<br><br>
+              If you fit these and are looking to grow, odds are we can help.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are there any costs?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div style="padding-bottom: 1.5rem;">The review is completely free. You own every asset we create for your business, and there are no long contracts. If you want help implementing the plan, we'll outline some options for you on how we can move forward. And if we can't find any real opportunities to help out your business, we'll donate $50 to a local charity.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#" class="button-1 w-button calendar-toggle-btn">Book a Free Call</a>
+      </div>
+    </section>
+
+    <!-- Final CTA Section - 3 Part Visual Structure -->
+    <section class="section final-cta-section">
+
+      <!-- Headline -->
+      <h2 class="final-cta-headline">What The Breakdown Looks Like<span class="green-span">.</span></h2>
+
+      <!-- 3 Process Cards -->
+      <div class="process-cards-container">
+
+        <!-- Card 1 -->
+        <div class="process-card">
+          <div class="process-card-number">1</div>
+          <h3 class="process-card-title">Book Your Breakdown</h3>
+          <p class="process-card-text">Pick a time that works. 15 minutes. No prep required.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="process-card">
+          <div class="process-card-number">2</div>
+          <h3 class="process-card-title">We Review First</h3>
+          <p class="process-card-text">We review your site, Google presence, and local competitors before the call.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="process-card">
+          <div class="process-card-number">3</div>
+          <h3 class="process-card-title">Get Your Plan</h3>
+          <p class="process-card-text">Walk away with 2 to 3 specific fixes to improve calls quickly.</p>
+        </div>
+
+      </div>
+
+      <!-- Mini Testimonial (HIDDEN - Add back when real testimonial ready) -->
+      <!-- To show: change CSS .final-cta-testimonial { display: none; } to display: block; -->
+      <div class="final-cta-testimonial">
+        <p class="final-cta-testimonial-text">"We did the breakdown call and implemented 2 of the 3 recommendations. Started getting calls within 3 weeks."</p>
+        <p class="final-cta-testimonial-author">— [Client Name], [Company/Trade]</p>
+      </div>
+
+      <!-- Risk Reversal + CTA Button + Bonus Reversals + Trust Badges -->
+      <div class="final-cta-button-container">
+
+        <!-- Primary Risk Reversal (Above Button) -->
+        <p class="risk-reversal-text">Everything we create during the breakdown is yours to keep, whether you work with us or not.</p>
+        <p class="risk-reversal-text">After the call, you decide what happens next. Use it yourself, work with us, or hand it to another team.</p>
+
+        <!-- CTA Button -->
+        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 final-cta-button">Book Free Breakdown</a>
+
+        <!-- Bonus Risk Reversals (Below Button) -->
+        <div class="bonus-risk-reversals">
+          <p class="bonus-risk-item">This session is about clarity, not selling. If you want help after, you can bring it up.</p>
+          <p class="bonus-risk-item">We start on time and finish fast. If we go over 20 minutes, that's on us.</p>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <span class="trust-badge-item">No contracts</span>
+          <span class="trust-badge-item">•</span>
+          <span class="trust-badge-item">No obligation</span>
+          <span class="trust-badge-item">•</span>
+          <span class="trust-badge-item">Typical response within 2 hours</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========== HIDDEN: DUPLICATE TICKER ========== -->
+    <!-- Uncomment to restore this section
+    <section id="contractor-services" class="section ticker-testimonial-section">
+      <div class="ticking-text">Book your free breakdown, discover what's holding you back, and start filling your calendar with qualified leads.<span class="green-span"> </span></div>
+    </section>
+    -->
+
+    <!-- Footer -->
+    <div id="Footer" class="footer">
+  <div class="footer-organically-bg">Organically</div>
+  <div class="footer-typemark-div">
+    <a href="/" class="link-block w-inline-block">
+      <div class="footer-typemark">Organically</div>
+    </a>
+    <div class="footer-social-wrapper">
+      <a href="https://twitter.com/organicallyseo" class="footer-social-link w-inline-block"><img src="/images/X-black.png" loading="lazy" width="28" alt="" class="footer-social-image light"><img src="/images/X-black.png" loading="lazy" width="28" alt="" class="footer-social-image dark"></a>
+      <a href="https://www.linkedin.com/in/ryan-scanlon31/" class="footer-social-link w-inline-block"><img src="/images/LinkedIn-Black.png" loading="lazy" width="28" alt="" class="footer-social-image light"><img src="/images/LinkedIn-Black.png" loading="lazy" width="28" alt="" class="footer-social-image dark"></a>
+    </div>
+    <div class="copyright-bar">Copyright 2025 Organically SEO. All rights reserved.</div>
+  </div>
+  <div class="footer-wrapper-1">
+    <div class="footer-div">
+      <div class="footer-subheading">Agency</div>
+      <a href="/web-design/" class="footer-text">Web Design</a>
+      <a href="/seo/" class="footer-text">SEO</a>
+      <a href="/branding/" class="footer-text">Branding</a>
+      <a href="/blog/" class="footer-text">Blog</a>
+    </div>
+    <div class="footer-div">
+      <div class="footer-subheading">Contact</div>
+      <a href="/form/" class="footer-text">Form</a>
+      <div class="footer-text">ryan.organically@gmail.com</div>
+    </div>
+    <div class="footer-div">
+      <div class="footer-subheading">Boring</div>
+      <a href="/privacy-policy/" class="footer-text">Privacy Policy</a>
+      <a href="/sitemap/" class="footer-text">Sitemap</a>
+    </div>
+  </div>
+</div>
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b051031253bad4ba698d38" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script>
+    <script src="https://cdn.prod.website-files.com/gsap/3.13.0/SplitText.min.js" type="text/javascript"></script>
+    <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
+    <script src="https://cdn.prod.website-files.com/gsap/3.13.0/InertiaPlugin.min.js" type="text/javascript"></script>
+    <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js" type="text/javascript"></script>
+    <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
+    <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    /* 1 ▸ Lenis + ScrollTrigger sync */
+    const lenis = new Lenis({
+        lerp: 0.1,
+        wheelMultiplier: 0.7,
+        gestureOrientation: "vertical",
+        normalizeWheel: false,
+        smoothTouch: false
+    });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.registerPlugin(SplitText, ScrollTrigger, Draggable);
+
+    ScrollTrigger.config({
+        limitCallbacks: true,
+        syncInterval: 120,
+    });
+
+    // Footer typemark reveal
+    document.querySelectorAll(".footer-typemark").forEach(el => {
+        const ft = SplitText.create(el, { type: "chars", mask: "lines", wordsClass: "masked-word" });
+        gsap.set(ft.chars, { yPercent: -200, opacity: 0 });
+        gsap.to(ft.chars, {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.06,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+});
+</script>
+
+    <!-- Ticker Animation -->
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const ticker = document.querySelector(".ticking-text");
+    if (!ticker) return;
+
+    const originalHTML = ticker.innerHTML;
+    ticker.innerHTML = originalHTML + originalHTML + originalHTML;
+    const tickerWidth = ticker.scrollWidth / 3;
+
+    gsap.to(ticker, {
+        x: -tickerWidth,
+        duration: 30,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+            x: (x) => `${parseFloat(x) % tickerWidth}px`
+        }
+    });
+});
+</script>
+    </div><!-- .body-section -->
+
+    <!-- Right Calendar Panel -->
+    <div class="calendar-module">
+      <div class="calendar-panel-content">
+        <div class="calendar-header">
+          <h3 class="calendar-title">Let's Connect</h3>
+          <p class="calendar-subtitle">Pick a time that works for you</p>
+        </div>
+        <div class="calendar-embed-wrapper">
+          <iframe
+            src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&hide_event_type_details=1"
+            width="100%"
+            height="600"
+            frameborder="0"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="calendar-review">
+          <img src="green 5 star.png" alt="5 stars" class="review-stars">
+          <p class="review-quote">"Ryan was an absolute beauty to work with—thoughtful, creative, and genuinely invested in making our vision come to life."</p>
+          <p class="review-author">— Sarah M., Founder</p>
+        </div>
+      </div>
+    </div>
+
+  <!-- Universal Menu Web Component -->
+  <script src="/components/universal-menu.js"></script>
+
+<style>
+
+  /* Left Side Menu Panel - 20vw, fixed to left edge */
+  .side-menu-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Side Panel - child that toggles, 100% width, no padding or margin */
+  .side-panel {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 5vh 0;
+    background: var(--e2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Menu header - 10vh at top */
+  .menu-header {
+    height: 10vh;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--black-40);
+    box-sizing: border-box;
+  }
+
+  .menu-tagline {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  /* Menu nav links - only top margin allowed */
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-nav-link {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 20px;
+  }
+
+  .menu-footer {
+    padding: 0 20px 20px;
+    margin: 0;
+  }
+
+  /* Center Body Section - 90vw, centered, no side margins */
+  .body-section {
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Universal Menu - 100% width of body-section */
+  .universal-menu {
+    width: 100%;
+    margin: 0;
+    padding: 5vw;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--e2);
+  }
+
+  /* All hero sections - 10vh top margin, 100% width, 5vw padding */
+  .hero-section {
+    width: 100%;
+    margin: 10vh 0 0 0;
+    padding: 5vw 5vw 10vh 5vw;
+    box-sizing: border-box;
+    min-height: auto;
+  }
+
+  /* All sections inside body-section - 100% width, 5vw padding */
+  .body-section > section:not(#Footer),
+  .body-section > div:not(.universal-menu):not(#Footer) {
+    width: 100%;
+    margin: 0;
+    padding: 5vw;
+    box-sizing: border-box;
+  }
+
+  /* Right Calendar Module - 20vw, fixed to right edge */
+  .calendar-module {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Mobile - scale up panels proportionally */
+  @media (max-width: 767px) {
+    .body-section {
+      width: 90vw;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .side-menu-panel {
+      width: 75vw;
+    }
+
+    .side-panel {
+      width: 100%;
+    }
+
+    .calendar-module {
+      width: 75vw;
+    }
+
+    .calendar-panel-content {
+      width: 100%;
+    }
+
+    .universal-menu {
+      padding: 2.5vw;
+    }
+
+    .hero-section {
+      padding: 2.5vw;
+    }
+
+    .body-section > section:not(#Footer),
+    .body-section > div:not(.universal-menu):not(#Footer) {
+      padding: 2.5vw;
+    }
+  }
+
+  .calendar-panel-content {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: var(--e2);
+    opacity: 0;
+    visibility: hidden;
+    box-sizing: border-box;
+    border-top: 1px solid var(--black-40);
+    border-bottom: 1px solid var(--black-40);
+  }
+
+  .calendar-header {
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid var(--black-40);
+    box-sizing: border-box;
+  }
+
+  .calendar-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+
+  .calendar-subtitle {
+    font-size: 14px;
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .calendar-embed-wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .calendar-embed-wrapper iframe {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    border: none;
+    display: block;
+  }
+
+  .calendar-review {
+    padding: 30px;
+    border-top: 1px solid var(--black-40);
+    text-align: center;
+  }
+
+  .review-stars {
+    width: 125px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .review-quote {
+    font-size: 16px;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 12px 0;
+    color: var(--black-75);
+  }
+
+  .review-author {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.7;
+    font-weight: 600;
+  }
+
+  /* Responsive Calendar Content */
+  @media (max-width: 767px) {
+    .calendar-header {
+      padding: 25px 20px 15px;
+    }
+
+    .calendar-title {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .calendar-header {
+      padding: 20px 15px 12px;
+    }
+
+    .calendar-title {
+      font-size: 18px;
+    }
+  }
+
+  /* Dark Mode Support for Calendar */
+  .dark-mode .calendar-panel-content {
+    background: var(--rich-black);
+  }
+
+  .dark-mode .calendar-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .calendar-title {
+    color: var(--white);
+  }
+</style>
+
+<script>
+// Panel Toggle with GSAP - Slide all three siblings together
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof gsap === 'undefined') {
+    console.warn('GSAP not loaded - panel animations disabled');
+    return;
+  }
+
+  const calendarToggle = document.getElementById('calendar-toggle');
+  const calendarToggleBtns = document.querySelectorAll('.calendar-toggle-btn');
+  const calendarContent = document.querySelector('.calendar-panel-content');
+  const sideMenuPanel = document.querySelector('.side-menu-panel');
+  const bodySection = document.querySelector('.body-section');
+  const calendarModule = document.querySelector('.calendar-module');
+
+  // Initialize body-section position to prevent jump on load
+  gsap.set(bodySection, { x: 0 });
+
+  let isCalendarOpen = false;
+
+  const openCalendar = () => {
+    if (isCalendarOpen) return;
+    isCalendarOpen = true;
+
+    // Calculate slide distance based on screen size
+    const isMobile = window.innerWidth <= 767;
+    const slideDistance = isMobile ? '-75vw' : '-15vw';
+
+    // Show calendar content
+    gsap.to(calendarContent, {
+      autoAlpha: 1,
+      duration: 0.6,
+      ease: 'expo.out'
+    });
+
+    // Slide body-section left proportionally
+    gsap.to(bodySection, {
+      x: slideDistance,
+      duration: 0.6,
+      ease: 'expo.out'
+    });
+  };
+
+  const closeCalendar = () => {
+    if (!isCalendarOpen) return;
+    isCalendarOpen = false;
+
+    // Hide calendar content
+    gsap.to(calendarContent, {
+      autoAlpha: 0,
+      duration: 0.6,
+      ease: 'expo.out'
+    });
+
+    // Slide body-section back to center
+    gsap.to(bodySection, {
+      x: 0,
+      duration: 0.6,
+      ease: 'expo.out'
+    });
+  };
+
+  // Toggle calendar on main button click
+  if (calendarToggle) {
+    calendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+  }
+
+  // Handle all calendar toggle buttons
+  calendarToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+  });
+
+  // Also handle hero calendar toggle button
+  const heroCalendarToggle = document.getElementById('hero-calendar-toggle');
+  if (heroCalendarToggle) {
+    heroCalendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+  }
+
+  // Close calendar when clicking outside
+  document.addEventListener('click', (e) => {
+    const isToggleBtn = calendarToggle && calendarToggle.contains(e.target);
+    const isOtherToggleBtn = Array.from(calendarToggleBtns).some(btn => btn.contains(e.target));
+    const isHeroToggle = heroCalendarToggle && heroCalendarToggle.contains(e.target);
+
+    if (isCalendarOpen && !calendarContent.contains(e.target) && !isToggleBtn && !isOtherToggleBtn && !isHeroToggle) {
+      closeCalendar();
+    }
+  });
+
+  // Close calendar on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isCalendarOpen) {
+      closeCalendar();
+    }
+  });
+});
+</script>
+
+<!-- Testimonial Slider Auto-Rotate with GSAP -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    if (testimonialItems.length === 0 || typeof gsap === 'undefined') return;
+
+    let currentIndex = 0;
+    const intervalTime = 9000; // 9 seconds per testimonial
+    let isAnimating = false;
+
+    // Set initial positions - all items start at x: 100% except first
+    gsap.set(testimonialItems, {
+        x: '100%',
+        opacity: 0,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
+    });
+
+    // Set first testimonial visible and in position
+    gsap.set(testimonialItems[0], {
+        x: '0%',
+        opacity: 1
+    });
+
+    function showTestimonial(nextIndex) {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        const currentItem = testimonialItems[currentIndex];
+        const nextItem = testimonialItems[nextIndex];
+
+        // Create timeline for smooth transition
+        const tl = gsap.timeline({
+            onComplete: () => {
+                currentIndex = nextIndex;
+                isAnimating = false;
+            }
+        });
+
+        // Animate current item out to the left
+        tl.to(currentItem, {
+            x: '-100%',
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.inOut'
+        }, 0);
+
+        // Animate next item in from the right
+        tl.fromTo(nextItem,
+            { x: '100%', opacity: 0 },
+            {
+                x: '0%',
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            },
+        0);
+    }
+
+    function nextTestimonial() {
+        const nextIndex = (currentIndex + 1) % testimonialItems.length;
+        showTestimonial(nextIndex);
+    }
+
+    // Start auto-rotation
+    setInterval(nextTestimonial, intervalTime);
+});
+</script>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all other FAQs
+            faqItems.forEach((otherItem) => {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon');
+                otherAnswer.style.maxHeight = '0';
+                otherAnswer.style.paddingTop = '0';
+                otherIcon.textContent = '+';
+                otherIcon.style.transform = 'rotate(0deg)';
+            });
+
+            // Toggle current FAQ
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.paddingTop = '0.5rem';
+                icon.textContent = '−';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+});
+</script>
+
+<!-- Services Accordion Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const serviceItems = document.querySelectorAll('.service-accordion-item');
+
+    serviceItems.forEach((item) => {
+        const header = item.querySelector('.service-accordion-header');
+
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all other services
+            serviceItems.forEach((otherItem) => {
+                otherItem.classList.remove('active');
+            });
+
+            // Toggle current service
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
+<script src="/components/universal-menu.js"></script>
+</body>
+</html>

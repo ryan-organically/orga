@@ -1,0 +1,25 @@
+current directory: /mnt/c/dev/orga/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby extconf.rb
+creating Makefile
+
+current directory: /mnt/c/dev/orga/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260119-5105-q8dpdz sitelibdir\=./.gem.20260119-5105-q8dpdz clean
+make: Warning: File 'Makefile' has modification time 0.4 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/dev/orga/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260119-5105-q8dpdz sitelibdir\=./.gem.20260119-5105-q8dpdz
+make: Warning: File 'Makefile' has modification time 0.38 s in the future
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/dev/orga/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260119-5105-q8dpdz sitelibdir\=./.gem.20260119-5105-q8dpdz install
+make: Warning: File 'ruby_http_parser.so' has modification time 0.43 s in the future
+/usr/bin/install -c -m 0755 ruby_http_parser.so ./.gem.20260119-5105-q8dpdz
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/dev/orga/vendor/bundle/ruby/3.2.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260119-5105-q8dpdz sitelibdir\=./.gem.20260119-5105-q8dpdz clean

@@ -1,0 +1,8 @@
+<div class="sticky-blog-contents">
+  <div class="table-of-contents-heading">{{ include.title | default: page.toc_title | default: "Table of Contents" }}</div>
+  <div class="contents-horizontal-divider"></div>
+  {% assign toc_items = include.items | default: page.toc %}
+  {% for item in toc_items %}
+  <a href="#{{ item.anchor }}" class="content-link">{{ item.text }}</a>
+  {% endfor %}
+</div>
