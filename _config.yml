@@ -33,6 +33,7 @@ exclude:
   # Configuration files
   - .htaccess
   - ORGA_DOCS.md
+  - CLAUDE.md
   - .claude/
   - .git/
   - .gitignore
