@@ -546,70 +546,7 @@ html.lenis {
       <a href="#choose-adventure" class="return-to-adventure">Return to Choose Your Adventure</a>
     </div>
   </address>
-  <section class="section blog-section" style="padding-left: 0; padding-right: 0; overflow: hidden; align-items: flex-start;">
-    <div class="blog-preview">
-    <div style="display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 20px; padding-left: 5vw;">
-      <a href="/blog/" class="blog-thumbs-blog-home w-inline-block" style="display: flex; flex-direction: column; align-items: flex-start;">
-        <img src="/images/coffee-asset.png" alt="Coffee icon" style="width: 50px; height: 50px; margin-bottom: 8px; opacity: 0.9;">
-        <h5 class="read-more-heading">Coffee Break</h5>
-      </a>
-      <div class="blog-nav-buttons" style="display: flex; gap: 10px; margin-top: 20px;">
-        <button class="blog-nav-btn" id="blog-prev">←</button>
-        <button class="blog-nav-btn" id="blog-next">→</button>
-      </div>
-    </div>
-    <div class="read-more-module" style="overflow: visible;">
-      <div class="blog-cards-wrapper" style="overflow: visible;">
-        <div class="blog-cards-track" style="padding-left: 5vw;">
-      <a href="/what-is-seo/" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <p class="blog-module-card-title">What is SEO?<br></p>
-          <div class="bog-comp-p">Ranking on search engines isn&#x27;t luck. The average person makes 3-4 searches on Google per day. Learn how to answer them.</div>
-        </div>
-      </a>
-      <a href="/ai-art/" class="blog-card-1 thumb w-inline-block">
-        <img src="/blog/ai art thumbnail.jpg" loading="lazy" alt="What is AI Art?" class="thumb-image">
-        <div class="thumb-overlay"></div>
-        <div class="thumb-content">
-          <h3 class="thumb-title">What is AI Art?</h3>
-          <p class="thumb-excerpt">AI's threat to jobs and humanity jeopardizes life as we know it.</p>
-        </div>
-      </a>
-      <a href="/webflow-launch-checklist/" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text design">Design</div>
-          </div>
-          <p class="blog-module-card-title">Webflow Launch Checklist<br></p>
-          <p class="blog-component-date">September 5, 2024</p>
-          <div class="bog-comp-p">Launching a website on Webflow can be terrifying, especially if it’s your first time. Many things can go wrong; some things you may never have heard of. </div>
-        </div>
-      </a>
-      <a href="/branding-basics/" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text branding">Branding</div>
-          </div>
-          <p class="blog-module-card-title">Basics of Branding: How to Build Your Own Brand<br></p>
-          <p class="blog-component-date">June 6, 2024</p>
-          <div class="bog-comp-p">Deciding on an original name, colors, logo, and website that speak to you are big commitments.</div>
-        </div>
-      </a>
-      <a href="/webflow-vs-figma/" class="blog-card-1 w-inline-block">
-        <div class="blog-card-content">
-          <div class="filter">
-            <div class="filter-text design">Design</div>
-          </div>
-          <p class="blog-module-card-title">Webflow vs. Figma<br></p>
-          <p class="blog-component-date">July 12, 2023</p>
-          <div class="bog-comp-p">In today&#x27;s shifting tides of creative design and development programs, selecting the right tools can significantly impact your creative journey.</div>
-        </div>
-      </a>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
+  {% include coffee-break.html %}
 
   <!-- Calendar Section -->
   <section class="section calendar-section" id="calendar-section">
