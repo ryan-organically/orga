@@ -19,6 +19,9 @@ permalink: pretty
 
 # Exclude files/folders from GitHub Pages build
 exclude:
+  # Bundler vendor directory (REQUIRED - prevents gem template parsing errors)
+  - vendor
+
   # Development/test components
   - components/debug-3d.html
   - components/menu-example.html
