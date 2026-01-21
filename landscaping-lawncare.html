@@ -101,10 +101,6 @@ html.lenis {
       max-width: 100% !important;
       box-sizing: border-box !important;
     }
-    .tabs-large-heading {
-      margin-top: 80px !important;
-      margin-bottom: 50px !important;
-    }
     /* Tabs container - constrain to parent width */
     .qa-case-study-tabs,
     .qa-case-study-tabs.w-tabs {
@@ -181,6 +177,19 @@ html.lenis {
     .qa-tab-link {
       flex: 0 1 auto !important;
     }
+    /* Responsive font sizes for Q&A case study */
+    .tabs-large-heading {
+      font-size: clamp(20px, 5vw, 42px) !important;
+    }
+    .tabs-heading {
+      font-size: clamp(18px, 4.5vw, 28px) !important;
+    }
+    .tabs-p1 {
+      font-size: clamp(14px, 3.5vw, 20px) !important;
+    }
+    .tabs-superheading {
+      font-size: clamp(12px, 3vw, 15px) !important;
+    }
   }
 </style>
 </head>
@@ -199,7 +208,7 @@ html.lenis {
     <div class="service-hero-div grass-hero-div">
       <h1 class="hero-h1 grass-h1">Landscaping &amp; Lawn Care SEO &amp; Web Design</h1>
       <p class="p1-left-align p1-center" style="color: #e0e0e0;">Appeal to your local audience with original website designs you won&#x27;t see anywhere else. I design websites that captivate potential customers. Ditch the generic templates for a truly bespoke experience.</p>
-      <a href="/form/" class="button-1 universal w-button">Take the next step</a>
+      <a href="/form/" class="button-1 universal w-button" style="color: white; border: 2px solid white;">Take the next step</a>
     </div>
   </div>
   <section class="section">
