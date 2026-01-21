@@ -5703,8 +5703,7 @@ a {
     flex: none;
     justify-content: center;
     align-items: flex-start;
-    width: auto;
-    max-width: 50vw;
+    width: 40vw;
     height: 40vh;
   }
 
@@ -6424,7 +6423,6 @@ a {
     align-items: center;
     width: 100%;
     height: auto;
-    padding-left: 5vw;
     overflow: hidden;
   }
 
