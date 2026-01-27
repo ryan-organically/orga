@@ -421,6 +421,39 @@ html.lenis {
   .dark-mode .calendar-title {
     color: var(--white);
   }
+
+  /* Audit page mobile overflow fix */
+  .section {
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .div-vert-center,
+  .div-horiz-space-around {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 767px) {
+    .div-vert-center {
+      width: 100%;
+    }
+
+    .div-horiz-space-around {
+      width: 100%;
+      padding: 0;
+    }
+
+    .div-50 {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .seo-image-div {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 </style>
 
 <script>

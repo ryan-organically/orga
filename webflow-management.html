@@ -435,6 +435,74 @@ html.lenis {
   .dark-mode .calendar-title {
     color: var(--white);
   }
+
+  /* Mobile overflow fix — constrain vw children to section content area */
+  .section {
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .div-vert-center,
+  .div-horiz-space-around {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .form-page-section {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 767px) {
+    .div-vert-center {
+      width: 100%;
+    }
+
+    .div-horiz-space-around {
+      width: 100%;
+      padding: 0;
+    }
+
+    .div-50 {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .seo-image-div {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .form-page-section {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .universal-form-div {
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .universal-form-logo {
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .form-block-2 {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .orga-form-div {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
 </style>
 
 <script>
