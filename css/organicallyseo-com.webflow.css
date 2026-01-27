@@ -5771,7 +5771,7 @@ a {
   .service-hero-div {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 90vw;
     margin-bottom: 0;
     display: flex;

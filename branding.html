@@ -600,6 +600,55 @@ html.lenis {
   .section:has(.pricing-card-wrapper) {
     display: none !important;
   }
+
+  /* Branding page section overflow fix */
+  .section {
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .div-vert-center {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .div-horiz-space-around {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 767px) {
+    .div-vert-center {
+      width: 100%;
+    }
+
+    .div-horiz-space-around {
+      width: 100%;
+      padding: 0;
+    }
+
+    .div-50 {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .seo-image-div {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .services-h2 {
+      font-size: 1.5rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .p1-left-align,
+    .p1-center {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  }
 </style>
 
 <script>
