@@ -1,0 +1,374 @@
+<div class="side-menu-panel docs-panel">
+  <div class="side-panel docs-side-panel">
+    <div class="docs-sidebar-header">
+      <a href="/sitemap/" class="docs-sidebar-logo">Sitemap</a>
+      <span class="docs-sidebar-badge">Index</span>
+    </div>
+
+    <div class="docs-sidebar-search">
+      <input type="text" placeholder="Search pages..." class="docs-search-input" id="sitemap-search">
+      <span class="docs-search-shortcut">Ctrl+K</span>
+    </div>
+
+    <nav class="docs-nav">
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Jump To</div>
+        <a href="#main-pages" class="docs-nav-link docs-anchor-link">Main Pages</a>
+        <a href="#services" class="docs-nav-link docs-anchor-link">Services</a>
+        <a href="#software-dev" class="docs-nav-link docs-anchor-link">Software Development</a>
+        <a href="#software-outsourcing" class="docs-nav-link docs-anchor-link">Software Outsourcing</a>
+        <a href="#industry-seo" class="docs-nav-link docs-anchor-link">Industry SEO</a>
+        <a href="#startup-seo" class="docs-nav-link docs-anchor-link">Startup SEO</a>
+        <a href="#local-seo" class="docs-nav-link docs-anchor-link">Local SEO</a>
+        <a href="#blog" class="docs-nav-link docs-anchor-link">Blog & Guides</a>
+        <a href="#creative" class="docs-nav-link docs-anchor-link">Creative</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Quick Links</div>
+        <a href="/" class="docs-nav-link">Home</a>
+        <a href="/blog/" class="docs-nav-link">Blog</a>
+        <a href="/form/" class="docs-nav-link">Contact</a>
+        <a href="/tools/" class="docs-nav-link">Tools</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Top Services</div>
+        <a href="/seo/" class="docs-nav-link">SEO</a>
+        <a href="/web-design/" class="docs-nav-link">Web Design</a>
+        <a href="/branding/" class="docs-nav-link">Branding</a>
+        <a href="/software-product-development/" class="docs-nav-link">Software Development</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Popular Guides</div>
+        <a href="/what-is-seo/" class="docs-nav-link">What is SEO?</a>
+        <a href="/what-is-software-outsourcing/" class="docs-nav-link">What is Software Outsourcing?</a>
+        <a href="/generative-engine-optimization/" class="docs-nav-link">
+          <span class="docs-nav-link-new">New</span>
+          GEO Guide
+        </a>
+      </div>
+    </nav>
+
+    <div class="docs-sidebar-footer">
+      <a href="/" class="docs-footer-link">Home</a>
+      <a href="/blog/" class="docs-footer-link">Blog</a>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Docs Sidebar Styles */
+.docs-panel .docs-side-panel {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--e2);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.docs-sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--black-10);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.docs-sidebar-logo {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--black-75);
+}
+
+.docs-sidebar-badge {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  background: var(--orga);
+  color: white;
+  border-radius: 4px;
+}
+
+.docs-sidebar-search {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--black-10);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.docs-search-input {
+  width: 100%;
+  padding: 10px 14px;
+  padding-right: 60px;
+  border: 1px solid var(--black-10);
+  border-radius: 6px;
+  background: var(--white);
+  font-size: 14px;
+  color: var(--black-75);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.docs-search-input:focus {
+  border-color: var(--orga);
+  box-shadow: 0 0 0 3px rgba(126, 199, 0, 0.1);
+}
+
+.docs-search-input::placeholder {
+  color: var(--black-40);
+}
+
+.docs-search-shortcut {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  padding: 2px 6px;
+  background: var(--black-10);
+  border-radius: 4px;
+  color: var(--black-40);
+  pointer-events: none;
+}
+
+.docs-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.docs-nav-section {
+  padding: 8px 0;
+}
+
+.docs-nav-section-title {
+  padding: 8px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--black-40);
+}
+
+.docs-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--black-75);
+  transition: all 0.15s ease;
+  border-left: 2px solid transparent;
+}
+
+.docs-nav-link:hover {
+  background: rgba(126, 199, 0, 0.05);
+  color: var(--orga);
+  border-left-color: var(--orga);
+}
+
+.docs-nav-link.active {
+  background: rgba(126, 199, 0, 0.1);
+  color: var(--orga);
+  border-left-color: var(--orga);
+  font-weight: 600;
+}
+
+.docs-nav-link-new {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  background: var(--orga);
+  color: white;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.docs-sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--black-10);
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.docs-footer-link {
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--black-40);
+  transition: color 0.15s ease;
+}
+
+.docs-footer-link:hover {
+  color: var(--orga);
+}
+
+/* Dark mode */
+.dark-mode .docs-side-panel {
+  background: var(--rich-black);
+}
+
+.dark-mode .docs-sidebar-header,
+.dark-mode .docs-sidebar-search,
+.dark-mode .docs-nav-section,
+.dark-mode .docs-sidebar-footer {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .docs-sidebar-logo {
+  color: var(--white);
+}
+
+.dark-mode .docs-search-input {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.dark-mode .docs-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .docs-search-shortcut {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .docs-nav-section-title {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .docs-nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-mode .docs-nav-link:hover {
+  background: rgba(126, 199, 0, 0.1);
+}
+
+.dark-mode .docs-footer-link {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Scrollbar styling */
+.docs-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.docs-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.docs-nav::-webkit-scrollbar-thumb {
+  background: var(--black-10);
+  border-radius: 3px;
+}
+
+.docs-nav::-webkit-scrollbar-thumb:hover {
+  background: var(--black-20);
+}
+
+.dark-mode .docs-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .docs-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('sitemap-search');
+  const anchorLinks = document.querySelectorAll('.docs-anchor-link');
+
+  // Smooth scroll for anchor links
+  anchorLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        // Close sidebar first
+        const sidePanel = document.querySelector('.side-panel');
+        const bodySection = document.querySelector('.body-section');
+
+        if (typeof gsap !== 'undefined' && sidePanel) {
+          gsap.to(sidePanel, {
+            autoAlpha: 0,
+            duration: 0.4,
+            ease: 'expo.out'
+          });
+          gsap.to(bodySection, {
+            x: 0,
+            duration: 0.4,
+            ease: 'expo.out'
+          });
+        }
+
+        // Scroll to target after sidebar closes
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    });
+  });
+
+  // Search functionality - filter all footer links on the page
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase().trim();
+      const allLinks = document.querySelectorAll('.sitemap-section .footer-text');
+      const allSections = document.querySelectorAll('.sitemap-category');
+
+      if (query === '') {
+        // Show all
+        allLinks.forEach(link => link.style.display = 'block');
+        allSections.forEach(section => section.style.display = 'block');
+        return;
+      }
+
+      allSections.forEach(section => {
+        const links = section.querySelectorAll('.footer-text');
+        let hasVisibleLink = false;
+
+        links.forEach(link => {
+          const text = link.textContent.toLowerCase();
+          if (text.includes(query)) {
+            link.style.display = 'block';
+            hasVisibleLink = true;
+          } else {
+            link.style.display = 'none';
+          }
+        });
+
+        section.style.display = hasVisibleLink ? 'block' : 'none';
+      });
+    });
+
+    // Keyboard shortcut
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+  }
+});
+</script>
