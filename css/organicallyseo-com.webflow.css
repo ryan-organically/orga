@@ -6605,16 +6605,11 @@ a {
   }
 
   .hero-section {
-    align-items: center;
     padding-bottom: 0;
   }
 
   .hero-section.branding-hero {
     height: auto;
-  }
-
-  .hero-section {
-    align-items: flex-start;
   }
 
   .hero-social-proof {
