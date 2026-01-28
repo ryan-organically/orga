@@ -1,0 +1,391 @@
+<div class="side-menu-panel docs-panel">
+  <div class="side-panel docs-side-panel" data-lenis-prevent>
+    <div class="docs-sidebar-header">
+      <a href="/blog/" class="docs-sidebar-logo">Blog</a>
+      <span class="docs-sidebar-badge">Guides</span>
+    </div>
+
+    <div class="docs-sidebar-search">
+      <input type="text" placeholder="Search articles..." class="docs-search-input" id="docs-search">
+      <span class="docs-search-shortcut">Ctrl+K</span>
+    </div>
+
+    <nav class="docs-nav" data-lenis-prevent>
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Getting Started</div>
+        <a href="/what-is-seo/" class="docs-nav-link">What is SEO?</a>
+        <a href="/branding-basics/" class="docs-nav-link">Branding Basics</a>
+        <a href="/what-is-software-outsourcing/" class="docs-nav-link">What is Software Outsourcing?</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Featured</div>
+        <a href="/generative-engine-optimization/" class="docs-nav-link">
+          <span class="docs-nav-link-new">New</span>
+          GEO: The Architect's Guide
+        </a>
+        <a href="/ai-art/" class="docs-nav-link">What is AI Art?</a>
+        <a href="/tools/" class="docs-nav-link">8 Elite Tools</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">SEO Guides</div>
+        <a href="/seo-for-startups/" class="docs-nav-link">SEO for Startups</a>
+        <a href="/law-firm-seo/" class="docs-nav-link">Law Firm SEO</a>
+        <a href="/healthcare-seo/" class="docs-nav-link">Healthcare SEO</a>
+        <a href="/seo-for-dentists/" class="docs-nav-link">SEO for Dentists</a>
+        <a href="/hvac-seo/" class="docs-nav-link">HVAC SEO</a>
+        <a href="/seo-for-roofers/" class="docs-nav-link">SEO for Roofers</a>
+        <a href="/seo-for-pest-control-companies/" class="docs-nav-link">Pest Control SEO</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Software Outsourcing</div>
+        <a href="/benefits-of-outsourcing-software-development/" class="docs-nav-link">Benefits of Outsourcing</a>
+        <a href="/software-outsourcing-cost/" class="docs-nav-link">Outsourcing Cost Guide</a>
+        <a href="/nearshore-software-outsourcing/" class="docs-nav-link">Nearshore Outsourcing</a>
+        <a href="/agile-software-outsourcing/" class="docs-nav-link">Agile Outsourcing</a>
+        <a href="/outsourcing-software-development-pros-and-cons/" class="docs-nav-link">Pros & Cons</a>
+        <a href="/software-outsourcing-challenges/" class="docs-nav-link">Common Challenges</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Web Design</div>
+        <a href="/webflow-launch-checklist/" class="docs-nav-link">Webflow Launch Checklist</a>
+        <a href="/webflow-vs-figma/" class="docs-nav-link">Webflow vs Figma</a>
+        <a href="/webflow-vs-squarespace/" class="docs-nav-link">Webflow vs Squarespace</a>
+        <a href="/how-to-design-in-webflow/" class="docs-nav-link">How to Design in Webflow</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">UX & Design</div>
+        <a href="/the-ux-sword/" class="docs-nav-link">The UX Sword</a>
+        <a href="/the-ux-revolution-how-experience-is-evolving-daily/" class="docs-nav-link">The UX Revolution</a>
+        <a href="/13-ux-statistics-fueling-a-digital-revolution/" class="docs-nav-link">13 UX Statistics</a>
+      </div>
+
+      <div class="docs-nav-section">
+        <div class="docs-nav-section-title">Startups</div>
+        <a href="/software-development-for-startups/" class="docs-nav-link">Software Dev for Startups</a>
+        <a href="/mvp-development-services/" class="docs-nav-link">MVP Development</a>
+        <a href="/how-to-find-a-technical-co-founder/" class="docs-nav-link">Find a Technical Co-Founder</a>
+        <a href="/technical-co-founder/" class="docs-nav-link">Technical Co-Founder Guide</a>
+        <a href="/technical-co-founder-equity/" class="docs-nav-link">Co-Founder Equity</a>
+      </div>
+    </nav>
+
+    <div class="docs-sidebar-footer">
+      <a href="/" class="docs-footer-link">Back to Home</a>
+      <a href="/sitemap/" class="docs-footer-link">Sitemap</a>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Docs Sidebar Styles */
+.docs-panel .docs-side-panel {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--e2);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.docs-sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--black-10);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.docs-sidebar-logo {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--black-75);
+}
+
+.docs-sidebar-badge {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  background: var(--orga);
+  color: white;
+  border-radius: 4px;
+}
+
+.docs-sidebar-search {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--black-10);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.docs-search-input {
+  width: 100%;
+  padding: 10px 14px;
+  padding-right: 60px;
+  border: 1px solid var(--black-10);
+  border-radius: 6px;
+  background: var(--white);
+  font-size: 14px;
+  color: var(--black-75);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.docs-search-input:focus {
+  border-color: var(--orga);
+  box-shadow: 0 0 0 3px rgba(126, 199, 0, 0.1);
+}
+
+.docs-search-input::placeholder {
+  color: var(--black-40);
+}
+
+.docs-search-shortcut {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  padding: 2px 6px;
+  background: var(--black-10);
+  border-radius: 4px;
+  color: var(--black-40);
+  pointer-events: none;
+}
+
+.docs-nav {
+  flex: 1;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  padding: 8px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.docs-nav-section {
+  padding: 8px 0;
+}
+
+.docs-nav-section-title {
+  padding: 8px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--black-40);
+}
+
+.docs-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--black-75);
+  transition: all 0.15s ease;
+  border-left: 2px solid transparent;
+}
+
+.docs-nav-link:hover {
+  background: rgba(126, 199, 0, 0.05);
+  color: var(--orga);
+  border-left-color: var(--orga);
+}
+
+.docs-nav-link.active {
+  background: rgba(126, 199, 0, 0.1);
+  color: var(--orga);
+  border-left-color: var(--orga);
+  font-weight: 600;
+}
+
+.docs-nav-link-new {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  background: var(--orga);
+  color: white;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.docs-sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--black-10);
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.docs-footer-link {
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--black-40);
+  transition: color 0.15s ease;
+}
+
+.docs-footer-link:hover {
+  color: var(--orga);
+}
+
+/* Dark mode */
+.dark-mode .docs-side-panel {
+  background: var(--rich-black);
+}
+
+.dark-mode .docs-sidebar-header,
+.dark-mode .docs-sidebar-search,
+.dark-mode .docs-nav-section,
+.dark-mode .docs-sidebar-footer {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .docs-sidebar-logo {
+  color: var(--white);
+}
+
+.dark-mode .docs-search-input {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.dark-mode .docs-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .docs-search-shortcut {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .docs-nav-section-title {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode .docs-nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-mode .docs-nav-link:hover {
+  background: rgba(126, 199, 0, 0.1);
+}
+
+.dark-mode .docs-footer-link {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Scrollbar styling */
+.docs-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.docs-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.docs-nav::-webkit-scrollbar-thumb {
+  background: var(--black-10);
+  border-radius: 3px;
+}
+
+.docs-nav::-webkit-scrollbar-thumb:hover {
+  background: var(--black-20);
+}
+
+.dark-mode .docs-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .docs-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+</style>
+
+<script>
+// Docs sidebar search functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('docs-search');
+  const navLinks = document.querySelectorAll('.docs-nav-link');
+  const navSections = document.querySelectorAll('.docs-nav-section');
+
+  if (searchInput) {
+    // Filter links on input
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase().trim();
+
+      navSections.forEach(section => {
+        const links = section.querySelectorAll('.docs-nav-link');
+        let hasVisibleLink = false;
+
+        links.forEach(link => {
+          const text = link.textContent.toLowerCase();
+          if (query === '' || text.includes(query)) {
+            link.style.display = 'flex';
+            hasVisibleLink = true;
+          } else {
+            link.style.display = 'none';
+          }
+        });
+
+        // Hide section if no visible links
+        section.style.display = hasVisibleLink ? 'block' : 'none';
+      });
+    });
+
+    // Keyboard shortcut Ctrl+K to focus search
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+  }
+
+  // Highlight current page
+  const currentPath = window.location.pathname;
+  navLinks.forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+      link.classList.add('active');
+    }
+  });
+
+  // Close menu when clicking docs links (trigger the universal-menu close)
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Find and close the menu via the universal-menu component
+      const sidePanel = document.querySelector('.side-panel');
+      const bodySection = document.querySelector('.body-section');
+
+      if (typeof gsap !== 'undefined' && sidePanel) {
+        gsap.to(sidePanel, {
+          autoAlpha: 0,
+          duration: 0.6,
+          ease: 'expo.out'
+        });
+        gsap.to(bodySection, {
+          x: 0,
+          duration: 0.6,
+          ease: 'expo.out'
+        });
+      }
+    });
+  });
+});
+</script>

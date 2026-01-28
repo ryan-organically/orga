@@ -400,12 +400,12 @@ html.lenis {
   </section>
 
   <!-- What You Get Section -->
-  <section class="section">
+  <section class="section" style="overflow: hidden; padding-left: 20px; padding-right: 20px;">
     <h2 class="services-h2" style="text-align: center; margin-bottom: 1rem;">What You Actually Get</h2>
     <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Every deliverable is yours. No proprietary dashboards you lose access to when you leave. No vendor lock-in.</p>
 
-    <div class="deliverables-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
-      <div>
+    <div class="deliverables-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;">
+      <div style="min-width: 0; overflow: hidden; word-wrap: break-word; overflow-wrap: break-word;">
         <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--orga);">Monthly Deliverables</h3>
         <ul style="list-style: none; padding: 0; margin: 0;">
           <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--black-10); display: flex; align-items: flex-start; gap: 0.75rem;">
@@ -431,7 +431,7 @@ html.lenis {
         </ul>
       </div>
 
-      <div>
+      <div style="min-width: 0; overflow: hidden; word-wrap: break-word; overflow-wrap: break-word;">
         <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--orga);">One-Time Deliverables</h3>
         <ul style="list-style: none; padding: 0; margin: 0;">
           <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--black-10); display: flex; align-items: flex-start; gap: 0.75rem;">
@@ -462,67 +462,73 @@ html.lenis {
   <!-- SEO vs Alternatives Section -->
   <section class="section">
     <h2 class="services-h2" style="text-align: center; margin-bottom: 1rem;">SEO vs. Your Other Options</h2>
-    <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">There's more than one way to get traffic. Here's how they compare. A strong <a href="/branding/" style="color: var(--orga);">brand identity</a> helps you stand out in any channel.</p>
+    <p style="text-align: center; width: 100%; max-width: 700px; margin: 0 auto 3rem; box-sizing: border-box;">There's more than one way to get traffic. Here's how they compare. A strong <a href="/branding/" style="color: var(--orga);">brand identity</a> helps you stand out in any channel.</p>
 
-    <div class="table-wrapper" style="max-width: 1000px; margin: 0 auto; overflow-x: auto;">
-      <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+    <div class="table-wrapper" style="width: 95%; max-width: 1000px; margin: 0 auto; box-sizing: border-box; overflow: hidden;">
+      <table style="width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 0.75rem;">
+        <colgroup>
+          <col style="width: 20%;">
+          <col style="width: 27%;">
+          <col style="width: 27%;">
+          <col style="width: 26%;">
+        </colgroup>
         <thead>
           <tr style="border-bottom: 2px solid var(--black-10);">
-            <th style="padding: 1rem; text-align: left; font-weight: 600;"></th>
-            <th style="padding: 1rem; text-align: center; font-weight: 600; background: rgba(126, 199, 0, 0.1);">SEO</th>
-            <th style="padding: 1rem; text-align: center; font-weight: 600;">Google Ads</th>
-            <th style="padding: 1rem; text-align: center; font-weight: 600;">Social Media</th>
+            <th style="padding: 0.4rem; text-align: left; font-weight: 600;"></th>
+            <th style="padding: 0.4rem; text-align: center; font-weight: 600; background: rgba(126, 199, 0, 0.1);">SEO</th>
+            <th style="padding: 0.4rem; text-align: center; font-weight: 600;">Ads</th>
+            <th style="padding: 0.4rem; text-align: center; font-weight: 600;">Social</th>
           </tr>
         </thead>
         <tbody>
           <tr style="border-bottom: 1px solid var(--black-10);">
-            <td style="padding: 1rem; font-weight: 500;">Cost per click</td>
-            <td style="padding: 1rem; text-align: center; background: rgba(126, 199, 0, 0.05);">$0 (after ranking)</td>
-            <td style="padding: 1rem; text-align: center;">$2-50+ per click</td>
-            <td style="padding: 1rem; text-align: center;">$0.50-5+ per click</td>
+            <td style="padding: 0.4rem; font-weight: 500; overflow-wrap: break-word;">Cost/click</td>
+            <td style="padding: 0.4rem; text-align: center; background: rgba(126, 199, 0, 0.05);">$0</td>
+            <td style="padding: 0.4rem; text-align: center;">$2–50+</td>
+            <td style="padding: 0.4rem; text-align: center;">$0.50–5+</td>
           </tr>
           <tr style="border-bottom: 1px solid var(--black-10);">
-            <td style="padding: 1rem; font-weight: 500;">Time to results</td>
-            <td style="padding: 1rem; text-align: center; background: rgba(126, 199, 0, 0.05);">3-6 months</td>
-            <td style="padding: 1rem; text-align: center;">Immediate</td>
-            <td style="padding: 1rem; text-align: center;">Varies widely</td>
+            <td style="padding: 0.4rem; font-weight: 500;">Results in</td>
+            <td style="padding: 0.4rem; text-align: center; background: rgba(126, 199, 0, 0.05);">3–6 mo</td>
+            <td style="padding: 0.4rem; text-align: center;">Instant</td>
+            <td style="padding: 0.4rem; text-align: center;">Varies</td>
           </tr>
           <tr style="border-bottom: 1px solid var(--black-10);">
-            <td style="padding: 1rem; font-weight: 500;">Traffic when you stop paying</td>
-            <td style="padding: 1rem; text-align: center; background: rgba(126, 199, 0, 0.05);">Continues</td>
-            <td style="padding: 1rem; text-align: center;">Stops immediately</td>
-            <td style="padding: 1rem; text-align: center;">Drops significantly</td>
+            <td style="padding: 0.4rem; font-weight: 500; overflow-wrap: break-word;">After you stop</td>
+            <td style="padding: 0.4rem; text-align: center; background: rgba(126, 199, 0, 0.05);">Continues</td>
+            <td style="padding: 0.4rem; text-align: center;">Stops</td>
+            <td style="padding: 0.4rem; text-align: center;">Drops</td>
           </tr>
           <tr style="border-bottom: 1px solid var(--black-10);">
-            <td style="padding: 1rem; font-weight: 500;">User intent</td>
-            <td style="padding: 1rem; text-align: center; background: rgba(126, 199, 0, 0.05);">High (actively searching)</td>
-            <td style="padding: 1rem; text-align: center;">High (actively searching)</td>
-            <td style="padding: 1rem; text-align: center;">Low (passive browsing)</td>
+            <td style="padding: 0.4rem; font-weight: 500;">Intent</td>
+            <td style="padding: 0.4rem; text-align: center; background: rgba(126, 199, 0, 0.05);">High</td>
+            <td style="padding: 0.4rem; text-align: center;">High</td>
+            <td style="padding: 0.4rem; text-align: center;">Low</td>
           </tr>
           <tr style="border-bottom: 1px solid var(--black-10);">
-            <td style="padding: 1rem; font-weight: 500;">Trust factor</td>
-            <td style="padding: 1rem; text-align: center; background: rgba(126, 199, 0, 0.05);">High (organic = earned)</td>
-            <td style="padding: 1rem; text-align: center;">Lower (marked as ad)</td>
-            <td style="padding: 1rem; text-align: center;">Medium</td>
+            <td style="padding: 0.4rem; font-weight: 500;">Trust</td>
+            <td style="padding: 0.4rem; text-align: center; background: rgba(126, 199, 0, 0.05);">High</td>
+            <td style="padding: 0.4rem; text-align: center;">Lower</td>
+            <td style="padding: 0.4rem; text-align: center;">Medium</td>
           </tr>
           <tr>
-            <td style="padding: 1rem; font-weight: 500;">Long-term ROI</td>
-            <td style="padding: 1rem; text-align: center; background: rgba(126, 199, 0, 0.05);">Compounds over time</td>
-            <td style="padding: 1rem; text-align: center;">Linear (pay = traffic)</td>
-            <td style="padding: 1rem; text-align: center;">Requires constant content</td>
+            <td style="padding: 0.4rem; font-weight: 500;">ROI</td>
+            <td style="padding: 0.4rem; text-align: center; background: rgba(126, 199, 0, 0.05);">Compounds</td>
+            <td style="padding: 0.4rem; text-align: center;">Linear</td>
+            <td style="padding: 0.4rem; text-align: center;">Constant</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p style="text-align: center; max-width: 700px; margin: 2rem auto 0; font-size: 0.95rem; opacity: 0.8;">The best strategy often combines SEO with paid ads—use ads for immediate traffic while SEO builds your long-term foundation. Need a website that converts? Check out our <a href="/web-design/" style="color: var(--orga);">web design services</a>.</p>
+    <p style="text-align: center; width: 100%; max-width: 700px; margin: 2rem auto 0; font-size: 0.95rem; opacity: 0.8; box-sizing: border-box;">The best strategy often combines SEO with paid ads—use ads for immediate traffic while SEO builds your long-term foundation. Need a website that converts? Check out our <a href="/web-design/" style="color: var(--orga);">web design services</a>.</p>
   </section>
 
   <!-- Why SEO Matters Stats Section -->
   <section class="section">
     <h2 class="services-h2" style="text-align: center; margin-bottom: 3rem;">Why Organic Traffic Wins</h2>
 
-    <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; text-align: center;">
+    <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 2rem; width: 100%; max-width: 1000px; margin: 0 auto; text-align: center; box-sizing: border-box;">
       <div>
         <div style="font-size: 3.5rem; font-weight: 700; color: var(--orga); line-height: 1;">53%</div>
         <p style="margin-top: 0.5rem;">of all website traffic comes from organic search</p>
@@ -541,7 +547,7 @@ html.lenis {
       </div>
     </div>
 
-    <div class="bottom-callout" style="max-width: 700px; margin: 3rem auto 0; padding: 2rem; background: var(--e2); border-radius: 8px;">
+    <div class="bottom-callout" style="width: 100%; max-width: 700px; margin: 3rem auto 0; padding: 2rem; background: var(--e2); border-radius: 8px; box-sizing: border-box;">
       <p style="font-size: 1.1rem; line-height: 1.7; margin: 0;"><strong>The bottom line:</strong> People trust organic results more than ads. They click on them more. And those clicks convert at nearly 9x the rate of outbound marketing. If you're not investing in SEO, you're paying a tax every time someone searches for what you sell and finds your competitor instead.</p>
     </div>
   </section>
@@ -1053,8 +1059,6 @@ html.lenis {
   @media (max-width: 767px) {
     .hero-section {
       flex-direction: column;
-      align-items: center;
-      text-align: center;
     }
 
     .hero-section .hero-treeline-image {
@@ -1148,20 +1152,19 @@ html.lenis {
 
   @media (max-width: 767px) {
     .table-wrapper {
-      margin-left: -2.5vw;
-      margin-right: -2.5vw;
-      padding-left: 2.5vw;
-      padding-right: 2.5vw;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
     }
 
     .table-wrapper table {
-      font-size: 0.8rem;
-      min-width: 450px;
+      font-size: 0.7rem;
+      min-width: 0;
     }
 
     .table-wrapper table th,
     .table-wrapper table td {
-      padding: 0.6rem 0.4rem;
+      padding: 0.4rem 0.25rem;
     }
   }
 

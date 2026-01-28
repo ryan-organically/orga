@@ -5771,7 +5771,7 @@ a {
   .service-hero-div {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 90vw;
     margin-bottom: 0;
     display: flex;
@@ -6605,16 +6605,11 @@ a {
   }
 
   .hero-section {
-    align-items: center;
     padding-bottom: 0;
   }
 
   .hero-section.branding-hero {
     height: auto;
-  }
-
-  .hero-section {
-    align-items: flex-start;
   }
 
   .hero-social-proof {
