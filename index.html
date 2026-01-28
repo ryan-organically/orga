@@ -214,19 +214,7 @@ html.lenis {
 
     <!-- Center Body Section -->
     <div class="body-section">
-    <div class="universal-menu">
-      <universal-menu></universal-menu>
-      <a href="/form/" class="button-1 w-button">Schedule a call</a>
-      <button class="theme-toggle" aria-label="Toggle dark mode">
-        <span class="sun-icon">☀</span>
-        <span class="moon-icon">☾</span>
-      </button>
-      <button class="negative-mode-toggle" onclick="document.documentElement.classList.toggle('negative-mode')" title="Toggle negative mode">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18V4c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/>
-        </svg>
-      </button>
-    </div>
+    {% include universal-menu.html %}
     <!-- Announcement Banner -->
     <div class="announcement-banner" style="display: none;">
       <p class="announcement-text">New Report: 2025 SEO Trends & Strategies - Download Now</p>
@@ -377,7 +365,7 @@ html.lenis {
       <img src="/images/monstera-icon.png" alt="Monstera icon" style="width: 100px; height: 100px; margin-left: -20px;">
       <h2>Full-Service Digital Marketing That Grows Your Business</h2>
       <p>From custom web design and SEO to branding and development—we deliver comprehensive marketing solutions that drive real results. Let's build something that converts.</p>
-      <button class="button-1 hero-cta-button calendar-toggle-btn">Get Your Free Website Review</button>
+
     </div>
     <div class="services-showcase-right">
       <div class="services-showcase-tabs">
@@ -416,7 +404,7 @@ html.lenis {
   </div>
 
   <section class="section ticker-testimonial-section" style="background-color: transparent;">
-    <div class="ticking-text" style="padding-top: 0; padding-bottom: 0; color: #333;">Proven to move the needle Organically<span class="green-span">. </span></div>
+    <div class="ticking-text" style="padding-top: 0; padding-bottom: 0;">Proven to move the needle Organically<span class="green-span">. </span></div>
   </section>
   <address id="choose-adventure" data-w-id="76ca32a2-4ec2-eb02-d5aa-23c5b7d05ca3" style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section-home-3">
     <h3 class="h3 center-h3">Choose your adventure</h3>
@@ -2122,12 +2110,15 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Dark Mode - Body & Main Sections */
   body.dark-mode.horizontal-body {
     background-color: #1a1a1a;
+    --333: #e2e2e2;
   }
   .dark-mode .body-section {
     background-color: #1a1a1a;
   }
   .dark-mode .universal-menu {
-    background-color: #1a1a1a;
+    background-color: #1a1a1abf;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
   }
   .dark-mode .hero-section,
   .dark-mode .home-hero {
@@ -2179,12 +2170,162 @@ document.addEventListener("DOMContentLoaded", () => {
     color: #e2e2e2;
   }
 
+  /* Dark Mode - Hero Review */
+  .dark-mode .hero-social-proof,
+  .dark-mode .social-proof-tile {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .social-proof-stat,
+  .dark-mode .social-proof-title {
+    color: #e2e2e2;
+  }
+
+  /* Dark Mode - Hero Image Inversion */
+  .dark-mode .hero-steel-building {
+    filter: invert(1) brightness(0.85);
+  }
+
+  /* Dark Mode - Nav & Schedule Button */
+  .dark-mode .universal-menu .button-1 {
+    color: #e2e2e2;
+    border-color: #e2e2e2;
+    background-color: #ffffff0d;
+  }
+
+  .dark-mode .menu-tagline {
+    color: #e2e2e2;
+  }
+
+  /* Dark Mode - Works Section */
+  .dark-mode .works-h2 {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .works-section {
+    background-color: #1a1a1a;
+  }
+
+  .dark-mode .works-tile {
+    background-color: #1a1a1abf;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid #ffffff66;
+  }
+
+  .dark-mode .fishing-img {
+    filter: invert(1) brightness(0.85);
+  }
+
+  .dark-mode .works-tile-img {
+    filter: brightness(0.85);
+  }
+
+  .dark-mode .works-tile-title {
+    color: #e2e2e2;
+  }
+
+  /* Dark Mode - Full Service Section */
+  .dark-mode .services-showcase,
+  .dark-mode .services-showcase-left,
+  .dark-mode .services-showcase-right {
+    background-color: #1a1a1a;
+    color: #e2e2e2;
+  }
+
+  .dark-mode .services-showcase-card {
+    background-color: #2a2a2a;
+    color: #e2e2e2;
+  }
+
+  .dark-mode .services-showcase-left h2,
+  .dark-mode .services-showcase-left p,
+  .dark-mode .services-showcase-label,
+  .dark-mode .services-showcase-description,
+  .dark-mode .services-showcase-content {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .services-showcase-left img {
+    filter: invert(1);
+  }
+
+  /* Dark Mode - Proven Ticker */
+  .ticking-text {
+    color: #333;
+  }
+
+  .dark-mode .ticker-testimonial-section {
+    background-color: #1a1a1a;
+  }
+
+  .dark-mode .ticking-text {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .ticker-testimonial-section {
+    border: 1px solid #ffffff66;
+  }
+
+  /* Dark Mode - Coffee Break */
+  .dark-mode .blog-thumbs-blog-home img {
+    filter: invert(1);
+  }
+
+  .dark-mode .read-more-heading {
+    color: #e2e2e2;
+  }
+
+  /* Dark Mode - Blog Tiles */
+  .dark-mode .blog-card-1 {
+    background-color: #2a2a2a;
+  }
+
+  .dark-mode .blog-module-card-title,
+  .dark-mode .bog-comp-p,
+  .dark-mode .blog-component-date,
+  .dark-mode .thumb-title,
+  .dark-mode .thumb-excerpt {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .blog-nav-btn {
+    background-color: #2a2a2a;
+    color: #e2e2e2;
+  }
+
+  /* Dark Mode - Calendar Section */
+  .dark-mode .calendar-section,
+  .dark-mode .calendar-section-inner,
+  .dark-mode .calendar-content {
+    background-color: #1a1a1a;
+    color: #e2e2e2;
+  }
+
+  .dark-mode .calendar-description,
+  .dark-mode .calendar-benefits-label,
+  .dark-mode .calendar-benefit-text {
+    color: #e2e2e2;
+  }
+
+  /* Dark Mode - Footer Social Icons */
+  .dark-mode .footer-social-image {
+    filter: invert(1);
+  }
+
+  .dark-mode .footer-organically-bg {
+    color: #2a2a2a;
+  }
+
   /* Dark Mode - Borders */
   .dark-mode * {
     border-color: #555;
   }
   .dark-mode .button-1 {
     border-color: #e2e2e2;
+  }
+  .dark-mode .blog-card-1:hover {
+    border-color: #7ec700;
   }
 
   /* Works Section */

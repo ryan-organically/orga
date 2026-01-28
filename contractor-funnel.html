@@ -314,36 +314,30 @@
     }
 
     .process-card {
-      background-color: white;
-      border: 1px solid var(--black-20);
-      border-top: 3px solid var(--orga);
+      background-color: transparent;
+      border: 1px solid var(--black-40);
       border-radius: 6px;
       padding: 1.25rem 1.25rem 1.5rem 1.25rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-top 0.25s ease;
+      transition: border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .process-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(126, 199, 0, 0.15);
-      border-top: 4px solid var(--orga);
+      border-color: #7ec700;
     }
 
     .process-card-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background-color: var(--orga);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
+      font-family: 'Coolvetica Rg', sans-serif;
+      font-size: 5rem;
+      font-weight: 400;
+      color: var(--orga);
+      line-height: 1;
+      margin-bottom: 0.15rem;
+      width: 100%;
+      text-align: center;
     }
 
     .process-card-title {
@@ -916,7 +910,7 @@ html.lenis {
           <p class="shrunk-p">Discover why your website and Google presence aren't producing calls yet and what to fix first so leads start coming in over the next 30 days.</p>
 
           <!-- Primary CTA -->
-          <a href="#" class="button-1 contractor-hero-cta" id="hero-calendar-toggle" style="margin-top: 20px;">Claim Your Free Review</a>
+          <a href="/form/" class="button-1 contractor-hero-cta" id="hero-calendar-toggle" style="margin-top: 20px;">Claim Your Free Review</a>
         </div>
 
         <!-- VSL - Will be reordered on mobile -->
@@ -1125,10 +1119,67 @@ html.lenis {
       </div>
 
       <div style="text-align: center; margin-top: 3rem;">
-        <a href="#" class="button-1 w-button calendar-toggle-btn" style="background-color: #e2e2e2; color: #333;">Book Your Free Call</a>
+        <a href="/form/" class="button-1 w-button calendar-toggle-btn" style="background-color: #e2e2e2; color: #333;">Book Your Free Call</a>
       </div>
     </section>
     -->
+
+    <!-- Final CTA Section - 3 Part Visual Structure -->
+    <section class="section final-cta-section">
+
+      <!-- Headline + Subtext -->
+      <div style="text-align: center;">
+        <h2 class="final-cta-headline">What The Breakdown Looks Like<span class="green-span">.</span></h2>
+        <p style="max-width: 700px; margin: 0 auto; line-height: 1.6; color: var(--black-75);">Everything we create during the breakdown is yours to keep, whether you work with us or not. After the call, you decide what happens next. Use it yourself, work with us, or hand it to another team.</p>
+      </div>
+
+      <!-- 3 Process Cards -->
+      <div class="process-cards-container">
+
+        <!-- Card 1 -->
+        <div class="process-card">
+          <div class="process-card-number">1</div>
+          <h3 class="process-card-title">Book Your Breakdown</h3>
+          <p class="process-card-text">Pick a time that works. 15 minutes. No prep required.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="process-card">
+          <div class="process-card-number">2</div>
+          <h3 class="process-card-title">We Review First</h3>
+          <p class="process-card-text">We review your site, Google presence, and local competitors before the call.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="process-card">
+          <div class="process-card-number">3</div>
+          <h3 class="process-card-title">Get Your Plan</h3>
+          <p class="process-card-text">Walk away with 2 to 3 specific fixes to improve calls quickly.</p>
+        </div>
+
+      </div>
+
+      <!-- Mini Testimonial (HIDDEN - Add back when real testimonial ready) -->
+      <!-- To show: change CSS .final-cta-testimonial { display: none; } to display: block; -->
+      <div class="final-cta-testimonial">
+        <p class="final-cta-testimonial-text">"We did the breakdown call and implemented 2 of the 3 recommendations. Started getting calls within 3 weeks."</p>
+        <p class="final-cta-testimonial-author">— [Client Name], [Company/Trade]</p>
+      </div>
+
+      <!-- CTA Button + Bonus Reversals + Trust Badges -->
+      <div class="final-cta-button-container">
+
+        <!-- CTA Button -->
+        <a href="/form/" class="button-1 final-cta-button">Book Free Breakdown</a>
+
+        <!-- Risk Reversals + Trust -->
+        <div style="text-align: center; margin-top: 0.75rem; font-size: 0.9rem; color: var(--black-75); opacity: 0.7;">
+          <span>20 minutes or less.</span>
+        </div>
+
+      </div>
+
+    </section>
 
     <!-- FAQ Section - KEPT FROM CURRENT VERSION -->
     <section class="section">
@@ -1189,76 +1240,8 @@ html.lenis {
       </div>
 
       <div style="text-align: center; margin-top: 3rem;">
-        <a href="#" class="button-1 w-button calendar-toggle-btn">Book a Free Call</a>
+        <a href="/form/" class="button-1 w-button calendar-toggle-btn">Book a Free Call</a>
       </div>
-    </section>
-
-    <!-- Final CTA Section - 3 Part Visual Structure -->
-    <section class="section final-cta-section">
-
-      <!-- Headline -->
-      <h2 class="final-cta-headline">What The Breakdown Looks Like<span class="green-span">.</span></h2>
-
-      <!-- 3 Process Cards -->
-      <div class="process-cards-container">
-
-        <!-- Card 1 -->
-        <div class="process-card">
-          <div class="process-card-number">1</div>
-          <h3 class="process-card-title">Book Your Breakdown</h3>
-          <p class="process-card-text">Pick a time that works. 15 minutes. No prep required.</p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="process-card">
-          <div class="process-card-number">2</div>
-          <h3 class="process-card-title">We Review First</h3>
-          <p class="process-card-text">We review your site, Google presence, and local competitors before the call.</p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="process-card">
-          <div class="process-card-number">3</div>
-          <h3 class="process-card-title">Get Your Plan</h3>
-          <p class="process-card-text">Walk away with 2 to 3 specific fixes to improve calls quickly.</p>
-        </div>
-
-      </div>
-
-      <!-- Mini Testimonial (HIDDEN - Add back when real testimonial ready) -->
-      <!-- To show: change CSS .final-cta-testimonial { display: none; } to display: block; -->
-      <div class="final-cta-testimonial">
-        <p class="final-cta-testimonial-text">"We did the breakdown call and implemented 2 of the 3 recommendations. Started getting calls within 3 weeks."</p>
-        <p class="final-cta-testimonial-author">— [Client Name], [Company/Trade]</p>
-      </div>
-
-      <!-- Risk Reversal + CTA Button + Bonus Reversals + Trust Badges -->
-      <div class="final-cta-button-container">
-
-        <!-- Primary Risk Reversal (Above Button) -->
-        <p class="risk-reversal-text">Everything we create during the breakdown is yours to keep, whether you work with us or not.</p>
-        <p class="risk-reversal-text">After the call, you decide what happens next. Use it yourself, work with us, or hand it to another team.</p>
-
-        <!-- CTA Button -->
-        <a href="https://calendly.com/organically/30min?month=2025-02" class="button-1 final-cta-button">Book Free Breakdown</a>
-
-        <!-- Bonus Risk Reversals (Below Button) -->
-        <div class="bonus-risk-reversals">
-          <p class="bonus-risk-item">This session is about clarity, not selling. If you want help after, you can bring it up.</p>
-          <p class="bonus-risk-item">We start on time and finish fast. If we go over 20 minutes, that's on us.</p>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="trust-badges">
-          <span class="trust-badge-item">No contracts</span>
-          <span class="trust-badge-item">•</span>
-          <span class="trust-badge-item">No obligation</span>
-          <span class="trust-badge-item">•</span>
-          <span class="trust-badge-item">Typical response within 2 hours</span>
-        </div>
-
-      </div>
-
     </section>
 
     <!-- ========== HIDDEN: DUPLICATE TICKER ========== -->

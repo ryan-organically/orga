@@ -66,6 +66,8 @@ The site historically used mixed URL formats. A cleanup was performed to fix bro
 ## CSS Rules
 
 - Never use `!important` in CSS. Use higher specificity selectors instead (e.g., `[style]` attribute selector to override inline styles).
+- Verify CSS variables exist in `css/organicallyseo-com.webflow.css` before using them. Non-existent variables silently fail.
+- `--black-40` is the standard border color.
 
 ## Homepage Layout System (index.html)
 
@@ -123,6 +125,8 @@ bundle exec jekyll serve
 ```
 
 Site will be available at `http://127.0.0.1:4000/`
+
+**Note:** Jekyll doesn't auto-rebuild `css/` changes into `_site/`. After editing CSS, copy it manually: `cp css/organicallyseo-com.webflow.css _site/css/` or restart the server.
 
 ### Jekyll Requirements
 

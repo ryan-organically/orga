@@ -1,4 +1,20 @@
 <div class="universal-menu">
   <universal-menu></universal-menu>
-  <a href="/form/" class="button-1 w-button">Schedule an Estimate</a>
+  <div>
+    <a href="/form/" class="button-1 w-button">Schedule an Estimate</a>
+    <div id="dark-mode-toggle" class="dark-mode-toggle">
+      <img src="/images/moon-1.png" loading="lazy" alt="Toggle dark mode" class="toggle-icon dark-icon">
+      <img src="/images/brightness-2.png" loading="lazy" alt="Toggle light mode" class="toggle-icon light-icon">
+    </div>
+  </div>
 </div>
+<script>
+(function() {
+  var toggle = document.querySelector('.dark-mode-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    });
+  }
+})();
+</script>
