@@ -3819,6 +3819,7 @@ a {
 }
 
 .dark-mode-toggle {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
