@@ -164,7 +164,7 @@
     /* Tablet/Mid-range Responsive */
     @media (max-width: 991px) and (min-width: 768px) {
       .hero-section {
-        padding: 3vw 3vw 10vh 3vw;
+        padding: 20vh 3vw 10vh 3vw;
       }
     }
 
@@ -223,8 +223,8 @@
         font-size: 1rem;
       }
 
-      .hero-section {
-        padding: 2.5vw 2.5vw 8vh 2.5vw;
+      #contractor-hero-section.hero-section.home-hero {
+        padding: 50vh 2.5vw 8vh 2.5vw;
       }
     }
 
@@ -1447,7 +1447,7 @@ document.addEventListener("DOMContentLoaded", () => {
   .hero-section {
     width: 100%;
     margin: 10vh 0 0 0;
-    padding: 5vw 5vw 10vh 5vw;
+    padding: 20vh 5vw 10vh 5vw;
     box-sizing: border-box;
     min-height: auto;
   }
@@ -1503,12 +1503,8 @@ document.addEventListener("DOMContentLoaded", () => {
       padding: 2.5vw;
     }
 
-    .hero-section {
-      padding: 2.5vw;
-    }
-
     .body-section > section:not(#Footer),
-    .body-section > div:not(.universal-menu):not(#Footer) {
+    .body-section > div:not(.universal-menu):not(#Footer):not(#contractor-hero-section) {
       padding: 2.5vw;
     }
   }

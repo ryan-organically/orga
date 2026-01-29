@@ -4,12 +4,12 @@
 <html   lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Organically | Web Creative with Organic Potential</title>
-  <meta content="Solo agency marketer delivering businesses with personalized &amp; powerful websites that generate traffic." name="description">
-  <meta content="Organically | Web Creative with Organic Potential" property="og:title">
-  <meta content="Solo agency marketer delivering businesses with personalized &amp; powerful websites that generate traffic." property="og:description">
-  <meta content="Organically | Web Creative with Organic Potential" property="twitter:title">
-  <meta content="Solo agency marketer delivering businesses with personalized &amp; powerful websites that generate traffic." property="twitter:description">
+  <title>Stop Bleeding Money on Marketing That Doesn't Work | Organically</title>
+  <meta content="Custom websites and SEO strategies that bring qualified customers. No cookie-cutter templates. No generic advice. Results you can measure." name="description">
+  <meta content="Stop Bleeding Money on Marketing That Doesn't Work | Organically" property="og:title">
+  <meta content="Custom websites and SEO strategies that bring qualified customers. No cookie-cutter templates. No generic advice. Results you can measure." property="og:description">
+  <meta content="Stop Bleeding Money on Marketing That Doesn't Work | Organically" property="twitter:title">
+  <meta content="Custom websites and SEO strategies that bring qualified customers. No cookie-cutter templates. No generic advice. Results you can measure." property="twitter:description">
   <meta property="og:type" content="website">
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -69,7 +69,7 @@
     window.fontsLoaded = false;
     WebFont.load({
       google: {
-        families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700"]
+        families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700","Exo:400,500"]
       },
       active: function() {
         window.fontsLoaded = true;
@@ -181,6 +181,120 @@
       max-width: 100% !important;
     }
   }
+
+  /* Floating Selfie Tile */
+  .hero-selfie-wrapper {
+    display: none;
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    align-items: flex-start;
+    gap: 1rem;
+    z-index: 10;
+  }
+  .hero-selfie-tile {
+    width: 200px;
+    height: 280px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--black-40);
+    flex-shrink: 0;
+  }
+  .hero-selfie-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-selfie-tile .selfie-dark {
+    display: none;
+  }
+  .dark-mode .hero-selfie-tile .selfie-light {
+    display: none;
+  }
+  .dark-mode .hero-selfie-tile .selfie-dark {
+    display: block;
+  }
+  .dark-mode .hero-selfie-tile {
+    border-color: rgba(226, 226, 226, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+  .selfie-typer {
+    margin: 0;
+    padding: 0;
+    max-width: 180px;
+    font-family: 'Exo', 'Lato', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--black-75);
+    text-align: left;
+  }
+  .selfie-typer::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+  }
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  .dark-mode .selfie-typer {
+    color: #e2e2e2;
+  }
+
+  /* Services Selfie Tile */
+  .services-selfie-tile {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--black-40);
+  }
+  .services-selfie-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .services-showcase-right {
+    align-self: stretch;
+  }
+  .services-selfie-tile .selfie-dark {
+    display: none;
+  }
+  .dark-mode .services-selfie-tile .selfie-light {
+    display: none;
+  }
+  .dark-mode .services-selfie-tile .selfie-dark {
+    display: block;
+  }
+  .dark-mode .services-selfie-tile {
+    border-color: rgba(226, 226, 226, 0.4);
+  }
+
+  /* Varaesthetics tile dark mode border */
+  .dark-mode .works-tile[data-project="varaesthetics"] {
+    border-bottom: 1px solid rgba(226, 226, 226, 0.4);
+  }
+
+  @media (max-width: 991px) {
+    .hero-selfie-wrapper {
+      right: 3%;
+      top: 10%;
+    }
+    .hero-selfie-tile {
+      width: 120px;
+      height: 170px;
+    }
+    .selfie-typer {
+      max-width: 120px;
+      font-size: 0.75rem;
+    }
+  }
+  @media (max-width: 767px) {
+    .hero-selfie-wrapper {
+      display: none;
+    }
+  }
 </style>
   <style>
 html.lenis {
@@ -194,7 +308,7 @@ html.lenis {
 }
 </style>
 </html></head>
-<body class="horizontal-body">
+<body class="horizontal-body dark-mode">
   <!-- Left Menu Panel -->
   <div class="side-menu-panel">
       <div class="side-panel">
@@ -297,6 +411,15 @@ html.lenis {
     </div>
     </div>
 
+    <!-- Floating Selfie Tile -->
+    <div class="hero-selfie-wrapper">
+      <div class="hero-selfie-tile">
+        <img src="/darkmode/light duotone selfie.png" alt="Ryan Scanlon" class="selfie-light">
+        <img src="/darkmode/dark duotone selfie.png" alt="Ryan Scanlon" class="selfie-dark">
+      </div>
+      <p class="selfie-typer"></p>
+    </div>
+
     <div class="hero-social-proof" style="width: 300px; max-width: 300px;">
       <div class="hero-social-proof-stars">
         <img src="/green 5 star.png" alt="5 stars">
@@ -365,9 +488,6 @@ html.lenis {
       <img src="/images/monstera-icon.png" alt="Monstera icon" style="width: 100px; height: 100px; margin-left: -20px;">
       <h2>Full-Service Digital Marketing That Grows Your Business</h2>
       <p>From custom web design and SEO to branding and development—we deliver comprehensive marketing solutions that drive real results. Let's build something that converts.</p>
-
-    </div>
-    <div class="services-showcase-right">
       <div class="services-showcase-tabs">
         <div class="services-showcase-card active" data-service="branding" data-color="var(--orga)">
           <span class="services-showcase-label">Branding</span>
@@ -399,6 +519,12 @@ html.lenis {
           <p class="small-feature-title">Web Design</p>
           <p class="p2">Designing intuitive, beautiful web experiences that convert visitors into customers. <a href="/web-design/" style="color: var(--orga);">Learn more about our web design services</a>.</p>
         </div>
+      </div>
+    </div>
+    <div class="services-showcase-right">
+      <div class="services-selfie-tile">
+        <img src="/darkmode/light duotone selfie.png" alt="Ryan Scanlon" class="selfie-light">
+        <img src="/darkmode/dark duotone selfie.png" alt="Ryan Scanlon" class="selfie-dark">
       </div>
     </div>
   </div>
@@ -1136,6 +1262,12 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.set(socialProofChecks, { autoAlpha: 0, x: -100, rotation: -15, scale: 0.5 });
         }
 
+        // Hide selfie wrapper initially
+        const selfieWrapper = document.querySelector('.hero-selfie-wrapper');
+        if (selfieWrapper) {
+            gsap.set(selfieWrapper, { autoAlpha: 0, x: 100 });
+        }
+
         // Split the h1 into words AND characters to preserve word boundaries
         const split = new SplitText(h1, {
             type: "words, chars",
@@ -1214,6 +1346,35 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4 ▸ Social proof checkmarks animation (wild entrance after shrunk-p)
     function animateSocialProof() {
         const checks = document.querySelectorAll(".hero-social-proof-checks > div");
+        const selfieWrapper = document.querySelector('.hero-selfie-wrapper');
+
+        // Animate selfie wrapper in from the right
+        if (selfieWrapper) {
+            gsap.to(selfieWrapper, {
+                autoAlpha: 1,
+                x: 0,
+                duration: 1,
+                ease: "power3.out",
+                onComplete: startSelfieTyper
+            });
+        }
+
+        // Typewriter effect for selfie caption
+        function startSelfieTyper() {
+            const typer = document.querySelector('.selfie-typer');
+            if (!typer) return;
+            const text = "Hello! You're finally awake. Welcome to Organically. I'm Ryan.";
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    typer.textContent = text.slice(0, i + 1);
+                    i++;
+                    setTimeout(type, 50);
+                }
+            }
+            type();
+        }
+
         if (checks.length) {
             gsap.to(checks, {
                 autoAlpha: 1,

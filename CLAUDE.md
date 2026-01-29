@@ -69,6 +69,21 @@ The site historically used mixed URL formats. A cleanup was performed to fix bro
 - Verify CSS variables exist in `css/organicallyseo-com.webflow.css` before using them. Non-existent variables silently fail.
 - `--black-40` is the standard border color.
 
+### CSS Debugging Rule
+
+When analyzing CSS for a specific selector, always search for ALL occurrences of that selector within:
+1. The file's inline `<style>` block(s) - check the ENTIRE file, not just the first match
+2. The global CSS file (`css/organicallyseo-com.webflow.css`)
+
+Later rules in the cascade override earlier ones. Use `grep` on the target file before summarizing what styles apply:
+
+```bash
+# Find all instances of a selector in a file
+grep -n "\.hero-section" contractor-funnel.html
+```
+
+Never assume you've found all overrides after the first few matches.
+
 ## Homepage Layout System (index.html)
 
 ### Structure

@@ -1,0 +1,211 @@
+<style>
+  /* Dark mode toggle button */
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  }
+
+  .theme-toggle span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.3s ease, opacity 0.3s ease;
+  }
+
+  .moon-icon {
+    top: 8px;
+    opacity: 1;
+  }
+
+  .sun-icon {
+    top: 50px;
+    opacity: 0;
+  }
+
+  .dark-mode .moon-icon {
+    top: -30px;
+    opacity: 0;
+  }
+
+  .dark-mode .sun-icon {
+    top: 8px;
+    opacity: 1;
+  }
+
+  /* Dark mode body */
+  body.dark-mode.horizontal-body {
+    background-color: #333;
+    color: #e2e2e2;
+  }
+
+  /* Dark mode main sections */
+  .dark-mode .body-section,
+  .dark-mode .universal-menu,
+  .dark-mode .blog-hero-section,
+  .dark-mode .blog-content-section,
+  .dark-mode .blog-massive-wrapper {
+    background-color: #333;
+    color: #e2e2e2;
+  }
+
+  /* Dark mode text elements */
+  .dark-mode .blog-h1,
+  .dark-mode .blog-h2,
+  .dark-mode .blog-h2-2,
+  .dark-mode .blog-h3,
+  .dark-mode .blog-h3-3,
+  .dark-mode .blog-h4,
+  .dark-mode .blog-p1,
+  .dark-mode .blog-p2,
+  .dark-mode .blog-author-date,
+  .dark-mode .author-1,
+  .dark-mode .blog-callout,
+  .dark-mode .blog-callout-2,
+  .dark-mode .content-link,
+  .dark-mode .table-of-contents-heading {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .author-bio-heading {
+    color: rgba(226, 226, 226, 0.6);
+  }
+
+  .dark-mode .author-bio-text {
+    color: rgba(226, 226, 226, 0.4);
+  }
+
+  .dark-mode .content-link {
+    color: rgba(226, 226, 226, 0.6);
+  }
+
+  .dark-mode .content-link:hover {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .blink-1 {
+    color: #7ec700;
+  }
+
+  /* Dark mode sidebars */
+  .dark-mode .sticky-author-div,
+  .dark-mode .sticky-blog-contents {
+    background-color: #333;
+  }
+
+  /* Dark mode callouts */
+  .dark-mode .blog-callout,
+  .dark-mode .blog-callout-2,
+  .dark-mode .block-quote-1,
+  .dark-mode .block-quote-2 {
+    background-color: #444;
+    border-color: #555;
+  }
+
+  .dark-mode .read-more-thumbnail {
+    opacity: 0.9;
+  }
+
+  /* Dark mode footer */
+  .dark-mode #Footer,
+  .dark-mode .footer-section,
+  .dark-mode .footer-wrapper {
+    background-color: #333;
+    color: #e2e2e2;
+  }
+
+  /* Dark mode side menu */
+  .dark-mode .side-menu-panel,
+  .dark-mode .side-panel {
+    background-color: #333;
+  }
+
+  .dark-mode .menu-nav-link,
+  .dark-mode .menu-tagline {
+    color: #e2e2e2;
+  }
+
+  /* Dark mode footer links */
+  .dark-mode .footer-link,
+  .dark-mode .footer-text,
+  .dark-mode .footer-heading,
+  .dark-mode .footer-typemark,
+  .dark-mode .typemark {
+    color: #e2e2e2;
+  }
+
+  /* Dark mode social icons */
+  .dark-mode .blog-socials.black-socials,
+  .dark-mode .footer-social-icon.black {
+    display: none;
+  }
+
+  .dark-mode .blog-socials.white-socials,
+  .dark-mode .footer-social-icon.white {
+    display: block;
+  }
+
+  .dark-mode .blog-author-social img,
+  .dark-mode .footer-social-wrapper img {
+    filter: invert(1);
+  }
+
+  /* Dark mode buttons */
+  .dark-mode .button-1 {
+    color: #e2e2e2;
+    border-color: #e2e2e2;
+  }
+
+  /* Dark mode variable override */
+  .dark-mode {
+    --333: #e2e2e2;
+  }
+
+  /* Dark mode borders */
+  .dark-mode .blog-content-section,
+  .dark-mode .contents-horizontal-divider,
+  .dark-mode .search-engine-stats {
+    border-color: #555;
+  }
+
+  .dark-mode * {
+    border-color: #555;
+  }
+
+  /* Dark mode calendar panel */
+  .dark-mode .calendar-panel-content {
+    background: #333;
+  }
+
+  .dark-mode .calendar-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .calendar-title {
+    color: #e2e2e2;
+  }
+</style>
+<script>
+// Dark mode toggle
+(function() {
+  const toggle = document.querySelector('.theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    });
+  }
+  // Also handle legacy dark mode button
+  const legacyToggle = document.querySelector('.dark-mode-button');
+  if (legacyToggle) {
+    legacyToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    });
+  }
+})();
+</script>
