@@ -907,7 +907,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof gsap === 'undefined') return;
 
     // Single registration of all GSAP plugins
-    gsap.registerPlugin(SplitText, ScrollTrigger, Draggable);
+    gsap.registerPlugin(SplitText, ScrollTrigger, InertiaPlugin, Draggable);
 
     // Optimize ScrollTrigger performance
     ScrollTrigger.config({
