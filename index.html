@@ -307,18 +307,7 @@
     }
   }
 </style>
-  <style>
-html.lenis {
-	height: auto;
-}
-.lenis.lenis-smooth {
-	scroll-behavior: auto;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-	overscroll-behavior: clip;
-}
-</style>
-</html></head>
+</head>
 <body class="horizontal-body dark-mode">
   <!-- Left Menu Panel -->
   <div class="side-menu-panel">
@@ -920,7 +909,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Single registration of all GSAP plugins
     gsap.registerPlugin(SplitText, ScrollTrigger, Draggable);
 
-    // Optimize ScrollTrigger performance globally
+    // Optimize ScrollTrigger performance
     ScrollTrigger.config({
         limitCallbacks: true,
         syncInterval: 120,
