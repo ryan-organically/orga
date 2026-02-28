@@ -333,7 +333,10 @@ html.lenis {
           <a href="/branding/" class="menu-nav-link">Creative</a>
           <a href="/blog/" class="menu-nav-link">Blog</a>
         </nav>
-        <img src="/images/Steel-Building.png" alt="Pittsburgh Steel Building" class="side-panel-logo" loading="lazy">
+        <picture>
+          <source srcset="/images/Steel-Building.webp" type="image/webp">
+          <img src="/images/Steel-Building.png" alt="Pittsburgh Steel Building" class="side-panel-logo" loading="lazy">
+        </picture>
       </div>
     </div>
 
@@ -425,15 +428,15 @@ html.lenis {
     <!-- Floating Selfie Tile -->
     <div class="hero-selfie-wrapper">
       <div class="hero-selfie-tile">
-        <img src="/darkmode/light duotone selfie.png" alt="Ryan Scanlon" class="selfie-light">
-        <img src="/darkmode/dark duotone selfie.png" alt="Ryan Scanlon" class="selfie-dark">
+        <picture><source srcset="/darkmode/light duotone selfie.webp" type="image/webp"><img src="/darkmode/light duotone selfie.png" alt="Ryan Scanlon" class="selfie-light"></picture>
+        <picture><source srcset="/darkmode/dark duotone selfie.webp" type="image/webp"><img src="/darkmode/dark duotone selfie.png" alt="Ryan Scanlon" class="selfie-dark"></picture>
       </div>
       <p class="selfie-typer"></p>
     </div>
 
     <div class="hero-social-proof" style="width: 300px; max-width: 300px;">
       <div class="hero-social-proof-stars">
-        <img src="/green 5 star.png" alt="5 stars">
+        <picture><source srcset="/green 5 star.webp" type="image/webp"><img src="/green 5 star.png" alt="5 stars"></picture>
       </div>
       <p class="social-proof-title" style="font-style: italic; font-size: 11px;">IWC Cabinetry</p>
       <p class="p2" style="font-style: italic; font-size: 11px; line-height: 1.5;">"His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come."</p>
@@ -446,47 +449,50 @@ html.lenis {
     </div>
 
     <!-- Steel Building Image -->
-    <img src="/images/Steel-Building.png" loading="lazy" sizes="100vw" srcset="/images/Steel-Building-p-500.png 500w, images/Steel-Building-p-800.png 800w, images/Steel-Building-p-1080.png 1080w, images/Steel-Building-p-1600.png 1600w, images/Steel-Building.png 2048w" alt="Pittsburgh Steel Building" class="hero-steel-building" style="display: block;">
+    <picture>
+      <source type="image/webp" sizes="100vw" srcset="/images/Steel-Building-p-500.webp 500w, /images/Steel-Building-p-800.webp 800w, /images/Steel-Building-p-1080.webp 1080w, /images/Steel-Building-p-1600.webp 1600w, /images/Steel-Building.webp 2048w">
+      <img src="/images/Steel-Building.png" loading="lazy" sizes="100vw" srcset="/images/Steel-Building-p-500.png 500w, /images/Steel-Building-p-800.png 800w, /images/Steel-Building-p-1080.png 1080w, /images/Steel-Building-p-1600.png 1600w, /images/Steel-Building.png 2048w" alt="Pittsburgh Steel Building" class="hero-steel-building" style="display: block;">
+    </picture>
   </div>
 
   <!-- Works Section -->
   <section class="section works-section" style="padding-top: 10vh; padding-bottom: 10vh;">
-    <img src="assets/fishing.png" alt="" class="fishing-img" loading="lazy">
+    <picture><source srcset="assets/fishing.webp" type="image/webp"><img src="assets/fishing.png" alt="" class="fishing-img" loading="lazy"></picture>
     <h2 class="works-h2">Works</h2>
     <div class="works-tiles-container">
       <a href="https://qalandscaping.com" target="_blank" class="works-tile" data-project="qa">
         <div class="works-tile-media">
-          <img src="assets/qa homepage.jpg" alt="Q&A Project" class="works-tile-img" loading="lazy">
+          <picture><source srcset="assets/qa homepage.webp" type="image/webp"><img src="assets/qa homepage.jpg" alt="Q&A Project" class="works-tile-img" loading="lazy"></picture>
         </div>
         <span class="works-tile-title">Q&A</span>
       </a>
       <a href="https://icrpgh.com" target="_blank" class="works-tile" data-project="integrated">
         <div class="works-tile-media">
-          <img src="assets/integrated homepage.jpg" alt="Integrated Project" class="works-tile-img" loading="lazy">
+          <picture><source srcset="assets/integrated homepage.webp" type="image/webp"><img src="assets/integrated homepage.jpg" alt="Integrated Project" class="works-tile-img" loading="lazy"></picture>
         </div>
         <span class="works-tile-title">Integrated</span>
       </a>
       <a href="https://malleable.cloud" target="_blank" class="works-tile" data-project="malleable">
         <div class="works-tile-media">
-          <img src="assets/malleable.png" alt="Malleable Project" class="works-tile-img" loading="lazy">
+          <picture><source srcset="assets/malleable.webp" type="image/webp"><img src="assets/malleable.png" alt="Malleable Project" class="works-tile-img" loading="lazy"></picture>
         </div>
         <span class="works-tile-title">Malleable</span>
       </a>
       <a href="https://www.tccustomized.shop/" target="_blank" class="works-tile" data-project="tc-customs">
         <div class="works-tile-media">
-          <img src="assets/tc customs.jpg" alt="TC Customs Project" class="works-tile-img" loading="lazy">
+          <picture><source srcset="assets/tc customs.webp" type="image/webp"><img src="assets/tc customs.jpg" alt="TC Customs Project" class="works-tile-img" loading="lazy"></picture>
         </div>
         <span class="works-tile-title">TC Customs</span>
       </a>
       <a href="https://www.iwccabinetry.com/" target="_blank" class="works-tile" data-project="iwc">
         <div class="works-tile-media">
-          <img src="assets/iwc cabinetry.png" alt="IWC Cabinetry Project" class="works-tile-img" loading="lazy">
+          <picture><source srcset="assets/iwc cabinetry.webp" type="image/webp"><img src="assets/iwc cabinetry.png" alt="IWC Cabinetry Project" class="works-tile-img" loading="lazy"></picture>
         </div>
         <span class="works-tile-title">IWC</span>
       </a>
       <a href="https://varaesthetics.com" target="_blank" class="works-tile" data-project="varaesthetics">
         <div class="works-tile-media">
-          <img src="assets/varaesthetics hero.jpg" alt="Varaesthetics Project" class="works-tile-img" loading="lazy">
+          <picture><source srcset="assets/varaesthetics hero.webp" type="image/webp"><img src="assets/varaesthetics hero.jpg" alt="Varaesthetics Project" class="works-tile-img" loading="lazy"></picture>
         </div>
         <span class="works-tile-title">Varaesthetics</span>
       </a>
@@ -496,7 +502,7 @@ html.lenis {
   <!-- Services Showcase -->
   <div class="services-showcase">
     <div class="services-showcase-left">
-      <img src="/images/monstera-icon.png" alt="Monstera icon" style="width: 100px; height: 100px; margin-left: -20px;" loading="lazy">
+      <picture><source srcset="/images/monstera-icon.webp" type="image/webp"><img src="/images/monstera-icon.png" alt="Monstera icon" style="width: 100px; height: 100px; margin-left: -20px;" loading="lazy"></picture>
       <h2>Full-Service Digital Marketing That Grows Your Business</h2>
       <p>From custom web design and SEO to branding and development—we deliver comprehensive marketing solutions that drive real results. Let's build something that converts.</p>
       <div class="services-showcase-tabs">
@@ -534,8 +540,8 @@ html.lenis {
     </div>
     <div class="services-showcase-right">
       <div class="services-selfie-tile">
-        <img src="/darkmode/light duotone selfie.png" alt="Ryan Scanlon" class="selfie-light" loading="lazy">
-        <img src="/darkmode/dark duotone selfie.png" alt="Ryan Scanlon" class="selfie-dark" loading="lazy">
+        <picture><source srcset="/darkmode/light duotone selfie.webp" type="image/webp"><img src="/darkmode/light duotone selfie.png" alt="Ryan Scanlon" class="selfie-light" loading="lazy"></picture>
+        <picture><source srcset="/darkmode/dark duotone selfie.webp" type="image/webp"><img src="/darkmode/dark duotone selfie.png" alt="Ryan Scanlon" class="selfie-dark" loading="lazy"></picture>
       </div>
     </div>
   </div>
@@ -857,337 +863,15 @@ html.lenis {
 
       <div class="calendar-embed">
         <iframe
-          src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&background_color=e2e2e2&text_color=000000&hide_event_type_details=1"
+          data-src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&background_color=e2e2e2&text_color=000000&hide_event_type_details=1"
           height="900"
-          loading="lazy">
+          class="calendar-lazy-iframe">
         </iframe>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter Section - The Ransom Note -->
-  <section class="section newsletter-ransom" id="newsletter-ransom">
-    <style>
-      .newsletter-ransom {
-        display: none; /* Hidden for now */
-        position: relative;
-        padding: 10vh 5vw;
-        background: transparent;
-        overflow: hidden;
-        min-height: 90vh;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .ransom-container {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        padding: 3rem;
-      }
-
-      .ransom-headline {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-bottom: 2rem;
-      }
-
-      .ransom-word {
-        display: inline-block;
-        padding: 0.4rem 1rem;
-        font-size: clamp(2rem, 8vw, 5rem);
-        font-weight: 700;
-        line-height: 1;
-        transform: rotate(var(--rot, 0deg));
-        transition: transform 0.3s ease;
-      }
-
-      .ransom-word:hover {
-        transform: rotate(0deg) scale(1.1);
-        z-index: 10;
-      }
-
-      .ransom-word:nth-child(1) {
-        background: #000; color: #fff;
-        font-family: 'Coolvetica Rg', sans-serif;
-        --rot: -2deg;
-      }
-      .ransom-word:nth-child(2) {
-        background: var(--orga, #7ec700); color: #000;
-        font-family: 'Coolvetica Rg', sans-serif;
-        --rot: 1.5deg;
-      }
-      .ransom-word:nth-child(3) {
-        background: #ff3366; color: #fff;
-        font-family: 'Coolvetica Rg', sans-serif;
-        --rot: -1deg;
-      }
-      .ransom-word:nth-child(4) {
-        background: #1a1a2e; color: var(--orga, #7ec700);
-        font-family: 'Coolvetica Rg', sans-serif;
-        text-transform: uppercase;
-        --rot: 2.5deg;
-      }
-
-      .ransom-subtext {
-        text-align: center;
-        margin: 2rem 0;
-      }
-
-      .ransom-fragment {
-        display: inline;
-        padding: 0.1rem 0.4rem;
-        margin: 0.1rem;
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
-        line-height: 2;
-      }
-
-      .ransom-fragment:nth-child(odd) {
-        background: rgba(0,0,0,0.05);
-        font-family: 'Vollkorn', serif;
-        font-style: italic;
-      }
-      .ransom-fragment:nth-child(even) {
-        background: rgba(126, 199, 0, 0.2);
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-      }
-      .ransom-fragment:nth-child(3n) {
-        text-decoration: underline wavy var(--orga, #7ec700);
-        text-underline-offset: 3px;
-      }
-
-      .stamp-container {
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        transform: rotate(12deg);
-        opacity: 0.7;
-      }
-
-      .stamp {
-        border: 4px solid #cc0000;
-        color: #cc0000;
-        padding: 0.5rem 1.2rem;
-        font-family: 'Coolvetica Rg', sans-serif;
-        font-size: 1.4rem;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        border-radius: 4px;
-        animation: stampPulse 2s ease-in-out infinite;
-      }
-
-      @keyframes stampPulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-      }
-
-      .coffee-stain {
-        display: none;
-      }
-
-      .ransom-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        margin-top: 3rem;
-        padding: 3rem 4rem;
-        background: transparent;
-        border: 3px solid #000;
-        position: relative;
-      }
-
-      .ransom-form::before {
-        content: 'CLASSIFIED';
-        position: absolute;
-        top: -14px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #000;
-        color: var(--orga, #7ec700);
-        padding: 0.3rem 1.5rem;
-        font-family: 'Coolvetica Rg', sans-serif;
-        font-size: 1rem;
-        letter-spacing: 0.2em;
-      }
-
-      .ransom-input {
-        width: 100%;
-        max-width: 450px;
-        padding: 1.25rem 2rem;
-        font-family: 'Lato', sans-serif;
-        font-size: 1.1rem;
-        background: transparent;
-        border: 2px dashed #333;
-        color: var(--black-75, #333);
-        outline: none;
-        transition: all 0.3s ease;
-      }
-
-      .ransom-input::placeholder {
-        color: #888;
-        font-style: italic;
-      }
-
-      .ransom-input:focus {
-        border-style: solid;
-        border-color: var(--orga, #7ec700);
-        background: rgba(126, 199, 0, 0.05);
-      }
-
-      .ransom-btn {
-        padding: 1.25rem 3.5rem;
-        font-family: 'Coolvetica Rg', sans-serif;
-        font-size: 1.4rem;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        background: #000;
-        color: var(--orga, #7ec700);
-        border: none;
-        cursor: pointer;
-        position: relative;
-        transition: all 0.2s ease;
-      }
-
-      .ransom-btn::after {
-        content: '';
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        right: -4px;
-        bottom: -4px;
-        background: var(--orga, #7ec700);
-        z-index: -1;
-        transition: all 0.2s ease;
-      }
-
-      .ransom-btn:hover {
-        transform: translate(2px, 2px);
-      }
-
-      .ransom-btn:hover::after {
-        transform: translate(-4px, -4px);
-      }
-
-      .torn-edge {
-        display: none;
-      }
-
-      .doodle {
-        position: absolute;
-        font-size: 2rem;
-        opacity: 0.15;
-        pointer-events: none;
-        animation: doodleBob 4s ease-in-out infinite;
-      }
-      .doodle:nth-child(1) { top: 20%; left: 8%; animation-delay: 0s; }
-      .doodle:nth-child(2) { top: 60%; left: 3%; animation-delay: -1s; }
-      .doodle:nth-child(3) { top: 30%; right: 5%; animation-delay: -2s; }
-      .doodle:nth-child(4) { bottom: 25%; right: 10%; animation-delay: -0.5s; }
-
-      @keyframes doodleBob {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-10px) rotate(5deg); }
-      }
-
-      .fine-print {
-        margin-top: 1.5rem;
-        font-family: 'Courier New', monospace;
-        font-size: 0.7rem;
-        color: #666;
-        text-align: center;
-        max-width: 300px;
-        line-height: 1.5;
-      }
-
-      .redacted {
-        background: #000;
-        color: #000;
-        padding: 0 0.3rem;
-        user-select: none;
-        transition: all 0.3s ease;
-      }
-
-      .redacted:hover {
-        background: transparent;
-        color: #cc0000;
-      }
-
-      @media (max-width: 768px) {
-        .newsletter-ransom { padding: 8vh 4vw; }
-        .ransom-container { padding: 1.5rem; }
-        .stamp-container { top: 1rem; right: 1rem; }
-        .stamp { font-size: 0.9rem; padding: 0.3rem 0.6rem; }
-        .ransom-form { padding: 1.5rem; margin: 2rem 1rem; }
-        .doodle { display: none; }
-      }
-    </style>
-
-    <div class="coffee-stain"></div>
-    <div class="coffee-stain"></div>
-
-    <div class="doodle">*</div>
-    <div class="doodle">~</div>
-    <div class="doodle">?</div>
-    <div class="doodle">!</div>
-
-
-    <div class="ransom-container">
-      <div class="ransom-headline">
-        <span class="ransom-word">We</span>
-        <span class="ransom-word">Have</span>
-        <span class="ransom-word">Your</span>
-        <span class="ransom-word">Attention</span>
-      </div>
-
-      <div class="ransom-subtext">
-        <span class="ransom-fragment">Sign up for emails</span>
-        <span class="ransom-fragment">written at 2am</span>
-        <span class="ransom-fragment">about websites,</span>
-        <span class="ransom-fragment">existential design choices,</span>
-        <span class="ransom-fragment">and whatever else</span>
-        <span class="ransom-fragment">escapes the filter.</span>
-      </div>
-
-      <form class="ransom-form" onsubmit="return handleRansomSubmit(event)">
-        <input type="email" class="ransom-input" placeholder="drop your email here..." required>
-        <button type="submit" class="ransom-btn">I Accept My Fate</button>
-        <p class="fine-print">
-          Frequency: whenever inspiration strikes (or deadlines loom).
-          Content: <span class="redacted">classified</span> but mostly harmless.
-          Unsubscribe: always available, no hard feelings.
-        </p>
-      </form>
-
-      <div class="torn-edge"></div>
-    </div>
-  </section>
-
-  <script>
-    function handleRansomSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.ransom-btn');
-      const original = btn.textContent;
-      btn.textContent = 'Message Received...';
-      btn.style.background = 'var(--orga, #7ec700)';
-      btn.style.color = '#000';
-      setTimeout(() => {
-        btn.textContent = 'Welcome Aboard';
-      }, 1500);
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.style.background = '#000';
-        btn.style.color = 'var(--orga, #7ec700)';
-      }, 4000);
-      return false;
-    }
-  </script>
+  <!-- Newsletter section removed (was display:none, ~320 lines). See git history to restore. -->
 
   <div id="Footer" class="footer">
     <div class="footer-typemark-div">
@@ -1479,6 +1163,29 @@ document.addEventListener("DOMContentLoaded", () => {
         startTicker();
     })();
 
+    /* ━━━ Lazy-load Calendly iframes with IntersectionObserver ━━━ */
+    (function() {
+        const lazyIframes = document.querySelectorAll('.calendar-lazy-iframe');
+        if (!lazyIframes.length) return;
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        if (iframe.dataset.src && !iframe.src) {
+                            iframe.src = iframe.dataset.src;
+                        }
+                        observer.unobserve(iframe);
+                    }
+                });
+            }, { rootMargin: '200px' });
+            lazyIframes.forEach(iframe => observer.observe(iframe));
+        } else {
+            // Fallback: load immediately
+            lazyIframes.forEach(iframe => { if (iframe.dataset.src) iframe.src = iframe.dataset.src; });
+        }
+    })();
+
 </script>
     </div><!-- .body-section -->
 
@@ -1491,11 +1198,11 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="calendar-embed-wrapper">
           <iframe
-            src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&hide_event_type_details=1"
+            data-src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&hide_event_type_details=1"
             width="100%"
             height="600"
             frameborder="0"
-            loading="lazy">
+            class="calendar-lazy-iframe">
           </iframe>
         </div>
         <div class="calendar-review">
@@ -2402,7 +2109,8 @@ document.addEventListener("DOMContentLoaded", () => {
               preview.classList.add('iwc-preview');
             }
             void preview.offsetWidth;
-            preview.innerHTML = `<img src="${imgSrc}" alt="Preview">`;
+            const webpSrc = imgSrc.replace(/\.(png|jpe?g)$/i, '.webp');
+            preview.innerHTML = `<picture><source srcset="${webpSrc}" type="image/webp"><img src="${imgSrc}" alt="Preview"></picture>`;
             preview.classList.add('active');
             isFirstHover = false;
           }
