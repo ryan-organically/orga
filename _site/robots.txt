@@ -1,0 +1,25 @@
+# Robots.txt for Organically SEO
+# Allow all bots to crawl public pages, block template/test pages
+
+User-agent: *
+
+# Block test/development components
+Disallow: /components/
+
+# Block template pages
+Disallow: /detail_blog.html
+Disallow: /form.html
+Disallow: /tools.html
+
+# Block utility pages (these are fine to block from search)
+Disallow: /401.html
+Disallow: /404.html
+
+# Allow everything else
+Allow: /
+
+# Sitemap location
+Sitemap: https://organicallyseo.com/sitemap.xml
+
+# Crawl-delay (optional - helps with server load)
+Crawl-delay: 1

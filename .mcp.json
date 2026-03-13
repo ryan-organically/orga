@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ahrefs": {
+      "type": "url",
+      "url": "https://api.ahrefs.com/mcp/mcp",
+      "headers": {
+        "Authorization": "Bearer XQke.MbAOsd7LEWgStWIpQOSh6TplcWJkOGFURjR2YjdoOFMzUWhwYXpSYzE4OWsvckE2QktlVStuMHVHbXE5Y21ua28xUVNaOFRyM1YwSXhkd0NYaklpVktZc1lWVVJaaFVCMFo3cElCU040Y3IxblBWODN6c0U3MWlNUW9QUFVLVE9HN20rMnNyZFh6dUE.t-rT"
+      }
+    }
+  }
+}

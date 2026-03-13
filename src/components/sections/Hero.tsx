@@ -209,7 +209,7 @@ export function Hero() {
       </div>
 
       {/* Steel Building */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl pointer-events-none">
+      <div className="absolute bottom-0 right-[10%] w-[36vw] pointer-events-none">
         <Image
           ref={buildingRef as React.RefObject<HTMLImageElement>}
           src="/images/Steel-Building.png"
