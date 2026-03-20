@@ -938,6 +938,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!h1 || typeof SplitText === 'undefined') return;
 
+        // Hide h1 before split animation (CSS no longer hides it, so JS-disabled users still see it)
+        gsap.set(h1, { opacity: 0 });
+
         if (shrunkP) gsap.set(shrunkP, { autoAlpha: 0 });
         if (building) gsap.set(building, { autoAlpha: 0 });
         if (socialProofChecks.length) {

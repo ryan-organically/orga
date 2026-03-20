@@ -1531,7 +1531,6 @@ a {
 }
 
 .hero-section .hero-div .h1 {
-  opacity: 0;
   display: block;
   font-kerning: none;
   text-rendering: optimizespeed;
