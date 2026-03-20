@@ -1240,14 +1240,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const config = {
             getCardWidth: () => { const card = cardsTrack.querySelector(".blog-card-1"); if (!card) return 300; return card.offsetWidth + parseInt(window.getComputedStyle(card).marginRight || 0); },
             getCardCount: () => cardsTrack.querySelectorAll(".blog-card-1").length,
-            getSnapPoints: () => { const w = config.getCardWidth(), n = config.getCardCount(), pts = []; for (let i = 0; i < n; i++) pts.push(-i * w); return pts; },
-            getBounds: () => { const w = config.getCardWidth(), n = config.getCardCount(); return { minX: -(n - 1) * w, maxX: 0 }; }
+            getMaxScroll: () => { const pad = parseFloat(window.getComputedStyle(cardsTrack).paddingLeft) || 0; return Math.max(0, cardsTrack.scrollWidth - cardsWrapper.offsetWidth + pad); },
+            getSnapPoints: () => { const w = config.getCardWidth(), n = config.getCardCount(), min = -config.getMaxScroll(), pts = []; for (let i = 0; i < n; i++) { const p = -i * w; if (p >= min) pts.push(p); } if (pts.length === 0 || pts[pts.length - 1] > min) pts.push(min); return pts; },
+            getBounds: () => ({ minX: -config.getMaxScroll(), maxX: 0 })
         };
         function snapToCard(x) { const pts = config.getSnapPoints(); let closest = pts[0], min = Math.abs(x - closest); for (let i = 1; i < pts.length; i++) { const d = Math.abs(x - pts[i]); if (d < min) { min = d; closest = pts[i]; currentIndex = i; } } return closest; }
 
         if (typeof Draggable !== 'undefined') {
             draggableInstance = Draggable.create(cardsTrack, {
-                type: "x", bounds: config.getBounds(), inertia: true, edgeResistance: 0.85,
+                type: "x", bounds: config.getBounds(), inertia: { resistance: 500 }, edgeResistance: 0.97,
                 snap: { x: (v) => snapToCard(v) },
                 onThrowComplete: function() { const snappedX = gsap.getProperty(cardsTrack, "x"); currentIndex = config.getSnapPoints().indexOf(snappedX); }
             })[0];
