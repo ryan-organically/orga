@@ -62,27 +62,31 @@
   </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
-  <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin="anonymous">
   <link href="https://unpkg.com" rel="dns-prefetch">
   <link href="https://calendly.com" rel="preconnect">
   <link href="https://assets.calendly.com" rel="preconnect">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript" defer></script>
   <script type="text/javascript">
     window.fontsLoaded = false;
+    function _fireFontsReady() {
+      if (!window.fontsLoaded) {
+        window.fontsLoaded = true;
+        document.dispatchEvent(new Event('fontsReady'));
+      }
+    }
     function _initWebFonts() {
-      if (typeof WebFont === 'undefined') return;
+      if (typeof WebFont === 'undefined') {
+        // WebFont script failed to load — fire fontsReady anyway so animations still run
+        _fireFontsReady();
+        return;
+      }
       WebFont.load({
         google: {
           families: ["Vollkorn:400,400italic,700,700italic","Lato:400,400italic,700,700italic","Exo:400,500"]
         },
-        active: function() {
-          window.fontsLoaded = true;
-          document.dispatchEvent(new Event('fontsReady'));
-        },
-        inactive: function() {
-          window.fontsLoaded = true;
-          document.dispatchEvent(new Event('fontsReady'));
-        },
+        active: _fireFontsReady,
+        inactive: _fireFontsReady,
         timeout: 3000
       });
     }
@@ -93,6 +97,8 @@
       // If DOM already ready, wait a tick for deferred script
       setTimeout(_initWebFonts, 0);
     }
+    // Safety net: if fontsReady hasn't fired after 5s, fire it anyway
+    setTimeout(_fireFontsReady, 5000);
   </script>
   
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
@@ -305,6 +311,16 @@
     .hero-selfie-wrapper {
       display: none;
     }
+  }
+  /* Lenis smooth scroll requirements */
+  html.lenis {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: clip;
   }
 </style>
 </head>
@@ -535,8 +551,8 @@
     </div>
   </div>
 
-  <section class="section ticker-testimonial-section" style="background-color: transparent;">
-    <div class="ticking-text" style="padding-top: 0; padding-bottom: 0;">Proven to move the needle Organically<span class="green-span">. </span></div>
+  <section class="section ticker-testimonial-section" style="background-color: transparent; overflow: hidden;">
+    <div class="ticking-text css-ticker" style="padding-top: 0; padding-bottom: 0;">Proven to move the needle Organically<span class="green-span">. </span>Proven to move the needle Organically<span class="green-span">. </span>Proven to move the needle Organically<span class="green-span">. </span></div>
   </section>
   <address id="choose-adventure" data-w-id="76ca32a2-4ec2-eb02-d5aa-23c5b7d05ca3" style="-webkit-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="section-home-3">
     <h3 class="h3 center-h3">Choose your adventure</h3>
@@ -895,11 +911,11 @@
   </div>
   <!-- jQuery removed: not used anywhere on this page (all code is vanilla JS + GSAP) -->
 
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript" defer></script>
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/SplitText.min.js" type="text/javascript" defer></script>
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript" defer></script>
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/InertiaPlugin.min.js" type="text/javascript" defer></script>
-  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js" type="text/javascript" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" type="text/javascript" defer onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js'"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" type="text/javascript" defer onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js'"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" type="text/javascript" defer onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js'"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/InertiaPlugin.min.js" type="text/javascript" defer onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/InertiaPlugin.min.js'"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js" type="text/javascript" defer onerror="this.onerror=null;this.src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Draggable.min.js'"></script>
   <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js" defer></script>
   <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1129,7 +1145,11 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(heroVideo, { scale: 1, opacity: 1, rotationZ: 0, duration: 1.2, ease: "back.out(1.7)", delay: 0.8 });
     })();
 
-    /* ━━━ Services Showcase Ticker ━━━ */
+</script>
+
+<!-- GSAP-independent: Services Showcase + Calendly lazy-load -->
+<script>
+    /* ━━━ Services Showcase Ticker (no GSAP needed) ━━━ */
     (function() {
         const cards = document.querySelectorAll('.services-showcase-card');
         const descriptions = document.querySelectorAll('.services-showcase-description');
@@ -1155,7 +1175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         startTicker();
     })();
 
-    /* ━━━ Lazy-load Calendly iframes with IntersectionObserver ━━━ */
+    /* ━━━ Lazy-load Calendly iframes with IntersectionObserver (no GSAP needed) ━━━ */
     (function() {
         const lazyIframes = document.querySelectorAll('.calendar-lazy-iframe');
         if (!lazyIframes.length) return;
@@ -1173,11 +1193,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }, { rootMargin: '200px' });
             lazyIframes.forEach(iframe => observer.observe(iframe));
         } else {
-            // Fallback: load immediately
             lazyIframes.forEach(iframe => { if (iframe.dataset.src) iframe.src = iframe.dataset.src; });
         }
     })();
-
 </script>
     </div><!-- .body-section -->
 
@@ -1224,6 +1242,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ticker) {
         const originalHTML = ticker.innerHTML;
         ticker.innerHTML = originalHTML + originalHTML + originalHTML;
+        // Remove CSS fallback animation, let GSAP take over
+        ticker.classList.remove('css-ticker');
         const tickerWidth = ticker.scrollWidth / 3;
         gsap.to(ticker, {
             x: -tickerWidth, duration: 30, ease: "none", repeat: -1,
@@ -1730,6 +1750,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   .works-section {
     contain: layout style;
+  }
+
+  /* CSS ticker fallback (runs until GSAP takes over) */
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-33.333%); }
+  }
+  .ticking-text.css-ticker {
+    animation: ticker-scroll 30s linear infinite;
   }
 
   /* Dark Mode - Proven Ticker */
