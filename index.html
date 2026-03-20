@@ -97,7 +97,7 @@
   
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.jpg" rel="apple-touch-icon">
-  <link href="https://www.organicallyseo.com" rel="canonical">
+  <link href="https://organicallyseo.com" rel="canonical">
 
   <!-- Hreflang tags -->
   <link rel="alternate" href="https://organicallyseo.com/" hreflang="en" />
@@ -307,18 +307,7 @@
     }
   }
 </style>
-  <style>
-html.lenis {
-	height: auto;
-}
-.lenis.lenis-smooth {
-	scroll-behavior: auto;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-	overscroll-behavior: clip;
-}
-</style>
-</html></head>
+</head>
 <body class="horizontal-body dark-mode">
   <!-- Left Menu Panel -->
   <div class="side-menu-panel">
@@ -347,7 +336,7 @@ html.lenis {
     <div class="announcement-banner" style="display: none;">
       <p class="announcement-text">New Report: 2025 SEO Trends & Strategies - Download Now</p>
     </div>
-  <div id="home-hero-section" class="hero-section home-hero" style="padding-bottom: 0; display: flex; flex-direction: column; justify-content: flex-start;">
+  <div id="home-hero-section" class="hero-section home-hero" style="padding-bottom: 3vh; display: flex; flex-direction: column; justify-content: flex-start;">
     <p class="p2 hero-floating-text">Websites for all!</p>
     <div data-w-id="ac03ca97-7cfc-d8e6-988e-dbac0360cd9f" class="hero-div" style="width: 100%; max-width: 100%;">
       <h1 class="h1 h1-home">Organically<span class="green-span h1-period">.</span></h1>
@@ -920,7 +909,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Single registration of all GSAP plugins
     gsap.registerPlugin(SplitText, ScrollTrigger, Draggable);
 
-    // Optimize ScrollTrigger performance globally
+    // Optimize ScrollTrigger performance
     ScrollTrigger.config({
         limitCallbacks: true,
         syncInterval: 120,
@@ -948,6 +937,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const socialProofChecks = document.querySelectorAll(".hero-social-proof-checks > div");
 
         if (!h1 || typeof SplitText === 'undefined') return;
+
+        // Hide h1 before split animation (CSS no longer hides it, so JS-disabled users still see it)
+        gsap.set(h1, { opacity: 0 });
 
         if (shrunkP) gsap.set(shrunkP, { autoAlpha: 0 });
         if (building) gsap.set(building, { autoAlpha: 0 });
@@ -1251,14 +1243,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const config = {
             getCardWidth: () => { const card = cardsTrack.querySelector(".blog-card-1"); if (!card) return 300; return card.offsetWidth + parseInt(window.getComputedStyle(card).marginRight || 0); },
             getCardCount: () => cardsTrack.querySelectorAll(".blog-card-1").length,
-            getSnapPoints: () => { const w = config.getCardWidth(), n = config.getCardCount(), pts = []; for (let i = 0; i < n; i++) pts.push(-i * w); return pts; },
-            getBounds: () => { const w = config.getCardWidth(), n = config.getCardCount(); return { minX: -(n - 1) * w, maxX: 0 }; }
+            getMaxScroll: () => { const pad = parseFloat(window.getComputedStyle(cardsTrack).paddingLeft) || 0; return Math.max(0, cardsTrack.scrollWidth - cardsWrapper.offsetWidth + pad); },
+            getSnapPoints: () => { const w = config.getCardWidth(), n = config.getCardCount(), min = -config.getMaxScroll(), pts = []; for (let i = 0; i < n; i++) { const p = -i * w; if (p >= min) pts.push(p); } if (pts.length === 0 || pts[pts.length - 1] > min) pts.push(min); return pts; },
+            getBounds: () => ({ minX: -config.getMaxScroll(), maxX: 0 })
         };
         function snapToCard(x) { const pts = config.getSnapPoints(); let closest = pts[0], min = Math.abs(x - closest); for (let i = 1; i < pts.length; i++) { const d = Math.abs(x - pts[i]); if (d < min) { min = d; closest = pts[i]; currentIndex = i; } } return closest; }
 
         if (typeof Draggable !== 'undefined') {
             draggableInstance = Draggable.create(cardsTrack, {
-                type: "x", bounds: config.getBounds(), inertia: true, edgeResistance: 0.85,
+                type: "x", bounds: config.getBounds(), inertia: { resistance: 500 }, edgeResistance: 0.97,
                 snap: { x: (v) => snapToCard(v) },
                 onThrowComplete: function() { const snappedX = gsap.getProperty(cardsTrack, "x"); currentIndex = config.getSnapPoints().indexOf(snappedX); }
             })[0];

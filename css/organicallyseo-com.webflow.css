@@ -1531,7 +1531,6 @@ a {
 }
 
 .hero-section .hero-div .h1 {
-  opacity: 0;
   display: block;
   font-kerning: none;
   text-rendering: optimizespeed;
@@ -4656,7 +4655,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   width: 90vw;
-  height: 75vh;
+  min-height: 75vh;
   margin-top: 0;
   padding: 5vh 40px;
   overflow: hidden;
@@ -6956,7 +6955,7 @@ a {
 
   .blog-card-1 {
     width: 80vw;
-    min-height: 60vh;
+    min-height: 44vh;
     height: auto;
     margin-top: 20px;
     margin-left: 0;
@@ -7831,7 +7830,7 @@ a {
 
   .blog-card-1 {
     width: 90vw;
-    min-height: 75vh;
+    min-height: 52vh;
     height: auto;
     justify-content: center;
     align-items: flex-start;
