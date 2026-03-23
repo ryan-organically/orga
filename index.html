@@ -1110,7 +1110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function initIntroText() {
             const initialText = document.querySelector('#animated-intro-text');
             if (!initialText) return;
-            const initialSplit = new SplitText(initialText, { type: "words,lines", wordsClass: "word", linesClass: "line" });
+            const initialSplit = SplitText.create(initialText, { type: "words,lines", wordsClass: "word", linesClass: "line" });
             gsap.set(initialSplit.words, { yPercent: 100, rotationZ: 5, autoAlpha: 0 });
             gsap.to(initialSplit.words, {
                 duration: 1, yPercent: 0, rotationZ: 0, autoAlpha: 1, stagger: 0.15, ease: "power2.out",
@@ -1178,6 +1178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })();
 
+});
 </script>
     </div><!-- .body-section -->
 
@@ -1274,7 +1275,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Diagonal H3
         const h3El = document.querySelector('.diagonal-h3');
         if (h3El) {
-            const split = new SplitText(h3El, { type: "words", mask: "words" });
+            const split = SplitText.create(h3El, { type: "words", mask: "words" });
             gsap.set(split.words, { yPercent: 110, opacity: 0 });
             gsap.to(split.words, { yPercent: 0, opacity: 1, stagger: 0.05, duration: 0.6, ease: "power3.out",
                 scrollTrigger: { trigger: h3El, start: "top 70%", end: "top 40%", toggleActions: "play none none reverse" } });
@@ -1285,7 +1286,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (footer) {
             const typemark = footer.querySelector('.footer-typemark');
             if (typemark) {
-                const split = new SplitText(typemark, { type: "chars" });
+                const split = SplitText.create(typemark, { type: "chars" });
                 gsap.set(split.chars, { yPercent: -200, opacity: 0 });
                 gsap.to(split.chars, { yPercent: 0, opacity: 1, stagger: 0.02, duration: 0.8, ease: "power3.out",
                     scrollTrigger: { trigger: typemark, start: "top 80%", end: "top 50%", toggleActions: "play none none reverse" } });
@@ -1295,7 +1296,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Coffee heading
         const coffeeHeading = document.querySelector('.read-more-heading');
         if (coffeeHeading) {
-            const split = new SplitText(coffeeHeading, { type: "words", mask: "words" });
+            const split = SplitText.create(coffeeHeading, { type: "words", mask: "words" });
             gsap.set(split.words, { yPercent: 110, opacity: 0 });
             gsap.to(split.words, { yPercent: 0, opacity: 1, stagger: 0.05, duration: 0.6, ease: "power3.out",
                 scrollTrigger: { trigger: coffeeHeading, start: "top 70%", end: "top 40%", toggleActions: "play none none reverse" } });
