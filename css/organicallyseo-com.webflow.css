@@ -4267,7 +4267,6 @@ a {
   font-weight: 300;
   line-height: 1.5;
   text-decoration: none;
-  text-align: right;
   white-space: nowrap;
 }
 
@@ -4275,7 +4274,6 @@ a {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  justify-content: flex-end;
 }
 
 .blog-nav-btn {
