@@ -6366,7 +6366,7 @@ a {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    width: 90vw;
+    width: 100%;
   }
 
   .div-50.tabs-content {
@@ -8312,10 +8312,6 @@ a {
 
   .thumbs-up, .thumbs-up.dark-thumb.magnifying {
     width: 200px;
-  }
-
-  .div-50 {
-    width: 100vw;
   }
 
   .pricing-section {
