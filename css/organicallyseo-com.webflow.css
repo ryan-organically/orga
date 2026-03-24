@@ -7729,10 +7729,6 @@ a {
     justify-content: flex-start;
     align-items: center;
     height: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    padding-top: 100px;
-    padding-bottom: 100px;
     overflow: visible;
   }
 
@@ -8402,7 +8398,6 @@ a {
   .read-more-heading {
     margin-left: 5%;
     font-size: 32px;
-    top: 4%;
   }
 
   .ticking-text {
