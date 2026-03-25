@@ -4464,7 +4464,7 @@ a {
 
 .section.ticker-testimonial-section {
   border-top: 1px solid var(--black-40);
-  width: 90vw;
+  width: 100%;
   padding: 0;
   min-height: auto;
   height: auto;
@@ -7727,7 +7727,7 @@ a {
 
   .blog-preview {
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     height: auto;
     overflow: visible;
   }
@@ -8390,7 +8390,7 @@ a {
 
   .read-more-module {
     flex-flow: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     padding-left: 0;
   }
