@@ -93,6 +93,13 @@
       // If DOM already ready, wait a tick for deferred script
       setTimeout(_initWebFonts, 0);
     }
+    // Hard fallback: if fontsReady never fires (WebFont.js failed to load), fire it after 4s
+    setTimeout(function() {
+      if (!window.fontsLoaded) {
+        window.fontsLoaded = true;
+        document.dispatchEvent(new Event('fontsReady'));
+      }
+    }, 4000);
   </script>
   
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
@@ -902,12 +909,16 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14/dist/Draggable.min.js" type="text/javascript" defer></script>
   <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js" defer></script>
   <script>
-document.addEventListener("DOMContentLoaded", () => {
-    // Guard: ensure GSAP loaded (deferred scripts)
-    if (typeof gsap === 'undefined') return;
+function _initMainAnimations() {
+    // Retry until deferred GSAP scripts are ready (up to 2s)
+    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof InertiaPlugin === 'undefined' || typeof Draggable === 'undefined') {
+        if ((Date.now() - window._gsapWaitStart) < 2000) { setTimeout(_initMainAnimations, 50); return; }
+        console.warn('GSAP plugins failed to load after 2s');
+        return;
+    }
 
     // Single registration of all GSAP plugins
-    gsap.registerPlugin(SplitText, ScrollTrigger, Draggable);
+    gsap.registerPlugin(SplitText, ScrollTrigger, InertiaPlugin, Draggable);
 
     // Optimize ScrollTrigger performance
     ScrollTrigger.config({
@@ -1178,7 +1189,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })();
 
-});
+}
+window._gsapWaitStart = Date.now();
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', _initMainAnimations);
+} else {
+    _initMainAnimations();
+}
 </script>
     </div><!-- .body-section -->
 
@@ -1211,8 +1228,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <!-- Consolidated: Ticker, Blog Nav, Diagonal H3, Footer Typemark, Coffee Heading -->
   <script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (typeof gsap === 'undefined') return;
+function _initSecondaryAnimations() {
+    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof Draggable === 'undefined' || typeof InertiaPlugin === 'undefined') {
+        if ((Date.now() - window._gsapWaitStart2) < 2000) { setTimeout(_initSecondaryAnimations, 50); return; }
+        console.warn('GSAP plugins not available for secondary animations');
+        return;
+    }
+    // Ensure plugins are registered (safe to call multiple times)
+    gsap.registerPlugin(SplitText, ScrollTrigger, InertiaPlugin, Draggable);
 
     // Console branding (deferred to not block paint)
     requestIdleCallback ? requestIdleCallback(() => {
@@ -1252,7 +1275,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (typeof Draggable !== 'undefined') {
             draggableInstance = Draggable.create(cardsTrack, {
-                type: "x", bounds: config.getBounds(), inertia: { resistance: 500 }, edgeResistance: 0.97,
+                type: "x", bounds: config.getBounds(), inertia: true, edgeResistance: 0.97,
+                throwResistance: 500,
                 snap: { x: (v) => snapToCard(v) },
                 onThrowComplete: function() { const snappedX = gsap.getProperty(cardsTrack, "x"); currentIndex = config.getSnapPoints().indexOf(snappedX); }
             })[0];
@@ -1305,7 +1329,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.fontsLoaded) { initFontDependentAnimations(); }
     else { document.addEventListener('fontsReady', initFontDependentAnimations); }
-});
+}
+window._gsapWaitStart2 = Date.now();
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', _initSecondaryAnimations);
+} else {
+    _initSecondaryAnimations();
+}
 </script>
 
 <style>
@@ -1597,6 +1627,7 @@ document.addEventListener("DOMContentLoaded", () => {
   .dark-mode .featured-work,
   .dark-mode .blog-preview-section {
     background-color: #1a1a1a;
+    border-color: #ffffff66;
   }
 
   /* Dark Mode - Text */
@@ -1738,16 +1769,12 @@ document.addEventListener("DOMContentLoaded", () => {
     color: #333;
   }
 
-  .dark-mode .ticker-testimonial-section {
+  .dark-mode .section.ticker-testimonial-section {
     background-color: #1a1a1a;
   }
 
   .dark-mode .ticking-text {
     color: #e2e2e2;
-  }
-
-  .dark-mode .ticker-testimonial-section {
-    border: 1px solid #ffffff66;
   }
 
   /* Dark Mode - Coffee Break */
