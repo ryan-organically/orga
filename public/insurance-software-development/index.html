@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Insurance Software Development: Modernizing Insurance Operations</title>
+  <meta content="Guide to insurance software development. From claims management to policy administration, transform your insurance business." name="description">
+  <meta content="Insurance Software Development: Modernizing Insurance Operations" property="og:title">
+  <meta content="Guide to insurance software development. From claims management to policy administration, transform your insurance business." property="og:description">
+  <meta content="Insurance Software Development: Modernizing Insurance Operations" property="twitter:title">
+  <meta content="Guide to insurance software development. From claims management to policy administration, transform your insurance business." property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/organicallyseo-com.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700"]  }});</script>
+
+  <link href="/images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+  <link href="/images/webclip.jpg" rel="apple-touch-icon">
+  <link href="https://organicallyseo.com/insurance-software-development/" rel="canonical">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://organicallyseo.com/#organization",
+        "name": "Organically SEO",
+        "url": "https://organicallyseo.com",
+        "logo": "https://organicallyseo.com/images/Organically-Logo-green.png"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://organicallyseo.com/#author",
+        "name": "Ryan Scanlon",
+        "url": "https://www.linkedin.com/in/ryan-scanlon31/",
+        "sameAs": [
+          "https://twitter.com/organicallyseo",
+          "https://www.linkedin.com/in/ryan-scanlon31/"
+        ]
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": "https://organicallyseo.com/insurance-software-development/#article",
+        "url": "https://organicallyseo.com/insurance-software-development/",
+        "headline": "Insurance Software Development: Modernizing Insurance Operations",
+        "description": "Guide to insurance software development. From claims management to policy administration, transform your insurance business.",
+        "datePublished": "2026-01-22",
+        "dateModified": "2026-01-22",
+        "author": {
+          "@id": "https://organicallyseo.com/#author"
+        },
+        "publisher": {
+          "@id": "https://organicallyseo.com/#organization"
+        },
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://organicallyseo.com/insurance-software-development/"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <html lang="en">
+  <style>
+  body {
+    overflow-x: clip;
+  }
+</style><!--  Google tag (gtag.js)  -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2LPK0F7PYW"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2LPK0F7PYW');
+</script>
+</html><style>
+  body.horizontal-body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+    background-color: #e2e2e2;
+    color: var(--black-75);
+    cursor: crosshair;
+  }
+</style>
+  <style>
+html.lenis {
+	height: auto;
+}
+.lenis.lenis-smooth {
+	scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: clip;
+}
+</style>
+  <style>
+  .blog-h1,
+  .blog-h2,
+  .blog-h3 {
+    color: #333;
+  }
+
+  .sticky-author-div {
+    display: block;
+    width: clamp(140px, 12vw, 200px);
+    flex-shrink: 0;
+    position: sticky;
+    top: 25vh;
+    transition: transform 0.3s ease;
+    transform: translateY(0);
+  }
+
+  .sticky-author-div.scrolling-down {
+    transform: translateY(-320px);
+  }
+
+  .sticky-blog-contents {
+    display: flex;
+    flex-direction: column;
+    width: clamp(120px, 11vw, 180px);
+    flex-shrink: 0;
+    position: sticky;
+    top: 25vh;
+  }
+
+  /* Responsive sidebars - scale down then hide */
+  @media screen and (max-width: 1200px) {
+    .sticky-author-div {
+      width: clamp(120px, 10vw, 160px);
+    }
+    .sticky-blog-contents {
+      width: clamp(100px, 9vw, 140px);
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    .sticky-author-div,
+    .sticky-blog-contents {
+      display: none;
+    }
+  }
+
+  .table-of-contents-heading,
+  .contents-horizontal-divider {
+    display: none;
+  }
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  }
+
+  .theme-toggle span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.3s ease, opacity 0.3s ease;
+  }
+
+  .moon-icon {
+    top: 8px;
+    opacity: 1;
+  }
+
+  .sun-icon {
+    top: 50px;
+    opacity: 0;
+  }
+
+  .dark-mode .moon-icon {
+    top: -30px;
+    opacity: 0;
+  }
+
+  .dark-mode .sun-icon {
+    top: 8px;
+    opacity: 1;
+  }
+
+  body.dark-mode.horizontal-body {
+    background-color: #333;
+    color: #e2e2e2;
+  }
+
+  .dark-mode .body-section,
+  .dark-mode .universal-menu,
+  .dark-mode .blog-hero-section,
+  .dark-mode .blog-content-section,
+  .dark-mode .blog-massive-wrapper {
+    background-color: #333;
+    color: #e2e2e2;
+  }
+
+  .dark-mode .blog-h1,
+  .dark-mode .blog-h2,
+  .dark-mode .blog-h3,
+  .dark-mode .blog-h4,
+  .dark-mode .blog-p1,
+  .dark-mode .blog-author-date,
+  .dark-mode .blog-callout,
+  .dark-mode .blog-callout-2,
+  .dark-mode .content-link,
+  .dark-mode .table-of-contents-heading {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .author-bio-heading {
+    color: rgba(226, 226, 226, 0.6);
+  }
+
+  .dark-mode .author-bio-text {
+    color: rgba(226, 226, 226, 0.4);
+  }
+
+  .dark-mode .content-link {
+    color: rgba(226, 226, 226, 0.6);
+  }
+
+  .dark-mode .content-link:hover {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .blink-1 {
+    color: #7ec700;
+  }
+
+  .dark-mode .sticky-author-div,
+  .dark-mode .sticky-blog-contents {
+    background-color: #333;
+  }
+
+  .dark-mode .blog-callout,
+  .dark-mode .blog-callout-2 {
+    background-color: #444;
+    border-color: #555;
+  }
+
+  .dark-mode .read-more-thumbnail {
+    opacity: 0.9;
+  }
+
+  .dark-mode #Footer,
+  .dark-mode .footer-section,
+  .dark-mode .footer-wrapper {
+    background-color: #333;
+    color: #e2e2e2;
+  }
+
+  .dark-mode .side-menu-panel,
+  .dark-mode .side-panel {
+    background-color: #333;
+  }
+
+  .dark-mode .menu-nav-link,
+  .dark-mode .menu-tagline {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .footer-link,
+  .dark-mode .footer-text,
+  .dark-mode .footer-heading,
+  .dark-mode .footer-typemark,
+  .dark-mode .typemark {
+    color: #e2e2e2;
+  }
+
+  .dark-mode .blog-socials.black-socials,
+  .dark-mode .footer-social-icon.black {
+    display: none;
+  }
+
+  .dark-mode .blog-socials.white-socials,
+  .dark-mode .footer-social-icon.white {
+    display: block;
+  }
+
+  .dark-mode .blog-author-social img,
+  .dark-mode .footer-social-wrapper img {
+    filter: invert(1);
+  }
+
+  .dark-mode .button-1 {
+    color: #e2e2e2;
+    border-color: #e2e2e2;
+  }
+
+  .dark-mode {
+    --333: #e2e2e2;
+  }
+
+  .dark-mode .blog-content-section,
+  .dark-mode .contents-horizontal-divider,
+  .dark-mode .search-engine-stats {
+    border-color: #555;
+  }
+
+  .dark-mode * {
+    border-color: #555;
+  }
+
+  .universal-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .universal-menu .theme-toggle {
+    order: 3;
+  }
+
+  .content-link {
+    display: block;
+    font-family: 'Coolvetica Rg', sans-serif;
+    color: var(--black-40);
+    font-size: clamp(12px, 1vw, 14px);
+    line-height: 1.4;
+    word-wrap: break-word;
+    transition: color 0.2s ease;
+    padding: 5px 0;
+  }
+
+  .content-link:hover {
+    color: var(--black);
+  }
+
+  .author-bio-heading {
+    font-size: clamp(14px, 1.1vw, 16px);
+  }
+
+  .author-bio-text {
+    font-size: clamp(11px, 0.9vw, 13px);
+    line-height: 1.4;
+  }
+
+  .sticky-author-div .blog-author-image {
+    width: clamp(80px, 8vw, 135px);
+    height: auto;
+  }
+
+  .sticky-author-div .read-more-thumbnail {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .sticky-author-div .blog-socials {
+    width: 18px;
+    height: 18px;
+    margin: 5px 0;
+  }
+
+  .sticky-author-div .author-social-div {
+    gap: 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .sticky-author-div .blog-author-social {
+    margin: 0;
+    padding: 0;
+    margin-right: 5px;
+  }
+
+  .sticky-author-div .blog-author-social:last-child {
+    margin-right: 0;
+  }
+
+  .sticky-author-div .button-1.mini-button {
+    display: none;
+  }
+
+  .ai-art-prop {
+    margin: 0;
+  }
+
+
+  .blog-author-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-author-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5vh;
+  }
+
+  .blog-author-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .blog-author-date {
+    margin: 0;
+    margin-left: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--black-60);
+  }
+
+  @media screen and (max-width: 991px) {
+    .blog-author-image {
+      width: 75px;
+      height: 75px;
+    }
+  }
+  </style>
+</head>
+<body data-w-id="62d856b64a8463bf0059f63a" class="horizontal-body">
+<!-- Left Menu Panel -->
+  <div class="side-menu-panel">
+  <div class="side-panel">
+    <div class="menu-header">
+      <p class="menu-tagline">Redefining agency marketing—one organic idea at a time.</p>
+    </div>
+    <nav class="menu-nav">
+      <a href="/" class="menu-nav-link">Home</a>
+      <a href="/web-design/" class="menu-nav-link">Web design</a>
+      <a href="/seo/" class="menu-nav-link">SEO</a>
+      <a href="/branding/" class="menu-nav-link">Creative</a>
+      <a href="/blog/" class="menu-nav-link">Blog</a>
+    </nav>
+  </div>
+</div>
+
+
+    <!-- Center Body Section -->
+    <div class="body-section">
+
+  <div class="universal-menu">
+  <universal-menu></universal-menu>
+  <div>
+    <a href="/form/" class="button-1 w-button">Schedule an Estimate</a>
+    <div id="dark-mode-toggle" class="dark-mode-toggle">
+      <img src="/images/moon-1.png" loading="lazy" alt="Toggle dark mode" class="toggle-icon dark-icon">
+      <img src="/images/brightness-2.png" loading="lazy" alt="Toggle light mode" class="toggle-icon light-icon">
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var toggle = document.querySelector('.dark-mode-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    });
+  }
+})();
+</script>
+
+  <div id="particles-js" data-w-id="dffee90e-369c-2958-d553-b54a529cc4c4" class="particles-js-div">
+    <div class="cursor"></div>
+  </div>
+  <div class="progression-bar"></div>
+  <div class="blog-hero-section">
+    <div class="blog-hero-div">
+      <h1 class="blog-h1">Insurance Software Development:<br>Modernizing Insurance Operations<br></h1>
+      <div class="blog-author-div">
+        <div class="blog-author-wrapper">
+          <img src="/images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="100" alt="" class="blog-author-image">
+          <p class="blog-author-date">Ryan Scanlon - January 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="blog-content-section" style="border-bottom: none;">
+    <div class="sticky-blog-contents">
+  <div class="table-of-contents-heading">What You're Reading...</div>
+  <div class="contents-horizontal-divider"></div>
+  
+  
+  <a href="#overview" class="content-link">Insurance Software Overview</a>
+  
+  <a href="#insurtech" class="content-link">Insurtech Solutions</a>
+  
+  <a href="#claims" class="content-link">Claims Management</a>
+  
+  <a href="#policy" class="content-link">Policy Administration</a>
+  
+  <a href="#health" class="content-link">Health Insurance Software</a>
+  
+  <a href="#underwriting" class="content-link">Underwriting Systems</a>
+  
+  <a href="#compliance" class="content-link">Regulatory Compliance</a>
+  
+  <a href="#implementation" class="content-link">Implementation Guide</a>
+  
+</div>
+
+    <div class="blog-massive-wrapper">
+      <p class="blog-p1 first-line"><span>The insurance industry </span>is at a crossroads. Legacy systems built decades ago are struggling to keep pace with modern customer expectations, regulatory demands, and competitive pressures from insurtech startups.<br></p>
+      <p class="blog-p1">If you're an insurance executive or technology leader, you've likely felt the pain of outdated software: slow claims processing, frustrated customers, compliance headaches, and the constant fear of being disrupted by more agile competitors.<br></p>
+      <p class="blog-p1">The good news? <strong>Insurance software development</strong> has evolved dramatically. Today's solutions can transform your operations, delight your customers, and position your company for sustainable growth. This comprehensive guide will walk you through everything you need to know about modernizing your insurance technology stack.<br></p>
+
+      <div id="overview" class="search-engine-stats">
+        <p class="blog-p1 center-heading">Insurance Software Overview</p>
+        <div class="contents-horizontal-divider"></div>
+        <div class="blog-p1 blog-callout">What exactly is insurance software development?</div>
+        <p class="blog-p1"><strong>Insurance software development</strong> encompasses the design, creation, and maintenance of digital solutions that support insurance operations. This includes everything from customer-facing portals and mobile apps to back-office systems for underwriting, claims processing, and policy administration.</p>
+        <p class="blog-p1">Modern insurance software integrates multiple functions into cohesive platforms that streamline workflows, reduce manual processes, and provide real-time data insights. The goal is to create seamless experiences for both customers and employees while maintaining strict compliance with industry regulations.</p>
+        <div class="blog-p1 blog-callout">Why is modernization urgent?</div>
+        <p class="blog-p1"><strong>Customer expectations have shifted dramatically.</strong> Today's policyholders expect instant quotes, mobile-first experiences, and rapid claims resolution. They compare their insurance experience to Amazon and Uber, not to other insurance companies.</p>
+        <p class="blog-p1">Meanwhile, insurtech startups are capturing market share with lean, technology-driven business models. Traditional insurers who fail to modernize risk losing both customers and talent to more innovative competitors.</p>
+      </div>
+
+      <h2 id="insurtech" class="blog-h2">Custom Insurance Software Development</h2>
+      <p class="blog-p1">When it comes to <strong>custom insurance software development</strong>, the decision between building custom solutions versus buying off-the-shelf products is crucial. Each approach has distinct advantages depending on your organization's size, complexity, and strategic goals.<br></p>
+      <p class="blog-p1">Custom development offers unparalleled flexibility. You can design systems that perfectly match your unique business processes, integrate seamlessly with existing infrastructure, and scale according to your specific growth trajectory.<br></p>
+      <p class="blog-p1 blog-callout-2">Custom insurance software can provide competitive advantages that off-the-shelf solutions simply cannot match.</p>
+      <p class="blog-p1">Consider custom development when you have:</p>
+      <p class="blog-p1"><strong>Unique business processes</strong> that don't fit standard software models<br><br><strong>Complex integration requirements</strong> with legacy systems<br><br><strong>Specific regulatory needs</strong> that require tailored compliance features<br><br><strong>Competitive differentiation strategies</strong> that require proprietary capabilities</p>
+
+      <h3 class="blog-h3">Insurtech Software Development</h3>
+      <p class="blog-p1"><strong>Insurtech software development</strong> represents the cutting edge of insurance technology. These solutions leverage artificial intelligence, machine learning, blockchain, and IoT to reimagine traditional insurance processes.<br></p>
+      <p class="blog-p1">Key insurtech innovations include:</p>
+      <p class="blog-p1"><strong>AI-powered underwriting:</strong> Algorithms that assess risk more accurately and quickly than traditional methods, using data sources ranging from social media to satellite imagery.<br><br><strong>Telematics and usage-based insurance:</strong> Connected devices that monitor driving behavior, home conditions, or health metrics to enable personalized pricing.<br><br><strong>Blockchain for fraud prevention:</strong> Distributed ledger technology that creates immutable records and enables smart contracts for automatic claims processing.<br><br><strong>Chatbots and virtual assistants:</strong> AI-driven customer service tools that handle routine inquiries 24/7, freeing human agents for complex issues.</p>
+      <p class="blog-p1">The most successful insurtech implementations combine technological innovation with deep insurance domain expertise. Technology alone is not enough; you need partners who understand the nuances of insurance operations, regulations, and customer expectations. At Organically, our team brings years of experience in <a href="/financial-software-development/" class="blink-1">financial and insurance software development</a>, helping carriers and insurtechs alike build solutions that actually work in production.</p>
+
+      <h2 id="claims" class="blog-h2">Insurance Software Development for Claims</h2>
+      <p class="blog-p1">Claims processing is often the moment of truth in insurance. It's when customers discover whether their insurer delivers on its promises. Unfortunately, it's also where many insurers fall short.<br></p>
+      <p class="blog-p1">Traditional claims processes are plagued by manual data entry, paper documents, disconnected systems, and lengthy approval chains. The result? Frustrated customers, inflated operational costs, and increased fraud risk.<br></p>
+
+      <h3 class="blog-h3">Claims Management Software Development</h3>
+      <p class="blog-p1">Modern <strong>claims management software development</strong> transforms this critical function. Digital claims platforms enable:</p>
+      <p class="blog-p1"><strong>Mobile-first claims filing:</strong> Customers can report claims instantly via smartphone, uploading photos, videos, and documentation in real-time.<br><br><strong>Automated damage assessment:</strong> AI-powered image recognition can estimate vehicle damage or property loss from photos, speeding initial assessments.<br><br><strong>Intelligent routing and triage:</strong> Claims are automatically categorized and routed to appropriate adjusters based on complexity, value, and urgency.<br><br><strong>Real-time status tracking:</strong> Customers and agents can monitor claim progress through intuitive dashboards, reducing inbound inquiries.</p>
+      <p class="blog-p1 blog-callout-2">Companies implementing modern claims management systems report 30-50% reductions in claims processing time and significant improvements in customer satisfaction scores.</p>
+      <p class="blog-p1">Integration is key to successful claims management software. Your claims system should connect seamlessly with policy administration, customer relationship management, and external data sources like weather services, police reports, and medical records.</p>
+
+      <h2 id="policy" class="blog-h2">Custom Insurance Software for Policy Management</h2>
+      <p class="blog-p1"><strong>Custom insurance software</strong> for policy management serves as the backbone of insurance operations. These systems manage the entire policy lifecycle from quote to renewal, handling complex rating algorithms, coverage configurations, and regulatory requirements.<br></p>
+
+      <h3 class="blog-h3">Policy Administration Software</h3>
+      <p class="blog-p1">Effective <strong>policy administration software</strong> must balance flexibility with stability. Insurance products are constantly evolving, with new coverages, riders, and pricing models introduced regularly. Your system needs to accommodate these changes without requiring extensive custom development each time.<br></p>
+      <p class="blog-p1">Key capabilities for modern policy administration include:</p>
+      <p class="blog-p1"><strong>Product configurability:</strong> Business users should be able to create and modify insurance products without IT involvement for routine changes.<br><br><strong>Multi-channel distribution:</strong> Support for agents, brokers, direct sales, and embedded insurance partnerships through consistent APIs.<br><br><strong>Real-time rating:</strong> Instant quote generation based on complex rating algorithms that incorporate multiple data sources.<br><br><strong>Document generation:</strong> Automated creation of policy documents, endorsements, and correspondence that comply with state-specific requirements.<br><br><strong>Billing flexibility:</strong> Support for various payment schedules, payment methods, and installment plans.</p>
+      <p class="blog-p1">The transition from legacy policy administration systems is often the most challenging aspect of insurance modernization. These systems typically contain decades of business rules, custom modifications, and critical data. A phased migration approach, with careful data validation and parallel running periods, is essential.</p>
+
+      <h2 id="health" class="blog-h2">Health Insurance Software Development</h2>
+      <p class="blog-p1"><strong>Health insurance software development</strong> presents unique challenges and opportunities. The healthcare ecosystem is extraordinarily complex, with multiple stakeholders including providers, pharmacies, employers, and government agencies.<br></p>
+      <p class="blog-p1">Successful health insurance platforms must handle:</p>
+      <p class="blog-p1"><strong>Provider network management:</strong> Maintaining accurate, up-to-date directories of in-network providers with their specialties, locations, and availability.<br><br><strong>Benefits administration:</strong> Managing complex benefit structures including deductibles, copays, coinsurance, out-of-pocket maximums, and coverage exclusions.<br><br><strong>Prior authorization:</strong> Streamlining the approval process for services requiring advance authorization while ensuring appropriate medical necessity review.<br><br><strong>Member engagement:</strong> Tools that help members understand their benefits, find providers, track spending, and manage their health.</p>
+      <p class="blog-p1 blog-callout-2">HIPAA compliance is non-negotiable in health insurance software development. Every system must incorporate robust security controls, access management, and audit capabilities.</p>
+      <p class="blog-p1">Interoperability is increasingly important in health insurance. The 21st Century Cures Act and related regulations require health plans to share data with members and providers through standardized APIs. Modern health insurance platforms must support FHIR (Fast Healthcare Interoperability Resources) standards.</p>
+      <p class="blog-p1">Telehealth integration has become essential since 2020. Health insurance software should seamlessly incorporate virtual visit capabilities, enabling members to consult with providers remotely and have claims processed automatically.</p>
+
+      <h2 id="underwriting" class="blog-h2">Underwriting Systems and Risk Assessment</h2>
+      <p class="blog-p1">Underwriting is where insurance companies make their money or lose it. Accurate risk assessment determines whether premiums adequately cover expected losses while remaining competitive in the market.<br></p>
+      <p class="blog-p1">Traditional underwriting relies heavily on manual review of applications, medical records, financial statements, and other documentation. This process is slow, inconsistent, and fails to leverage the wealth of data now available.<br></p>
+      <p class="blog-p1">Modern underwriting systems transform this process through:</p>
+      <p class="blog-p1"><strong>Automated data gathering:</strong> Integration with third-party data sources including motor vehicle records, credit bureaus, medical information bureaus, and property databases.<br><br><strong>Predictive modeling:</strong> Machine learning algorithms that identify risk factors and predict loss probability more accurately than traditional rating factors.<br><br><strong>Straight-through processing:</strong> Low-risk applications that can be automatically approved without human intervention, dramatically reducing processing time.<br><br><strong>Decision support tools:</strong> For complex risks requiring human judgment, systems that present relevant information and recommend actions based on similar historical cases.</p>
+      <p class="blog-p1">The key is balancing automation with appropriate oversight. While AI can dramatically improve underwriting efficiency and accuracy, human expertise remains essential for complex risks and edge cases. The best systems augment human judgment rather than attempting to replace it entirely.</p>
+
+      <h2 id="compliance" class="blog-h2">Regulatory Compliance in Insurance Software</h2>
+      <p class="blog-p1">Insurance is one of the most heavily regulated industries. Every aspect of operations, from product design to claims handling to marketing, is subject to state and federal oversight. Software systems must incorporate compliance capabilities from the ground up.<br></p>
+      <p class="blog-p1">Key compliance considerations include:</p>
+      <p class="blog-p1"><strong>Rate and form filing:</strong> Automated tracking of filing requirements and deadlines across all states where you operate.<br><br><strong>Market conduct:</strong> Monitoring and reporting capabilities that demonstrate fair treatment of customers.<br><br><strong>Data privacy:</strong> Compliance with CCPA, state privacy laws, and industry-specific regulations like HIPAA.<br><br><strong>Anti-money laundering:</strong> Transaction monitoring and suspicious activity reporting for life insurance and annuity products.<br><br><strong>Accessibility:</strong> Ensuring digital experiences comply with ADA and WCAG requirements.</p>
+      <p class="blog-p1 blog-callout-2">Compliance is not optional in insurance software. Building compliance capabilities into your systems from the start is far less expensive than retrofitting them later.</p>
+      <p class="blog-p1">The regulatory landscape is constantly evolving. Your software architecture must be flexible enough to accommodate new requirements without requiring complete system overhauls. This typically means maintaining configurable rules engines and modular system designs.</p>
+      <p class="blog-p1">Documentation and audit trails are essential. Every significant system action should be logged with timestamps, user identification, and sufficient detail to reconstruct what happened and why. These records may be needed for regulatory examinations, litigation, or internal investigations.</p>
+      <p class="blog-p1">Organically approaches compliance as a foundational requirement, not an afterthought. We build security controls, audit logging, and privacy protections into the architecture from day one, ensuring your systems are ready for regulatory scrutiny without costly retrofits.</p>
+
+      <h2 id="implementation" class="blog-h2">Implementation Guide for Insurance Software</h2>
+      <p class="blog-p1">Implementing new insurance software is a significant undertaking that requires careful planning, adequate resources, and realistic expectations. Many insurance technology projects fail not because of technical problems but because of organizational and change management challenges.<br></p>
+      <p class="blog-p1"><strong>Start with clear objectives.</strong> What specific business problems are you trying to solve? What metrics will define success? Without clear goals, projects tend to expand in scope and lose focus.<br></p>
+      <p class="blog-p1"><strong>Secure executive sponsorship.</strong> Insurance software projects affect multiple departments and require significant investment. You need committed leadership who will champion the initiative, resolve conflicts, and ensure adequate resources.<br></p>
+      <p class="blog-p1"><strong>Invest in data quality.</strong> Insurance runs on data. Before implementing new systems, assess the quality of your existing data. Clean, accurate, well-organized data is essential for successful migration and ongoing operations.<br></p>
+      <p class="blog-p1"><strong>Plan for change management.</strong> New software changes how people work. Invest in training, communication, and support to help employees adapt. Resistance to change is natural; addressing it proactively is essential.<br></p>
+      <p class="blog-p1 blog-callout-2">The most common cause of insurance software project failure is underestimating the complexity of data migration and integration with existing systems.</p>
+      <p class="blog-p1">For insurers ready to modernize without the risk of a failed transformation, Organically offers a measured approach. We help carriers assess their current technology landscape, prioritize initiatives based on business impact, and execute migrations that preserve data integrity while unlocking new capabilities.</p>
+      <p class="blog-p1"><strong>Consider phased implementation.</strong> Rather than attempting a "big bang" replacement of all systems simultaneously, consider a phased approach. Start with a specific product line, geographic region, or functional area. Learn from early phases before expanding.<br></p>
+      <p class="blog-p1"><strong>Build internal capabilities.</strong> While external partners provide valuable expertise during implementation, your organization needs internal skills to manage and evolve systems over time. Invest in training and potentially hiring technical talent.<br></p>
+      <p class="blog-p1"><strong>Plan for the long term.</strong> Insurance software is not a one-time project but an ongoing investment. Budget for maintenance, enhancements, and eventual replacement. Technology evolves rapidly; your systems must evolve with it.</p>
+
+      <h3 class="blog-h3">Choosing the Right Development Partner</h3>
+      <p class="blog-p1">Whether you're building custom software or implementing packaged solutions, choosing the right technology partners is crucial. Look for partners who demonstrate:</p>
+      <p class="blog-p1"><strong>Insurance domain expertise:</strong> General software development skills are not sufficient. Your partners must understand insurance products, operations, and regulations.<br><br><strong>Proven track record:</strong> Ask for references from similar implementations. Talk to those references about both successes and challenges.<br><br><strong>Modern technology practices:</strong> Agile development methodologies, DevOps practices, and cloud-native architectures are industry standards. Partners using outdated approaches will struggle to deliver value.<br><br><strong>Long-term commitment:</strong> Insurance software relationships typically last years or decades. Ensure your partners have the stability and commitment to support you over time.</p>
+
+      <h3 class="blog-h3">Ready to Transform Your Insurance Operations?</h3>
+      <p class="blog-p1">Modernizing insurance software is a journey, not a destination. The technology landscape continues to evolve with new capabilities in artificial intelligence, data analytics, and customer experience. The insurers who thrive will be those who embrace continuous improvement and innovation.<br></p>
+      <p class="blog-p1">If you're exploring insurance software development or broader <a href="/financial-software-development/" class="blink-1">financial software development</a> initiatives, the time to start is now. Legacy systems become more difficult and expensive to replace the longer they remain in service. Customer expectations continue to rise. Competitive pressures intensify.<br></p>
+      <p class="blog-p1">The good news is that modern insurance software development offers tremendous opportunities. Companies that successfully modernize their technology infrastructure can achieve dramatic improvements in efficiency, customer satisfaction, and competitive position.<br></p>
+      <p class="blog-p1">Take the first step today. Assess your current systems, identify your highest-priority pain points, and begin exploring solutions. Your future customers and employees will thank you.</p>
+      <p class="blog-p1">When you're ready to move forward, <a href="/form/" class="blink-1">reach out to Organically</a>. We've helped insurance companies of all sizes navigate their digital transformation journeys. Whether you need a strategic roadmap, hands-on development, or a technology partner who speaks fluent insurance, we're here to help you modernize with confidence.</p>
+    </div>
+    <div class="sticky-author-div"><img src="/images/Ryan-Scanlon-professional-picture.jpeg.jpg" loading="lazy" width="135" alt="" class="blog-author-image">
+      <div class="author-bio-heading">Ryan Scanlon, Author &amp; SEO</div>
+      <div class="footer-social-wrapper author-social-div">
+        <a data-w-id="079875ab-7a66-c26b-b761-ebe27ef12007" href="https://twitter.com/organicallyseo" class="blog-author-social x w-inline-block"><img src="/images/X-black.png" loading="lazy" width="25" data-w-id="079875ab-7a66-c26b-b761-ebe27ef12008" alt="" class="blog-socials white-socials"><img src="/images/X-black.png" loading="lazy" width="25" data-w-id="079875ab-7a66-c26b-b761-ebe27ef12009" alt="" class="blog-socials black-socials"><img src="/images/X-7ec700.png" loading="lazy" width="25" data-w-id="7c1121ca-8c82-ac82-1979-00576b2926ec" alt="" class="blog-socials green-socials"></a>
+        <a data-w-id="079875ab-7a66-c26b-b761-ebe27ef12004" href="https://www.linkedin.com/in/ryan-scanlon31/" class="blog-author-social lin w-inline-block"><img src="/images/LinkedIn-Black.png" loading="lazy" width="25" data-w-id="079875ab-7a66-c26b-b761-ebe27ef12005" alt="" class="blog-socials white-socials"><img src="/images/LinkedIn-Black.png" loading="lazy" width="25" data-w-id="079875ab-7a66-c26b-b761-ebe27ef12006" alt="" class="blog-socials black-socials"><img src="/images/LinkedIn-7ec700.png" loading="lazy" width="25" data-w-id="1a47fbe7-1f7a-9a44-835e-a86000d4ee6c" alt="" class="blog-socials green-socials"></a>
+      </div>
+      <div class="seo-bio-prop">
+        <div class="author-bio-text">The self-proclaimed &quot;CEO of SEO&quot; loves the rain, coffee, plants and stealing keywords.</div>
+      </div>
+      <a href="/form/" class="button-1 mini-button w-button">Call me maybe</a>
+      <div class="author-bio-heading">You&#x27;ll never see ads over here.</div>
+      <div class="ai-art-prop">
+        <a href="/financial-software-development/" class="blog-read-more w-inline-block"><img src="/images/brand-thumb.jpg" loading="lazy" width="253" alt="Financial Software Development" class="read-more-thumbnail">
+          <div class="author-bio-heading">Financial Software Development</div>
+        </a>
+        <div class="author-bio-text">Complete guide to building financial technology solutions.</div>
+      </div>
+      <div class="ai-art-prop">
+        <a href="/tools/" class="blog-read-more w-inline-block"><img src="/blog/Tools Thumbnail no text.jpg" loading="lazy" width="253" alt="Elite Tools" class="read-more-thumbnail">
+          <div class="author-bio-heading">8 Elite Tools You Should Be Using</div>
+        </a>
+        <div class="author-bio-text">Transform how you work with these game-changers.</div>
+      </div>
+    </div>
+  </div>
+  <div id="Footer" class="footer">
+  <div class="footer-organically-bg">Organically</div>
+  <div class="footer-typemark-div">
+    <a href="/" class="link-block w-inline-block">
+      <div class="footer-typemark">Organically</div>
+    </a>
+    <div class="footer-social-wrapper">
+      <a href="https://twitter.com/organicallyseo" class="footer-social-link w-inline-block"><img src="/images/X-black.png" loading="lazy" width="28" alt="" class="footer-social-image light"><img src="/images/X-black.png" loading="lazy" width="28" alt="" class="footer-social-image dark"></a>
+      <a href="https://www.linkedin.com/in/ryan-scanlon31/" class="footer-social-link w-inline-block"><img src="/images/LinkedIn-Black.png" loading="lazy" width="28" alt="" class="footer-social-image light"><img src="/images/LinkedIn-Black.png" loading="lazy" width="28" alt="" class="footer-social-image dark"></a>
+    </div>
+    <div class="copyright-bar">Copyright 2026 Organically SEO. All rights reserved.</div>
+  </div>
+  <div class="footer-wrapper-1">
+    <div class="footer-div">
+      <div class="footer-subheading">Agency</div>
+      <a href="/web-design/" class="footer-text">Web Design</a>
+      <a href="/seo/" class="footer-text">SEO</a>
+      <a href="/branding/" class="footer-text">Branding</a>
+      <a href="/blog/" class="footer-text">Blog</a>
+    </div>
+    <div class="footer-div">
+      <div class="footer-subheading">Contact</div>
+      <a href="/form/" class="footer-text">Form</a>
+      <div class="footer-text">ryan.organically@gmail.com</div>
+    </div>
+    <div class="footer-div">
+      <div class="footer-subheading">Boring</div>
+      <a href="/privacy-policy/" class="footer-text">Privacy Policy</a>
+      <a href="/sitemap/" class="footer-text">Sitemap</a>
+    </div>
+  </div>
+</div>
+
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b051031253bad4ba698d38" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/SplitText.min.js" type="text/javascript"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/InertiaPlugin.min.js" type="text/javascript"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js" type="text/javascript"></script>
+  <script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
+  <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const lenis = new Lenis({
+        lerp: 0.1,
+        wheelMultiplier: 0.7,
+        gestureOrientation: "vertical",
+        normalizeWheel: false,
+        smoothTouch: false
+    });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    lenis.on('scroll', ScrollTrigger.update);
+    ScrollTrigger.config({
+        limitCallbacks: true,
+        syncInterval: 120,
+    });
+});
+  </script>
+      </div><!-- .body-section -->
+
+<!-- Right Calendar Panel -->
+    <div class="calendar-module">
+      <div class="calendar-panel-content">
+        <div class="calendar-header">
+          <h3 class="calendar-title">Let's Connect</h3>
+          <p class="calendar-subtitle">Pick a time that works for you</p>
+        </div>
+        <div class="calendar-embed-wrapper">
+          <iframe
+            src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&hide_event_type_details=1"
+            width="100%"
+            height="600"
+            frameborder="0"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="calendar-review">
+          <img src="/green 5 star.png" alt="5 stars" class="review-stars">
+          <p class="review-quote">"Ryan was an absolute beauty to work with—thoughtful, creative, and genuinely invested in making our vision come to life."</p>
+          <p class="review-author">— Sarah M., Founder</p>
+        </div>
+      </div>
+
+  <!-- Universal Menu Web Component -->
+  <script src="/components/universal-menu.js"></script>
+
+<style>
+
+  /* Left Side Menu Panel - 20vw, fixed to left edge */
+  .side-menu-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Side Panel - child that toggles, 100% width, no padding or margin */
+  .side-panel {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 5vh 0;
+    background: var(--e2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Menu header - 10vh at top */
+  .menu-header {
+    height: 10vh;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--black-40);
+    box-sizing: border-box;
+  }
+
+  .menu-tagline {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  /* Menu nav links - only top margin allowed */
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-nav-link {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 20px;
+  }
+
+  .menu-footer {
+    padding: 0 20px 20px;
+    margin: 0;
+  }
+
+  /* Center Body Section - 90vw, centered, no side margins */
+  .body-section {
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Universal Menu - 100% width of body-section */
+  .universal-menu {
+    width: 100%;
+    margin: 0;
+    padding: 5vw;
+    box-sizing: border-box;
+    position: sticky;
+  }
+
+  /* All hero sections - 10vh top margin, 100% width, 5vw padding */
+  .hero-section {
+    width: 100%;
+    margin: 10vh 0 0 0;
+    padding: 5vw;
+    box-sizing: border-box;
+    min-height: 60vh;
+  }
+
+  /* All sections inside body-section - 100% width, 5vw padding */
+  .body-section > section:not(#Footer),
+  .body-section > div:not(.universal-menu):not(#Footer) {
+    width: 100%;
+    margin: 0;
+    padding: 5vw;
+    box-sizing: border-box;
+  }
+
+  /* Right Calendar Module - 20vw, fixed to right edge */
+  .calendar-module {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Mobile - scale up panels proportionally */
+  @media (max-width: 767px) {
+    .body-section {
+      width: 90vw;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .side-menu-panel {
+      width: 75vw;
+    }
+
+    .side-panel {
+      width: 100%;
+    }
+
+    .calendar-module {
+      width: 75vw;
+    }
+
+    .calendar-panel-content {
+      width: 100%;
+    }
+
+    .universal-menu {
+      padding: 2.5vw;
+    }
+
+    .hero-section {
+      padding: 2.5vw;
+    }
+
+    .body-section > section:not(#Footer),
+    .body-section > div:not(.universal-menu):not(#Footer) {
+      padding: 2.5vw;
+    }
+  }
+
+  .calendar-panel-content {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: var(--e2);
+    opacity: 0;
+    visibility: hidden;
+    box-sizing: border-box;
+    border-top: 1px solid var(--black-40);
+    border-bottom: 1px solid var(--black-40);
+  }
+
+  .calendar-header {
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid var(--black-40);
+    box-sizing: border-box;
+  }
+
+  .calendar-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+
+  .calendar-subtitle {
+    font-size: 14px;
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .calendar-embed-wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .calendar-embed-wrapper iframe {
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    border: none;
+    display: block;
+  }
+
+  .calendar-review {
+    padding: 30px;
+    border-top: 1px solid var(--black-40);
+    text-align: center;
+  }
+
+  .review-stars {
+    width: 125px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .review-quote {
+    font-size: 16px;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 12px 0;
+    color: var(--black-75);
+  }
+
+  .review-author {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.7;
+    font-weight: 600;
+  }
+
+  /* Responsive Calendar Content */
+  @media (max-width: 767px) {
+    .calendar-header {
+      padding: 25px 20px 15px;
+    }
+
+    .calendar-title {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .calendar-header {
+      padding: 20px 15px 12px;
+    }
+
+    .calendar-title {
+      font-size: 18px;
+    }
+  }
+
+  /* Dark Mode Support for Calendar */
+  .dark-mode .calendar-panel-content {
+    background: var(--rich-black);
+  }
+
+  .dark-mode .calendar-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .calendar-title {
+    color: var(--white);
+  }
+</style>
+
+<script>
+// Panel Toggle with GSAP - Slide all three siblings together
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof gsap === 'undefined') {
+    console.warn('GSAP not loaded - panel animations disabled');
+    return;
+  }
+
+  const calendarToggle = document.getElementById('calendar-toggle');
+  const calendarContent = document.querySelector('.calendar-panel-content');
+  const sideMenuPanel = document.querySelector('.side-menu-panel');
+  const bodySection = document.querySelector('.body-section');
+  const calendarModule = document.querySelector('.calendar-module');
+
+  // Initialize body-section position to prevent jump on load
+  gsap.set(bodySection, { x: 0 });
+
+  let isCalendarOpen = false;
+
+  const openCalendar = () => {
+    if (isCalendarOpen) return;
+    isCalendarOpen = true;
+
+    // Calculate slide distance based on screen size
+    const isMobile = window.innerWidth <= 767;
+    const slideDistance = isMobile ? '-75vw' : '-15vw'; // Match panel width on mobile
+
+    // Show calendar content
+    gsap.to(calendarContent, {
+      autoAlpha: 1,
+      duration: 0.6,
+      ease: 'expo.out'
+    });
+
+    // Slide body-section left proportionally
+    gsap.to(bodySection, {
+      x: slideDistance,
+      duration: 0.6,
+      ease: 'expo.out'
+    });
+  };
+
+  const closeCalendar = () => {
+    if (!isCalendarOpen) return;
+    isCalendarOpen = false;
+
+    // Hide calendar content
+    gsap.to(calendarContent, {
+      autoAlpha: 0,
+      duration: 0.6,
+      ease: 'expo.out'
+    });
+
+    // Slide body-section back to center
+    gsap.to(bodySection, {
+      x: 0,
+      duration: 0.6,
+      ease: 'expo.out'
+    });
+  };
+
+  // Toggle calendar on button click
+  if (calendarToggle) {
+    calendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isCalendarOpen) {
+        closeCalendar();
+      } else {
+        openCalendar();
+      }
+    });
+  }
+
+  // Close calendar when clicking outside
+  document.addEventListener('click', (e) => {
+    if (isCalendarOpen && calendarContent && !calendarContent.contains(e.target) && (!calendarToggle || !calendarToggle.contains(e.target))) {
+      closeCalendar();
+    }
+  });
+
+  // Close calendar on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isCalendarOpen) {
+      closeCalendar();
+    }
+  });
+});
+</script>
+<script type="text/javascript">gsap.registerPlugin(SplitText,ScrollTrigger,InertiaPlugin,Draggable);</script>
+<script>
+// Scroll direction detection for author bio
+(function() {
+  let lastScroll = 0;
+  const authorDiv = document.querySelector('.sticky-author-div');
+  const blogContent = document.querySelector('.blog-content-section');
+  if (!authorDiv || !blogContent) return;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    const contentStart = blogContent.offsetTop;
+
+    // Only apply scroll behavior once past the hero/into content
+    if (currentScroll > contentStart && currentScroll > lastScroll) {
+      authorDiv.classList.add('scrolling-down');
+    } else {
+      authorDiv.classList.remove('scrolling-down');
+    }
+    lastScroll = currentScroll;
+  }, { passive: true });
+})();
+
+// Smooth scroll for ToC links with offset
+document.querySelectorAll('.content-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    const target = document.getElementById(targetId);
+    if (target) {
+      const offset = window.innerHeight * 0.25;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
+  });
+});
+
+// Dark mode toggle
+(function() {
+  const toggle = document.querySelector('.theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    });
+  }
+})();
+</script>
+</body>
+</html>
