@@ -1,35 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
-
-const coolvetica = localFont({
-  src: [
-    {
-      path: "../../public/fonts/coolvetica-rg.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/coolvetica-rg-it.otf",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "../../public/fonts/coolvetica-crammed-rg.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-coolvetica",
-  display: "swap",
-});
-
-const ltmuseum = localFont({
-  src: "../../public/fonts/LTMuseum-Medium.ttf",
-  variable: "--font-ltmuseum",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Stop Bleeding Money on Marketing That Doesn't Work | Organically",
@@ -69,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${coolvetica.variable} ${ltmuseum.variable}`}>
+    <html lang="en">
       <head>
         <link rel="alternate" href="https://organicallyseo.com/" hrefLang="x-default" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -90,6 +61,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/normalize.css" />
         <link rel="stylesheet" href="/css/webflow.css" />
         <link rel="stylesheet" href="/css/organicallyseo-com.webflow.css?v=2" />
+        <link rel="stylesheet" href="/css/homepage-overrides.css" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

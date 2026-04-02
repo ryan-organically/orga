@@ -100,8 +100,8 @@
 body {
   z-index: 1;
   color: var(--black);
-  width: 100vw;
-  max-width: 100vw;
+  width: 100%;
+  max-width: 100%;
   padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 1rem;
@@ -115,12 +115,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 100vw;
+  width: 90%;
+  max-width: 90%;
   position: relative;
   z-index: 10;
   background: #e2e2e2;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
 }
@@ -326,6 +326,13 @@ p {
   font-family: Coolvetica Rg, sans-serif;
   color: var(--black-75);
   opacity: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-floating-text:hover {
+  background: var(--orga);
+  border-color: var(--orga);
 }
 
 @keyframes drift {
@@ -415,7 +422,7 @@ a {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 75vh;
+  height: 85vh;
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -835,7 +842,7 @@ a {
 }
 
 .blog-h2 {
-  color: var(--black-60);
+  color: var(--333);
   text-align: left;
   width: 100%;
   padding: 10px;
@@ -846,7 +853,7 @@ a {
 }
 
 .blog-h3 {
-  color: var(--orga);
+  color: var(--333);
   width: 100%;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -870,6 +877,22 @@ a {
 .blog-h4.caps {
   color: var(--white);
   text-transform: uppercase;
+}
+
+.blog-author-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.blog-author-image {
+  width: 75px;
+  height: 75px;
+  max-width: 75px;
+  max-height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .text-span-22 {
@@ -1003,17 +1026,9 @@ a {
 }
 
 .blog-preview {
-  z-index: 7;
-  box-shadow: none;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
   width: 100%;
-  padding-top: 100px;
-  padding-bottom: 100px;
   display: flex;
-  position: relative;
-  overflow: visible;
 }
 
 .seo-div {
@@ -1121,13 +1136,14 @@ a {
 
 .blog-h1 {
   z-index: 5;
-  color: var(--black);
+  color: var(--333);
   text-align: center;
   text-shadow: none;
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: Coolvetica rg, sans-serif;
-    font-weight: 600;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .blog-h1.ux-stats {
@@ -1295,8 +1311,73 @@ a {
   -webkit-backdrop-filter: blur(10px);
 }
 
+.blog-card-1.thumb {
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: none;
+  overflow: hidden;
+}
+
+.blog-card-1.thumb .thumb-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.blog-card-1.thumb:hover .thumb-image {
+  transform: scale(1.05);
+}
+
+.blog-card-1.thumb .thumb-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.blog-card-1.thumb .thumb-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  z-index: 1;
+}
+
+.blog-card-1.thumb .thumb-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 8px 0;
+  transition: color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.blog-card-1.thumb:hover .thumb-title {
+  color: #7ec700;
+}
+
+.blog-card-1.thumb .thumb-excerpt {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin: 0;
+}
+
 .blog-card-1:hover {
   color: var(--black);
+  border-color: #7ec700;
 }
 
 .blog-card-1:has(.filter-text):hover {
@@ -1450,7 +1531,6 @@ a {
 }
 
 .hero-section .hero-div .h1 {
-  opacity: 0;
   display: block;
   font-kerning: none;
   text-rendering: optimizespeed;
@@ -1571,18 +1651,7 @@ a {
 }
 
 .sticky-author-div {
-  flex-direction: column;
-  align-items: flex-start;
-  width: 225px;
-  margin-left: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  position: sticky;
-  top: 150px;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  display: none;
 }
 
 .sticky-author-div.author-side {
@@ -3235,15 +3304,17 @@ a {
 
 .footer-organically-bg {
   z-index: -1;
-  opacity: .23;
+  opacity: 0 !important;
   color: #8d8d8d;
   text-align: left;
   font-family: Coolvetica rg, sans-serif;
   font-size: 30vw;
   line-height: 1;
-  display: none;
+  display: none !important;
+  visibility: hidden !important;
   position: absolute;
   inset: 26% -21% auto auto;
+  pointer-events: none !important;
 }
 
 .footer-social-image {
@@ -3331,6 +3402,7 @@ a {
 
 .typer.wd-typer {
   font-style: normal;
+  font-size: 5rem;
 }
 
 .side-menu {
@@ -3599,8 +3671,8 @@ a {
 .services-h2 {
   color: var(--333);
   text-align: center;
-  font-size: 75px;
-    font-weight: 600;
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 600;
   line-height: 1;
 }
 
@@ -3620,8 +3692,8 @@ a {
 
 .services-h3 {
   color: var(--333);
-  font-size: 50px;
-    font-weight: 600;
+  font-size: 32px;
+  font-weight: 600;
   line-height: 0.95;
 }
 
@@ -3736,6 +3808,56 @@ a {
   position: sticky;
   top: 0;
   overflow: visible;
+}
+
+/* Dark mode toggle */
+.universal-menu > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dark-mode-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.dark-mode-toggle .toggle-icon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dark-mode-toggle .dark-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+  filter: brightness(0.3);
+}
+
+.dark-mode-toggle .light-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.dark-mode .dark-mode-toggle .dark-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.dark-mode .dark-mode-toggle .light-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+  filter: brightness(1.5);
+}
+
+.dark-mode .blog-card-1:hover {
+  border-color: #7ec700;
 }
 
 .rolling-gmb {
@@ -3879,9 +4001,9 @@ a {
 }
 
 .background-orga.website-management {
-  font-size: 800px;
+  font-size: 400px;
   display: flex;
-  inset: 69% auto auto -24%;
+  inset: 45% auto auto -24%;
   transform: rotate(90deg);
 }
 
@@ -4106,43 +4228,21 @@ a {
 }
 
 .read-more-module {
-  border: 1px #5b5b5b;
-  justify-content: flex-start;
-  align-items: center;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
   display: flex;
-  position: relative;
   overflow: hidden;
 }
 
 .blog-cards-wrapper {
   width: 100%;
-  border-top: 1px solid var(--black-40);
-  border-bottom: 1px solid var(--black-40);
-  border-left: 1px solid var(--black-40);
-  border-right: 1px solid var(--black-40);
-  padding: 40px 5vw;
-  position: relative;
   overflow: hidden;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 10px,
-    var(--black-40) 10px,
-    var(--black-40) 11px
-  );
 }
 
 .blog-cards-track {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: auto;
-  padding-right: 20vw;
-  position: relative;
+  width: 100%;
   cursor: grab;
+  padding-left: 5vw;
 }
 
 .blog-cards-track .blog-card-1:last-child {
@@ -4160,22 +4260,20 @@ a {
 
 .read-more-heading {
   color: var(--black-75);
-  width: 100%;
+  width: auto;
+  max-width: 20vw;
   font-family: Coolvetica rg, sans-serif;
   font-size: 4rem;
   font-weight: 300;
   line-height: 1.5;
   text-decoration: none;
-  position: relative;
-  inset: 0% auto auto 0%;
-  text-align: right;
+  white-space: nowrap;
 }
 
 .blog-nav-buttons {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  justify-content: flex-end;
 }
 
 .blog-nav-btn {
@@ -4289,7 +4387,7 @@ a {
   align-items: center;
   width: 100%;
   min-height: 50vh;
-  padding: 5vh 5vw;
+  padding: 10vh 5vw;
   display: flex;
   position: relative;
   border-top: 1px solid var(--black-40);
@@ -4312,7 +4410,7 @@ a {
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
-  width: 90vw;
+  width: 100%;
   min-height: auto;
   margin-top: 40px;
 }
@@ -4325,7 +4423,7 @@ a {
 
 .section.blog-section {
   border-top: 1px solid var(--black-40);
-  width: 90vw;
+  width: 100%;
   padding: 5vh 5vw;
   overflow: hidden;
 }
@@ -4366,7 +4464,7 @@ a {
 
 .section.ticker-testimonial-section {
   border-top: 1px solid var(--black-40);
-  width: 90vw;
+  width: 100%;
   padding: 0;
   min-height: auto;
   height: auto;
@@ -4555,7 +4653,7 @@ a {
   flex-direction: column;
   align-items: flex-start;
   width: 90vw;
-  height: 75vh;
+  min-height: 75vh;
   margin-top: 0;
   padding: 5vh 40px;
   overflow: hidden;
@@ -4742,7 +4840,7 @@ a {
 }
 
 /* Services Showcase Responsive Styles */
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   .services-showcase {
     flex-direction: column;
     min-height: auto;
@@ -5652,8 +5750,7 @@ a {
     flex: none;
     justify-content: center;
     align-items: flex-start;
-    width: auto;
-    max-width: 50vw;
+    width: 40vw;
     height: 40vh;
   }
 
@@ -5721,7 +5818,7 @@ a {
   .service-hero-div {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 90vw;
     margin-bottom: 0;
     display: flex;
@@ -5773,9 +5870,13 @@ a {
   }
 
   .blog-massive-wrapper {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
 
   .p1 {
@@ -5964,7 +6065,9 @@ a {
   }
 
   .wide-image {
-    width: 680px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .ryan-1 {
@@ -6155,7 +6258,7 @@ a {
   }
 
   .typer.wd-typer {
-    font-size: 125px;
+    font-size: 42px;
   }
 
   .side-menu {
@@ -6236,13 +6339,13 @@ a {
   }
 
   .services-h2 {
-    font-size: 50px;
+    font-size: 36px;
   }
 
   .services-h2.web-design {
     width: 700px;
     margin-bottom: 20px;
-    font-size: 75px;
+    font-size: 36px;
   }
 
   .thumbs-up {
@@ -6263,7 +6366,7 @@ a {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    width: 90vw;
+    width: 100%;
   }
 
   .div-50.tabs-content {
@@ -6367,7 +6470,6 @@ a {
     align-items: center;
     width: 100%;
     height: auto;
-    padding-left: 5vw;
     overflow: hidden;
   }
 
@@ -6506,6 +6608,36 @@ a {
     margin: 20px 0 0 0;
     text-align: left;
   }
+
+  /* CRITICAL FIX: Prevent div-50 boxes from overlapping on small windows */
+  /* Force all horizontal containers to stack vertically */
+  .div-horiz-space-around {
+    flex-flow: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    position: relative !important;
+    z-index: auto !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* Ensure div-50 takes full width and doesn't sit side-by-side */
+  .div-50 {
+    width: 100% !important;
+    flex-basis: 100% !important;
+    position: relative !important;
+    z-index: auto !important;
+  }
+
+  /* Fix service-feature specific layout */
+  .div-horiz-space-around.services-feature {
+    height: auto !important;
+    max-height: none !important;
+    margin-top: 6vh !important;
+    margin-bottom: 6vh !important;
+    gap: 3rem;
+    overflow: visible !important;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -6514,17 +6646,17 @@ a {
     line-height: 0.95;
   }
 
+  .section {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+
   .hero-section {
-    align-items: center;
     padding-bottom: 0;
   }
 
   .hero-section.branding-hero {
     height: auto;
-  }
-
-  .hero-section {
-    align-items: flex-start;
   }
 
   .hero-social-proof {
@@ -6800,7 +6932,7 @@ a {
     padding-left: 20px;
     padding-right: 20px;
     font-size: 50px;
-    line-height: 45px;
+    line-height: 1.3;
   }
 
   .blog-footer {
@@ -6821,7 +6953,7 @@ a {
 
   .blog-card-1 {
     width: 80vw;
-    min-height: 60vh;
+    min-height: 44vh;
     height: auto;
     margin-top: 20px;
     margin-left: 0;
@@ -6864,7 +6996,11 @@ a {
   }
 
   .blog-massive-wrapper {
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
 
   .blog-section-2-div {
@@ -7009,20 +7145,25 @@ a {
   }
 
   .blog-h2-2 {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     margin-top: 20px;
     margin-bottom: 0;
-    padding-left: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: 35px;
     line-height: 35px;
+    box-sizing: border-box;
   }
 
   .blog-h3-3 {
-    width: 100vw;
-    padding-left: 20px;
-    padding-right: 10px;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: 28px;
     line-height: 32px;
+    box-sizing: border-box;
   }
 
   .ryan-1 {
@@ -7170,7 +7311,7 @@ a {
   }
 
   .typer.wd-typer {
-    font-size: 100px;
+    font-size: 38px;
   }
 
   .menu-line {
@@ -7187,7 +7328,7 @@ a {
 
   .services-h2.web-design {
     width: 500px;
-    font-size: 62px;
+    font-size: 32px;
   }
 
   .thumbs-up {
@@ -7324,6 +7465,33 @@ a {
     padding: 0;
     min-height: auto;
     height: auto;
+  }
+
+  /* CRITICAL FIX: Prevent div-50 boxes from overlapping on small windows */
+  .div-horiz-space-around {
+    flex-flow: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    position: relative !important;
+    z-index: auto !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .div-50 {
+    width: 100% !important;
+    flex-basis: 100% !important;
+    position: relative !important;
+    z-index: auto !important;
+  }
+
+  .div-horiz-space-around.services-feature {
+    height: auto !important;
+    max-height: none !important;
+    margin-top: 4vh !important;
+    margin-bottom: 4vh !important;
+    gap: 2rem;
+    overflow: visible !important;
   }
 }
 
@@ -7464,11 +7632,14 @@ a {
   }
 
   .blog-p1 {
+    width: 100%;
+    max-width: 100%;
     font-weight: 300;
   }
 
   .blog-p1.embeds {
-    min-width: 100vw;
+    min-width: auto;
+    width: 100%;
     margin-right: 0;
   }
 
@@ -7482,7 +7653,10 @@ a {
   }
 
   .blog-p1.blog-bullet {
-    width: auto;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 15px;
+    box-sizing: border-box;
   }
 
   .blog-h2 {
@@ -7553,12 +7727,8 @@ a {
 
   .blog-preview {
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     height: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    padding-top: 100px;
-    padding-bottom: 100px;
     overflow: visible;
   }
 
@@ -7604,7 +7774,7 @@ a {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 42px;
-    line-height: 42px;
+    line-height: 1.3;
   }
 
   .blog-h1.launch-checklist {
@@ -7654,7 +7824,7 @@ a {
 
   .blog-card-1 {
     width: 90vw;
-    min-height: 75vh;
+    min-height: 52vh;
     height: auto;
     justify-content: center;
     align-items: flex-start;
@@ -7711,8 +7881,13 @@ a {
   }
 
   .blog-massive-wrapper {
+    width: 100%;
+    max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
   }
 
   .standout-text {
@@ -7877,13 +8052,24 @@ a {
     min-height: 90vh;
   }
 
+  .wide-image {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .wide-image.less-wide {
     width: 250px;
   }
 
   .blog-h2-2 {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 32px;
     line-height: 35px;
+    box-sizing: border-box;
   }
 
   .blog-author-date {
@@ -7892,7 +8078,12 @@ a {
   }
 
   .blog-h3-3 {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 25px;
+    box-sizing: border-box;
   }
 
   .ryan-1 {
@@ -8065,7 +8256,7 @@ a {
   }
 
   .typer.wd-typer {
-    font-size: 62px;
+    font-size: 38px;
   }
 
   .side-menu-button {
@@ -8099,12 +8290,12 @@ a {
   }
 
   .services-h2 {
-    font-size: 35px;
+    font-size: 28px;
   }
 
   .services-h2.web-design {
     width: 350px;
-    font-size: 50px;
+    font-size: 28px;
   }
 
   .services-h2.seo-audit-h2 {
@@ -8112,15 +8303,11 @@ a {
   }
 
   .services-h3 {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .thumbs-up, .thumbs-up.dark-thumb.magnifying {
     width: 200px;
-  }
-
-  .div-50 {
-    width: 100vw;
   }
 
   .pricing-section {
@@ -8203,7 +8390,7 @@ a {
 
   .read-more-module {
     flex-flow: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     padding-left: 0;
   }
@@ -8211,7 +8398,6 @@ a {
   .read-more-heading {
     margin-left: 5%;
     font-size: 32px;
-    top: 4%;
   }
 
   .ticking-text {
@@ -8314,6 +8500,33 @@ a {
     position: relative;
     top: 0;
   }
+
+  /* CRITICAL FIX: Prevent div-50 boxes from overlapping on mobile */
+  .div-horiz-space-around {
+    flex-flow: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    position: relative !important;
+    z-index: auto !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .div-50 {
+    width: 100% !important;
+    flex-basis: 100% !important;
+    position: relative !important;
+    z-index: auto !important;
+  }
+
+  .div-horiz-space-around.services-feature {
+    height: auto !important;
+    max-height: none !important;
+    margin-top: 3vh !important;
+    margin-bottom: 3vh !important;
+    gap: 1.5rem;
+    overflow: visible !important;
+  }
 }
 
 
@@ -8389,17 +8602,6 @@ a {
   margin-bottom: 8px;
 }
 
-/* Ensure consistent padding for all blog card content */
-.blog-card-content {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
-
-/* Fix the bog-comp-p class that might conflict */
-.blog-card-content .bog-comp-p {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
 
 /* Ensure menu button is clickable */
 .side-menu-button {
@@ -8517,3 +8719,4 @@ a {
   font-weight: 300;
   line-height: 1.75rem;
 }
+

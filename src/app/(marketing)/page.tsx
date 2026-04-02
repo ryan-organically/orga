@@ -35,10 +35,6 @@ export default function HomePage() {
     const shrunkP = shrunkPRef.current;
     const building = buildingRef.current;
     const heroVideo = videoRef.current;
-    const socialProofChecks = document.querySelectorAll(
-      ".hero-social-proof-checks > div"
-    );
-    const selfieWrapper = document.querySelector(".hero-selfie-wrapper");
 
     if (!h1) return;
 
@@ -48,10 +44,23 @@ export default function HomePage() {
       return;
     }
 
-    function runHeroAnimations() {
-      if (!h1) return;
+    // Store original H1 HTML so we can restore on cleanup (React strict mode)
+    const originalH1HTML = h1.innerHTML;
+    const originalShrunkPHTML = shrunkP?.innerHTML || "";
+
+    let ctx: gsap.Context | null = null;
+    let fallback: ReturnType<typeof setTimeout>;
+
+    function startAnimations() {
+    // Use GSAP context for proper cleanup
+    ctx = gsap.context(() => {
+      const socialProofChecks = document.querySelectorAll(
+        ".hero-social-proof-checks > div"
+      );
+      const selfieWrapper = document.querySelector(".hero-selfie-wrapper");
 
       // Hide elements initially
+      gsap.set(h1, { opacity: 0 });
       if (shrunkP) gsap.set(shrunkP, { autoAlpha: 0 });
       if (building) gsap.set(building, { autoAlpha: 0 });
       if (socialProofChecks.length) {
@@ -67,19 +76,17 @@ export default function HomePage() {
       }
 
       // Split H1
-      const split = new SplitText(h1, {
+      const split = SplitText.create(h1, {
         type: "words, chars",
         wordsClass: "word-wrapper",
         charsClass: "char-inner",
       });
 
-      split.chars.forEach((char) => {
+      split.chars.forEach((char: HTMLElement) => {
         const wrapper = document.createElement("div");
-        wrapper.style.display = "inline-block";
-        wrapper.style.overflow = "hidden";
-        wrapper.style.verticalAlign = "bottom";
-        wrapper.style.paddingBottom = "0.15em";
-        (char as HTMLElement).style.display = "inline-block";
+        wrapper.style.cssText =
+          "display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:0.15em";
+        char.style.display = "inline-block";
         char.parentNode?.insertBefore(wrapper, char);
         wrapper.appendChild(char);
       });
@@ -133,9 +140,12 @@ export default function HomePage() {
             duration: 1,
             ease: "power3.out",
             onComplete: () => {
-              const typer = document.querySelector(".selfie-typer") as HTMLElement;
+              const typer = document.querySelector(
+                ".selfie-typer"
+              ) as HTMLElement;
               if (!typer) return;
-              const text = "Hello! You're finally awake. Welcome to Organically. I'm Ryan.";
+              const text =
+                "Hello! You're finally awake. Welcome to Organically. I'm Ryan.";
               let i = 0;
               function type() {
                 if (i < text.length) {
@@ -173,7 +183,12 @@ export default function HomePage() {
           tl.fromTo(
             building,
             { yPercent: 100 },
-            { yPercent: 70, autoAlpha: 0.6, duration: 0.6, ease: "power2.out" }
+            {
+              yPercent: 70,
+              autoAlpha: 0.6,
+              duration: 0.6,
+              ease: "power2.out",
+            }
           ).to(building, {
             yPercent: 5,
             autoAlpha: 0.8,
@@ -220,14 +235,16 @@ export default function HomePage() {
           delay: 0.8,
         });
       }
-    }
+    });
+
+    } // end startAnimations
 
     // Wait for fonts then run
-    document.fonts.ready.then(() => runHeroAnimations());
+    document.fonts.ready.then(() => startAnimations());
 
     // Fallback: if h1 still hidden after 3s, force show
-    const fallback = setTimeout(() => {
-      if (h1.style.opacity === "0") {
+    fallback = setTimeout(() => {
+      if (h1.style.opacity === "0" || getComputedStyle(h1).opacity === "0") {
         h1.style.opacity = "1";
       }
       if (building && gsap.getProperty(building, "autoAlpha") === 0) {
@@ -240,7 +257,18 @@ export default function HomePage() {
       }
     }, 3000);
 
-    return () => clearTimeout(fallback);
+    return () => {
+      clearTimeout(fallback);
+      if (ctx) ctx.revert(); // Kill all GSAP animations in this context
+      // Restore original HTML so next mount (React strict mode) starts clean
+      h1.innerHTML = originalH1HTML;
+      h1.style.opacity = "0";
+      h1.removeAttribute("style");
+      if (shrunkP) {
+        shrunkP.innerHTML = originalShrunkPHTML;
+        shrunkP.removeAttribute("style");
+      }
+    };
   }, []);
 
   // ============================================
