@@ -750,6 +750,423 @@
         font-size: 0.95rem;
       }
     }
+
+    /* ── Differentiators Section ── */
+    .differentiators-section {
+      background-color: #333;
+      color: #e2e2e2;
+      border-top: 3px solid var(--orga);
+    }
+
+    .diff-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orga);
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+      text-align: center;
+    }
+
+    .diff-headline {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 600;
+      color: #e2e2e2;
+      text-align: center;
+      margin: 0 0 0.75rem 0;
+      line-height: 1.2;
+    }
+
+    .diff-subhead {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(226, 226, 226, 0.65);
+      text-align: center;
+      margin: 0 0 3rem 0;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      width: 100%;
+      margin-bottom: 2.5rem;
+    }
+
+    .diff-item {
+      padding: 0 0 0 1.25rem;
+      border-left: 2px solid rgba(126, 199, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .diff-item-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--orga);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .diff-item-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #e2e2e2;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .diff-item-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(226, 226, 226, 0.65);
+      margin: 0;
+    }
+
+    .diff-availability {
+      text-align: center;
+      padding: 1.25rem 2rem;
+      border: 1px solid rgba(126, 199, 0, 0.3);
+      border-radius: 6px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .diff-availability-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(226, 226, 226, 0.8);
+      margin: 0 0 1rem 0;
+    }
+
+    .diff-availability-text strong {
+      color: var(--orga);
+    }
+
+    .differentiators-section .button-1 {
+      border-color: var(--orga);
+      color: #e2e2e2;
+    }
+
+    @media (max-width: 767px) {
+      .diff-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .diff-subhead {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* ── Stat Bar ── */
+    .stat-bar {
+      width: 100%;
+      padding: 0.4rem 0;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-bar-item {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(226, 226, 226, 0.75);
+      letter-spacing: 0.02em;
+    }
+
+    .stat-bar-item strong {
+      color: var(--orga);
+      font-weight: 700;
+    }
+
+    .stat-bar-sep {
+      color: var(--orga);
+      opacity: 0.5;
+      font-size: 0.85rem;
+    }
+
+    /* ── Testimonials Static Strip ── */
+    .testimonials-strip {
+      min-height: auto;
+      padding: 4vh 5vw;
+    }
+
+    .testimonials-strip-stars {
+      width: 120px;
+      height: auto;
+      margin: 0 auto 1.75rem auto;
+      display: block;
+      opacity: 0.85;
+    }
+
+    .testimonials-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .testimonial-strip-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--black-40);
+    }
+
+    .testimonial-strip-quote {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--black-75);
+      font-style: italic;
+      opacity: 0.8;
+      margin: 0;
+    }
+
+    .testimonial-strip-attr {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--black-75);
+      opacity: 0.55;
+      margin: 0;
+      font-style: normal;
+    }
+
+    @media (max-width: 767px) {
+      .testimonials-strip-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    /* ── Client Results Section ── */
+    .client-results-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
+
+    .client-results-headline {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 600;
+      margin: 0 0 0.75rem 0;
+      color: var(--black-75);
+      line-height: 1.2;
+    }
+
+    .client-results-subhead {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      opacity: 0.75;
+      margin: 0;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Featured card: Q&A */
+    .client-results-featured {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 0;
+      width: 100%;
+      border: 1px solid var(--black-40);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.4s ease;
+    }
+
+    .client-results-featured:hover {
+      border-color: var(--orga);
+    }
+
+    .client-results-featured-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background-color: #e2e2e2;
+    }
+
+    .client-results-featured-body {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      border-left: 1px solid var(--black-40);
+      background-color: var(--e2);
+    }
+
+    .client-results-trade {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--orga);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .client-results-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--black-75);
+      margin: 0.25rem 0 0 0;
+      line-height: 1.2;
+    }
+
+    .client-stats-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .client-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .client-stat-number {
+      font-family: 'Coolvetica Rg', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--orga);
+      line-height: 1;
+    }
+
+    .client-stat-label {
+      font-size: 0.8rem;
+      color: var(--black-75);
+      opacity: 0.7;
+      line-height: 1.3;
+      max-width: 100px;
+    }
+
+    .client-results-quote {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      font-style: italic;
+      margin: 0;
+      padding-top: 1rem;
+      border-top: 1px solid var(--black-40);
+      opacity: 0.85;
+    }
+
+    .client-results-quote-attr {
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-style: normal;
+      color: var(--black-75);
+      opacity: 0.7;
+      margin: 0.4rem 0 0 0;
+    }
+
+    .client-results-link {
+      font-size: 0.85rem;
+      color: var(--orga);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      align-self: flex-start;
+      transition: opacity 0.2s ease;
+    }
+
+    .client-results-link:hover {
+      opacity: 0.7;
+    }
+
+    /* Secondary tile grid: IWC + Integrated */
+    .client-results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    .client-tile {
+      border: 1px solid var(--black-40);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.4s ease;
+    }
+
+    .client-tile:hover {
+      border-color: var(--orga);
+    }
+
+    .client-tile-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .client-tile-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex: 1;
+      background-color: var(--e2);
+      border-top: 1px solid var(--black-40);
+    }
+
+    .client-tile-quote {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--black-75);
+      font-style: italic;
+      margin: 0;
+      opacity: 0.85;
+      flex: 1;
+    }
+
+    .client-tile-attr {
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-style: normal;
+      color: var(--black-75);
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 767px) {
+      .client-results-featured {
+        grid-template-columns: 1fr;
+      }
+
+      .client-results-featured-body {
+        border-left: none;
+        border-top: 1px solid var(--black-40);
+        padding: 1.75rem 1.5rem;
+      }
+
+      .client-results-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .client-stat-number {
+        font-size: 2rem;
+      }
+    }
   </style>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
@@ -870,6 +1287,10 @@ html.lenis {
 }
 </style>
 <style>
+  .dark-mode-toggle {
+    display: none;
+  }
+
   body.horizontal-body {
     display: flex;
     justify-content: center;
@@ -904,13 +1325,13 @@ html.lenis {
           <p class="p2 contractor-hero-eyebrow">For Contractors Doing $250K+/Year</p>
 
           <!-- Main Heading -->
-          <h1 class="h1 contractor-hero-h1">Free Contractor SEO Breakdown<span class="green-span">.</span></h1>
+          <h1 class="h1 contractor-hero-h1">Your Website Is Leaking Leads. Let's Find Them<span class="green-span">.</span></h1>
 
           <!-- Subheading -->
-          <p class="shrunk-p">Discover why your website and Google presence aren't producing calls yet and what to fix first so leads start coming in over the next 30 days.</p>
+          <p class="shrunk-p">We'll pinpoint exactly where your website and Google presence are losing you leads — and show you the fastest fixes to plug them in the next 30 days.</p>
 
           <!-- Primary CTA -->
-          <a href="/form/" class="button-1 contractor-hero-cta" id="hero-calendar-toggle" style="margin-top: 20px;">Claim Your Free Review</a>
+          <a href="/form/" class="button-1 contractor-hero-cta" id="hero-calendar-toggle" style="margin-top: 20px;">Claim Your Free Leak Finder</a>
         </div>
 
         <!-- VSL - Will be reordered on mobile -->
@@ -927,7 +1348,7 @@ html.lenis {
           <div class="hero-social-proof-checks" style="display: flex; flex-direction: column; gap: 1.25rem; margin: 2rem 0;">
             <div style="display: flex; align-items: center; gap: 0.75rem;">
               <span style="color: var(--orga); font-weight: bold; font-size: 1.6rem; line-height: 1;">✓</span>
-              <span style="font-size: 1.2rem; line-height: 1.5; color: var(--black-75);">See what's killing your inbound leads</span>
+              <span style="font-size: 1.2rem; line-height: 1.5; color: var(--black-75);">See exactly where your leads are leaking out</span>
             </div>
             <div style="display: flex; align-items: center; gap: 0.75rem;">
               <span style="color: var(--orga); font-weight: bold; font-size: 1.6rem; line-height: 1;">✓</span>
@@ -1073,32 +1494,67 @@ html.lenis {
     </address>
     -->
 
-    <!-- Testimonials Section - KEPT FROM CURRENT VERSION -->
-    <section class="section">
-      <!-- Testimonial Slider Module -->
-      <div class="testimonial-slider">
-        <!-- Static Star Rating -->
-        <img src="/green 5 star.png" alt="5 stars" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 180px; height: auto; z-index: 1;">
+    <!-- Differentiators Section -->
+    <section class="section differentiators-section">
+      <p class="diff-eyebrow">Why Organically</p>
+      <h2 class="diff-headline">We Only Work With One Contractor Per Market<span class="green-span">.</span></h2>
+      <p class="diff-subhead">That means everything we build, every ranking we earn, every lead we generate — goes exclusively to you. Not your competitor down the street.</p>
 
-        <!-- Testimonials Container -->
-        <div style="position: relative; overflow: hidden; min-height: 400px;">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-item" style="opacity: 1;">
-            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come.</p>
-            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— IWC Cabinetry</p>
-          </div>
+      <div class="diff-grid">
+        <div class="diff-item">
+          <p class="diff-item-label">Exclusive Territory</p>
+          <p class="diff-item-title">One client per service area, period.</p>
+          <p class="diff-item-text">We don't take two roofers in the same city. If your market is available, we work for you and only you. If it's not, we'll tell you straight away.</p>
+        </div>
+        <div class="diff-item">
+          <p class="diff-item-label">You Own Everything</p>
+          <p class="diff-item-title">Every asset is yours to keep.</p>
+          <p class="diff-item-text">Your website, your content, your rankings — you own all of it. No holding your site hostage, no lock-in. Walk away anytime with everything intact.</p>
+        </div>
+        <div class="diff-item">
+          <p class="diff-item-label">No Long Contracts</p>
+          <p class="diff-item-title">Month-to-month. We earn your business every month.</p>
+          <p class="diff-item-text">We don't hide behind 12-month agreements. If we're not delivering, you're not stuck. Most clients stay because it works, not because they have to.</p>
+        </div>
+        <div class="diff-item">
+          <p class="diff-item-label">Zero Risk</p>
+          <p class="diff-item-title">If we can't find real opportunities, we donate $50.</p>
+          <p class="diff-item-text">The breakdown call is free. If we can't find at least one thing worth fixing in your online presence, we'll donate $50 to a local charity. No fluff, no wasted time.</p>
+        </div>
+      </div>
 
-          <!-- Testimonial 2 -->
-          <div class="testimonial-item">
-            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">We are #1 on Google in most of the categories we want to be in. Ryan already understands our business better than they ever did and gets more done on a monthly basis.</p>
-            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Q&A Landscaping</p>
-          </div>
+      <div class="diff-availability">
+        <p class="diff-availability-text"><strong>Pittsburgh is currently open.</strong> If you're in the area, there's a good chance your market hasn't been claimed yet — but we're actively reviewing contractors in competitive trades right now.</p>
+        <a href="/form/" class="button-1">Check Your Market →</a>
+      </div>
 
-          <!-- Testimonial 3 -->
-          <div class="testimonial-item">
-            <p style="font-family: 'Coolvetica rg', sans-serif; font-size: 2.5rem; line-height: 1.3; font-weight: 400; margin-bottom: 2rem; color: #333;">Ryan was able to make my yacht management companies website, help grow my social media presence, and his communication throughout the process was great.</p>
-            <p style="font-size: 1.2rem; font-weight: 600; opacity: 0.8; margin: 0;">— Sureshine Marine Detailing</p>
-          </div>
+      <!-- Stat Bar -->
+      <div class="stat-bar">
+        <span class="stat-bar-item"><strong>15+</strong> Contractor Sites Built</span>
+        <span class="stat-bar-sep">·</span>
+        <span class="stat-bar-item"><strong>#1</strong> Rankings Across 8+ Markets</span>
+        <span class="stat-bar-sep">·</span>
+        <span class="stat-bar-item"><strong>0</strong> Long-Term Contracts</span>
+        <span class="stat-bar-sep">·</span>
+        <span class="stat-bar-item"><strong>100%</strong> Asset Ownership</span>
+      </div>
+    </section>
+
+    <!-- Testimonials Static Strip -->
+    <section class="section testimonials-strip">
+      <img src="/green 5 star.png" alt="5 stars" class="testimonials-strip-stars">
+      <div class="testimonials-strip-grid">
+        <div class="testimonial-strip-item">
+          <p class="testimonial-strip-quote">"Ryan's knowledge of SEO and lead generation is unlike anything I've come across. He doesn't just improve your website — he gives you a completely different perspective on how your business shows up online. I walked away from our first conversation with more clarity than I'd had in years."</p>
+          <p class="testimonial-strip-attr">— Braeden Young, ProgmaMedia</p>
+        </div>
+        <div class="testimonial-strip-item">
+          <p class="testimonial-strip-quote">"We are #1 on Google in most of the categories we want to be in. Ryan already understands our business better than they ever did and gets more done on a monthly basis."</p>
+          <p class="testimonial-strip-attr">— Q&amp;A Landscaping</p>
+        </div>
+        <div class="testimonial-strip-item">
+          <p class="testimonial-strip-quote">"Ryan was able to make my yacht management company's website, help grow my social media presence, and his communication throughout the process was great."</p>
+          <p class="testimonial-strip-attr">— Sureshine Marine Detailing</p>
         </div>
       </div>
     </section>
@@ -1124,13 +1580,89 @@ html.lenis {
     </section>
     -->
 
+    <!-- Client Results Section -->
+    <section class="section client-results-section">
+
+      <div class="client-results-header">
+        <h2 class="client-results-headline">Results Contractors Can Point To<span class="green-span">.</span></h2>
+        <p class="client-results-subhead">Not case studies written by a marketing team. Real businesses, real trades, real numbers.</p>
+      </div>
+
+      <!-- Featured: Q&A Landscaping -->
+      <div class="client-results-featured">
+        <picture>
+          <source srcset="/assets/qa homepage.webp" type="image/webp">
+          <img src="/assets/qa homepage.jpg" alt="Q&A Landscaping website" class="client-results-featured-img" loading="lazy">
+        </picture>
+        <div class="client-results-featured-body">
+          <div>
+            <p class="client-results-trade">Landscaping &amp; Lawn Care</p>
+            <p class="client-results-name">Q&amp;A Landscaping</p>
+          </div>
+          <div class="client-stats-row">
+            <div class="client-stat">
+              <span class="client-stat-number">11x</span>
+              <span class="client-stat-label">organic traffic growth in 1 year</span>
+            </div>
+            <div class="client-stat">
+              <span class="client-stat-number">#1</span>
+              <span class="client-stat-label">on Google in target categories</span>
+            </div>
+            <div class="client-stat">
+              <span class="client-stat-number">400+</span>
+              <span class="client-stat-label">organic clicks in 28 days</span>
+            </div>
+          </div>
+          <div>
+            <p class="client-results-quote">"We are #1 on Google in most of the categories we want to be in. Ryan already understands our business better than they ever did and gets more done on a monthly basis."</p>
+            <p class="client-results-quote-attr">— Q&amp;A Landscaping, Pittsburgh PA</p>
+          </div>
+          <a href="https://qalandscaping.com" target="_blank" rel="noopener" class="client-results-link">View Site →</a>
+        </div>
+      </div>
+
+      <!-- Secondary tiles: IWC + Integrated -->
+      <div class="client-results-grid">
+
+        <!-- IWC Cabinetry -->
+        <div class="client-tile">
+          <picture>
+            <source srcset="/assets/iwc cabinetry.webp" type="image/webp">
+            <img src="/assets/iwc cabinetry.png" alt="IWC Cabinetry website" class="client-tile-img" loading="lazy">
+          </picture>
+          <div class="client-tile-body">
+            <p class="client-results-trade">Cabinetry &amp; Remodeling</p>
+            <p class="client-results-name" style="font-size: 1.15rem; margin: 0;">IWC Cabinetry</p>
+            <p class="client-tile-quote">"His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come."</p>
+            <p class="client-tile-attr">— IWC Cabinetry</p>
+            <a href="https://www.iwccabinetry.com/" target="_blank" rel="noopener" class="client-results-link">View Site →</a>
+          </div>
+        </div>
+
+        <!-- Integrated -->
+        <div class="client-tile">
+          <picture>
+            <source srcset="/assets/integrated homepage.webp" type="image/webp">
+            <img src="/assets/integrated homepage.jpg" alt="Integrated Contractor website" class="client-tile-img" loading="lazy">
+          </picture>
+          <div class="client-tile-body">
+            <p class="client-results-trade">General Contractor</p>
+            <p class="client-results-name" style="font-size: 1.15rem; margin: 0;">Integrated</p>
+            <p class="client-tile-quote" style="font-style: normal; opacity: 0.7;">Custom web design built to convert local leads — showcasing work, driving calls, and establishing credibility in a competitive market.</p>
+            <a href="https://icrpgh.com" target="_blank" rel="noopener" class="client-results-link">View Site →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
     <!-- Final CTA Section - 3 Part Visual Structure -->
     <section class="section final-cta-section">
 
-      <!-- Headline + Subtext -->
+      <!-- Headline -->
       <div style="text-align: center;">
-        <h2 class="final-cta-headline">What The Breakdown Looks Like<span class="green-span">.</span></h2>
-        <p style="max-width: 700px; margin: 0 auto; line-height: 1.6; color: var(--black-75);">Everything we create during the breakdown is yours to keep, whether you work with us or not. After the call, you decide what happens next. Use it yourself, work with us, or hand it to another team.</p>
+        <h2 class="final-cta-headline">Stop Leaking Leads<span class="green-span">.</span></h2>
       </div>
 
       <!-- 3 Process Cards -->
@@ -1139,15 +1671,15 @@ html.lenis {
         <!-- Card 1 -->
         <div class="process-card">
           <div class="process-card-number">1</div>
-          <h3 class="process-card-title">Book Your Breakdown</h3>
-          <p class="process-card-text">Pick a time that works. 15 minutes. No prep required.</p>
+          <h3 class="process-card-title">Book Your Leak Finder</h3>
+          <p class="process-card-text">Pick a time that works. 20 minutes. No prep required.</p>
         </div>
 
         <!-- Card 2 -->
         <div class="process-card">
           <div class="process-card-number">2</div>
-          <h3 class="process-card-title">We Review First</h3>
-          <p class="process-card-text">We review your site, Google presence, and local competitors before the call.</p>
+          <h3 class="process-card-title">We Find Your Leaks</h3>
+          <p class="process-card-text">We review your site, Google presence, and local competitors before the call to map every leak.</p>
         </div>
 
         <!-- Card 3 -->
@@ -1170,11 +1702,11 @@ html.lenis {
       <div class="final-cta-button-container">
 
         <!-- CTA Button -->
-        <a href="/form/" class="button-1 final-cta-button">Book Free Breakdown</a>
+        <a href="/form/" class="button-1 final-cta-button">Get My Free Leak Finder</a>
 
         <!-- Risk Reversals + Trust -->
         <div style="text-align: center; margin-top: 0.75rem; font-size: 0.9rem; color: var(--black-75); opacity: 0.7;">
-          <span>20 minutes or less.</span>
+          <span>20 minutes. Everything we find is yours to keep — whether you work with us or not.</span>
         </div>
 
       </div>
@@ -1206,8 +1738,8 @@ html.lenis {
           <div class="faq-answer">
             <div style="padding-bottom: 1.5rem;">
               The goal is for you to have a clear 2-3 next steps to take.<br><br>
-              You'll spend time with me and I tailor my advice to your business, industry, goals, and business structure.<br><br>
-              It will be 1 on 1 help specific to your current business challenges.<br><br>
+              You'll know exactly where your site is leaking leads and have a clear ranked list of what to fix first.<br><br>
+              It will be 1 on 1 help specific to your current business challenges — I tailor everything to your business, industry, goals, and structure.<br><br>
               You get clarity on what to do, why you should do it, and how to do it. Plus, you'll get a checklist and video recording so you don't miss anything we discuss on the call.
             </div>
           </div>
@@ -1744,76 +2276,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Testimonial Slider Auto-Rotate with GSAP -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const testimonialItems = document.querySelectorAll('.testimonial-item');
-    if (testimonialItems.length === 0 || typeof gsap === 'undefined') return;
-
-    let currentIndex = 0;
-    const intervalTime = 9000; // 9 seconds per testimonial
-    let isAnimating = false;
-
-    // Set initial positions - all items start at x: 100% except first
-    gsap.set(testimonialItems, {
-        x: '100%',
-        opacity: 0,
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%'
-    });
-
-    // Set first testimonial visible and in position
-    gsap.set(testimonialItems[0], {
-        x: '0%',
-        opacity: 1
-    });
-
-    function showTestimonial(nextIndex) {
-        if (isAnimating) return;
-        isAnimating = true;
-
-        const currentItem = testimonialItems[currentIndex];
-        const nextItem = testimonialItems[nextIndex];
-
-        // Create timeline for smooth transition
-        const tl = gsap.timeline({
-            onComplete: () => {
-                currentIndex = nextIndex;
-                isAnimating = false;
-            }
-        });
-
-        // Animate current item out to the left
-        tl.to(currentItem, {
-            x: '-100%',
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.inOut'
-        }, 0);
-
-        // Animate next item in from the right
-        tl.fromTo(nextItem,
-            { x: '100%', opacity: 0 },
-            {
-                x: '0%',
-                opacity: 1,
-                duration: 0.8,
-                ease: 'power2.inOut'
-            },
-        0);
-    }
-
-    function nextTestimonial() {
-        const nextIndex = (currentIndex + 1) % testimonialItems.length;
-        showTestimonial(nextIndex);
-    }
-
-    // Start auto-rotation
-    setInterval(nextTestimonial, intervalTime);
-});
-</script>
 
 <!-- FAQ Accordion Script -->
 <script>
