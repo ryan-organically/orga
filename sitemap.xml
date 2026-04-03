@@ -1,306 +1,601 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- ===== ENGLISH PAGES ===== -->
+
   <!-- Homepage -->
   <url>
     <loc>https://organicallyseo.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Main Service Pages -->
+  <!-- Core Service Pages -->
   <url>
-    <loc>https://organicallyseo.com/seo</loc>
+    <loc>https://organicallyseo.com/seo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/web-design</loc>
+    <loc>https://organicallyseo.com/web-design/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/branding</loc>
+    <loc>https://organicallyseo.com/branding/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/blog</loc>
+    <loc>https://organicallyseo.com/contractor-funnel/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Secondary Service Pages -->
+  <url>
+    <loc>https://organicallyseo.com/google-ads-management/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/google-profile-management/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/website-management/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/webflow-management/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/keywords-content/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-audit-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/sem/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Blog & Utility -->
+  <url>
+    <loc>https://organicallyseo.com/blog/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- About & Info Pages -->
   <url>
-    <loc>https://organicallyseo.com/privacy-policy</loc>
+    <loc>https://organicallyseo.com/about-us/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/form/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/sitemap/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/privacy-policy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
-  <!-- Additional Services -->
+  <!-- Specialty SEO Services -->
   <url>
-    <loc>https://organicallyseo.com/google-ads-management</loc>
+    <loc>https://organicallyseo.com/healthcare-seo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/google-profile-management</loc>
+    <loc>https://organicallyseo.com/home-services-seo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/website-management</loc>
+    <loc>https://organicallyseo.com/plastic-surgery-seo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/webflow-management</loc>
+    <loc>https://organicallyseo.com/plastic-surgery-website-design/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/sem</loc>
+    <loc>https://organicallyseo.com/generative-engine-optimization/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Industry SEO Pages -->
   <url>
-    <loc>https://organicallyseo.com/seo-audit-services</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Local SEO Pages -->
-  <url>
-    <loc>https://organicallyseo.com/local-seo-houston</loc>
+    <loc>https://organicallyseo.com/hvac-seo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/san-jose-seo</loc>
+    <loc>https://organicallyseo.com/landscaping-lawncare/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seovirginia</loc>
+    <loc>https://organicallyseo.com/youtube-seo-services/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/web-design-el-paso</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Industry-Specific SEO Pages -->
-  <url>
-    <loc>https://organicallyseo.com/seo-for-contractors</loc>
+    <loc>https://organicallyseo.com/youtube-seo-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-for-plumbers</loc>
+    <loc>https://organicallyseo.com/law-firm-seo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-for-doctors</loc>
+    <loc>https://organicallyseo.com/law-firm-seo-audit/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/local-seo-dentists</loc>
+    <loc>https://organicallyseo.com/seo-family-law/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-for-accountants</loc>
+    <loc>https://organicallyseo.com/family-law-digital-marketing/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-for-financial-services</loc>
+    <loc>https://organicallyseo.com/seo-for-dentists/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-family-law</loc>
+    <loc>https://organicallyseo.com/local-seo-dentists/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/plastic-surgery-seo</loc>
+    <loc>https://organicallyseo.com/dental-seo-keywords/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/plastic-surgery-website-design</loc>
+    <loc>https://organicallyseo.com/seo-for-doctors/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/dental-seo-keywords</loc>
+    <loc>https://organicallyseo.com/google-ads-for-doctors/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/landscaping-lawncare</loc>
+    <loc>https://organicallyseo.com/seo-for-chiropractors/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/contractor-checklist</loc>
+    <loc>https://organicallyseo.com/chiropractor-seo-guide/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/contractor-funnel</loc>
+    <loc>https://organicallyseo.com/seo-for-plumbers/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Vertical SEO Landing Pages -->
   <url>
-    <loc>https://organicallyseo.com/law-firm-seo</loc>
+    <loc>https://organicallyseo.com/seo-for-electricians/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/healthcare-seo</loc>
+    <loc>https://organicallyseo.com/electrician-seo-guide/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/home-services-seo</loc>
+    <loc>https://organicallyseo.com/seo-for-roofers/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-
-  <!-- Blog Posts & Resources -->
   <url>
-    <loc>https://organicallyseo.com/branding-basics</loc>
+    <loc>https://organicallyseo.com/roofer-seo-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-restaurants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/restaurant-seo-guide/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-contractors/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-pest-control-companies/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-financial-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-accountants/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-personal-injury-lawyers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-saas-startups/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-startups/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-for-tech-startups/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-services-for-startups/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seo-tips-for-startups/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/diy-seo-for-startups/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/local-seo-for-startups/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Geographic Pages -->
+  <url>
+    <loc>https://organicallyseo.com/local-seo-houston/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/san-jose-seo/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/web-design-el-paso/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/seovirginia/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Webflow Content -->
+  <url>
+    <loc>https://organicallyseo.com/webflow-vs-figma/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/webflow-vs-squarespace/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/how-to-design-in-webflow/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/webflow-launch-checklist/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Startup & Tech Content -->
+  <url>
+    <loc>https://organicallyseo.com/technical-co-founder/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/technical-co-founder-equity/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/how-to-find-a-technical-co-founder/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog Articles & Content -->
+  <url>
+    <loc>https://organicallyseo.com/what-is-seo/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/what-is-seo</loc>
+    <loc>https://organicallyseo.com/branding-basics/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/keywords-content</loc>
+    <loc>https://organicallyseo.com/ai-art/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/how-to-design-in-webflow</loc>
+    <loc>https://organicallyseo.com/chat-gpt-basics-everything-you-need-to-know/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/webflow-vs-figma</loc>
+    <loc>https://organicallyseo.com/the-ux-revolution-how-experience-is-evolving-daily/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/webflow-vs-squarespace</loc>
+    <loc>https://organicallyseo.com/the-ux-sword/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/webflow-launch-checklist</loc>
+    <loc>https://organicallyseo.com/13-ux-statistics-fueling-a-digital-revolution/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/13-ux-statistics-fueling-a-digital-revolution</loc>
+    <loc>https://organicallyseo.com/the-power-of-face-to-face-networking/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/the-ux-revolution-how-experience-is-evolving-daily</loc>
+    <loc>https://organicallyseo.com/microblog-why-content-marketing-is-changing-the-game/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/the-ux-sword</loc>
+    <loc>https://organicallyseo.com/i-wrote-17-small-blogs-increased-my-traffic-by-x/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/the-power-of-face-to-face-networking</loc>
+    <loc>https://organicallyseo.com/seo-phase1-checklist/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/microblog-why-content-marketing-is-changing-the-game</loc>
+    <loc>https://organicallyseo.com/contractor-checklist/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/i-wrote-17-small-blogs-increased-my-traffic-by-x</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://organicallyseo.com/ai-art</loc>
+    <loc>https://organicallyseo.com/youtopia/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/asteroid</loc>
+    <loc>https://organicallyseo.com/asteroid/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <!-- Software Development Pages -->
+  <url>
+    <loc>https://organicallyseo.com/agile-software-outsourcing/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/youtopia</loc>
+    <loc>https://organicallyseo.com/ai-chatbot-development-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/automotive-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/backend-development-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/benefits-of-outsourcing-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/crm-development-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/custom-manufacturing-software/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/dedicated-development-team-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/ecommerce-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/enterprise-software-development-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/erp-development-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/financial-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/healthcare-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/insurance-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/logistics-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/mvp-development-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/nearshore-software-outsourcing/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/outsourcing-software-development-pros-and-cons/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/progressive-web-app-development-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/real-estate-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/retail-software-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/software-development-for-startups/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/software-outsourcing-challenges/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/software-outsourcing-cost/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/software-product-development/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/what-is-software-outsourcing/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- Legal SEO Blog Posts -->
-  <url>
-    <loc>https://organicallyseo.com/law-firm-seo-audit</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://organicallyseo.com/seo-for-personal-injury-lawyers</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://organicallyseo.com/family-law-digital-marketing</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- ===== SPANISH PAGES ===== -->
 
-  <!-- Healthcare SEO Blog Posts -->
   <url>
-    <loc>https://organicallyseo.com/seo-for-dentists</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://organicallyseo.com/es/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/google-ads-for-doctors</loc>
+    <loc>https://organicallyseo.com/es/seo/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Home Services SEO Blog Posts -->
-  <url>
-    <loc>https://organicallyseo.com/hvac-seo</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-for-roofers</loc>
+    <loc>https://organicallyseo.com/es/branding/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-for-pest-control-companies</loc>
+    <loc>https://organicallyseo.com/es/diseno-web/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/es/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/es/form/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/es/seo-audit-services/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/es/sitemap/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/es/privacy-policy/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
