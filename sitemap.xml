@@ -150,11 +150,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-family-law/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://organicallyseo.com/family-law-digital-marketing/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -265,17 +260,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://organicallyseo.com/seo-for-tech-startups/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://organicallyseo.com/seo-services-for-startups/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://organicallyseo.com/seo-tips-for-startups/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -294,6 +279,11 @@
     <loc>https://organicallyseo.com/local-seo-houston/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organicallyseo.com/pittsburgh-seo/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://organicallyseo.com/san-jose-seo/</loc>
