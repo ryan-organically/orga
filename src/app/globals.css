@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
 
 @theme {
   --color-orga: #7ec700;
@@ -1450,4 +1450,16 @@ body.dark-mode.horizontal-body {
 }
 .dark-mode .blog-card-1:hover {
   border-color: #7ec700;
+}
+
+/* Override hero width for Next.js layout */
+.hero-section {
+  width: 100% !important;
+}
+
+/* Ensure h1 is visible */
+.h1, .h1-home {
+  color: #000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }

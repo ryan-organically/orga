@@ -129,7 +129,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="horizontal-body dark-mode">{children}</body>
+      <body className="horizontal-body">{children}</body>
       <Script src="/components/universal-menu.js" strategy="afterInteractive" />
     </html>
   );

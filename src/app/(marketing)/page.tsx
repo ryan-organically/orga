@@ -796,9 +796,9 @@ export default function HomePage() {
           <h1
             ref={h1Ref}
             className="h1 h1-home"
-            style={{ opacity: 0 }}
+            style={{ opacity: 1 }}
           >
-            Organically<span className="green-span h1-period">.</span>
+            Your Website Should Be<br />Your Best Salesperson<span className="green-span">.</span>
           </h1>
           <p ref={shrunkPRef} className="shrunk-p">
             Developing sleek, powerful websites that generate search traffic{" "}

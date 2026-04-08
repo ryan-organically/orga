@@ -19,3 +19,9 @@ npm-debug.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Jekyll build output
+_site/
+
+# Ruby vendor gems
+vendor/
