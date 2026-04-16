@@ -4240,9 +4240,14 @@ a {
 
 .blog-cards-track {
   display: flex;
-  width: 100%;
+  flex-wrap: nowrap;
+  width: max-content;
   cursor: grab;
   padding-left: 5vw;
+}
+
+.blog-cards-track .blog-card-1 {
+  flex-shrink: 0;
 }
 
 .blog-cards-track .blog-card-1:last-child {
