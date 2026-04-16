@@ -7,3 +7,5 @@ _site/
 .jekyll-cache/
 .sass-cache/
 *.csv
+tsconfig.tsbuildinfo
+.env.local

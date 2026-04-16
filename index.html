@@ -1246,12 +1246,14 @@ function _initSecondaryAnimations() {
     /* ━━━ Ticker Animation ━━━ */
     const ticker = document.querySelector(".ticking-text");
     if (ticker) {
-        const originalHTML = ticker.innerHTML;
-        ticker.innerHTML = originalHTML + originalHTML + originalHTML;
-        const tickerWidth = ticker.scrollWidth / 3;
-        gsap.to(ticker, {
-            x: -tickerWidth, duration: 30, ease: "none", repeat: -1,
-            modifiers: { x: (x) => `${parseFloat(x) % tickerWidth}px` }
+        document.fonts.ready.then(() => {
+            const originalHTML = ticker.innerHTML;
+            ticker.innerHTML = originalHTML + originalHTML + originalHTML;
+            const tickerWidth = ticker.scrollWidth / 3;
+            gsap.to(ticker, {
+                x: -tickerWidth, duration: 30, ease: "none", repeat: -1,
+                modifiers: { x: (x) => `${parseFloat(x) % tickerWidth}px` }
+            });
         });
     }
 
