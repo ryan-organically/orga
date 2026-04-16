@@ -912,7 +912,7 @@
 function _initMainAnimations() {
     // Retry until deferred GSAP scripts are ready (up to 2s)
     if (typeof gsap === 'undefined' || typeof SplitText === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof InertiaPlugin === 'undefined' || typeof Draggable === 'undefined') {
-        if ((Date.now() - window._gsapWaitStart) < 2000) { setTimeout(_initMainAnimations, 50); return; }
+        if ((Date.now() - window._gsapWaitStart) < 10000) { setTimeout(_initMainAnimations, 100); return; }
         console.warn('GSAP plugins failed to load after 2s');
         return;
     }
@@ -1230,7 +1230,7 @@ if (document.readyState === 'loading') {
   <script>
 function _initSecondaryAnimations() {
     if (typeof gsap === 'undefined' || typeof SplitText === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof Draggable === 'undefined' || typeof InertiaPlugin === 'undefined') {
-        if ((Date.now() - window._gsapWaitStart2) < 2000) { setTimeout(_initSecondaryAnimations, 50); return; }
+        if ((Date.now() - window._gsapWaitStart2) < 10000) { setTimeout(_initSecondaryAnimations, 100); return; }
         console.warn('GSAP plugins not available for secondary animations');
         return;
     }
