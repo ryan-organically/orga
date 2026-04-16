@@ -1310,34 +1310,32 @@ if (document.readyState === 'loading') {
     _initTicker();
 }
 
-/* ━━━ Blog Navigation — standalone, only needs gsap core ━━━ */
-function _initBlogNav() {
-    if (typeof gsap === 'undefined') {
-        if ((Date.now() - window._blogNavWaitStart) < 5000) { setTimeout(_initBlogNav, 50); return; }
-        return;
-    }
+/* ━━━ Blog Navigation — zero dependencies, raw JS ━━━ */
+document.addEventListener('DOMContentLoaded', function() {
     var track = document.querySelector(".blog-cards-track");
     var prevBtn = document.getElementById("blog-prev");
     var nextBtn = document.getElementById("blog-next");
-    if (!track || !prevBtn || !nextBtn) return;
 
+    if (!track) { console.error("BLOG NAV: track not found"); return; }
+    if (!prevBtn) { console.error("BLOG NAV: prev not found"); return; }
+    if (!nextBtn) { console.error("BLOG NAV: next not found"); return; }
+
+    console.log("BLOG NAV: initialized, track width=" + track.scrollWidth);
+    track.style.transition = "transform 0.4s ease";
     var pos = 0;
+
     prevBtn.addEventListener("click", function() {
         pos += 300;
         if (pos > 0) pos = 0;
-        gsap.to(track, { x: pos, duration: 0.4 });
+        track.style.transform = "translateX(" + pos + "px)";
+        console.log("BLOG NAV: prev clicked, pos=" + pos);
     });
     nextBtn.addEventListener("click", function() {
         pos -= 300;
-        gsap.to(track, { x: pos, duration: 0.4 });
+        track.style.transform = "translateX(" + pos + "px)";
+        console.log("BLOG NAV: next clicked, pos=" + pos);
     });
-}
-window._blogNavWaitStart = Date.now();
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', _initBlogNav);
-} else {
-    _initBlogNav();
-}
+});
 </script>
 
 <style>
