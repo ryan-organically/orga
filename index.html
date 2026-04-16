@@ -1243,20 +1243,6 @@ function _initSecondaryAnimations() {
       console.log('%c→ https://organicallyseo.com', 'font-size: 12px; color: #7ec700; font-weight: bold;');
     }) : null;
 
-    /* ━━━ Ticker Animation ━━━ */
-    const ticker = document.querySelector(".ticking-text");
-    if (ticker) {
-        document.fonts.ready.then(() => {
-            const originalHTML = ticker.innerHTML;
-            ticker.innerHTML = originalHTML + originalHTML + originalHTML;
-            const tickerWidth = ticker.scrollWidth / 3;
-            gsap.to(ticker, {
-                x: -tickerWidth, duration: 30, ease: "none", repeat: -1,
-                modifiers: { x: (x) => `${parseFloat(x) % tickerWidth}px` }
-            });
-        });
-    }
-
     /* ━━━ Blog Navigation (Draggable) ━━━ */
     (function() {
         const cardsTrack = document.querySelector(".blog-cards-track");
@@ -1337,6 +1323,31 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', _initSecondaryAnimations);
 } else {
     _initSecondaryAnimations();
+}
+
+/* ━━━ Ticker Animation (standalone — only needs gsap core) ━━━ */
+function _initTicker() {
+    if (typeof gsap === 'undefined') {
+        if ((Date.now() - window._tickerWaitStart) < 5000) { setTimeout(_initTicker, 50); return; }
+        return;
+    }
+    const ticker = document.querySelector(".ticking-text");
+    if (!ticker) return;
+    document.fonts.ready.then(() => {
+        const originalHTML = ticker.innerHTML;
+        ticker.innerHTML = originalHTML + originalHTML + originalHTML;
+        const tickerWidth = ticker.scrollWidth / 3;
+        gsap.to(ticker, {
+            x: -tickerWidth, duration: 30, ease: "none", repeat: -1,
+            modifiers: { x: (x) => `${parseFloat(x) % tickerWidth}px` }
+        });
+    });
+}
+window._tickerWaitStart = Date.now();
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', _initTicker);
+} else {
+    _initTicker();
 }
 </script>
 
