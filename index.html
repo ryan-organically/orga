@@ -1315,26 +1315,27 @@ document.addEventListener('DOMContentLoaded', function() {
     var track = document.querySelector(".blog-cards-track");
     var prevBtn = document.getElementById("blog-prev");
     var nextBtn = document.getElementById("blog-next");
+    if (!track || !prevBtn || !nextBtn) return;
 
-    if (!track) { console.error("BLOG NAV: track not found"); return; }
-    if (!prevBtn) { console.error("BLOG NAV: prev not found"); return; }
-    if (!nextBtn) { console.error("BLOG NAV: next not found"); return; }
+    var cards = track.querySelectorAll(".blog-card-1");
+    if (!cards.length) return;
 
-    console.log("BLOG NAV: initialized, track width=" + track.scrollWidth);
     track.style.transition = "transform 0.4s ease";
-    var pos = 0;
+    var currentIndex = 0;
 
-    prevBtn.addEventListener("click", function() {
-        pos += 300;
-        if (pos > 0) pos = 0;
-        track.style.transform = "translateX(" + pos + "px)";
-        console.log("BLOG NAV: prev clicked, pos=" + pos);
-    });
-    nextBtn.addEventListener("click", function() {
-        pos -= 300;
-        track.style.transform = "translateX(" + pos + "px)";
-        console.log("BLOG NAV: next clicked, pos=" + pos);
-    });
+    function step() {
+        var style = window.getComputedStyle(cards[0]);
+        return cards[0].offsetWidth + parseFloat(style.marginRight || 0);
+    }
+
+    function go(index) {
+        var max = cards.length - 1;
+        currentIndex = Math.max(0, Math.min(max, index));
+        track.style.transform = "translateX(" + (-currentIndex * step()) + "px)";
+    }
+
+    prevBtn.addEventListener("click", function() { go(currentIndex - 1); });
+    nextBtn.addEventListener("click", function() { go(currentIndex + 1); });
 });
 </script>
 
