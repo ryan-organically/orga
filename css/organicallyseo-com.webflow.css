@@ -4241,13 +4241,12 @@ a {
 .blog-cards-track {
   display: flex;
   flex-wrap: nowrap;
-  width: max-content;
-  cursor: grab;
   padding-left: 5vw;
+  touch-action: pan-y;
 }
 
 .blog-cards-track .blog-card-1 {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 }
 
 .blog-cards-track .blog-card-1:last-child {

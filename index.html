@@ -1245,39 +1245,49 @@ function _initSecondaryAnimations() {
 
     /* ━━━ Blog Navigation (Draggable) ━━━ */
     (function() {
-        const cardsTrack = document.querySelector(".blog-cards-track");
-        const cardsWrapper = document.querySelector(".blog-cards-wrapper");
+        const track = document.querySelector(".blog-cards-track");
+        const wrapper = document.querySelector(".blog-cards-wrapper");
         const prevBtn = document.getElementById("blog-prev");
         const nextBtn = document.getElementById("blog-next");
-        if (!cardsTrack || !cardsWrapper || !prevBtn || !nextBtn) return;
+        if (!track || !wrapper || !prevBtn || !nextBtn) return;
 
-        let draggableInstance, currentIndex = 0;
-        const config = {
-            getCardWidth: () => { const card = cardsTrack.querySelector(".blog-card-1"); if (!card) return 300; return card.offsetWidth + parseInt(window.getComputedStyle(card).marginRight || 0); },
-            getCardCount: () => cardsTrack.querySelectorAll(".blog-card-1").length,
-            getMaxScroll: () => { const pad = parseFloat(window.getComputedStyle(cardsTrack).paddingLeft) || 0; return Math.max(0, cardsTrack.scrollWidth - cardsWrapper.offsetWidth + pad); },
-            getSnapPoints: () => { const w = config.getCardWidth(), n = config.getCardCount(), min = -config.getMaxScroll(), pts = []; for (let i = 0; i < n; i++) { const p = -i * w; if (p >= min) pts.push(p); } if (pts.length === 0 || pts[pts.length - 1] > min) pts.push(min); return pts; },
-            getBounds: () => ({ minX: -config.getMaxScroll(), maxX: 0 })
-        };
-        function snapToCard(x) { const pts = config.getSnapPoints(); let closest = pts[0], min = Math.abs(x - closest); for (let i = 1; i < pts.length; i++) { const d = Math.abs(x - pts[i]); if (d < min) { min = d; closest = pts[i]; currentIndex = i; } } return closest; }
+        const cards = gsap.utils.toArray(".blog-cards-track .blog-card-1");
+        if (!cards.length) return;
+        let currentIndex = 0;
 
-        if (typeof Draggable !== 'undefined') {
-            draggableInstance = Draggable.create(cardsTrack, {
-                type: "x", bounds: config.getBounds(), inertia: true, edgeResistance: 0.97,
-                throwResistance: 500,
-                snap: { x: (v) => snapToCard(v) },
-                onThrowComplete: function() { const snappedX = gsap.getProperty(cardsTrack, "x"); currentIndex = config.getSnapPoints().indexOf(snappedX); }
-            })[0];
+        function cardStep() {
+            const style = window.getComputedStyle(cards[0]);
+            return cards[0].offsetWidth + parseFloat(style.marginRight || 0);
         }
+
+        function snapTo(x) {
+            const step = cardStep();
+            return Math.round(x / step) * step;
+        }
+
+        const drag = Draggable.create(track, {
+            type: "x",
+            bounds: wrapper,
+            inertia: true,
+            dragClickables: true,
+            edgeResistance: 0.65,
+            snap: { x: snapTo },
+            onThrowComplete: function() {
+                currentIndex = Math.round(Math.abs(gsap.getProperty(track, "x")) / cardStep());
+            }
+        })[0];
+
         function navigate(dir) {
-            const pts = config.getSnapPoints();
-            currentIndex = dir === 'prev' ? Math.max(0, currentIndex - 1) : Math.min(pts.length - 1, currentIndex + 1);
-            gsap.to(cardsTrack, { x: pts[currentIndex], duration: 0.5, ease: "power2.out", onComplete: () => { if (draggableInstance) draggableInstance.update(); } });
+            currentIndex = dir === 'prev'
+                ? Math.max(0, currentIndex - 1)
+                : Math.min(cards.length - 1, currentIndex + 1);
+            gsap.to(track, { x: -currentIndex * cardStep(), duration: 0.4, ease: "power2.out",
+                onComplete: () => drag.update() });
         }
+
         prevBtn.addEventListener("click", () => navigate('prev'));
         nextBtn.addEventListener("click", () => navigate('next'));
-        let resizeTimeout;
-        window.addEventListener('resize', () => { clearTimeout(resizeTimeout); resizeTimeout = setTimeout(() => { const pts = config.getSnapPoints(), bounds = config.getBounds(); gsap.set(cardsTrack, { x: pts[currentIndex] || 0 }); if (draggableInstance) { draggableInstance.applyBounds(bounds); draggableInstance.update(); } }, 150); }, { passive: true });
+        window.addEventListener('resize', () => { drag.applyBounds(wrapper); drag.update(); }, { passive: true });
     })();
 
     /* ━━━ Font-dependent SplitText animations (Diagonal H3, Footer, Coffee Heading) ━━━ */
