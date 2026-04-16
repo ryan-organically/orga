@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Design 8: Typography-Focused | Organically</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Pairing: Crimson Pro (elegant serif) + Inter (geometric sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================================
+       DESIGN 8: TYPOGRAPHY-FOCUSED HOMEPAGE
+       LOC Estimate: ~850 lines (React component + CSS)
+       ======================================================================== */
+
+    /* --- Reset & Base --- */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --serif: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+      --black: #0a0a0a;
+      --white: #fafafa;
+      --gray-100: #f5f5f5;
+      --gray-200: #e5e5e5;
+      --gray-300: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-700: #404040;
+
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-2xl: 10rem;
+      --space-3xl: 14rem;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      background: var(--white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--black);
+      color: var(--white);
+    }
+
+
+    /* ========================================================================
+       NAVIGATION
+       ======================================================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-md) var(--space-lg);
+      background: rgba(250, 250, 250, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gray-200);
+      mix-blend-mode: normal;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span {
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      position: relative;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--black);
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem 2rem;
+      border: 1px solid var(--black);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .nav-cta:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+
+    /* ========================================================================
+       HERO SECTION
+       ======================================================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-3xl) var(--space-lg) var(--space-xl);
+      overflow: hidden;
+    }
+
+    /* Video background */
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.06;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Massive typographic H1 */
+    .hero-title {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: clamp(5rem, 18vw, 18rem);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      margin-bottom: var(--space-md);
+      white-space: nowrap;
+      overflow: visible;
+    }
+
+    .hero-title .period {
+      font-weight: 800;
+      opacity: 0.15;
+    }
+
+    .hero-subtitle {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: clamp(0.875rem, 1.2vw, 1.125rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-tagline {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.5vw, 2rem);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.4;
+      color: var(--gray-600);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .scroll-indicator span {
+      font-family: var(--sans);
+      font-size: 0.625rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: var(--gray-300);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--black);
+      animation: scrollDown 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollDown {
+      0% { top: -100%; }
+      50% { top: 100%; }
+      100% { top: 100%; }
+    }
+
+
+    /* ========================================================================
+       SECTION BASE
+       ======================================================================== */
+    .section {
+      padding: var(--space-3xl) var(--space-lg);
+    }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: var(--space-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gray-300);
+    }
+
+    .section-number {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: 0.875rem;
+      color: var(--gray-300);
+      margin-right: var(--space-xs);
+    }
+
+
+    /* ========================================================================
+       SERVICES (Text-only hierarchy via scale)
+       ======================================================================== */
+    .services {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-list {
+      list-style: none;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .service-item {
+      border-bottom: 1px solid var(--gray-200);
+      padding: var(--space-lg) 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: baseline;
+      cursor: pointer;
+      transition: padding 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .service-item:hover {
+      padding-left: var(--space-md);
+    }
+
+    .service-name {
+      font-family: var(--serif);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      transition: letter-spacing 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .service-item:hover .service-name {
+      letter-spacing: 0;
+    }
+
+    /* Hierarchy through scale */
+    .service-item:nth-child(1) .service-name { font-size: clamp(3rem, 6vw, 5.5rem); }
+    .service-item:nth-child(2) .service-name { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+    .service-item:nth-child(3) .service-name { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .service-item:nth-child(4) .service-name { font-size: clamp(1.75rem, 3.5vw, 3rem); }
+    .service-item:nth-child(5) .service-name { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+
+    .service-detail {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .service-description {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--gray-500);
+      max-width: 400px;
+    }
+
+    .service-arrow {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: var(--space-xs);
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .service-item:hover .service-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .service-arrow svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-item:hover .service-arrow svg {
+      transform: translateX(4px);
+    }
+
+
+    /* ========================================================================
+       STATEMENT / PHILOSOPHY
+       ======================================================================== */
+    .statement {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .statement-text {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .statement-text em {
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .statement-attribution {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-top: var(--space-lg);
+    }
+
+
+    /* ========================================================================
+       PORTFOLIO (Text-only link list with arrows)
+       ======================================================================== */
+    .portfolio {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .portfolio-list {
+      list-style: none;
+    }
+
+    .portfolio-item {
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .portfolio-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-md) 0;
+      transition: padding 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .portfolio-link:hover {
+      padding-left: var(--space-md);
+    }
+
+    .portfolio-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .portfolio-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .portfolio-meta {
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .portfolio-arrow {
+      font-size: 1.5rem;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      color: var(--gray-300);
+    }
+
+    .portfolio-link:hover .portfolio-arrow {
+      transform: translate(8px, -8px);
+      color: var(--black);
+    }
+
+
+    /* ========================================================================
+       SOCIAL PROOF / STATS
+       ======================================================================== */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--gray-200);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      background: var(--white);
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-top: var(--space-sm);
+    }
+
+
+    /* ========================================================================
+       TESTIMONIAL (Pull quote, large italic serif)
+       ======================================================================== */
+    .testimonial {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.75rem, 3.5vw, 3rem);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--gray-700);
+    }
+
+    .testimonial-quote::before {
+      content: '\201C';
+      display: block;
+      font-family: var(--serif);
+      font-weight: 200;
+      font-style: normal;
+      font-size: 8rem;
+      line-height: 0.5;
+      color: var(--gray-200);
+      margin-bottom: var(--space-md);
+    }
+
+    .testimonial-source {
+      margin-top: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .testimonial-name {
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .testimonial-role {
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .testimonial-stars {
+      font-size: 0.875rem;
+      letter-spacing: 0.2em;
+      color: var(--gray-600);
+      margin-top: var(--space-xs);
+    }
+
+
+    /* ========================================================================
+       BLOG / INSIGHTS (Text-only list)
+       ======================================================================== */
+    .insights {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .insights-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--gray-200);
+    }
+
+    .insight-item {
+      background: var(--white);
+      padding: var(--space-lg);
+      transition: background 0.3s ease;
+    }
+
+    .insight-item:hover {
+      background: var(--gray-100);
+    }
+
+    .insight-category {
+      font-family: var(--sans);
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: var(--space-sm);
+    }
+
+    .insight-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .insight-date {
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      font-weight: 400;
+      color: var(--gray-400);
+    }
+
+
+    /* ========================================================================
+       CTA / CONTACT
+       ======================================================================== */
+    .cta-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-headline {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: clamp(3rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .cta-headline em {
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .cta-subtext {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--gray-500);
+      max-width: 500px;
+      margin: 0 auto var(--space-lg);
+      line-height: 1.7;
+    }
+
+    .cta-button {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 1.25rem 3.5rem;
+      border: 1px solid var(--black);
+      background: var(--black);
+      color: var(--white);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .cta-button:hover {
+      background: transparent;
+      color: var(--black);
+    }
+
+    .cta-email {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1.125rem;
+      color: var(--gray-400);
+      margin-top: var(--space-lg);
+      transition: color 0.3s ease;
+    }
+
+    .cta-email:hover {
+      color: var(--black);
+    }
+
+
+    /* ========================================================================
+       FOOTER
+       ======================================================================== */
+    .footer {
+      padding: var(--space-xl) var(--space-lg) var(--space-lg);
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .footer-mark {
+      font-family: var(--serif);
+      font-weight: 200;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-copy {
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      color: var(--gray-400);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .footer-col-title {
+      font-family: var(--sans);
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: var(--space-xs);
+    }
+
+    .footer-col a {
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--gray-600);
+      transition: color 0.3s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--black);
+    }
+
+
+    /* ========================================================================
+       DIVIDER
+       ======================================================================== */
+    .divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+
+    /* ========================================================================
+       ANIMATIONS (Intersection Observer driven)
+       ======================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-stagger.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* ========================================================================
+       RESPONSIVE
+       ======================================================================== */
+    @media (max-width: 768px) {
+      .nav {
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: var(--space-xl) var(--space-md);
+      }
+
+      .hero {
+        padding: var(--space-2xl) var(--space-md) var(--space-xl);
+      }
+
+      .hero-title {
+        white-space: normal;
+        word-break: break-word;
+      }
+
+      .service-item {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .insights-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-lg);
+      }
+
+      .footer-right {
+        flex-direction: column;
+      }
+
+      .portfolio-title {
+        font-size: clamp(1.25rem, 5vw, 2rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: clamp(3.5rem, 16vw, 6rem);
+      }
+
+      .cta-headline {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====================================================================
+       NAVIGATION
+       ==================================================================== -->
+  <nav class="nav">
+    <a href="/" class="nav-logo"><span>Organically</span></a>
+    <ul class="nav-links">
+      <li><a href="/web-design/">Web Design</a></li>
+      <li><a href="/seo/">SEO</a></li>
+      <li><a href="/branding/">Branding</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about-us/">About</a></li>
+    </ul>
+    <a href="https://calendly.com/organically/30min" class="nav-cta">Schedule a Call</a>
+  </nav>
+
+
+  <!-- ====================================================================
+       HERO
+       ==================================================================== -->
+  <section class="hero">
+    <div class="hero-video-wrap">
+      <video autoplay loop muted playsinline>
+        <source src="/videos/theme video compressed.webm" type="video/webm">
+      </video>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-title reveal">Organically<span class="period">.</span></h1>
+      <p class="hero-subtitle reveal">Web Creative with Organic Potential</p>
+      <p class="hero-tagline reveal">Where stray ideas wander, take root, and quietly grow bold.</p>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       SERVICES
+       ==================================================================== -->
+  <section class="section">
+    <div class="services">
+      <div class="section-label reveal">
+        <span class="section-number">01</span> Services
+      </div>
+
+      <ul class="services-list">
+        <li class="service-item reveal-stagger">
+          <a href="/web-design/" class="service-name">Web Design</a>
+          <div class="service-detail">
+            <p class="service-description">Custom websites that convert visitors into customers. No templates. Every pixel intentional.</p>
+            <span class="service-arrow">
+              Explore
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="service-item reveal-stagger">
+          <a href="/seo/" class="service-name">SEO</a>
+          <div class="service-detail">
+            <p class="service-description">Organic search strategy that drives real traffic. Keywords, content, and technical optimization.</p>
+            <span class="service-arrow">
+              Explore
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="service-item reveal-stagger">
+          <a href="/branding/" class="service-name">Branding</a>
+          <div class="service-detail">
+            <p class="service-description">Visual identities that resonate. Logos, typography, and brand systems built from your vision.</p>
+            <span class="service-arrow">
+              Explore
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="service-item reveal-stagger">
+          <span class="service-name">Front-End Dev</span>
+          <div class="service-detail">
+            <p class="service-description">Responsive, performant interfaces with modern technologies. Speed and accessibility first.</p>
+            <span class="service-arrow">
+              Explore
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="service-item reveal-stagger">
+          <span class="service-name">Digital PR</span>
+          <div class="service-detail">
+            <p class="service-description">Strategic storytelling and outreach that amplifies your message across digital channels.</p>
+            <span class="service-arrow">
+              Explore
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       STATEMENT
+       ==================================================================== -->
+  <section class="section">
+    <div class="statement reveal">
+      <p class="statement-text">
+        Solo agency marketer delivering businesses with <em>personalized</em> and <em>powerful</em> websites that generate traffic.
+      </p>
+      <p class="statement-attribution">Pittsburgh, PA</p>
+    </div>
+  </section>
+
+
+  <div class="divider"></div>
+
+
+  <!-- ====================================================================
+       SOCIAL PROOF / STATS
+       ==================================================================== -->
+  <section class="section">
+    <div class="section-label reveal" style="max-width: 1200px; margin: 0 auto;">
+      <span class="section-number">02</span> Results
+    </div>
+    <div class="stats">
+      <div class="stat-item reveal-stagger">
+        <div class="stat-number">2.5M</div>
+        <div class="stat-label">Impressions Generated</div>
+      </div>
+      <div class="stat-item reveal-stagger">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Custom Built</div>
+      </div>
+      <div class="stat-item reveal-stagger">
+        <div class="stat-number">AI</div>
+        <div class="stat-label">Search Optimized</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       TESTIMONIAL
+       ==================================================================== -->
+  <section class="section">
+    <div class="testimonial reveal">
+      <blockquote class="testimonial-quote">
+        His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come.
+      </blockquote>
+      <div class="testimonial-source">
+        <span class="testimonial-name">IWC Cabinetry</span>
+        <span class="testimonial-role">Client</span>
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="divider"></div>
+
+
+  <!-- ====================================================================
+       PORTFOLIO
+       ==================================================================== -->
+  <section class="section">
+    <div class="portfolio">
+      <div class="section-label reveal">
+        <span class="section-number">03</span> Selected Work
+      </div>
+
+      <ul class="portfolio-list">
+        <li class="portfolio-item reveal-stagger">
+          <a href="#" class="portfolio-link">
+            <div class="portfolio-title-group">
+              <span class="portfolio-title">IWC Cabinetry</span>
+              <span class="portfolio-meta">Web Design &middot; Branding</span>
+            </div>
+            <span class="portfolio-arrow">&nearr;</span>
+          </a>
+        </li>
+        <li class="portfolio-item reveal-stagger">
+          <a href="#" class="portfolio-link">
+            <div class="portfolio-title-group">
+              <span class="portfolio-title">Landscaping & Lawncare</span>
+              <span class="portfolio-meta">SEO &middot; Web Design</span>
+            </div>
+            <span class="portfolio-arrow">&nearr;</span>
+          </a>
+        </li>
+        <li class="portfolio-item reveal-stagger">
+          <a href="#" class="portfolio-link">
+            <div class="portfolio-title-group">
+              <span class="portfolio-title">Local Dental Practice</span>
+              <span class="portfolio-meta">Local SEO &middot; Content</span>
+            </div>
+            <span class="portfolio-arrow">&nearr;</span>
+          </a>
+        </li>
+        <li class="portfolio-item reveal-stagger">
+          <a href="#" class="portfolio-link">
+            <div class="portfolio-title-group">
+              <span class="portfolio-title">Contractor Funnel</span>
+              <span class="portfolio-meta">Web Design &middot; SEO &middot; Development</span>
+            </div>
+            <span class="portfolio-arrow">&nearr;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       BLOG / INSIGHTS
+       ==================================================================== -->
+  <section class="section">
+    <div class="insights">
+      <div class="section-label reveal">
+        <span class="section-number">04</span> Insights
+      </div>
+
+      <ul class="insights-list">
+        <li class="insight-item reveal-stagger">
+          <a href="/what-is-seo/">
+            <span class="insight-category">Marketing</span>
+            <h3 class="insight-title">What is SEO?</h3>
+            <span class="insight-date">Updated April 2024</span>
+          </a>
+        </li>
+        <li class="insight-item reveal-stagger">
+          <a href="/webflow-launch-checklist/">
+            <span class="insight-category">Design</span>
+            <h3 class="insight-title">Webflow Launch Checklist</h3>
+            <span class="insight-date">September 2024</span>
+          </a>
+        </li>
+        <li class="insight-item reveal-stagger">
+          <a href="/branding-basics/">
+            <span class="insight-category">Branding</span>
+            <h3 class="insight-title">Basics of Branding: How to Build Your Own Brand</h3>
+            <span class="insight-date">June 2024</span>
+          </a>
+        </li>
+        <li class="insight-item reveal-stagger">
+          <a href="/webflow-vs-figma/">
+            <span class="insight-category">Design</span>
+            <h3 class="insight-title">Webflow vs. Figma</h3>
+            <span class="insight-date">July 2023</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <div class="divider"></div>
+
+
+  <!-- ====================================================================
+       CTA
+       ==================================================================== -->
+  <section class="section">
+    <div class="cta-section reveal">
+      <h2 class="cta-headline">Let's <em>grow</em><br>together.</h2>
+      <p class="cta-subtext">Whether you need a website, organic traffic, or a brand identity, it starts with a conversation. No pitch decks. Just real talk.</p>
+      <a href="https://calendly.com/organically/30min" class="cta-button">Schedule a Free Call</a>
+      <br>
+      <a href="mailto:ryan.organically@gmail.com" class="cta-email">ryan.organically@gmail.com</a>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       FOOTER
+       ==================================================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a href="/" class="footer-mark">Organically</a>
+        <span class="footer-copy">&copy; 2026 Organically SEO. All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <div class="footer-col">
+          <span class="footer-col-title">Agency</span>
+          <a href="/web-design/">Web Design</a>
+          <a href="/seo/">SEO</a>
+          <a href="/branding/">Branding</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Contact</span>
+          <a href="mailto:ryan.organically@gmail.com">Email</a>
+          <a href="https://twitter.com/organicallyseo">Twitter / X</a>
+          <a href="https://www.linkedin.com/in/ryan-scanlon31/">LinkedIn</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-col-title">Legal</span>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ====================================================================
+       INTERSECTION OBSERVER (Reveal animations)
+       ==================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const staggers = document.querySelectorAll('.reveal-stagger');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      reveals.forEach(el => observer.observe(el));
+
+      // Staggered reveals with delay
+      const staggerObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            // Find siblings for stagger delay
+            const parent = entry.target.parentElement;
+            const siblings = Array.from(parent.querySelectorAll('.reveal-stagger'));
+            const index = siblings.indexOf(entry.target);
+
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, index * 100);
+
+            staggerObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      staggers.forEach(el => staggerObserver.observe(el));
+    });
+  </script>
+
+</body>
+</html>

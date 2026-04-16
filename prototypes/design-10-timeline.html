@@ -1,0 +1,1458 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Organically | Design 10 — Timeline / Process-Focused 2026</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+    window.fontsLoaded = false;
+    WebFont.load({
+      google: { families: ["Vollkorn:400,400italic,700,700italic","Lato:100,300,400,700,900","Oswald:200,300,400,500,600,700"] },
+      active: function() { window.fontsLoaded = true; document.dispatchEvent(new Event('fontsReady')); }
+    });
+  </script>
+  <link href="/images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+
+  <!-- ============================================================
+       DESIGN 10: TIMELINE / PROCESS-FOCUSED 2026 HOMEPAGE
+       ============================================================
+       LOC estimate: ~1450 lines (HTML ~450, CSS ~650, JS ~350)
+
+       RESPONSIVE STRATEGY:
+       - Desktop (992px+): Vertical timeline with alternating left/right
+         nodes, centered spine line, branch indicators
+       - Tablet (768-991px): Vertical timeline shifted left, all nodes
+         on right side, narrower cards
+       - Mobile (<768px): Horizontal scroll timeline; each node is a
+         snap-scrollable card in a horizontal track. The vertical spine
+         becomes a horizontal line. Swipe/drag to navigate.
+
+       STRUCTURE:
+       body.horizontal-body (existing 3-col layout)
+         .side-menu-panel (existing)
+         .body-section
+           .universal-menu (existing)
+           .tl-hero (origin node with Steel Building)
+           .tl-container (the timeline itself)
+             .tl-spine (the center line, vertical desktop / horizontal mobile)
+             .tl-node * N (each milestone/service/project)
+               .tl-node-marker (dot on spine)
+               .tl-node-branch-indicator (colored bar for service track)
+               .tl-node-card
+                 .tl-node-date
+                 .tl-node-content (image, title, description)
+           .tl-cta (final "next step" with Calendly)
+           footer
+         .calendar-module (existing)
+       ============================================================ -->
+
+<style>
+/* ===========================================================
+   DESIGN 10: TIMELINE CSS
+   =========================================================== */
+
+/* --- Color tokens for service track branches --- */
+.tl-branch--web     { --tl-branch: var(--steeler, #ffb612); }
+.tl-branch--seo     { --tl-branch: var(--orga, #7ec700); }
+.tl-branch--brand   { --tl-branch: var(--blue-2, #009fb7); }
+.tl-branch--milestone { --tl-branch: var(--red-1, #e83151); }
+
+/* --- Hero origin node --- */
+.tl-hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5vw 5vw 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-top: 10vh;
+}
+
+.tl-hero-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+.tl-hero-text .h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.tl-hero-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--black-75);
+  margin: 0 0 8px;
+}
+
+.tl-hero-year {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orga);
+  margin: 0;
+}
+
+.tl-hero-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  opacity: 0.8;
+  margin-top: auto;
+}
+
+/* --- Spine intro line connecting hero to timeline --- */
+.tl-spine-intro {
+  width: 2px;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--black-40));
+  margin: 0 auto;
+}
+
+/* --- Timeline container --- */
+.tl-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5vw 80px;
+  box-sizing: border-box;
+}
+
+/* --- Spine (vertical center line on desktop) --- */
+.tl-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--black-40);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* --- Section dividers within the timeline --- */
+.tl-section-label {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 60px 0 40px;
+  clear: both;
+}
+
+.tl-section-label-text {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--black-75);
+  background: var(--e2, #e2e2e2);
+  padding: 8px 24px;
+  border: 1px solid var(--black-40);
+  border-radius: 100px;
+}
+
+/* --- Individual timeline node --- */
+.tl-node {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 80px;
+  z-index: 1;
+}
+
+/* Alternating sides: even left, odd right */
+.tl-node:nth-child(even) {
+  flex-direction: row;
+}
+.tl-node:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+/* --- Node marker (the dot on the spine) --- */
+.tl-node-marker {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--tl-branch, var(--orga));
+  border: 3px solid var(--e2, #e2e2e2);
+  transform: translateX(-50%);
+  z-index: 3;
+  box-shadow: 0 0 0 2px var(--tl-branch, var(--orga));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tl-node:hover .tl-node-marker {
+  transform: translateX(-50%) scale(1.3);
+  box-shadow: 0 0 0 4px var(--tl-branch, var(--orga)), 0 0 20px color-mix(in srgb, var(--tl-branch, var(--orga)) 40%, transparent);
+}
+
+/* --- Branch indicator (colored bar alongside card) --- */
+.tl-node-branch {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  width: 40px;
+  height: 2px;
+  background: var(--tl-branch, var(--orga));
+  z-index: 2;
+}
+
+.tl-node:nth-child(even) .tl-node-branch {
+  transform: translateX(9px);
+}
+.tl-node:nth-child(odd) .tl-node-branch {
+  transform: translateX(calc(-100% - 9px));
+}
+
+/* --- Node card (the actual content) --- */
+.tl-node-card {
+  width: calc(50% - 50px);
+  background: var(--e2, #e2e2e2);
+  border: 1px solid var(--black-40);
+  border-top: 3px solid var(--tl-branch, var(--orga));
+  padding: 28px;
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease;
+}
+
+.tl-node:hover .tl-node-card {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+/* Even nodes: card on left, so push right for centering */
+.tl-node:nth-child(even) .tl-node-card {
+  margin-right: auto;
+}
+/* Odd nodes: card on right */
+.tl-node:nth-child(odd) .tl-node-card {
+  margin-left: auto;
+}
+
+/* --- Node date badge --- */
+.tl-node-date {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--tl-branch, var(--orga));
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tl-node-date-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tl-branch, var(--orga));
+  flex-shrink: 0;
+}
+
+/* --- Node image --- */
+.tl-node-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 16px;
+  border: 1px solid var(--black-40);
+  filter: grayscale(20%);
+  transition: filter 0.4s ease;
+}
+
+.tl-node:hover .tl-node-image {
+  filter: grayscale(0%);
+}
+
+/* --- Node icon (for service steps without images) --- */
+.tl-node-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--tl-branch, var(--orga)) 12%, transparent);
+  font-size: 1.5rem;
+}
+
+/* --- Node text --- */
+.tl-node-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--black);
+  margin: 0 0 8px;
+}
+
+.tl-node-desc {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--black-75);
+  margin: 0;
+}
+
+.tl-node-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--tl-branch, var(--orga));
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: gap 0.25s ease;
+}
+
+.tl-node-link:hover {
+  gap: 12px;
+}
+
+.tl-node-link-arrow {
+  transition: transform 0.25s ease;
+}
+
+.tl-node-link:hover .tl-node-link-arrow {
+  transform: translateX(4px);
+}
+
+/* --- Track legend --- */
+.tl-legend {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 24px 0 48px;
+  flex-wrap: wrap;
+}
+
+.tl-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black-75);
+}
+
+.tl-legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* --- CTA final node --- */
+.tl-cta {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 5vw;
+}
+
+.tl-cta-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--orga);
+  margin-bottom: 16px;
+}
+
+.tl-cta-heading {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--black);
+  margin: 0 0 16px;
+}
+
+.tl-cta-desc {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--black-75);
+  margin: 0 0 32px;
+}
+
+.tl-cta-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--orga);
+  margin: 0 auto 24px;
+  position: relative;
+  animation: tl-pulse 2s ease-in-out infinite;
+}
+
+@keyframes tl-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--orga) 40%, transparent); }
+  50% { box-shadow: 0 0 0 16px transparent; }
+}
+
+/* --- "Pick your starting point" section --- */
+.tl-starting-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0 5vw 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tl-starting-card {
+  border: 1px solid var(--black-40);
+  border-top: 3px solid var(--tl-branch, var(--orga));
+  padding: 28px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--e2, #e2e2e2);
+}
+
+.tl-starting-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+}
+
+.tl-starting-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  background: color-mix(in srgb, var(--tl-branch, var(--orga)) 15%, transparent);
+}
+
+.tl-starting-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.tl-starting-card-desc {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--black-75);
+  margin: 0;
+}
+
+/* ===========================================================
+   TABLET: 768px - 991px
+   Timeline shifts left, all cards on right
+   =========================================================== */
+@media (max-width: 991px) {
+  .tl-spine {
+    left: 32px;
+  }
+
+  .tl-node {
+    flex-direction: row;
+  }
+  .tl-node:nth-child(odd) {
+    flex-direction: row;
+  }
+
+  .tl-node-marker {
+    left: 32px;
+  }
+
+  .tl-node-branch {
+    left: 32px;
+    transform: translateX(9px);
+  }
+  .tl-node:nth-child(odd) .tl-node-branch {
+    transform: translateX(9px);
+  }
+
+  .tl-node-card {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+    margin-right: 0;
+  }
+  .tl-node:nth-child(odd) .tl-node-card {
+    margin-left: 80px;
+    margin-right: 0;
+  }
+
+  .tl-starting-points {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+}
+
+/* ===========================================================
+   MOBILE: < 768px
+   Horizontal scrolling timeline
+   =========================================================== */
+@media (max-width: 767px) {
+  .tl-hero {
+    min-height: 60vh;
+    padding: 2.5vw 2.5vw 0;
+    margin-top: 5vh;
+  }
+
+  .tl-spine-intro {
+    height: 60px;
+  }
+
+  /* Hide vertical spine on mobile */
+  .tl-spine {
+    display: none;
+  }
+
+  /* Container becomes horizontal scroll */
+  .tl-container {
+    padding: 0;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  /* Mobile spine (horizontal line) */
+  .tl-container::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--black-40);
+    z-index: 0;
+  }
+
+  /* Section labels stack inline */
+  .tl-section-label {
+    padding: 0 16px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+
+  /* Horizontal scroll track for nodes */
+  .tl-track {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 40px 5vw 40px;
+    scroll-padding-left: 5vw;
+  }
+
+  .tl-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tl-node {
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 80vw;
+    max-width: 320px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    scroll-snap-align: start;
+  }
+  .tl-node:nth-child(odd) {
+    flex-direction: column;
+  }
+
+  .tl-node-marker {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0 auto 16px;
+  }
+
+  .tl-node:hover .tl-node-marker {
+    transform: scale(1.3);
+  }
+
+  .tl-node-branch {
+    display: none;
+  }
+
+  .tl-node-card {
+    width: 100%;
+    margin: 0;
+  }
+  .tl-node:nth-child(odd) .tl-node-card {
+    margin: 0;
+  }
+  .tl-node:nth-child(even) .tl-node-card {
+    margin: 0;
+  }
+
+  .tl-node-image {
+    height: 140px;
+  }
+
+  .tl-starting-points {
+    grid-template-columns: 1fr;
+    padding: 0 2.5vw 60px;
+  }
+
+  .tl-legend {
+    gap: 16px;
+    padding: 16px 2.5vw 32px;
+  }
+
+  .tl-cta {
+    padding: 60px 2.5vw;
+  }
+}
+
+/* ===========================================================
+   ANIMATION CLASSES (applied via JS IntersectionObserver)
+   =========================================================== */
+.tl-node-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.tl-node-card.tl-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Stagger: even cards come from left, odd from right on desktop */
+@media (min-width: 768px) {
+  .tl-node:nth-child(even) .tl-node-card {
+    transform: translateX(-30px) translateY(0);
+    opacity: 0;
+  }
+  .tl-node:nth-child(odd) .tl-node-card {
+    transform: translateX(30px) translateY(0);
+    opacity: 0;
+  }
+  .tl-node:nth-child(even) .tl-node-card.tl-visible {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  .tl-node:nth-child(odd) .tl-node-card.tl-visible {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover on card overrides after visible */
+.tl-node:hover .tl-node-card.tl-visible {
+  transform: translateY(-4px);
+}
+
+/* Spine grow animation */
+.tl-spine {
+  transform-origin: top center;
+  transform: translateX(-50%) scaleY(0);
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.tl-spine.tl-spine-visible {
+  transform: translateX(-50%) scaleY(1);
+}
+
+/* --- Dark mode support --- */
+.dark-mode .tl-node-card {
+  background: var(--rich-black, #0a0a0a);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode .tl-section-label-text {
+  background: var(--rich-black, #0a0a0a);
+  border-color: rgba(255,255,255,0.15);
+  color: var(--white-60);
+}
+
+.dark-mode .tl-node-title {
+  color: var(--white, #fff);
+}
+
+.dark-mode .tl-node-desc {
+  color: var(--white-60);
+}
+
+.dark-mode .tl-cta-heading {
+  color: var(--white, #fff);
+}
+
+.dark-mode .tl-starting-card {
+  background: var(--rich-black, #0a0a0a);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode .tl-spine {
+  background: rgba(255,255,255,0.15);
+}
+
+.dark-mode .tl-spine-intro {
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15));
+}
+
+.dark-mode .tl-node-marker {
+  border-color: var(--rich-black, #0a0a0a);
+}
+</style>
+</head>
+
+<body class="horizontal-body">
+  <!-- Left Menu Panel -->
+  <div class="side-menu-panel">
+    <div class="side-panel">
+      <div class="menu-header">
+        <p class="menu-tagline">Redefining agency marketing -- one organic idea at a time.</p>
+      </div>
+      <nav class="menu-nav">
+        <a href="/" class="menu-nav-link">Home</a>
+        <a href="/web-design/" class="menu-nav-link">Web design</a>
+        <a href="/seo/" class="menu-nav-link">SEO</a>
+        <a href="/branding/" class="menu-nav-link">Creative</a>
+        <a href="/blog/" class="menu-nav-link">Blog</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Center Body Section -->
+  <div class="body-section">
+    <div class="universal-menu">
+      <universal-menu></universal-menu>
+      <div data-w-id="537f5dda-a0ec-0ec7-c578-d41b05873930" class="light-dark-mode-wrapper">
+        <div class="dark-mode-button"></div>
+        <img src="/images/brightness-2.png" loading="lazy" alt="" class="light-mode-icon">
+        <img src="/images/moon-1.png" loading="lazy" alt="" class="dark-mode-icon">
+      </div>
+      <a href="#" class="button-1 w-button" id="calendar-toggle">Schedule a call</a>
+    </div>
+
+    <!-- ========================================
+         HERO: ORIGIN NODE - "Founded 2019"
+         ======================================== -->
+    <section class="tl-hero">
+      <div class="tl-hero-text">
+        <p class="tl-hero-year">Est. 2019 &mdash; Pittsburgh, PA</p>
+        <h1 class="h1">Organically<span class="green-span h1-period">.</span></h1>
+        <p class="tl-hero-subtitle">A story of ideas taking root and growing bold. From a one-person studio in the Steel City to a full-service digital partner -- here is how we got here, and where we are going next.</p>
+      </div>
+      <img
+        src="/images/Steel-Building.png"
+        loading="eager"
+        sizes="100vw"
+        srcset="/images/Steel-Building-p-500.png 500w, /images/Steel-Building-p-800.png 800w, /images/Steel-Building-p-1080.png 1080w, /images/Steel-Building-p-1600.png 1600w, /images/Steel-Building.png 2048w"
+        alt="Pittsburgh Steel Building"
+        class="tl-hero-image">
+    </section>
+
+    <!-- Spine connector from hero to timeline -->
+    <div class="tl-spine-intro"></div>
+
+    <!-- ========================================
+         TRACK LEGEND
+         ======================================== -->
+    <div class="tl-legend">
+      <div class="tl-legend-item">
+        <span class="tl-legend-swatch" style="background: var(--red-1);"></span> Milestones
+      </div>
+      <div class="tl-legend-item">
+        <span class="tl-legend-swatch" style="background: var(--steeler);"></span> Web Design
+      </div>
+      <div class="tl-legend-item">
+        <span class="tl-legend-swatch" style="background: var(--orga);"></span> SEO
+      </div>
+      <div class="tl-legend-item">
+        <span class="tl-legend-swatch" style="background: var(--blue-2);"></span> Branding
+      </div>
+    </div>
+
+    <!-- ========================================
+         THE TIMELINE
+         ======================================== -->
+    <div class="tl-container">
+      <div class="tl-spine"></div>
+
+      <!-- Desktop nodes (shown in normal flow) -->
+      <!-- Mobile: wrapped in .tl-track for horizontal scroll -->
+      <div class="tl-track">
+
+        <!-- ===================== MILESTONES ===================== -->
+        <div class="tl-section-label">
+          <span class="tl-section-label-text">Our Journey</span>
+        </div>
+
+        <!-- NODE 1: 2019 - Founded -->
+        <div class="tl-node tl-branch--milestone" id="tl-2019">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> 2019 &mdash; The Beginning
+            </div>
+            <img src="/images/Steel-Building-p-800.png" alt="Pittsburgh skyline" class="tl-node-image" loading="lazy">
+            <h3 class="tl-node-title">Founded in Pittsburgh</h3>
+            <p class="tl-node-desc">Born from a passion for organic growth, Organically launched as a solo digital studio in the Steel City. One laptop, one vision: help businesses grow without burning budgets on ads.</p>
+          </div>
+        </div>
+
+        <!-- NODE 2: 2022 - Rebrand -->
+        <div class="tl-node tl-branch--milestone" id="tl-2022">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> 2022 &mdash; Rebrand
+            </div>
+            <img src="/images/Organically-Logo-green-p-800.png" alt="Organically rebrand" class="tl-node-image" loading="lazy" style="object-fit: contain; background: #fff; padding: 20px;">
+            <h3 class="tl-node-title">The Organically Rebrand</h3>
+            <p class="tl-node-desc">A complete visual overhaul. New logo, new site, new energy. The rebrand reflected a deeper commitment to creative quality and positioned Organically as a full-service partner rather than just a freelancer.</p>
+          </div>
+        </div>
+
+        <!-- NODE 3: 2024 - AI Focus -->
+        <div class="tl-node tl-branch--milestone" id="tl-2024">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> 2024 &mdash; AI Integration
+            </div>
+            <img src="/images/AI-HERO-p-800.jpg" alt="AI integration" class="tl-node-image" loading="lazy">
+            <h3 class="tl-node-title">Embracing AI-Powered Growth</h3>
+            <p class="tl-node-desc">The landscape shifted. We adapted. AI-optimized content strategies, automated technical audits, and generative design exploration became part of our toolkit -- amplifying what human creativity starts.</p>
+          </div>
+        </div>
+
+        <!-- NODE 4: 2026 - Vision -->
+        <div class="tl-node tl-branch--milestone" id="tl-2026">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> 2026 &mdash; The Vision
+            </div>
+            <div class="tl-node-icon" style="background: color-mix(in srgb, var(--red-1) 12%, transparent);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--red-1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </div>
+            <h3 class="tl-node-title">Where We Are Going</h3>
+            <p class="tl-node-desc">Full-stack digital partnerships. GEO-ready content. White-label services for agencies. Every tool and tactic, unified under one roof -- still with the personal touch that started it all in 2019.</p>
+          </div>
+        </div>
+
+        <!-- ============== SERVICES AS PROCESS STEPS ============== -->
+        <div class="tl-section-label">
+          <span class="tl-section-label-text">Steps In Our Process</span>
+        </div>
+
+        <!-- SERVICE NODE: Step 1 - Branding (Discovery) -->
+        <div class="tl-node tl-branch--brand" id="tl-step-brand">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> Step 1 &mdash; Identity
+            </div>
+            <div class="tl-node-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="tl-node-title">Branding &amp; Identity</h3>
+            <p class="tl-node-desc">Every journey starts with who you are. We craft logos, color systems, typography, and brand guidelines that capture your vision and make a lasting first impression.</p>
+            <a href="/branding/" class="tl-node-link">Explore branding <span class="tl-node-link-arrow">&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- SERVICE NODE: Step 2 - Web Design -->
+        <div class="tl-node tl-branch--web" id="tl-step-web">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> Step 2 &mdash; Build
+            </div>
+            <div class="tl-node-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--steeler)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="tl-node-title">Custom Web Design &amp; Development</h3>
+            <p class="tl-node-desc">No templates. Custom-coded, responsive websites designed to convert visitors into customers. Performance-first builds with animations, interactions, and your brand baked into every pixel.</p>
+            <a href="/web-design/" class="tl-node-link">Explore web design <span class="tl-node-link-arrow">&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- SERVICE NODE: Step 3 - SEO -->
+        <div class="tl-node tl-branch--seo" id="tl-step-seo">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> Step 3 &mdash; Grow
+            </div>
+            <div class="tl-node-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--orga)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <h3 class="tl-node-title">SEO &amp; Organic Traffic</h3>
+            <p class="tl-node-desc">Keywords, content strategy, technical audits, and link building. We position your pages to answer the searches your customers are making -- and keep you ranking as algorithms evolve.</p>
+            <a href="/seo/" class="tl-node-link">Explore SEO <span class="tl-node-link-arrow">&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- SERVICE NODE: Step 4 - Ongoing / AI Content -->
+        <div class="tl-node tl-branch--seo" id="tl-step-ongoing">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> Step 4 &mdash; Evolve
+            </div>
+            <div class="tl-node-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--orga)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6"/><path d="M2.5 22v-6h6"/><path d="M2.5 16A10 10 0 0 1 18.4 4.6"/><path d="M21.5 8A10 10 0 0 1 5.6 19.4"/></svg>
+            </div>
+            <h3 class="tl-node-title">Ongoing Optimization &amp; AI Content</h3>
+            <p class="tl-node-desc">The web doesn't stand still and neither do we. Continuous updates, AI-optimized content, performance monitoring, and strategic pivots keep you ahead of the competition month over month.</p>
+            <a href="/seo/" class="tl-node-link">Learn more <span class="tl-node-link-arrow">&rarr;</span></a>
+          </div>
+        </div>
+
+        <!-- ============== PORTFOLIO CHRONOLOGICAL ============== -->
+        <div class="tl-section-label">
+          <span class="tl-section-label-text">Selected Work</span>
+        </div>
+
+        <!-- PORTFOLIO NODE: IWC Cabinetry -->
+        <div class="tl-node tl-branch--web" id="tl-project-iwc">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> 2023 &mdash; Client Project
+            </div>
+            <h3 class="tl-node-title">IWC Cabinetry</h3>
+            <p class="tl-node-desc">"His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come."</p>
+            <p class="tl-node-desc" style="font-style: italic; margin-top: 8px; font-size: 0.8125rem;">-- IWC Cabinetry, Web Design &amp; SEO</p>
+          </div>
+        </div>
+
+        <!-- PORTFOLIO NODE: 2.5M Impressions -->
+        <div class="tl-node tl-branch--seo" id="tl-project-impressions">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> 2024 &mdash; Milestone
+            </div>
+            <h3 class="tl-node-title">2.5 Million Impressions</h3>
+            <p class="tl-node-desc">A local business hit 2.5 million search impressions through strategic content marketing, keyword targeting, and technical SEO improvements -- all without paid advertising.</p>
+          </div>
+        </div>
+
+        <!-- PORTFOLIO NODE: AI Content Strategy -->
+        <div class="tl-node tl-branch--brand" id="tl-project-ai-content">
+          <div class="tl-node-marker"></div>
+          <div class="tl-node-branch"></div>
+          <div class="tl-node-card">
+            <div class="tl-node-date">
+              <span class="tl-node-date-dot"></span> 2025 &mdash; Innovation
+            </div>
+            <h3 class="tl-node-title">GEO-Ready Content Pipeline</h3>
+            <p class="tl-node-desc">Developed a content framework optimized for both traditional search engines and generative AI platforms. Future-proofing client visibility across every surface where answers appear.</p>
+          </div>
+        </div>
+
+      </div><!-- /.tl-track -->
+    </div><!-- /.tl-container -->
+
+    <!-- ========================================
+         "PICK YOUR STARTING POINT ON OUR JOURNEY"
+         ======================================== -->
+    <div style="text-align: center; padding: 0 5vw;">
+      <h3 class="tl-cta-heading" style="margin-bottom: 8px;">Pick Your Starting Point on Our Journey</h3>
+      <p class="tl-cta-desc" style="max-width: 500px; margin: 0 auto 40px;">Every business is at a different stage. Jump into the timeline where it makes sense for you.</p>
+    </div>
+
+    <div class="tl-starting-points">
+      <a href="/branding/" class="tl-starting-card tl-branch--brand">
+        <div class="tl-starting-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4 class="tl-starting-card-title">I Need a Brand</h4>
+        <p class="tl-starting-card-desc">Logo, colors, typography, and a visual identity that makes you memorable.</p>
+      </a>
+
+      <a href="/web-design/" class="tl-starting-card tl-branch--web">
+        <div class="tl-starting-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--steeler)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h4 class="tl-starting-card-title">I Need a Website</h4>
+        <p class="tl-starting-card-desc">Custom web design and development that converts visitors into paying customers.</p>
+      </a>
+
+      <a href="/seo/" class="tl-starting-card tl-branch--seo">
+        <div class="tl-starting-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--orga)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4 class="tl-starting-card-title">I Need Traffic</h4>
+        <p class="tl-starting-card-desc">SEO, content strategy, and organic growth to get your business found online.</p>
+      </a>
+    </div>
+
+    <!-- ========================================
+         CTA: CALENDLY "NEXT STEP" NODE
+         ======================================== -->
+    <div class="tl-cta">
+      <div class="tl-cta-marker"></div>
+      <p class="tl-cta-label">The Next Step</p>
+      <h3 class="tl-cta-heading">Write the Next Chapter Together</h3>
+      <p class="tl-cta-desc">Your story intersects with ours right here. Pick a time, and let's talk about where your business goes next.</p>
+      <a href="#" class="button-1 w-button calendar-toggle-btn">Schedule a Call</a>
+    </div>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <div id="Footer" class="footer">
+      <div class="footer-typemark-div">
+        <a href="/" aria-current="page" class="link-block w-inline-block w--current">
+          <div class="footer-typemark">Organically</div>
+        </a>
+        <div class="footer-social-wrapper">
+          <a href="https://twitter.com/organicallyseo" class="footer-social-link w-inline-block">
+            <img src="/images/X-black.png" loading="lazy" width="28" alt="" class="footer-social-image light">
+          </a>
+          <a href="https://www.linkedin.com/in/ryan-scanlon31/" class="footer-social-link w-inline-block">
+            <img src="/images/LinkedIn-Black.png" loading="lazy" width="28" alt="" class="footer-social-image light">
+          </a>
+        </div>
+        <div class="copyright-bar">Copyright 2026 Organically SEO. All rights reserved.</div>
+      </div>
+      <div class="footer-wrapper-1">
+        <div class="footer-div">
+          <div class="footer-subheading">Agency</div>
+          <a href="/seo/" class="footer-text">SEO</a>
+          <a href="/web-design/" class="footer-text">Web Design</a>
+          <a href="/blog/" class="footer-text">Blog</a>
+        </div>
+        <div class="footer-div">
+          <div class="footer-subheading">Contact</div>
+          <div class="footer-text">ryan.organically@gmail.com</div>
+        </div>
+        <div class="footer-div">
+          <div class="footer-subheading">Boring</div>
+          <a href="/privacy-policy/" class="footer-text">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.body-section -->
+
+  <!-- Right Calendar Panel -->
+  <div class="calendar-module">
+    <div class="calendar-panel-content">
+      <div class="calendar-header">
+        <h3 class="calendar-title">Let's Connect</h3>
+        <p class="calendar-subtitle">Pick a time that works for you</p>
+      </div>
+      <div class="calendar-embed-wrapper">
+        <iframe
+          src="https://calendly.com/organically/30min?embed_domain=organicallyseo.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7ec700&hide_event_type_details=1"
+          width="100%"
+          height="600"
+          frameborder="0"
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="calendar-review">
+        <p class="review-quote">"Ryan was an absolute beauty to work with -- thoughtful, creative, and genuinely invested in making our vision come to life."</p>
+        <p class="review-author">-- Sarah M., Founder</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================================================
+       SCRIPTS
+       =========================================================== -->
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b051031253bad4ba698d38" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/SplitText.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/InertiaPlugin.min.js"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/Draggable.min.js"></script>
+  <script>gsap.registerPlugin(SplitText, ScrollTrigger, InertiaPlugin, Draggable);</script>
+  <script src="/components/universal-menu.js"></script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ============================================================
+     1. SPINE GROW-IN ANIMATION
+     ============================================================ */
+  const spine = document.querySelector('.tl-spine');
+  if (spine) {
+    const spineObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          spine.classList.add('tl-spine-visible');
+          spineObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    spineObs.observe(spine);
+  }
+
+  /* ============================================================
+     2. NODE REVEAL ANIMATIONS (IntersectionObserver)
+     ============================================================ */
+  const cards = document.querySelectorAll('.tl-node-card');
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Stagger delay based on position in viewport
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => {
+          entry.target.classList.add('tl-visible');
+        }, delay);
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  cards.forEach((card, i) => {
+    card.dataset.delay = (i % 3) * 100; // stagger within viewport groups
+    cardObserver.observe(card);
+  });
+
+  /* ============================================================
+     3. MOBILE: HORIZONTAL SCROLL SETUP
+     Wrap .tl-track children for horizontal behavior
+     ============================================================ */
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
+  // On mobile, .tl-track already has CSS flex + overflow-x: auto
+  // Add GSAP Draggable for smooth swiping
+  let mobileDraggable = null;
+
+  function initMobileDrag() {
+    const track = document.querySelector('.tl-track');
+    if (!track || !isMobile()) return;
+
+    // On mobile, we use native scroll-snap for simplicity
+    // but add draggable for inertia feel if GSAP Draggable is available
+    if (typeof Draggable !== 'undefined' && typeof InertiaPlugin !== 'undefined') {
+      // Use native scrolling instead of GSAP Draggable on mobile
+      // The CSS scroll-snap handles the experience well
+    }
+  }
+
+  function destroyMobileDrag() {
+    if (mobileDraggable) {
+      mobileDraggable.kill();
+      mobileDraggable = null;
+    }
+  }
+
+  // Initialize
+  initMobileDrag();
+
+  // Re-check on resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (isMobile()) {
+        initMobileDrag();
+      } else {
+        destroyMobileDrag();
+      }
+    }, 200);
+  });
+
+  /* ============================================================
+     4. HERO ANIMATIONS (uses GSAP for consistency with main site)
+     ============================================================ */
+  function initHeroAnimations() {
+    const heroText = document.querySelector('.tl-hero-text');
+    const heroImage = document.querySelector('.tl-hero-image');
+    const heroYear = document.querySelector('.tl-hero-year');
+    const heroH1 = document.querySelector('.tl-hero .h1');
+    const heroSubtitle = document.querySelector('.tl-hero-subtitle');
+
+    if (!heroText) return;
+
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    // Set initial states
+    gsap.set([heroYear, heroH1, heroSubtitle], { autoAlpha: 0, y: 30 });
+    if (heroImage) gsap.set(heroImage, { autoAlpha: 0, yPercent: 20 });
+
+    // Sequence
+    tl.to(heroYear, { autoAlpha: 1, y: 0, duration: 0.6 }, 0.2)
+      .to(heroH1, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.4)
+      .to(heroSubtitle, { autoAlpha: 1, y: 0, duration: 0.7 }, 0.7);
+
+    if (heroImage) {
+      tl.to(heroImage, { autoAlpha: 0.8, yPercent: 0, duration: 1 }, 0.9);
+    }
+  }
+
+  // Wait for fonts
+  if (window.fontsLoaded) {
+    initHeroAnimations();
+  } else {
+    document.addEventListener('fontsReady', initHeroAnimations);
+  }
+
+  /* ============================================================
+     5. SECTION LABEL ANIMATIONS
+     ============================================================ */
+  const sectionLabels = document.querySelectorAll('.tl-section-label');
+  sectionLabels.forEach(label => {
+    gsap.from(label.querySelector('.tl-section-label-text'), {
+      autoAlpha: 0,
+      scale: 0.9,
+      duration: 0.5,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: label,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+        once: true
+      }
+    });
+  });
+
+  /* ============================================================
+     6. CTA MARKER ANIMATION
+     ============================================================ */
+  const ctaMarker = document.querySelector('.tl-cta-marker');
+  if (ctaMarker) {
+    gsap.from(ctaMarker, {
+      scale: 0,
+      duration: 0.6,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: ctaMarker,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+        once: true
+      }
+    });
+  }
+
+  /* ============================================================
+     7. STARTING POINT CARDS STAGGER
+     ============================================================ */
+  const startingCards = document.querySelectorAll('.tl-starting-card');
+  if (startingCards.length > 0) {
+    gsap.from(startingCards, {
+      autoAlpha: 0,
+      y: 40,
+      stagger: 0.12,
+      duration: 0.6,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: startingCards[0].parentElement,
+        start: 'top 75%',
+        toggleActions: 'play none none none',
+        once: true
+      }
+    });
+  }
+
+  /* ============================================================
+     8. FOOTER TYPEMARK SPLIT-TEXT
+     ============================================================ */
+  function initFooterTypemark() {
+    const typemark = document.querySelector('.footer-typemark');
+    if (!typemark || typeof SplitText === 'undefined') return;
+
+    const split = new SplitText(typemark, { type: "chars" });
+    gsap.set(split.chars, { yPercent: -200, opacity: 0 });
+    gsap.to(split.chars, {
+      yPercent: 0,
+      opacity: 1,
+      stagger: 0.02,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: typemark,
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+      }
+    });
+  }
+
+  if (window.fontsLoaded) {
+    initFooterTypemark();
+  } else {
+    document.addEventListener('fontsReady', initFooterTypemark);
+  }
+
+});
+</script>
+
+<!-- Panel Toggle Script (reused from main site) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof gsap === 'undefined') return;
+
+  const calendarToggle = document.getElementById('calendar-toggle');
+  const calendarToggleBtns = document.querySelectorAll('.calendar-toggle-btn');
+  const calendarContent = document.querySelector('.calendar-panel-content');
+  const bodySection = document.querySelector('.body-section');
+  let isCalendarOpen = false;
+
+  gsap.set(bodySection, { x: 0 });
+
+  const openCalendar = () => {
+    if (isCalendarOpen) return;
+    isCalendarOpen = true;
+    const slideDistance = window.innerWidth <= 767 ? '-75vw' : '-15vw';
+    gsap.to(calendarContent, { autoAlpha: 1, duration: 0.6, ease: 'expo.out' });
+    gsap.to(bodySection, { x: slideDistance, duration: 0.6, ease: 'expo.out' });
+  };
+
+  const closeCalendar = () => {
+    if (!isCalendarOpen) return;
+    isCalendarOpen = false;
+    gsap.to(calendarContent, { autoAlpha: 0, duration: 0.6, ease: 'expo.out' });
+    gsap.to(bodySection, { x: 0, duration: 0.6, ease: 'expo.out' });
+  };
+
+  if (calendarToggle) {
+    calendarToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      isCalendarOpen ? closeCalendar() : openCalendar();
+    });
+  }
+
+  calendarToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      isCalendarOpen ? closeCalendar() : openCalendar();
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    const isToggle = calendarToggle && calendarToggle.contains(e.target);
+    const isOther = Array.from(calendarToggleBtns).some(btn => btn.contains(e.target));
+    if (isCalendarOpen && !calendarContent.contains(e.target) && !isToggle && !isOther) {
+      closeCalendar();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isCalendarOpen) closeCalendar();
+  });
+});
+</script>
+
+<!-- Side panel + body layout styles (reused from main site) -->
+<style>
+  .side-menu-panel {
+    position: fixed; top: 0; left: 0; width: 20vw; height: 100vh; z-index: 1;
+  }
+  .side-panel {
+    width: 100%; height: 100%; margin: 0; padding: 0 0 5vh 0;
+    background: var(--e2); display: flex; flex-direction: column;
+    justify-content: space-between; opacity: 0; visibility: hidden; box-sizing: border-box;
+  }
+  .menu-header {
+    height: 10vh; padding: 20px; display: flex; align-items: center;
+    border-bottom: 1px solid var(--black-40); box-sizing: border-box;
+  }
+  .menu-tagline { margin: 0; font-size: 14px; line-height: 1.4; opacity: 0.8; font-style: italic; }
+  .menu-nav { display: flex; flex-direction: column; gap: 0; padding: 0; margin: 0; }
+  .menu-nav-link { margin: 20px 0; padding: 0 20px; }
+
+  .body-section {
+    width: 90vw; margin: 0; padding: 0; position: relative; z-index: 10;
+  }
+  .universal-menu {
+    width: 100%; margin: 0; padding: 5vw; box-sizing: border-box; position: sticky;
+  }
+
+  .calendar-module {
+    position: fixed; top: 0; right: 0; width: 15vw; height: 100vh; z-index: 1;
+  }
+  .calendar-panel-content {
+    width: 100%; height: auto; margin: 0; padding: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    background: var(--e2); opacity: 0; visibility: hidden; box-sizing: border-box;
+    border-top: 1px solid var(--black-40); border-bottom: 1px solid var(--black-40);
+  }
+  .calendar-header { padding: 30px 30px 20px; border-bottom: 1px solid var(--black-40); box-sizing: border-box; }
+  .calendar-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+  .calendar-subtitle { font-size: 14px; opacity: 0.6; margin: 0; }
+  .calendar-embed-wrapper { width: 100%; overflow: hidden; }
+  .calendar-embed-wrapper iframe { width: 100%; min-height: 600px; border: none; display: block; }
+  .calendar-review { padding: 30px; border-top: 1px solid var(--black-40); text-align: center; }
+  .review-quote { font-size: 16px; line-height: 1.6; font-style: italic; margin: 0 0 12px 0; color: var(--black-75); }
+  .review-author { font-size: 14px; margin: 0; opacity: 0.7; font-weight: 600; }
+
+  @media (max-width: 767px) {
+    .body-section { width: 90vw; margin: 0 auto; padding: 0; }
+    .side-menu-panel { width: 75vw; }
+    .calendar-module { width: 75vw; }
+    .universal-menu { padding: 2.5vw; }
+  }
+</style>
+
+</body>
+</html>

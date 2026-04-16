@@ -1,0 +1,1649 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Design 13: Portfolio-Showcase Focus | Organically</title>
+  <meta content="Portfolio-driven homepage concept for Organically - work-first, visual-heavy design." name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    window.fontsLoaded = false;
+    WebFont.load({
+      google: {
+        families: ["Vollkorn:400,400italic,700,700italic","Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Oswald:200,300,400,500,600,700"]
+      },
+      active: function() {
+        window.fontsLoaded = true;
+        document.dispatchEvent(new Event('fontsReady'));
+      }
+    });
+  </script>
+
+  <link href="/images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+  <link href="/images/webclip.jpg" rel="apple-touch-icon">
+
+  <!-- React 18 (UMD builds) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- GSAP for scroll animations -->
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script>
+  <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
+
+  <style>
+    /* ================================================================
+       DESIGN 13 — PORTFOLIO-SHOWCASE FOCUS 2026
+       Work-driven, visual-heavy homepage
+       ================================================================ */
+
+    :root {
+      --d13-bg: #e2e2e2;
+      --d13-surface: #f0f0ee;
+      --d13-card-bg: #fafaf8;
+      --d13-text: #0e0f19;
+      --d13-text-muted: #0009;
+      --d13-accent: #7ec700;
+      --d13-accent-dim: #7ec70040;
+      --d13-border: #0006;
+      --d13-border-light: #00000015;
+      --d13-white: #fff;
+      --d13-red: #e83151;
+      --d13-blue: #009fb7;
+      --d13-gold: #ffb612;
+      --d13-dark: #0e0f19;
+      --d13-overlay: rgba(14, 15, 25, 0.85);
+      --d13-radius: 6px;
+      --d13-radius-lg: 12px;
+      --d13-transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ---- Reset for this page ---- */
+    .d13-page {
+      background: var(--d13-bg);
+      color: var(--d13-text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .d13-page *,
+    .d13-page *::before,
+    .d13-page *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ================================================================
+       HERO — 50vh, simplified
+       ================================================================ */
+    .d13-hero {
+      height: 50vh;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 5vw;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--d13-border-light);
+    }
+
+    .d13-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, var(--d13-accent-dim) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(0,159,183,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .d13-hero-h1 {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 0.4em;
+      position: relative;
+    }
+
+    .d13-hero-h1 .d13-period {
+      color: var(--d13-accent);
+    }
+
+    .d13-hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--d13-text-muted);
+      max-width: 500px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .d13-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      background: var(--d13-accent);
+      color: var(--d13-dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: var(--d13-radius);
+      cursor: pointer;
+      transition: transform var(--d13-transition), box-shadow var(--d13-transition);
+    }
+
+    .d13-hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(126, 199, 0, 0.3);
+    }
+
+    .d13-hero-cta-arrow {
+      font-size: 1.2em;
+      transition: transform 0.25s ease;
+    }
+
+    .d13-hero-cta:hover .d13-hero-cta-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ================================================================
+       PORTFOLIO FILTER BAR
+       ================================================================ */
+    .d13-filter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 24px 5vw;
+      border-bottom: 1px solid var(--d13-border-light);
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--d13-bg);
+      backdrop-filter: blur(12px);
+    }
+
+    .d13-filter-btn {
+      padding: 8px 22px;
+      background: transparent;
+      border: 1px solid var(--d13-border);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all var(--d13-transition);
+      color: var(--d13-text-muted);
+      white-space: nowrap;
+    }
+
+    .d13-filter-btn:hover {
+      border-color: var(--d13-accent);
+      color: var(--d13-text);
+    }
+
+    .d13-filter-btn[data-active="true"] {
+      background: var(--d13-text);
+      color: var(--d13-white);
+      border-color: var(--d13-text);
+    }
+
+    /* ================================================================
+       PORTFOLIO GRID — full-width, dominant
+       ================================================================ */
+    .d13-portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      padding: 2px;
+      min-height: 60vh;
+    }
+
+    @media (max-width: 767px) {
+      .d13-portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- Portfolio Card ---- */
+    .d13-project-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4 / 3;
+      background: var(--d13-surface);
+    }
+
+    .d13-project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .d13-project-card:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Base info — always visible */
+    .d13-project-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 24px;
+      background: linear-gradient(0deg, rgba(14,15,25,0.75) 0%, transparent 100%);
+      color: var(--d13-white);
+      transition: opacity var(--d13-transition);
+    }
+
+    .d13-project-title {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .d13-project-category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.75;
+    }
+
+    /* Hover overlay — reveals year, tech, results */
+    .d13-project-hover {
+      position: absolute;
+      inset: 0;
+      background: var(--d13-overlay);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      color: var(--d13-white);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .d13-project-card:hover .d13-project-hover {
+      opacity: 1;
+    }
+
+    .d13-project-card:hover .d13-project-info {
+      opacity: 0;
+    }
+
+    .d13-hover-title {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .d13-hover-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.6;
+      margin-bottom: 20px;
+    }
+
+    .d13-hover-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .d13-hover-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .d13-hover-meta-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      opacity: 0.5;
+      min-width: 65px;
+      text-align: right;
+    }
+
+    .d13-hover-meta-value {
+      opacity: 0.9;
+    }
+
+    .d13-hover-result {
+      margin-top: 8px;
+      padding: 8px 18px;
+      background: var(--d13-accent);
+      color: var(--d13-dark);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      border-radius: 100px;
+    }
+
+    .d13-hover-cta {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.6;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 2px;
+    }
+
+    /* Service tag pills on hover */
+    .d13-project-services {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .d13-service-pill {
+      padding: 4px 12px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.7;
+    }
+
+    /* Animation: stagger-in on scroll */
+    .d13-project-card {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .d13-project-card.d13-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    /* ================================================================
+       LIGHTBOX
+       ================================================================ */
+    .d13-lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(14, 15, 25, 0.92);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .d13-lightbox-overlay[data-open="true"] {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .d13-lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--d13-white);
+      font-size: 1.5rem;
+      transition: border-color 0.25s ease;
+      z-index: 10;
+    }
+
+    .d13-lightbox-close:hover {
+      border-color: var(--d13-accent);
+    }
+
+    .d13-lightbox-content {
+      width: 100%;
+      max-width: 1100px;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      background: var(--d13-card-bg);
+      border-radius: var(--d13-radius-lg);
+      overflow: hidden;
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .d13-lightbox-overlay[data-open="true"] .d13-lightbox-content {
+      transform: translateY(0) scale(1);
+    }
+
+    .d13-lightbox-image {
+      position: relative;
+      min-height: 400px;
+    }
+
+    .d13-lightbox-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .d13-lightbox-testimonial {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px;
+      background: linear-gradient(0deg, rgba(14,15,25,0.8) 0%, transparent 100%);
+      color: var(--d13-white);
+    }
+
+    .d13-lightbox-quote {
+      font-style: italic;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .d13-lightbox-author {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      font-weight: 600;
+    }
+
+    .d13-lightbox-details {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .d13-lightbox-details h2 {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .d13-lightbox-details h2 .d13-period {
+      color: var(--d13-accent);
+    }
+
+    .d13-lightbox-category-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .d13-lightbox-category-badge[data-type="Web Design"] {
+      background: rgba(255, 182, 18, 0.15);
+      color: #b88200;
+    }
+    .d13-lightbox-category-badge[data-type="SEO"] {
+      background: rgba(126, 199, 0, 0.15);
+      color: #5a9100;
+    }
+    .d13-lightbox-category-badge[data-type="Branding"] {
+      background: rgba(232, 49, 81, 0.15);
+      color: #c22040;
+    }
+    .d13-lightbox-category-badge[data-type="Development"] {
+      background: rgba(0, 159, 183, 0.15);
+      color: #007a8c;
+    }
+
+    .d13-lightbox-description {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--d13-text-muted);
+    }
+
+    .d13-lightbox-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid var(--d13-border-light);
+      border-bottom: 1px solid var(--d13-border-light);
+    }
+
+    .d13-lightbox-stat {
+      text-align: center;
+    }
+
+    .d13-lightbox-stat-value {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--d13-accent);
+    }
+
+    .d13-lightbox-stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--d13-text-muted);
+      margin-top: 2px;
+    }
+
+    .d13-lightbox-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .d13-lightbox-tech-tag {
+      padding: 5px 14px;
+      background: var(--d13-bg);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--d13-text-muted);
+    }
+
+    .d13-lightbox-services-applied {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .d13-lightbox-service-tag {
+      padding: 6px 16px;
+      border: 1px solid var(--d13-border);
+      border-radius: var(--d13-radius);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .d13-lightbox-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--d13-accent);
+      color: var(--d13-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: var(--d13-radius);
+      cursor: pointer;
+      width: fit-content;
+      transition: transform var(--d13-transition);
+    }
+
+    .d13-lightbox-cta:hover {
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 767px) {
+      .d13-lightbox-overlay {
+        padding: 16px;
+      }
+
+      .d13-lightbox-content {
+        grid-template-columns: 1fr;
+        max-height: 85vh;
+      }
+
+      .d13-lightbox-image {
+        min-height: 220px;
+        max-height: 260px;
+      }
+
+      .d13-lightbox-details {
+        padding: 24px;
+      }
+
+      .d13-lightbox-stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ================================================================
+       SERVICES APPLIED SECTION (inline with portfolio)
+       ================================================================ */
+    .d13-services-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--d13-border-light);
+      border-bottom: 1px solid var(--d13-border-light);
+    }
+
+    .d13-service-card {
+      padding: 40px 28px;
+      text-align: center;
+      border-right: 1px solid var(--d13-border-light);
+      transition: background var(--d13-transition);
+    }
+
+    .d13-service-card:last-child {
+      border-right: none;
+    }
+
+    .d13-service-card:hover {
+      background: var(--d13-surface);
+    }
+
+    .d13-service-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.2rem;
+    }
+
+    .d13-service-icon[data-color="gold"] { background: rgba(255,182,18,0.15); }
+    .d13-service-icon[data-color="green"] { background: rgba(126,199,0,0.15); }
+    .d13-service-icon[data-color="red"] { background: rgba(232,49,81,0.15); }
+    .d13-service-icon[data-color="blue"] { background: rgba(0,159,183,0.15); }
+
+    .d13-service-name {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .d13-service-count {
+      font-size: 0.75rem;
+      color: var(--d13-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 767px) {
+      .d13-services-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .d13-service-card:nth-child(2) {
+        border-right: none;
+      }
+
+      .d13-service-card:nth-child(-n+2) {
+        border-bottom: 1px solid var(--d13-border-light);
+      }
+    }
+
+    /* ================================================================
+       TESTIMONIALS — pull quotes on project images
+       ================================================================ */
+    .d13-testimonials {
+      padding: 60px 5vw;
+    }
+
+    .d13-testimonials-heading {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .d13-testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .d13-testimonial-card {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      border-radius: var(--d13-radius-lg);
+      overflow: hidden;
+    }
+
+    .d13-testimonial-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5);
+    }
+
+    .d13-testimonial-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      color: var(--d13-white);
+    }
+
+    .d13-testimonial-quote {
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+
+    .d13-testimonial-quote::before {
+      content: '\201C';
+      font-size: 2rem;
+      line-height: 0;
+      vertical-align: -0.4em;
+      margin-right: 4px;
+      color: var(--d13-accent);
+    }
+
+    .d13-testimonial-attribution {
+      font-size: 0.8rem;
+      font-weight: 700;
+      opacity: 0.7;
+    }
+
+    .d13-testimonial-stars {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: var(--d13-gold);
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 991px) {
+      .d13-testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .d13-testimonial-card:last-child {
+        grid-column: span 2;
+        aspect-ratio: 2 / 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .d13-testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .d13-testimonial-card:last-child {
+        grid-column: span 1;
+        aspect-ratio: 3 / 2;
+      }
+    }
+
+    /* ================================================================
+       BLOG SECTION — 3 latest posts, secondary
+       ================================================================ */
+    .d13-blog-section {
+      padding: 60px 5vw;
+      background: var(--d13-surface);
+      border-top: 1px solid var(--d13-border-light);
+    }
+
+    .d13-blog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .d13-blog-heading {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+      font-weight: 600;
+    }
+
+    .d13-blog-see-all {
+      font-size: 0.85rem;
+      color: var(--d13-text-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--d13-transition);
+    }
+
+    .d13-blog-see-all:hover {
+      border-bottom-color: var(--d13-text);
+    }
+
+    .d13-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .d13-blog-card {
+      background: var(--d13-card-bg);
+      border-radius: var(--d13-radius-lg);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform var(--d13-transition), box-shadow var(--d13-transition);
+      border: 1px solid var(--d13-border-light);
+    }
+
+    .d13-blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .d13-blog-card-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .d13-blog-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .d13-blog-card:hover .d13-blog-card-image img {
+      transform: scale(1.05);
+    }
+
+    .d13-blog-card-body {
+      padding: 20px;
+    }
+
+    .d13-blog-card-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--d13-accent-dim);
+      color: var(--d13-accent);
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .d13-blog-card-title {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .d13-blog-card-excerpt {
+      font-size: 0.85rem;
+      color: var(--d13-text-muted);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    @media (max-width: 991px) {
+      .d13-blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .d13-blog-card:last-child {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .d13-blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .d13-blog-card:last-child {
+        display: block;
+      }
+    }
+
+    /* ================================================================
+       FOOTER — portfolio-proud stat
+       ================================================================ */
+    .d13-footer {
+      padding: 40px 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--d13-border-light);
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .d13-footer-brand {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .d13-footer-brand .d13-period {
+      color: var(--d13-accent);
+    }
+
+    .d13-footer-stat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--d13-text-muted);
+    }
+
+    .d13-footer-stat-number {
+      font-family: 'Coolvetica Rg', 'Oswald', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--d13-accent);
+    }
+
+    .d13-footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .d13-footer-link {
+      font-size: 0.8rem;
+      color: var(--d13-text-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: color var(--d13-transition);
+    }
+
+    .d13-footer-link:hover {
+      color: var(--d13-text);
+    }
+
+    .d13-footer-copy {
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--d13-text-muted);
+      padding-top: 20px;
+      border-top: 1px solid var(--d13-border-light);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .d13-footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      .d13-footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ================================================================
+       UTILITY / TRANSITIONS
+       ================================================================ */
+    .d13-section-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--d13-text-muted);
+      margin-bottom: 6px;
+    }
+
+    /* Empty state when no filter matches */
+    .d13-empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--d13-text-muted);
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body class="d13-page">
+
+  <div id="d13-app"></div>
+
+  <script type="text/babel">
+    /* ================================================================
+       DESIGN 13 — PORTFOLIO-SHOWCASE FOCUS 2026
+       React Component Architecture
+
+       Component Tree:
+         PortfolioHomepage
+           Hero
+           FilterBar
+           PortfolioGrid
+             ProjectCard (x8)
+           Lightbox
+           ServicesStrip
+           Testimonials
+             TestimonialCard (x3)
+           BlogSection
+             BlogCard (x3)
+           Footer
+
+       State:
+         activeFilter: string ("All" | category)
+         lightboxProject: object | null
+       ================================================================ */
+
+    const { useState, useEffect, useCallback, useRef } = React;
+
+    // ----------------------------------------------------------------
+    // DATA
+    // ----------------------------------------------------------------
+    const PROJECTS = [
+      {
+        id: 1,
+        title: "IWC Cabinetry",
+        category: "Web Design",
+        year: "2025",
+        image: "/images/Wireframing-p-1080.jpg",
+        techStack: ["Webflow", "Custom CSS", "GSAP"],
+        results: "+180% lead generation",
+        description: "Complete website redesign for a custom cabinetry shop. Focused on showcasing craftsmanship through immersive visuals, intuitive navigation, and conversion-optimized service pages that turned browsers into buyers.",
+        services: ["Web Design", "SEO", "Branding"],
+        stats: [
+          { value: "180%", label: "More Leads" },
+          { value: "4.2s", label: "Avg. Session" },
+          { value: "12", label: "Pages Built" }
+        ],
+        testimonial: {
+          quote: "His adaptability, expertise, and willingness to collaborate made the project a creative experience.",
+          author: "IWC Cabinetry"
+        }
+      },
+      {
+        id: 2,
+        title: "Pittsburgh Legal Group",
+        category: "SEO",
+        year: "2024",
+        image: "/images/lawyer-writing-p-1080.jpg",
+        techStack: ["Technical SEO", "Content Strategy", "Local SEO"],
+        results: "2.5M impressions",
+        description: "Comprehensive SEO overhaul for a Pittsburgh law firm. Targeted high-intent keywords, restructured content hierarchy, and built a local SEO fortress that dominates the regional search landscape.",
+        services: ["SEO", "Development"],
+        stats: [
+          { value: "2.5M", label: "Impressions" },
+          { value: "#1", label: "Local Rank" },
+          { value: "340%", label: "Traffic Growth" }
+        ],
+        testimonial: {
+          quote: "We went from invisible to page one in under six months. The ROI speaks for itself.",
+          author: "Pittsburgh Legal Group"
+        }
+      },
+      {
+        id: 3,
+        title: "Bloom Collective",
+        category: "Branding",
+        year: "2025",
+        image: "/images/Minimalist-cutout-plants-thumbnail-p-1080.jpg",
+        techStack: ["Illustrator", "Figma", "Brand Strategy"],
+        results: "Full brand identity",
+        description: "End-to-end brand identity for a plant-forward wellness collective. From logo system and typography to color language and brand guidelines that feel as alive as their products.",
+        services: ["Branding", "Web Design"],
+        stats: [
+          { value: "1", label: "Brand System" },
+          { value: "24", label: "Assets Created" },
+          { value: "100%", label: "Client Score" }
+        ],
+        testimonial: {
+          quote: "They captured exactly what we are. Our brand finally feels like us.",
+          author: "Bloom Collective"
+        }
+      },
+      {
+        id: 4,
+        title: "SteelCity Contractors",
+        category: "Development",
+        year: "2025",
+        image: "/images/Steel-Building-p-1080.png",
+        techStack: ["React", "Node.js", "Custom CMS"],
+        results: "50% faster load time",
+        description: "Custom web application for a contracting firm. Built a project management portal, customer-facing dashboard, and contractor scheduling system from scratch with a performance-first architecture.",
+        services: ["Development", "Web Design", "SEO"],
+        stats: [
+          { value: "50%", label: "Faster Loads" },
+          { value: "99.9%", label: "Uptime" },
+          { value: "3", label: "Apps Built" }
+        ],
+        testimonial: null
+      },
+      {
+        id: 5,
+        title: "Dental Solutions Pro",
+        category: "SEO",
+        year: "2024",
+        image: "/images/Pile-of-teeth-p-1080.jpg",
+        techStack: ["Local SEO", "Google Business", "Schema Markup"],
+        results: "+420% organic traffic",
+        description: "Local SEO campaign for a multi-location dental practice. Optimized each location with unique content, structured data, and a review generation strategy that built trust at scale.",
+        services: ["SEO", "Branding"],
+        stats: [
+          { value: "420%", label: "Traffic Up" },
+          { value: "5", label: "Locations" },
+          { value: "4.9", label: "Avg. Rating" }
+        ],
+        testimonial: {
+          quote: "Every location now ranks in the local pack. We're fully booked months ahead.",
+          author: "Dental Solutions Pro"
+        }
+      },
+      {
+        id: 6,
+        title: "Houston Creative Agency",
+        category: "Web Design",
+        year: "2024",
+        image: "/images/Houston-hero-p-1080.jpg",
+        techStack: ["Webflow", "Lottie", "Custom Animations"],
+        results: "3x conversion rate",
+        description: "Bold, animated website for a Houston creative agency. Pushed the boundaries with scroll-driven animations, micro-interactions, and a visual narrative that mirrors their creative energy.",
+        services: ["Web Design", "Development"],
+        stats: [
+          { value: "3x", label: "Conversions" },
+          { value: "8", label: "Animations" },
+          { value: "< 2s", label: "Load Time" }
+        ],
+        testimonial: {
+          quote: "Our website finally matches the caliber of work we do. The animations are next level.",
+          author: "Houston Creative Agency"
+        }
+      },
+      {
+        id: 7,
+        title: "Meadow & Vine",
+        category: "Branding",
+        year: "2025",
+        image: "/images/Meadow-p-1080.jpg",
+        techStack: ["Figma", "Photoshop", "Print Design"],
+        results: "Complete visual system",
+        description: "Natural, earthy branding for an artisan food brand. Designed a logo mark inspired by wildflowers, a muted-but-warm color palette, and packaging that stands out on the shelf.",
+        services: ["Branding"],
+        stats: [
+          { value: "1", label: "Logo System" },
+          { value: "6", label: "Package Designs" },
+          { value: "32", label: "Brand Assets" }
+        ],
+        testimonial: null
+      },
+      {
+        id: 8,
+        title: "TechForward SaaS",
+        category: "Development",
+        year: "2025",
+        image: "/images/Modular-Webflow-Console-p-1080.jpg",
+        techStack: ["React", "Next.js", "Tailwind", "API Integration"],
+        results: "Full-stack web app",
+        description: "Enterprise SaaS dashboard with real-time data, user management, and modular architecture. Built for scale with clean code and a design system that grows with the product.",
+        services: ["Development", "Web Design", "SEO"],
+        stats: [
+          { value: "15K", label: "Daily Users" },
+          { value: "40+", label: "API Endpoints" },
+          { value: "99.5%", label: "Uptime" }
+        ],
+        testimonial: {
+          quote: "They built exactly what we described and then some. The codebase is pristine.",
+          author: "TechForward SaaS"
+        }
+      }
+    ];
+
+    const CATEGORIES = ["All", "Web Design", "SEO", "Branding", "Development"];
+
+    const BLOG_POSTS = [
+      {
+        title: "What is SEO?",
+        tag: "Marketing",
+        href: "/what-is-seo/",
+        image: "/images/AI-HERO-p-500.jpg",
+        excerpt: "Ranking on search engines is not luck. The average person makes 3-4 searches per day. Learn how to answer them."
+      },
+      {
+        title: "Webflow Launch Checklist",
+        tag: "Design",
+        href: "/webflow-launch-checklist/",
+        image: "/images/Webflow-p-800.jpg",
+        excerpt: "Launching a website on Webflow can be terrifying. Many things can go wrong; some things you may never have heard of."
+      },
+      {
+        title: "Basics of Branding",
+        tag: "Branding",
+        href: "/branding-basics/",
+        image: "/images/Honeybee-on-a-flower-petal-p-800.jpg",
+        excerpt: "Deciding on an original name, colors, logo, and website that speak to you are big commitments."
+      }
+    ];
+
+    const TESTIMONIALS_DATA = [
+      {
+        quote: "His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company.",
+        author: "IWC Cabinetry",
+        image: "/images/Wireframing-p-1080.jpg"
+      },
+      {
+        quote: "We went from invisible to page one in under six months. The ROI speaks for itself.",
+        author: "Pittsburgh Legal Group",
+        image: "/images/lawyer-writing-p-1080.jpg"
+      },
+      {
+        quote: "Our website finally matches the caliber of work we do. The animations are next level.",
+        author: "Houston Creative Agency",
+        image: "/images/Houston-hero-p-1080.jpg"
+      }
+    ];
+
+    // ----------------------------------------------------------------
+    // COMPONENTS
+    // ----------------------------------------------------------------
+
+    function Hero() {
+      return (
+        <section className="d13-hero">
+          <h1 className="d13-hero-h1">
+            Organically<span className="d13-period">.</span>
+          </h1>
+          <p className="d13-hero-subtitle">
+            Web creative with organic potential. Work that speaks louder than words.
+          </p>
+          <button
+            className="d13-hero-cta calendar-toggle-btn"
+            onClick={() => {
+              const el = document.getElementById('d13-portfolio');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            View the Work
+            <span className="d13-hero-cta-arrow">&darr;</span>
+          </button>
+        </section>
+      );
+    }
+
+    function FilterBar({ activeFilter, onFilterChange }) {
+      return (
+        <div className="d13-filter-bar">
+          {CATEGORIES.map(cat => (
+            <button
+              key={cat}
+              className="d13-filter-btn"
+              data-active={activeFilter === cat ? "true" : "false"}
+              onClick={() => onFilterChange(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      );
+    }
+
+    function ProjectCard({ project, onClick, index }) {
+      const ref = useRef(null);
+
+      useEffect(() => {
+        const el = ref.current;
+        if (!el || typeof gsap === 'undefined') return;
+
+        // Stagger the visibility animation
+        const timer = setTimeout(() => {
+          el.classList.add('d13-visible');
+        }, 100 + index * 100);
+
+        return () => clearTimeout(timer);
+      }, [index]);
+
+      return (
+        <div
+          ref={ref}
+          className="d13-project-card"
+          onClick={() => onClick(project)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') onClick(project); }}
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+          />
+          <div className="d13-project-info">
+            <div className="d13-project-title">{project.title}</div>
+            <div className="d13-project-category">{project.category}</div>
+          </div>
+          <div className="d13-project-hover">
+            <div className="d13-hover-title">{project.title}</div>
+            <div className="d13-hover-category">{project.category}</div>
+            <div className="d13-hover-meta">
+              <div className="d13-hover-meta-item">
+                <span className="d13-hover-meta-label">Year</span>
+                <span className="d13-hover-meta-value">{project.year}</span>
+              </div>
+              <div className="d13-hover-meta-item">
+                <span className="d13-hover-meta-label">Stack</span>
+                <span className="d13-hover-meta-value">{project.techStack.slice(0, 3).join(', ')}</span>
+              </div>
+            </div>
+            <div className="d13-hover-result">{project.results}</div>
+            <div className="d13-project-services">
+              {project.services.map(s => (
+                <span key={s} className="d13-service-pill">{s}</span>
+              ))}
+            </div>
+            <div className="d13-hover-cta">View Case Study</div>
+          </div>
+        </div>
+      );
+    }
+
+    function PortfolioGrid({ projects, onProjectClick }) {
+      if (projects.length === 0) {
+        return (
+          <div className="d13-portfolio-grid">
+            <div className="d13-empty-state">
+              No projects match this filter. Try selecting a different category.
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <div className="d13-portfolio-grid" id="d13-portfolio">
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={onProjectClick}
+              index={i}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    function Lightbox({ project, onClose }) {
+      const isOpen = project !== null;
+
+      // Close on ESC
+      useEffect(() => {
+        function handleKey(e) {
+          if (e.key === 'Escape') onClose();
+        }
+        if (isOpen) {
+          document.addEventListener('keydown', handleKey);
+          document.body.style.overflow = 'hidden';
+        }
+        return () => {
+          document.removeEventListener('keydown', handleKey);
+          document.body.style.overflow = '';
+        };
+      }, [isOpen, onClose]);
+
+      return (
+        <div
+          className="d13-lightbox-overlay"
+          data-open={isOpen ? "true" : "false"}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) onClose();
+          }}
+        >
+          <button className="d13-lightbox-close" onClick={onClose} aria-label="Close lightbox">
+            &times;
+          </button>
+          {project && (
+            <div className="d13-lightbox-content">
+              <div className="d13-lightbox-image">
+                <img src={project.image} alt={project.title} />
+                {project.testimonial && (
+                  <div className="d13-lightbox-testimonial">
+                    <div className="d13-lightbox-quote">"{project.testimonial.quote}"</div>
+                    <div className="d13-lightbox-author">-- {project.testimonial.author}</div>
+                  </div>
+                )}
+              </div>
+              <div className="d13-lightbox-details">
+                <div>
+                  <span className="d13-lightbox-category-badge" data-type={project.category}>
+                    {project.category}
+                  </span>
+                </div>
+                <h2>{project.title}<span className="d13-period">.</span></h2>
+                <p className="d13-lightbox-description">{project.description}</p>
+
+                <div className="d13-lightbox-stats">
+                  {project.stats.map((stat, i) => (
+                    <div key={i} className="d13-lightbox-stat">
+                      <div className="d13-lightbox-stat-value">{stat.value}</div>
+                      <div className="d13-lightbox-stat-label">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <div className="d13-section-label">Tech Stack</div>
+                  <div className="d13-lightbox-tech">
+                    {project.techStack.map(tech => (
+                      <span key={tech} className="d13-lightbox-tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="d13-section-label">Services Applied</div>
+                  <div className="d13-lightbox-services-applied">
+                    {project.services.map(s => (
+                      <span key={s} className="d13-lightbox-service-tag">{s}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <button
+                  className="d13-lightbox-cta calendar-toggle-btn"
+                  onClick={() => window.open('https://calendly.com/organically/30min', '_blank')}
+                >
+                  Start a Similar Project &rarr;
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    function ServicesStrip() {
+      const services = [
+        { name: "Web Design", icon: "\uD83C\uDFA8", color: "gold", count: PROJECTS.filter(p => p.services.includes("Web Design")).length + " Projects" },
+        { name: "SEO", icon: "\uD83D\uDD0D", color: "green", count: PROJECTS.filter(p => p.services.includes("SEO")).length + " Projects" },
+        { name: "Branding", icon: "\u2728", color: "red", count: PROJECTS.filter(p => p.services.includes("Branding")).length + " Projects" },
+        { name: "Development", icon: "\u2699\uFE0F", color: "blue", count: PROJECTS.filter(p => p.services.includes("Development")).length + " Projects" }
+      ];
+
+      return (
+        <div className="d13-services-strip">
+          {services.map(s => (
+            <div key={s.name} className="d13-service-card">
+              <div className="d13-service-icon" data-color={s.color}>{s.icon}</div>
+              <div className="d13-service-name">{s.name}</div>
+              <div className="d13-service-count">Applied to {s.count}</div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    function TestimonialCard({ testimonial }) {
+      return (
+        <div className="d13-testimonial-card">
+          <img src={testimonial.image} alt={testimonial.author} loading="lazy" />
+          <div className="d13-testimonial-overlay">
+            <div className="d13-testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div className="d13-testimonial-quote">{testimonial.quote}</div>
+            <div className="d13-testimonial-attribution">-- {testimonial.author}</div>
+          </div>
+        </div>
+      );
+    }
+
+    function Testimonials() {
+      return (
+        <section className="d13-testimonials">
+          <h2 className="d13-testimonials-heading">What Clients Say</h2>
+          <div className="d13-testimonials-grid">
+            {TESTIMONIALS_DATA.map((t, i) => (
+              <TestimonialCard key={i} testimonial={t} />
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function BlogCard({ post }) {
+      return (
+        <a href={post.href} className="d13-blog-card">
+          <div className="d13-blog-card-image">
+            <img src={post.image} alt={post.title} loading="lazy" />
+          </div>
+          <div className="d13-blog-card-body">
+            <span className="d13-blog-card-tag">{post.tag}</span>
+            <h3 className="d13-blog-card-title">{post.title}</h3>
+            <p className="d13-blog-card-excerpt">{post.excerpt}</p>
+          </div>
+        </a>
+      );
+    }
+
+    function BlogSection() {
+      return (
+        <section className="d13-blog-section">
+          <div className="d13-blog-header">
+            <h2 className="d13-blog-heading">Coffee Break</h2>
+            <a href="/blog/" className="d13-blog-see-all">See All Posts &rarr;</a>
+          </div>
+          <div className="d13-blog-grid">
+            {BLOG_POSTS.map((post, i) => (
+              <BlogCard key={i} post={post} />
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      const projectCount = PROJECTS.length;
+
+      return (
+        <footer className="d13-footer">
+          <a href="/" className="d13-footer-brand">
+            Organically<span className="d13-period">.</span>
+          </a>
+          <div className="d13-footer-stat">
+            <span className="d13-footer-stat-number">{projectCount}</span>
+            <span>Successful Projects<br/>and counting</span>
+          </div>
+          <nav className="d13-footer-links">
+            <a href="/seo/" className="d13-footer-link">SEO</a>
+            <a href="/web-design/" className="d13-footer-link">Web Design</a>
+            <a href="/branding/" className="d13-footer-link">Branding</a>
+            <a href="/blog/" className="d13-footer-link">Blog</a>
+            <a href="/about-us/" className="d13-footer-link">About</a>
+            <a href="/privacy-policy/" className="d13-footer-link">Privacy</a>
+          </nav>
+          <div className="d13-footer-copy">
+            Copyright 2026 Organically SEO. All rights reserved.
+          </div>
+        </footer>
+      );
+    }
+
+    // ----------------------------------------------------------------
+    // MAIN APP
+    // ----------------------------------------------------------------
+    function PortfolioHomepage() {
+      const [activeFilter, setActiveFilter] = useState("All");
+      const [lightboxProject, setLightboxProject] = useState(null);
+
+      const filteredProjects = activeFilter === "All"
+        ? PROJECTS
+        : PROJECTS.filter(p => p.category === activeFilter);
+
+      const handleFilterChange = useCallback((cat) => {
+        setActiveFilter(cat);
+      }, []);
+
+      const handleProjectClick = useCallback((project) => {
+        setLightboxProject(project);
+      }, []);
+
+      const handleLightboxClose = useCallback(() => {
+        setLightboxProject(null);
+      }, []);
+
+      return (
+        <>
+          <Hero />
+          <FilterBar activeFilter={activeFilter} onFilterChange={handleFilterChange} />
+          <PortfolioGrid projects={filteredProjects} onProjectClick={handleProjectClick} />
+          <Lightbox project={lightboxProject} onClose={handleLightboxClose} />
+          <ServicesStrip />
+          <Testimonials />
+          <BlogSection />
+          <Footer />
+        </>
+      );
+    }
+
+    // ----------------------------------------------------------------
+    // MOUNT
+    // ----------------------------------------------------------------
+    const root = ReactDOM.createRoot(document.getElementById('d13-app'));
+    root.render(<PortfolioHomepage />);
+  </script>
+
+</body>
+</html>

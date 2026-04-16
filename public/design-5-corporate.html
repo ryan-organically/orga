@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Organically | Web Creative with Organic Potential</title>
+  <meta content="Solo agency marketer delivering businesses with personalized &amp; powerful websites that generate traffic." name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/organicallyseo-com.webflow.css?v=2" rel="stylesheet" type="text/css">
+
+  <!-- Fonts: Inter (sans-serif) + Instrument Serif (authority serif) -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <link href="/images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+
+  <style>
+    /* ============================================
+       DESIGN 5: CORPORATE PROFESSIONAL 2026
+       Navy primary, green accent, B2B authority
+       ============================================ */
+
+    /* --- CSS Custom Properties --- */
+    :root {
+      --corp-navy: #1a2d4d;
+      --corp-navy-dark: #0f1d33;
+      --corp-navy-light: #243d66;
+      --corp-green: #7ec700;
+      --corp-green-dark: #5a9100;
+      --corp-white: #ffffff;
+      --corp-offwhite: #f7f8fa;
+      --corp-gray-100: #f0f2f5;
+      --corp-gray-200: #e1e5eb;
+      --corp-gray-300: #c8ced8;
+      --corp-gray-500: #6b7a90;
+      --corp-gray-700: #3d4f66;
+      --corp-text: #1a2d4d;
+      --corp-text-muted: #5a6a80;
+      --corp-border: #dce0e8;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+
+      --container-max: 1200px;
+      --section-pad-y: 100px;
+      --section-pad-x: 24px;
+    }
+
+    /* --- Reset & Base --- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body.corp-body {
+      font-family: var(--font-sans);
+      color: var(--corp-text);
+      background: var(--corp-white);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      display: block;
+      cursor: default;
+      border-top: none;
+    }
+
+    /* Override webflow body styles for this prototype */
+    body.corp-body .body-section {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .corp-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--section-pad-x);
+    }
+
+    /* --- Fade-in Animation (only animation used) --- */
+    .corp-fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .corp-fade-in.corp-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .corp-delay-1 { transition-delay: 0.1s; }
+    .corp-delay-2 { transition-delay: 0.2s; }
+    .corp-delay-3 { transition-delay: 0.3s; }
+    .corp-delay-4 { transition-delay: 0.4s; }
+
+
+    /* ============================================
+       TOP BAR
+       ============================================ */
+    .corp-topbar {
+      background: var(--corp-navy-dark);
+      color: var(--corp-gray-300);
+      font-size: 13px;
+      padding: 8px 0;
+      letter-spacing: 0.01em;
+    }
+
+    .corp-topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .corp-topbar a {
+      color: var(--corp-gray-300);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .corp-topbar a:hover {
+      color: var(--corp-green);
+    }
+
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+    .corp-nav {
+      background: var(--corp-white);
+      border-bottom: 1px solid var(--corp-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .corp-nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .corp-logo {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--corp-navy);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .corp-logo-accent {
+      color: var(--corp-green);
+    }
+
+    .corp-nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .corp-nav-links a {
+      color: var(--corp-gray-700);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .corp-nav-links a:hover {
+      color: var(--corp-navy);
+    }
+
+    .corp-nav-cta {
+      background: var(--corp-navy);
+      color: var(--corp-white);
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .corp-nav-cta:hover {
+      background: var(--corp-navy-light);
+    }
+
+    /* Mobile nav toggle */
+    .corp-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .corp-mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--corp-navy);
+      margin: 5px 0;
+      transition: transform 0.3s;
+    }
+
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .corp-hero {
+      position: relative;
+      background: var(--corp-navy);
+      color: var(--corp-white);
+      overflow: hidden;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Video background overlay */
+    .corp-hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .corp-hero-video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+    }
+
+    .corp-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--corp-navy) 0%, var(--corp-navy-dark) 60%, rgba(15,29,51,0.85) 100%);
+      z-index: 2;
+    }
+
+    .corp-hero-content {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: var(--section-pad-y) 0;
+    }
+
+    .corp-hero-left {
+      max-width: 560px;
+    }
+
+    .corp-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(126, 199, 0, 0.15);
+      color: var(--corp-green);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .corp-hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--corp-green);
+      animation: corp-pulse 2s infinite;
+    }
+
+    @keyframes corp-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .corp-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4.5vw, 56px);
+      line-height: 1.15;
+      font-weight: 400;
+      margin: 0 0 20px 0;
+      letter-spacing: -0.02em;
+    }
+
+    .corp-hero-description {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--corp-gray-300);
+      margin: 0 0 36px 0;
+      max-width: 480px;
+    }
+
+    .corp-hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .corp-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--corp-green);
+      color: var(--corp-navy-dark);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .corp-btn-primary:hover {
+      background: var(--corp-green-dark);
+      transform: translateY(-1px);
+    }
+
+    .corp-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--corp-white);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+    .corp-btn-secondary:hover {
+      border-color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* Hero play button icon */
+    .corp-play-icon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Hero right: Stats grid */
+    .corp-hero-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .corp-stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 28px 24px;
+      backdrop-filter: blur(8px);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .corp-stat-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(126, 199, 0, 0.3);
+    }
+
+    .corp-stat-number {
+      font-family: var(--font-serif);
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--corp-green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .corp-stat-label {
+      font-size: 14px;
+      color: var(--corp-gray-300);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+
+    /* ============================================
+       CREDENTIALS BAR
+       ============================================ */
+    .corp-credentials {
+      background: var(--corp-offwhite);
+      border-bottom: 1px solid var(--corp-border);
+      padding: 28px 0;
+    }
+
+    .corp-credentials-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .corp-credential-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--corp-gray-500);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .corp-credential-icon {
+      width: 20px;
+      height: 20px;
+      fill: var(--corp-green);
+      flex-shrink: 0;
+    }
+
+
+    /* ============================================
+       SERVICES GRID (4-column)
+       ============================================ */
+    .corp-services {
+      padding: var(--section-pad-y) 0;
+      background: var(--corp-white);
+    }
+
+    .corp-section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .corp-section-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--corp-green);
+      margin-bottom: 12px;
+    }
+
+    .corp-section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.2;
+      color: var(--corp-navy);
+      margin: 0 0 16px 0;
+      font-weight: 400;
+    }
+
+    .corp-section-subtitle {
+      font-size: 16px;
+      color: var(--corp-text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .corp-services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .corp-service-card {
+      background: var(--corp-white);
+      border: 1px solid var(--corp-border);
+      border-radius: 12px;
+      padding: 36px 28px;
+      text-align: left;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+      position: relative;
+    }
+
+    .corp-service-card:hover {
+      border-color: var(--corp-green);
+      box-shadow: 0 8px 30px rgba(26, 45, 77, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .corp-service-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(126, 199, 0, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .corp-service-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--corp-green-dark);
+    }
+
+    .corp-service-card h3 {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--corp-navy);
+      margin: 0 0 10px 0;
+    }
+
+    .corp-service-card p {
+      font-size: 14px;
+      color: var(--corp-text-muted);
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+    }
+
+    .corp-service-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--corp-navy);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .corp-service-link:hover {
+      color: var(--corp-green-dark);
+      gap: 10px;
+    }
+
+    .corp-service-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      transition: transform 0.2s;
+    }
+
+
+    /* ============================================
+       ABOUT / AUTHORITY SECTION
+       ============================================ */
+    .corp-about {
+      padding: var(--section-pad-y) 0;
+      background: var(--corp-navy);
+      color: var(--corp-white);
+    }
+
+    .corp-about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .corp-about-left h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.2;
+      margin: 0 0 24px 0;
+      font-weight: 400;
+    }
+
+    .corp-about-left p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--corp-gray-300);
+      margin: 0 0 32px 0;
+    }
+
+    .corp-about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .corp-about-stat-num {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      color: var(--corp-green);
+      margin-bottom: 4px;
+    }
+
+    .corp-about-stat-label {
+      font-size: 13px;
+      color: var(--corp-gray-500);
+    }
+
+    /* Certifications / credentials list */
+    .corp-cert-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .corp-cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 20px;
+      transition: background 0.3s;
+    }
+
+    .corp-cert-item:hover {
+      background: rgba(255,255,255,0.07);
+    }
+
+    .corp-cert-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(126, 199, 0, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .corp-cert-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--corp-green);
+    }
+
+    .corp-cert-text h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+      color: var(--corp-white);
+    }
+
+    .corp-cert-text p {
+      font-size: 13px;
+      color: var(--corp-gray-500);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+
+    /* ============================================
+       CLIENT LOGOS
+       ============================================ */
+    .corp-logos {
+      padding: 60px 0;
+      background: var(--corp-offwhite);
+      border-top: 1px solid var(--corp-border);
+      border-bottom: 1px solid var(--corp-border);
+    }
+
+    .corp-logos-label {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--corp-gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 32px;
+    }
+
+    .corp-logos-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .corp-logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.45;
+      transition: opacity 0.3s;
+      height: 36px;
+    }
+
+    .corp-logo-item:hover {
+      opacity: 0.8;
+    }
+
+    .corp-logo-item svg {
+      height: 28px;
+      width: auto;
+      fill: var(--corp-gray-700);
+    }
+
+
+    /* ============================================
+       TESTIMONIALS
+       ============================================ */
+    .corp-testimonials {
+      padding: var(--section-pad-y) 0;
+      background: var(--corp-white);
+    }
+
+    .corp-testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .corp-testimonial-card {
+      background: var(--corp-offwhite);
+      border: 1px solid var(--corp-border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .corp-testimonial-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 16px;
+    }
+
+    .corp-testimonial-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--corp-green);
+    }
+
+    .corp-testimonial-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--corp-text);
+      margin: 0 0 24px 0;
+      font-style: italic;
+    }
+
+    .corp-testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .corp-testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--corp-navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--corp-green);
+    }
+
+    .corp-testimonial-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--corp-navy);
+      margin: 0;
+    }
+
+    .corp-testimonial-role {
+      font-size: 13px;
+      color: var(--corp-text-muted);
+      margin: 0;
+    }
+
+
+    /* ============================================
+       NEWSLETTER SIGNUP
+       ============================================ */
+    .corp-newsletter {
+      padding: 80px 0;
+      background: var(--corp-gray-100);
+    }
+
+    .corp-newsletter-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .corp-newsletter-left h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 2.5vw, 34px);
+      line-height: 1.2;
+      color: var(--corp-navy);
+      margin: 0 0 12px 0;
+      font-weight: 400;
+    }
+
+    .corp-newsletter-left p {
+      font-size: 15px;
+      color: var(--corp-text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .corp-newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .corp-newsletter-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .corp-input {
+      flex: 1;
+      padding: 14px 18px;
+      border: 1px solid var(--corp-border);
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--corp-text);
+      background: var(--corp-white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .corp-input:focus {
+      border-color: var(--corp-navy);
+    }
+
+    .corp-input::placeholder {
+      color: var(--corp-gray-300);
+    }
+
+    .corp-newsletter-submit {
+      background: var(--corp-navy);
+      color: var(--corp-white);
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .corp-newsletter-submit:hover {
+      background: var(--corp-navy-light);
+    }
+
+    .corp-newsletter-privacy {
+      font-size: 12px;
+      color: var(--corp-gray-500);
+      margin: 0;
+    }
+
+    .corp-newsletter-privacy a {
+      color: var(--corp-navy);
+      text-decoration: underline;
+    }
+
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .corp-footer {
+      background: var(--corp-navy-dark);
+      color: var(--corp-gray-300);
+      padding: 64px 0 0;
+    }
+
+    .corp-footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .corp-footer-brand {
+      max-width: 300px;
+    }
+
+    .corp-footer-logo {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--corp-white);
+      margin-bottom: 16px;
+    }
+
+    .corp-footer-logo-accent {
+      color: var(--corp-green);
+    }
+
+    .corp-footer-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--corp-gray-500);
+      margin: 0 0 24px 0;
+    }
+
+    .corp-footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .corp-footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .corp-footer-social a:hover {
+      border-color: var(--corp-green);
+      background: rgba(126, 199, 0, 0.1);
+    }
+
+    .corp-footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--corp-gray-300);
+    }
+
+    .corp-footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--corp-white);
+      margin: 0 0 20px 0;
+    }
+
+    .corp-footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--corp-gray-500);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+
+    .corp-footer-col a:hover {
+      color: var(--corp-green);
+    }
+
+    .corp-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      font-size: 13px;
+      color: var(--corp-gray-500);
+    }
+
+    .corp-footer-bottom a {
+      color: var(--corp-gray-500);
+      text-decoration: none;
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+
+    .corp-footer-bottom a:hover {
+      color: var(--corp-green);
+    }
+
+
+    /* ============================================
+       RESPONSIVE BREAKPOINTS
+       ============================================ */
+
+    /* Tablet */
+    @media (max-width: 991px) {
+      :root {
+        --section-pad-y: 72px;
+      }
+
+      .corp-nav-links {
+        display: none;
+      }
+
+      .corp-mobile-toggle {
+        display: block;
+      }
+
+      .corp-hero-content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .corp-hero-right {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .corp-stat-card {
+        padding: 20px 16px;
+      }
+
+      .corp-stat-number {
+        font-size: 30px;
+      }
+
+      .corp-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .corp-about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .corp-testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .corp-newsletter-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .corp-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 767px) {
+      :root {
+        --section-pad-y: 56px;
+        --section-pad-x: 16px;
+      }
+
+      .corp-topbar-inner {
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+
+      .corp-hero-right {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .corp-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .corp-hero h1 {
+        font-size: 32px;
+      }
+
+      .corp-services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .corp-about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .corp-credentials-inner {
+        gap: 24px;
+      }
+
+      .corp-logos-grid {
+        gap: 32px;
+      }
+
+      .corp-newsletter-row {
+        flex-direction: column;
+      }
+
+      .corp-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .corp-footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .corp-footer-bottom a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body class="corp-body">
+
+  <!-- ============================================
+       TOP BAR
+       LOC: ~10 lines | Rationale: Establishes credibility
+       immediately. B2B visitors expect contact info and
+       trust signals above the fold.
+       ============================================ -->
+  <div class="corp-topbar">
+    <div class="corp-container corp-topbar-inner">
+      <span>Pittsburgh, PA &mdash; <a href="mailto:ryan.organically@gmail.com">ryan.organically@gmail.com</a></span>
+      <span>Google Partner &bull; 6+ Years Experience</span>
+    </div>
+  </div>
+
+  <!-- ============================================
+       NAVIGATION
+       LOC: ~30 lines | Rationale: Sticky nav with clear
+       hierarchy. Serif logo for authority, sans-serif
+       links for readability. Single CTA in nav drives
+       conversions.
+       ============================================ -->
+  <nav class="corp-nav">
+    <div class="corp-container corp-nav-inner">
+      <a href="/" class="corp-logo">Organically<span class="corp-logo-accent">.</span></a>
+
+      <ul class="corp-nav-links">
+        <li><a href="/seo/">SEO</a></li>
+        <li><a href="/web-design/">Web Design</a></li>
+        <li><a href="/branding/">Branding</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about-us/">About</a></li>
+      </ul>
+
+      <a href="https://calendly.com/organically/30min" class="corp-nav-cta">Schedule a Call</a>
+
+      <button class="corp-mobile-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+       LOC: ~85 lines | Rationale: Split layout with
+       value proposition left, quantified results right.
+       Stats cards provide immediate social proof. Video
+       background with heavy overlay keeps text readable
+       while adding dynamism. Serif H1 conveys authority.
+       Play button CTA for video engagement.
+       ============================================ -->
+  <section class="corp-hero">
+    <!-- Video Background -->
+    <div class="corp-hero-video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="/videos/theme video compressed.webm" type="video/webm">
+      </video>
+    </div>
+    <div class="corp-hero-overlay"></div>
+
+    <div class="corp-container corp-hero-content">
+      <div class="corp-hero-left corp-fade-in">
+        <div class="corp-hero-badge">
+          <span class="corp-hero-badge-dot"></span>
+          Accepting New Clients
+        </div>
+        <h1>Web Creative with<br>Organic Potential</h1>
+        <p class="corp-hero-description">
+          Custom websites, strategic SEO, and distinctive branding that drive measurable business growth. Solo agency precision with enterprise-level results.
+        </p>
+        <div class="corp-hero-actions">
+          <a href="https://calendly.com/organically/30min" class="corp-btn-primary">
+            Get Your Free Consultation
+            <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+          </a>
+          <button class="corp-btn-secondary">
+            <svg class="corp-play-icon" viewBox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+            Watch Showreel
+          </button>
+        </div>
+      </div>
+
+      <div class="corp-hero-right">
+        <div class="corp-stat-card corp-fade-in corp-delay-1">
+          <div class="corp-stat-number">2.5M</div>
+          <p class="corp-stat-label">Impressions generated for a single local business</p>
+        </div>
+        <div class="corp-stat-card corp-fade-in corp-delay-2">
+          <div class="corp-stat-number">6+</div>
+          <p class="corp-stat-label">Years of digital marketing experience</p>
+        </div>
+        <div class="corp-stat-card corp-fade-in corp-delay-3">
+          <div class="corp-stat-number">100%</div>
+          <p class="corp-stat-label">Custom designs, zero templates</p>
+        </div>
+        <div class="corp-stat-card corp-fade-in corp-delay-4">
+          <div class="corp-stat-number">AI</div>
+          <p class="corp-stat-label">Search optimized for emerging platforms</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CREDENTIALS BAR
+       LOC: ~40 lines | Rationale: Immediately below
+       hero. Quick-scan trust signals (certifications,
+       partnerships). Uses icons + text for maximum
+       credibility density. B2B decision-makers look for
+       these signals early.
+       ============================================ -->
+  <div class="corp-credentials">
+    <div class="corp-container corp-credentials-inner corp-fade-in">
+      <div class="corp-credential-item">
+        <svg class="corp-credential-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Google Partner
+      </div>
+      <div class="corp-credential-item">
+        <svg class="corp-credential-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        SEO Certified
+      </div>
+      <div class="corp-credential-item">
+        <svg class="corp-credential-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Webflow Expert
+      </div>
+      <div class="corp-credential-item">
+        <svg class="corp-credential-icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        Analytics Certified
+      </div>
+      <div class="corp-credential-item">
+        <svg class="corp-credential-icon" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        Transparent Pricing
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       SERVICES GRID
+       LOC: ~100 lines | Rationale: 4-column layout
+       presents all core services at a glance. Icon +
+       title + description + link gives users full
+       understanding without clicking. Cards are equal
+       height for visual order. Conservative design with
+       subtle hover states.
+       ============================================ -->
+  <section class="corp-services">
+    <div class="corp-container">
+      <div class="corp-section-header corp-fade-in">
+        <div class="corp-section-label">Services</div>
+        <h2 class="corp-section-title">Comprehensive Digital Solutions</h2>
+        <p class="corp-section-subtitle">Everything your business needs to grow its online presence, delivered by a single dedicated partner who knows your brand inside out.</p>
+      </div>
+
+      <div class="corp-services-grid">
+        <!-- SEO -->
+        <div class="corp-service-card corp-fade-in corp-delay-1">
+          <div class="corp-service-icon">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </div>
+          <h3>Search Engine Optimization</h3>
+          <p>Strategic keyword targeting, technical SEO audits, and content optimization that drives organic traffic and qualified leads.</p>
+          <a href="/seo/" class="corp-service-link">
+            Learn more
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+
+        <!-- Web Design -->
+        <div class="corp-service-card corp-fade-in corp-delay-2">
+          <div class="corp-service-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v2H5z"/></svg>
+          </div>
+          <h3>Web Design & Development</h3>
+          <p>Custom-coded websites built for performance, accessibility, and conversion. No templates, no page builders. Pixel-perfect execution.</p>
+          <a href="/web-design/" class="corp-service-link">
+            Learn more
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+
+        <!-- Branding -->
+        <div class="corp-service-card corp-fade-in corp-delay-3">
+          <div class="corp-service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67A2.5 2.5 0 0112 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5a.54.54 0 00-.14-.35c-.41-.46-.63-1.05-.63-1.65a2.5 2.5 0 012.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z"/><circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"/></svg>
+          </div>
+          <h3>Brand Identity & Creative</h3>
+          <p>Logos, visual identity systems, and brand guidelines that differentiate your business and build lasting recognition.</p>
+          <a href="/branding/" class="corp-service-link">
+            Learn more
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+
+        <!-- Digital PR -->
+        <div class="corp-service-card corp-fade-in corp-delay-4">
+          <div class="corp-service-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h3>Digital PR & Content</h3>
+          <p>Strategic content marketing, link building, and digital storytelling that amplifies your authority and visibility online.</p>
+          <a href="/seo/" class="corp-service-link">
+            Learn more
+            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT / CREDENTIALS SECTION
+       LOC: ~90 lines | Rationale: Two-column layout
+       pairs narrative authority (left) with concrete
+       credentials (right). The certifications list
+       gives B2B buyers the "checkbox" validation they
+       need. Stat row reinforces track record. Navy
+       background creates visual separation and gravitas.
+       ============================================ -->
+  <section class="corp-about">
+    <div class="corp-container corp-about-grid">
+      <div class="corp-about-left corp-fade-in">
+        <div class="corp-section-label" style="color: var(--corp-green);">Why Organically</div>
+        <h2>A Solo Agency Built on<br>Results, Not Rhetoric</h2>
+        <p>When you work with Organically, you work directly with the person building your site, optimizing your SEO, and crafting your brand. No account managers, no handoffs, no miscommunication. Just a dedicated partner invested in your growth.</p>
+        <p>Every project is approached with the same discipline: understand the business, research the market, execute with precision, and measure everything.</p>
+
+        <div class="corp-about-stats">
+          <div>
+            <div class="corp-about-stat-num">50+</div>
+            <div class="corp-about-stat-label">Projects delivered</div>
+          </div>
+          <div>
+            <div class="corp-about-stat-num">30+</div>
+            <div class="corp-about-stat-label">Clients served</div>
+          </div>
+          <div>
+            <div class="corp-about-stat-num">5.0</div>
+            <div class="corp-about-stat-label">Average rating</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="corp-fade-in corp-delay-2">
+        <ul class="corp-cert-list">
+          <li class="corp-cert-item">
+            <div class="corp-cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            </div>
+            <div class="corp-cert-text">
+              <h4>Google Business Partner</h4>
+              <p>Certified in Search, Analytics, and business optimization across the Google ecosystem.</p>
+            </div>
+          </li>
+          <li class="corp-cert-item">
+            <div class="corp-cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v2H5z"/></svg>
+            </div>
+            <div class="corp-cert-text">
+              <h4>Webflow Expert</h4>
+              <p>Advanced custom development and design on the Webflow platform for enterprise-grade sites.</p>
+            </div>
+          </li>
+          <li class="corp-cert-item">
+            <div class="corp-cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM10 17l-3.5-3.5 1.41-1.41L10 14.17l5.59-5.59L17 10l-7 7z"/></svg>
+            </div>
+            <div class="corp-cert-text">
+              <h4>AI Search Optimization</h4>
+              <p>Early adopter of GEO and AI-driven search strategies for next-generation visibility.</p>
+            </div>
+          </li>
+          <li class="corp-cert-item">
+            <div class="corp-cert-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <div class="corp-cert-text">
+              <h4>Performance-First Development</h4>
+              <p>Semantic HTML, Core Web Vitals optimization, and accessibility compliance as standard.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CLIENT LOGOS
+       LOC: ~50 lines | Rationale: Social proof through
+       association. Greyscale logos with hover reveal
+       maintains visual cleanliness. "Trusted by" label
+       frames the context. Common B2B pattern that
+       decision-makers recognize and expect.
+       ============================================ -->
+  <section class="corp-logos">
+    <div class="corp-container">
+      <p class="corp-logos-label corp-fade-in">Trusted by businesses across industries</p>
+      <div class="corp-logos-grid corp-fade-in corp-delay-1">
+        <!-- Placeholder logos using text-based SVGs (to be replaced with actual client logos) -->
+        <div class="corp-logo-item">
+          <svg viewBox="0 0 140 36" width="140" height="36"><text x="0" y="26" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="currentColor">IWC Cabinetry</text></svg>
+        </div>
+        <div class="corp-logo-item">
+          <svg viewBox="0 0 120 36" width="120" height="36"><text x="0" y="26" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="currentColor">Bel Fiore</text></svg>
+        </div>
+        <div class="corp-logo-item">
+          <svg viewBox="0 0 130 36" width="130" height="36"><text x="0" y="26" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="currentColor">Client Three</text></svg>
+        </div>
+        <div class="corp-logo-item">
+          <svg viewBox="0 0 120 36" width="120" height="36"><text x="0" y="26" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="currentColor">Client Four</text></svg>
+        </div>
+        <div class="corp-logo-item">
+          <svg viewBox="0 0 120 36" width="120" height="36"><text x="0" y="26" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="currentColor">Client Five</text></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIALS
+       LOC: ~65 lines | Rationale: Three-column grid
+       with real quotes provides depth of social proof.
+       Star ratings add visual credibility. Avatar
+       initials + name/role authenticate the quotes.
+       Conservative card design matches B2B expectations.
+       ============================================ -->
+  <section class="corp-testimonials">
+    <div class="corp-container">
+      <div class="corp-section-header corp-fade-in">
+        <div class="corp-section-label">Client Results</div>
+        <h2 class="corp-section-title">What Our Clients Say</h2>
+        <p class="corp-section-subtitle">Real feedback from real businesses we have partnered with to grow their digital presence.</p>
+      </div>
+
+      <div class="corp-testimonials-grid">
+        <div class="corp-testimonial-card corp-fade-in corp-delay-1">
+          <div class="corp-testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <p class="corp-testimonial-text">"His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come."</p>
+          <div class="corp-testimonial-author">
+            <div class="corp-testimonial-avatar">IW</div>
+            <div>
+              <p class="corp-testimonial-name">IWC Cabinetry</p>
+              <p class="corp-testimonial-role">Custom Cabinetry Manufacturer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="corp-testimonial-card corp-fade-in corp-delay-2">
+          <div class="corp-testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <p class="corp-testimonial-text">"Ryan was an absolute beauty to work with -- thoughtful, creative, and genuinely invested in making our vision come to life. The results exceeded our expectations."</p>
+          <div class="corp-testimonial-author">
+            <div class="corp-testimonial-avatar">SM</div>
+            <div>
+              <p class="corp-testimonial-name">Sarah M.</p>
+              <p class="corp-testimonial-role">Founder, Small Business</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="corp-testimonial-card corp-fade-in corp-delay-3">
+          <div class="corp-testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <p class="corp-testimonial-text">"Professional, responsive, and incredibly detail-oriented. Our organic traffic increased significantly within the first three months of working together."</p>
+          <div class="corp-testimonial-author">
+            <div class="corp-testimonial-avatar">JR</div>
+            <div>
+              <p class="corp-testimonial-name">James R.</p>
+              <p class="corp-testimonial-role">Operations Director</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       NEWSLETTER SIGNUP
+       LOC: ~35 lines | Rationale: Functional two-field
+       form (name + email) with privacy disclosure.
+       Split layout pairs benefit statement with the
+       form. Looks production-ready: proper labels,
+       submit button, privacy link. Lead generation
+       that B2B visitors expect.
+       ============================================ -->
+  <section class="corp-newsletter">
+    <div class="corp-container corp-newsletter-inner">
+      <div class="corp-newsletter-left corp-fade-in">
+        <h2>Stay Ahead of the Curve</h2>
+        <p>Monthly insights on SEO strategy, web performance, and digital marketing trends. No spam, unsubscribe anytime.</p>
+      </div>
+
+      <div class="corp-fade-in corp-delay-1">
+        <form class="corp-newsletter-form" action="#" method="POST">
+          <div class="corp-newsletter-row">
+            <input type="text" class="corp-input" placeholder="First name" aria-label="First name" required>
+            <input type="email" class="corp-input" placeholder="Work email" aria-label="Work email" required>
+          </div>
+          <div class="corp-newsletter-row">
+            <button type="submit" class="corp-newsletter-submit">Subscribe to Newsletter</button>
+          </div>
+          <p class="corp-newsletter-privacy">By subscribing, you agree to our <a href="/privacy-policy/">Privacy Policy</a>. We respect your inbox.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       LOC: ~60 lines | Rationale: 4-column footer with
+       brand column + 3 link columns. Standard B2B
+       pattern. Social links, legal links, copyright.
+       Navy-dark background signals finality. Clean
+       structure aids navigation and SEO with internal
+       linking.
+       ============================================ -->
+  <footer class="corp-footer">
+    <div class="corp-container">
+      <div class="corp-footer-grid">
+        <div class="corp-footer-brand">
+          <div class="corp-footer-logo">Organically<span class="corp-footer-logo-accent">.</span></div>
+          <p class="corp-footer-desc">Solo agency marketer delivering businesses with personalized and powerful websites that generate traffic. Based in Pittsburgh, PA.</p>
+          <div class="corp-footer-social">
+            <a href="https://twitter.com/organicallyseo" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ryan-scanlon31/" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="corp-footer-col">
+          <h4>Services</h4>
+          <a href="/seo/">SEO</a>
+          <a href="/web-design/">Web Design</a>
+          <a href="/branding/">Branding</a>
+          <a href="/seo/">Digital PR</a>
+        </div>
+
+        <div class="corp-footer-col">
+          <h4>Company</h4>
+          <a href="/about-us/">About</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://calendly.com/organically/30min">Contact</a>
+        </div>
+
+        <div class="corp-footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/privacy-policy/">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="corp-footer-bottom">
+        <span>Copyright 2026 Organically SEO. All rights reserved.</span>
+        <div>
+          <a href="/privacy-policy/">Privacy</a>
+          <a href="/privacy-policy/">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT: Fade-in Observer
+       LOC: ~25 lines | Rationale: IntersectionObserver
+       for pure fade-in animations. No GSAP dependency
+       needed for this prototype. Lightweight, performant,
+       respects prefers-reduced-motion.
+       ============================================ -->
+  <script>
+    // Fade-in on scroll (IntersectionObserver)
+    document.addEventListener('DOMContentLoaded', () => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('corp-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.corp-fade-in').forEach(el => {
+        if (prefersReduced) {
+          el.classList.add('corp-visible');
+        } else {
+          observer.observe(el);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

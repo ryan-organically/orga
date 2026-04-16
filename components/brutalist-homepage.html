@@ -1,0 +1,835 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Organically | Web Creative with Organic Potential</title>
+  <meta content="Solo agency marketer delivering businesses with personalized &amp; powerful websites that generate traffic." name="description">
+  <meta content="Organically | Web Creative with Organic Potential" property="og:title">
+  <meta content="Solo agency marketer delivering businesses with personalized &amp; powerful websites that generate traffic." property="og:description">
+  <meta content="Organically | Web Creative with Organic Potential" property="twitter:title">
+  <meta content="Solo agency marketer delivering businesses with personalized &amp; powerful websites that generate traffic." property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+
+  <style>
+    /* =========================================================
+       BRUTALIST 2026 — DESIGN 4
+       System fonts. Black/white. No grays. Thick borders.
+       Monospace accents. Single green (#7ec700) underline.
+       ========================================================= */
+
+    /* --- RESET & BASE --- */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: auto;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #000;
+      line-height: 1.5;
+      overflow-x: hidden;
+      cursor: default;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: #000;
+      color: #fff;
+    }
+
+    /* --- UTILITY --- */
+    .mono {
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .border-thick {
+      border: 3px solid #000;
+    }
+
+    /* --- TOP BAR --- */
+    .brutal-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 3px solid #000;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .brutal-topbar-left {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brutal-topbar-right {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .brutal-nav-link {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .brutal-nav-link:hover {
+      border-bottom-color: #000;
+    }
+
+    .brutal-topbar-cta {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 8px 16px;
+      border: 3px solid #000;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .brutal-topbar-cta:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* --- HERO --- */
+    .brutal-hero {
+      padding: 80px 24px 60px;
+      border-bottom: 3px solid #000;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brutal-h1 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: clamp(64px, 14vw, 220px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      margin-bottom: 0;
+    }
+
+    .brutal-h1-period {
+      color: #7ec700;
+    }
+
+    .brutal-subtitle {
+      font-family: "Courier New", Courier, monospace;
+      font-size: clamp(14px, 1.8vw, 20px);
+      margin-top: 32px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .brutal-hero-meta {
+      display: flex;
+      gap: 48px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .brutal-meta-item {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .brutal-meta-value {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* --- SERVICES --- */
+    .brutal-services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 3px solid #000;
+    }
+
+    .brutal-services-left {
+      padding: 60px 24px;
+      border-right: 3px solid #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brutal-services-heading {
+      font-size: 14px;
+      font-family: "Courier New", Courier, monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 24px;
+    }
+
+    .brutal-services-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .brutal-services-list li {
+      font-size: clamp(24px, 4vw, 48px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.2;
+      padding: 12px 0;
+      border-bottom: 1px solid #000;
+    }
+
+    .brutal-services-list li:first-child {
+      border-top: 1px solid #000;
+    }
+
+    .brutal-services-list li a {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+    }
+
+    .brutal-services-list li a:hover {
+      padding-left: 12px;
+      transition: padding 0.15s;
+    }
+
+    .brutal-service-arrow {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 20px;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .brutal-services-list li a:hover .brutal-service-arrow {
+      opacity: 1;
+    }
+
+    .brutal-services-right {
+      padding: 60px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .brutal-manifesto-label {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 24px;
+    }
+
+    .brutal-manifesto {
+      font-size: clamp(18px, 2.4vw, 28px);
+      font-weight: 700;
+      line-height: 1.4;
+      max-width: 500px;
+    }
+
+    .brutal-green-underline {
+      text-decoration: underline;
+      text-decoration-color: #7ec700;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 6px;
+    }
+
+    .brutal-cta-block {
+      margin-top: 48px;
+    }
+
+    .brutal-cta {
+      display: inline-block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 16px 32px;
+      border: 3px solid #000;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .brutal-cta:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* --- PROOF BAR --- */
+    .brutal-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 3px solid #000;
+    }
+
+    .brutal-proof-cell {
+      padding: 40px 24px;
+      text-align: center;
+      border-right: 3px solid #000;
+    }
+
+    .brutal-proof-cell:last-child {
+      border-right: none;
+    }
+
+    .brutal-proof-number {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .brutal-proof-label {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 8px;
+    }
+
+    /* --- TESTIMONIAL --- */
+    .brutal-testimonial {
+      padding: 80px 24px;
+      border-bottom: 3px solid #000;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .brutal-testimonial-border {
+      border-bottom: 3px solid #000;
+    }
+
+    .brutal-quote-mark {
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 0.8;
+      margin-bottom: 16px;
+    }
+
+    .brutal-quote-text {
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .brutal-quote-author {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* --- BLOG / COFFEE BREAK --- */
+    .brutal-blog {
+      border-bottom: 3px solid #000;
+    }
+
+    .brutal-blog-header {
+      padding: 24px;
+      border-bottom: 3px solid #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brutal-blog-title {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .brutal-blog-link {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid #000;
+      padding-bottom: 2px;
+    }
+
+    .brutal-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .brutal-blog-card {
+      padding: 32px 24px;
+      border-right: 3px solid #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+    }
+
+    .brutal-blog-card:last-child {
+      border-right: none;
+    }
+
+    .brutal-blog-card:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .brutal-blog-tag {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      padding: 4px 8px;
+      border: 2px solid #000;
+      display: inline-block;
+      align-self: flex-start;
+    }
+
+    .brutal-blog-card:hover .brutal-blog-tag {
+      border-color: #fff;
+    }
+
+    .brutal-blog-card-title {
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-top: auto;
+    }
+
+    .brutal-blog-date {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 11px;
+      margin-top: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    /* --- FOOTER --- */
+    .brutal-footer {
+      padding: 48px 24px;
+      border-bottom: 3px solid #000;
+    }
+
+    .brutal-footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .brutal-footer-brand {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .brutal-footer-links {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .brutal-footer-col-heading {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    .brutal-footer-col a {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 0;
+    }
+
+    .brutal-footer-col a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+
+    .brutal-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid #000;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brutal-footer-copy {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .brutal-footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .brutal-footer-social a {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border: 2px solid #000;
+    }
+
+    .brutal-footer-social a:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 767px) {
+      .brutal-services {
+        grid-template-columns: 1fr;
+      }
+
+      .brutal-services-left {
+        border-right: none;
+        border-bottom: 3px solid #000;
+      }
+
+      .brutal-proof {
+        grid-template-columns: 1fr;
+      }
+
+      .brutal-proof-cell {
+        border-right: none;
+        border-bottom: 3px solid #000;
+      }
+
+      .brutal-proof-cell:last-child {
+        border-bottom: none;
+      }
+
+      .brutal-blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brutal-blog-card {
+        border-right: none;
+        border-bottom: 3px solid #000;
+      }
+
+      .brutal-blog-card:last-child {
+        border-bottom: none;
+      }
+
+      .brutal-hero {
+        padding: 48px 16px 40px;
+        min-height: 50vh;
+      }
+
+      .brutal-topbar {
+        padding: 12px 16px;
+      }
+
+      .brutal-topbar-right {
+        gap: 12px;
+      }
+
+      .brutal-nav-link {
+        display: none;
+      }
+
+      .brutal-hero-meta {
+        gap: 24px;
+      }
+
+      .brutal-footer-top {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .brutal-testimonial {
+        padding: 48px 16px;
+      }
+    }
+
+    /* --- MOBILE NAV TOGGLE --- */
+    .brutal-mobile-toggle {
+      display: none;
+      width: 36px;
+      height: 36px;
+      border: 3px solid #000;
+      background: #fff;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .brutal-mobile-toggle span {
+      position: absolute;
+      left: 6px;
+      width: 18px;
+      height: 2px;
+      background: #000;
+    }
+
+    .brutal-mobile-toggle span:nth-child(1) { top: 10px; }
+    .brutal-mobile-toggle span:nth-child(2) { top: 16px; }
+    .brutal-mobile-toggle span:nth-child(3) { top: 22px; }
+
+    @media (max-width: 767px) {
+      .brutal-mobile-toggle {
+        display: flex;
+      }
+    }
+
+    /* --- MOBILE NAV DROPDOWN --- */
+    .brutal-mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      z-index: 99;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px;
+    }
+
+    .brutal-mobile-nav.active {
+      display: flex;
+    }
+
+    .brutal-mobile-nav a {
+      font-size: 36px;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 8px 0;
+      border-bottom: 2px solid #000;
+      width: 100%;
+    }
+
+    .brutal-mobile-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border: 3px solid #000;
+      background: #fff;
+      cursor: pointer;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="brutal-topbar">
+    <div class="brutal-topbar-left">Pittsburgh, PA — 2026</div>
+    <nav class="brutal-topbar-right">
+      <a href="/web-design/" class="brutal-nav-link">Web Design</a>
+      <a href="/seo/" class="brutal-nav-link">SEO</a>
+      <a href="/branding/" class="brutal-nav-link">Branding</a>
+      <a href="/blog/" class="brutal-nav-link">Blog</a>
+      <a href="https://calendly.com/organically/30min" class="brutal-topbar-cta">Book a Call</a>
+      <button class="brutal-mobile-toggle" id="brutal-menu-open" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div class="brutal-mobile-nav" id="brutal-mobile-nav">
+    <button class="brutal-mobile-close" id="brutal-menu-close" aria-label="Close menu">X</button>
+    <a href="/web-design/">Web Design</a>
+    <a href="/seo/">SEO</a>
+    <a href="/branding/">Branding</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://calendly.com/organically/30min">Book a Call</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="brutal-hero">
+    <h1 class="brutal-h1">ORGANICALLY<span class="brutal-h1-period">.</span></h1>
+    <p class="brutal-subtitle mono">Web creative with organic potential. Solo agency marketer delivering personalized &amp; powerful websites that generate traffic.</p>
+    <div class="brutal-hero-meta">
+      <div class="brutal-meta-item">
+        Based in
+        <span class="brutal-meta-value">PGH</span>
+      </div>
+      <div class="brutal-meta-item">
+        Since
+        <span class="brutal-meta-value">2022</span>
+      </div>
+      <div class="brutal-meta-item">
+        Clients
+        <span class="brutal-meta-value">50+</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="brutal-services">
+    <div class="brutal-services-left">
+      <p class="brutal-services-heading">What we do</p>
+      <ul class="brutal-services-list">
+        <li><a href="/web-design/">Web Design <span class="brutal-service-arrow">-></span></a></li>
+        <li><a href="/seo/">SEO <span class="brutal-service-arrow">-></span></a></li>
+        <li><a href="/branding/">Branding <span class="brutal-service-arrow">-></span></a></li>
+        <li><a href="/google-ads-management/">Google Ads <span class="brutal-service-arrow">-></span></a></li>
+        <li><a href="/website-management/">Management <span class="brutal-service-arrow">-></span></a></li>
+      </ul>
+    </div>
+    <div class="brutal-services-right">
+      <p class="brutal-manifesto-label">Manifesto</p>
+      <p class="brutal-manifesto">A vast space where stray ideas can wander, take root, and quietly <span class="brutal-green-underline">grow bold</span>. We combine web creative with organic potential to build things that convert.</p>
+      <div class="brutal-cta-block">
+        <a href="https://calendly.com/organically/30min" class="brutal-cta">Get Your Free Review</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <section class="brutal-proof">
+    <div class="brutal-proof-cell">
+      <div class="brutal-proof-number">2.5M</div>
+      <div class="brutal-proof-label mono">Impressions generated</div>
+    </div>
+    <div class="brutal-proof-cell">
+      <div class="brutal-proof-number">100%</div>
+      <div class="brutal-proof-label mono">Custom — zero templates</div>
+    </div>
+    <div class="brutal-proof-cell">
+      <div class="brutal-proof-number">AI</div>
+      <div class="brutal-proof-label mono">Search optimized</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <div class="brutal-testimonial-border">
+    <section class="brutal-testimonial">
+      <div class="brutal-quote-mark">"</div>
+      <p class="brutal-quote-text">His adaptability, expertise, and willingness to collaborate made the project a creative experience that produced an asset for our company to use and build on for years to come.</p>
+      <p class="brutal-quote-author mono">— IWC Cabinetry</p>
+    </section>
+  </div>
+
+  <!-- BLOG -->
+  <section class="brutal-blog">
+    <div class="brutal-blog-header">
+      <span class="brutal-blog-title">Coffee Break</span>
+      <a href="/blog/" class="brutal-blog-link">View all</a>
+    </div>
+    <div class="brutal-blog-grid">
+      <a href="/what-is-seo/" class="brutal-blog-card">
+        <span class="brutal-blog-tag">Marketing</span>
+        <h3 class="brutal-blog-card-title">What is SEO?</h3>
+        <span class="brutal-blog-date mono">Updated April 2024</span>
+      </a>
+      <a href="/webflow-launch-checklist/" class="brutal-blog-card">
+        <span class="brutal-blog-tag">Design</span>
+        <h3 class="brutal-blog-card-title">Webflow Launch Checklist</h3>
+        <span class="brutal-blog-date mono">September 2024</span>
+      </a>
+      <a href="/branding-basics/" class="brutal-blog-card">
+        <span class="brutal-blog-tag">Branding</span>
+        <h3 class="brutal-blog-card-title">Basics of Branding</h3>
+        <span class="brutal-blog-date mono">June 2024</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="brutal-footer">
+    <div class="brutal-footer-top">
+      <div class="brutal-footer-brand">Organically<span class="brutal-h1-period">.</span></div>
+      <div class="brutal-footer-links">
+        <div class="brutal-footer-col">
+          <p class="brutal-footer-col-heading">Agency</p>
+          <a href="/seo/">SEO</a>
+          <a href="/web-design/">Web Design</a>
+          <a href="/branding/">Branding</a>
+          <a href="/blog/">Blog</a>
+        </div>
+        <div class="brutal-footer-col">
+          <p class="brutal-footer-col-heading">Contact</p>
+          <a href="https://calendly.com/organically/30min">Schedule a Call</a>
+          <a href="mailto:ryan.organically@gmail.com">Email</a>
+        </div>
+        <div class="brutal-footer-col">
+          <p class="brutal-footer-col-heading">Legal</p>
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="brutal-footer-bottom">
+      <span class="brutal-footer-copy">Copyright 2026 Organically SEO. All rights reserved.</span>
+      <div class="brutal-footer-social">
+        <a href="https://twitter.com/organicallyseo">X</a>
+        <a href="https://www.linkedin.com/in/ryan-scanlon31/">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MINIMAL JS — mobile nav only -->
+  <script>
+    document.getElementById('brutal-menu-open').addEventListener('click', function() {
+      document.getElementById('brutal-mobile-nav').classList.add('active');
+    });
+    document.getElementById('brutal-menu-close').addEventListener('click', function() {
+      document.getElementById('brutal-mobile-nav').classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
