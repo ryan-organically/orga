@@ -926,19 +926,16 @@ function _initMainAnimations() {
         syncInterval: 120,
     });
 
-    /* ━━━ Lenis Smooth Scroll ━━━ */
-    if (typeof Lenis !== 'undefined') {
+    /* ━━━ Lenis Smooth Scroll — disabled while debugging mobile ━━━ */
+    /* if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis({
-            lerp: 0.1,
-            wheelMultiplier: 0.7,
-            gestureOrientation: "vertical",
-            normalizeWheel: false,
-            smoothTouch: false
+            lerp: 0.1, wheelMultiplier: 0.7, gestureOrientation: "vertical",
+            normalizeWheel: false, smoothTouch: false
         });
         function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
         lenis.on('scroll', ScrollTrigger.update);
-    }
+    } */
 
     /* ━━━ SplitText Hero Animations ━━━ */
     function initSplitTextAnimations() {
@@ -1243,51 +1240,23 @@ function _initSecondaryAnimations() {
       console.log('%c→ https://organicallyseo.com', 'font-size: 12px; color: #7ec700; font-weight: bold;');
     }) : null;
 
-    /* ━━━ Blog Navigation (Draggable) ━━━ */
+    /* ━━━ Blog Navigation — stripped to bare minimum for debugging ━━━ */
     (function() {
         const track = document.querySelector(".blog-cards-track");
-        const wrapper = document.querySelector(".blog-cards-wrapper");
         const prevBtn = document.getElementById("blog-prev");
         const nextBtn = document.getElementById("blog-next");
-        if (!track || !wrapper || !prevBtn || !nextBtn) return;
+        if (!track || !prevBtn || !nextBtn) return;
 
-        const cards = gsap.utils.toArray(".blog-cards-track .blog-card-1");
-        if (!cards.length) return;
-        let currentIndex = 0;
-
-        function cardStep() {
-            const style = window.getComputedStyle(cards[0]);
-            return cards[0].offsetWidth + parseFloat(style.marginRight || 0);
-        }
-
-        function snapTo(x) {
-            const step = cardStep();
-            return Math.round(x / step) * step;
-        }
-
-        const drag = Draggable.create(track, {
-            type: "x",
-            bounds: wrapper,
-            inertia: true,
-            dragClickables: true,
-            edgeResistance: 0.65,
-            snap: { x: snapTo },
-            onThrowComplete: function() {
-                currentIndex = Math.round(Math.abs(gsap.getProperty(track, "x")) / cardStep());
-            }
-        })[0];
-
-        function navigate(dir) {
-            currentIndex = dir === 'prev'
-                ? Math.max(0, currentIndex - 1)
-                : Math.min(cards.length - 1, currentIndex + 1);
-            gsap.to(track, { x: -currentIndex * cardStep(), duration: 0.4, ease: "power2.out",
-                onComplete: () => drag.update() });
-        }
-
-        prevBtn.addEventListener("click", () => navigate('prev'));
-        nextBtn.addEventListener("click", () => navigate('next'));
-        window.addEventListener('resize', () => { drag.applyBounds(wrapper); drag.update(); }, { passive: true });
+        let pos = 0;
+        prevBtn.addEventListener("click", function() {
+            pos += 300;
+            if (pos > 0) pos = 0;
+            gsap.to(track, { x: pos, duration: 0.4 });
+        });
+        nextBtn.addEventListener("click", function() {
+            pos -= 300;
+            gsap.to(track, { x: pos, duration: 0.4 });
+        });
     })();
 
     /* ━━━ Font-dependent SplitText animations (Diagonal H3, Footer, Coffee Heading) ━━━ */
