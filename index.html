@@ -1240,25 +1240,6 @@ function _initSecondaryAnimations() {
       console.log('%c→ https://organicallyseo.com', 'font-size: 12px; color: #7ec700; font-weight: bold;');
     }) : null;
 
-    /* ━━━ Blog Navigation — stripped to bare minimum for debugging ━━━ */
-    (function() {
-        const track = document.querySelector(".blog-cards-track");
-        const prevBtn = document.getElementById("blog-prev");
-        const nextBtn = document.getElementById("blog-next");
-        if (!track || !prevBtn || !nextBtn) return;
-
-        let pos = 0;
-        prevBtn.addEventListener("click", function() {
-            pos += 300;
-            if (pos > 0) pos = 0;
-            gsap.to(track, { x: pos, duration: 0.4 });
-        });
-        nextBtn.addEventListener("click", function() {
-            pos -= 300;
-            gsap.to(track, { x: pos, duration: 0.4 });
-        });
-    })();
-
     /* ━━━ Font-dependent SplitText animations (Diagonal H3, Footer, Coffee Heading) ━━━ */
     function initFontDependentAnimations() {
         if (typeof SplitText === 'undefined') return;
@@ -1327,6 +1308,35 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', _initTicker);
 } else {
     _initTicker();
+}
+
+/* ━━━ Blog Navigation — standalone, only needs gsap core ━━━ */
+function _initBlogNav() {
+    if (typeof gsap === 'undefined') {
+        if ((Date.now() - window._blogNavWaitStart) < 5000) { setTimeout(_initBlogNav, 50); return; }
+        return;
+    }
+    var track = document.querySelector(".blog-cards-track");
+    var prevBtn = document.getElementById("blog-prev");
+    var nextBtn = document.getElementById("blog-next");
+    if (!track || !prevBtn || !nextBtn) return;
+
+    var pos = 0;
+    prevBtn.addEventListener("click", function() {
+        pos += 300;
+        if (pos > 0) pos = 0;
+        gsap.to(track, { x: pos, duration: 0.4 });
+    });
+    nextBtn.addEventListener("click", function() {
+        pos -= 300;
+        gsap.to(track, { x: pos, duration: 0.4 });
+    });
+}
+window._blogNavWaitStart = Date.now();
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', _initBlogNav);
+} else {
+    _initBlogNav();
 }
 </script>
 
